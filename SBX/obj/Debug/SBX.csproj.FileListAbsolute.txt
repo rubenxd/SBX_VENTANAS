@@ -1,0 +1,245 @@
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\bin\Debug\SBX.exe.config
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\bin\Debug\SBX.exe
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\bin\Debug\SBX.pdb
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_ayuda.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_caracteristicas.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_cliente.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_confirmacion.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_deletes.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_empresa.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_exportar_excel.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_inicio.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_movimientos.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_msg.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_producto.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_inventario.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_proveedor.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_venta.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.Properties.Resources.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.csproj.GenerateResource.Cache
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.exe
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.pdb
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_descuento.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_aplicar_domicilio.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_modo_venta.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_domicilios.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_mensajero.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_separado.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_ventas.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_separados.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_agregar_abono.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_historial_separados.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_fondo_inicio.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_apertura_caja.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_cierre_caja.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_login.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_caja.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_configuracion.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_agregar_usuario.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_agregar_rol.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.csprojResolveAssemblyReference.cache
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_agregar_consecto_gasto.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_agregar_gasto.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_gastos.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_informe_cierre.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_Informe.resources
+C:\Users\Ruben0793\Documents\XDSS\SBX\SBX\SBX\obj\Debug\SBX.frm_reportes.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\bin\Debug\SBX.exe.config
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.exe
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.pdb
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_agregar_abono.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_agregar_consecto_gasto.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_agregar_gasto.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_agregar_rol.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_agregar_usuario.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_apertura_caja.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_aplicar_domicilio.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_ayuda.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_caja.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_caracteristicas.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_cierre_caja.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_cliente.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_configuracion.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_confirmacion.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_deletes.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_descuento.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_domicilios.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_empresa.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_exportar_excel.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_fondo_inicio.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_gastos.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_historial_separados.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_Informe.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_informe_cierre.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_inicio.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_login.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_mensajero.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_modo_venta.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_movimientos.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_msg.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_producto.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_inventario.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_proveedor.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_reportes.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_separado.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_separados.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_venta.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_ventas.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.Properties.Resources.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.csproj.GenerateResource.Cache
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\bin\Debug\SBX.exe
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\bin\Debug\SBX.pdb
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_prod_mas_vendido.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.csprojAssemblyReference.cache
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.csproj.CoreCompileInputs.cache
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_fechas_vencimiento.resources
+C:\Users\ruben\Documents\SBX\SBX_2019\SBX\obj\Debug\SBX.frm_Alertas.resources
+D:\OTRO\sbx\SBX_2019\SBX\bin\Debug\SBX.exe.config
+D:\OTRO\sbx\SBX_2019\SBX\bin\Debug\SBX.exe
+D:\OTRO\sbx\SBX_2019\SBX\bin\Debug\SBX.pdb
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.csprojAssemblyReference.cache
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_agregar_abono.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_agregar_consecto_gasto.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_agregar_gasto.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_agregar_rol.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_agregar_usuario.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_Alertas.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_apertura_caja.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_aplicar_domicilio.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_ayuda.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_caja.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_caracteristicas.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_cierre_caja.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_cliente.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_configuracion.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_confirmacion.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_deletes.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_descuento.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_domicilios.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_empresa.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_exportar_excel.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_fechas_vencimiento.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_fondo_inicio.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_gastos.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_historial_separados.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_Informe.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_informe_cierre.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_inicio.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_login.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_mensajero.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_modo_venta.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_movimientos.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_msg.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_producto.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_inventario.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_prod_mas_vendido.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_proveedor.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_reportes.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_separado.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_separados.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_venta.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.frm_ventas.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.Properties.Resources.resources
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.csproj.GenerateResource.cache
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.csproj.CoreCompileInputs.cache
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.exe
+D:\OTRO\sbx\SBX_2019\SBX\obj\Debug\SBX.pdb
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\bin\Debug\SBX.exe.config
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\bin\Debug\SBX.exe
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\bin\Debug\SBX.pdb
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.csprojAssemblyReference.cache
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_agregar_abono.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_agregar_consecto_gasto.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_agregar_gasto.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_agregar_rol.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_agregar_usuario.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_Alertas.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_apertura_caja.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_aplicar_domicilio.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_ayuda.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_caja.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_caracteristicas.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_cierre_caja.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_cliente.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_configuracion.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_confirmacion.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_deletes.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_descuento.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_domicilios.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_empresa.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_exportar_excel.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_fechas_vencimiento.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_fondo_inicio.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_gastos.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_historial_separados.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_Informe.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_informe_cierre.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_inicio.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_login.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_mensajero.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_modo_venta.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_movimientos.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_msg.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_producto.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_inventario.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_prod_mas_vendido.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_proveedor.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_reportes.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_separado.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_separados.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_venta.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.frm_ventas.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.Properties.Resources.resources
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.csproj.GenerateResource.cache
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.exe
+C:\Users\Ruben\Documents\CODIGO SBX 2019\SBX_2019\SBX\obj\Debug\SBX.pdb
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\bin\Debug\SBX.exe.config
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\bin\Debug\SBX.exe
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\bin\Debug\SBX.pdb
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.csprojAssemblyReference.cache
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_agregar_abono.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_agregar_consecto_gasto.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_agregar_gasto.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_agregar_rol.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_agregar_usuario.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_Alertas.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_apertura_caja.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_aplicar_domicilio.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_ayuda.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_caja.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_caracteristicas.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_cierre_caja.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_cliente.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_configuracion.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_confirmacion.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_deletes.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_descuento.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_domicilios.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_empresa.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_exportar_excel.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_fechas_vencimiento.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_fondo_inicio.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_gastos.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_historial_separados.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_Informe.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_informe_cierre.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_inicio.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_login.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_mensajero.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_modo_venta.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_movimientos.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_msg.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_producto.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_inventario.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_prod_mas_vendido.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_proveedor.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_reportes.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_separado.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_separados.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_venta.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_ventas.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.Properties.Resources.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.csproj.GenerateResource.cache
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.exe
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.pdb
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_cargando.resources
