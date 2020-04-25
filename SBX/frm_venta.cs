@@ -55,6 +55,7 @@ namespace SBX
         {
             InitializeComponent();
             MensajeInformativoBotones();
+            timer1.Enabled = true;
         }
         private void frm_venta_Load(object sender, EventArgs e)
         {
@@ -1424,6 +1425,10 @@ namespace SBX
                 frm_Ventas.WindowState = FormWindowState.Normal;
             }
 
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lbl_fecha_hora.Text = DateTime.Now.ToString();
         }
     }
 }

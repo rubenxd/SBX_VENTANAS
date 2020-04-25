@@ -97,6 +97,12 @@
     <Compile Include="frm_Alertas.Designer.cs">
       <DependentUpon>frm_Alertas.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_Alerta_stocks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Alerta_stocks.Designer.cs">
+      <DependentUpon>frm_Alerta_stocks.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_apertura_caja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +186,12 @@
     </Compile>
     <Compile Include="frm_empresa.Designer.cs">
       <DependentUpon>frm_empresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_estado_fechas_vencimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_estado_fechas_vencimiento.Designer.cs">
+      <DependentUpon>frm_estado_fechas_vencimiento.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_exportar_excel.cs">
       <SubType>Form</SubType>
@@ -359,6 +371,9 @@
     <EmbeddedResource Include="frm_Alertas.resx">
       <DependentUpon>frm_Alertas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_Alerta_stocks.resx">
+      <DependentUpon>frm_Alerta_stocks.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_apertura_caja.resx">
       <DependentUpon>frm_apertura_caja.cs</DependentUpon>
     </EmbeddedResource>
@@ -400,6 +415,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_empresa.resx">
       <DependentUpon>frm_empresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_estado_fechas_vencimiento.resx">
+      <DependentUpon>frm_estado_fechas_vencimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_exportar_excel.resx">
       <DependentUpon>frm_exportar_excel.cs</DependentUpon>

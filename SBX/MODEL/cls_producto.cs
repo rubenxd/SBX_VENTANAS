@@ -58,6 +58,7 @@ namespace SBX.MODEL
         public string FechaVencimiento { get; set; }
 
         public double Costo_productoCalculado { get; set; }
+        public string Nota { get; set; }
 
         //Metodos
         public DataTable mtd_consultar_caracteristicas_producto()
@@ -86,6 +87,12 @@ namespace SBX.MODEL
         public DataTable mtd_consultar_producto_kardex()
         {
             v_query = " EXECUTE SP_CONSULTA_ESTADO_PRODUCTOS '" + v_buscar + "','" + v_tipo_busqueda + "' ";
+            v_dt = cls_Datos.mtd_consultar(v_query);
+            return v_dt;
+        }
+        public DataTable mtd_consultar_estado_fechas_vencimiento()
+        {
+            v_query = " EXECUTE sp_estado_fecha_vencimiento  '"+v_buscar+"'";
             v_dt = cls_Datos.mtd_consultar(v_query);
             return v_dt;
         }
@@ -232,7 +239,7 @@ namespace SBX.MODEL
         }
         private void mtd_asignaParametros()
         {
-            Parametros = new SqlParameter[31];
+            Parametros = new SqlParameter[32];
 
             Parametros[0] = new SqlParameter();
             Parametros[0].ParameterName = "@Nombre";
@@ -395,16 +402,21 @@ namespace SBX.MODEL
             Parametros[30].ParameterName = "@CostoCalculado";
             Parametros[30].SqlDbType = SqlDbType.Money;
             Parametros[30].SqlValue = Costo_productoCalculado;
+
+            Parametros[31] = new SqlParameter();
+            Parametros[31].ParameterName = "@Nota";
+            Parametros[31].SqlDbType = SqlDbType.VarChar;
+            Parametros[31].SqlValue = Nota;
         }
         public Boolean mtd_registrar()
         {
             v_query = " INSERT INTO Producto (Referencia,Nombre,Descripcion,IVA,UnidadMedida,medida,Estado,Categoria,Marca,Proveedor, " +
                       " ModoVenta,Ubicacion,Salida_para,Stock_minimo,Stock_maximo,Cantidad,Costo,PrecioVenta,CodigoBarras, " +
-                      " SubCantidad,ValorSubcantidad,Sobres,ValorSobre,Foto,Usuario,FechaRegistro,movimiento,DescuentoProveedor,FechaVencimiento,CostoCalculado) " +
+                      " SubCantidad,ValorSubcantidad,Sobres,ValorSobre,Foto,Usuario,FechaRegistro,movimiento,DescuentoProveedor,FechaVencimiento,CostoCalculado,Nota) " +
 
                       " VALUES (@Referencia,@Nombre,@Descripcion,@IVA,@UnidadMedida,@medida,@Estado,@Categoria,@Marca,@Proveedor, " +
                       " @ModoVenta,@Ubicacion,@Salida_para,@Stock_minimo,@Stock_maximo,@Cantidad,@Costo,@PrecioVenta,@CodigoBarras, " +
-                      " @SubCantidad,@ValorSubcantidad,@Sobres,@ValorSobres,@Foto,@Usuario,@FechaRegistro,@movimiento,@DescuentoProveedor,@FechaVencimiento,@CostoCalculado) ";
+                      " @SubCantidad,@ValorSubcantidad,@Sobres,@ValorSobres,@Foto,@Usuario,@FechaRegistro,@movimiento,@DescuentoProveedor,@FechaVencimiento,@CostoCalculado,@Nota) ";
 
             mtd_asignaParametros();
             v_ok = cls_Datos.mtd_registrar(Parametros, v_query);
@@ -425,7 +437,7 @@ namespace SBX.MODEL
                       " Stock_minimo = @Stock_minimo,Stock_maximo = @Stock_maximo,Cantidad = @Cantidad,Costo = @Costo,PrecioVenta = @PrecioVenta, " +
                       " CodigoBarras = @CodigoBarras,SubCantidad= @SubCantidad,ValorSubcantidad = @ValorSubcantidad,Sobres = @Sobres, " +
                       " ValorSobre = @ValorSobres,Foto = @Foto,Usuario = @Usuario,FechaRegistro = @FechaRegistro,movimiento = @movimiento, " +
-                      "DescuentoProveedor = @DescuentoProveedor, FechaVencimiento = @FechaVencimiento, CostoCalculado = @CostoCalculado " +
+                      "DescuentoProveedor = @DescuentoProveedor, FechaVencimiento = @FechaVencimiento, CostoCalculado = @CostoCalculado, Nota = @Nota " +
                       " WHERE Item = "+Item;
 
             mtd_asignaParametros();

@@ -72,12 +72,14 @@ namespace SBX
             Botones.SetToolTip(btn_eliminar, "Eliminar");
             Botones.SetToolTip(btn_editar, "Editar");
             Botones.SetToolTip(btn_producto_mas_vendido, "Producto mas vendido");
+            Botones.SetToolTip(btn_estado_stock, "Estado Stocks");
+            Botones.SetToolTip(btn_fecha_vencimiento, "Estado Fecha vencimiento");
         }
         string v_buscar = "";
         string v_tipo_busqueda = "";
         private void mtd_cargar_productos()
         {
-          
+            this.Cursor = Cursors.WaitCursor;
             cls_Producto.v_tipo_busqueda = cbx_tipo_busqueda.Text;
             v_tipo_busqueda = cbx_tipo_busqueda.Text;
             if (txt_buscar.Text == "Item-Nombre-Referencia-Codigo barras")
@@ -92,7 +94,7 @@ namespace SBX
             }
           
             DataSet ds = new DataSet();
-            int maximo_x_pagina = 10;//cargar por default
+            int maximo_x_pagina = 16;//cargar por default
             p = new Paginar("EXECUTE SP_CONSULTA_ESTADO_PRODUCTOS '" + v_buscar + "','" + v_tipo_busqueda + "' ", "DataMember1", maximo_x_pagina);
           
             //v_dt = cls_Producto.mtd_consultar_producto_kardex();
@@ -177,6 +179,7 @@ namespace SBX
             //    }
             //}
             actualizar();
+            this.Cursor = Cursors.Default;
         }
         private void mtd_exporta_excel()
         {
@@ -416,6 +419,18 @@ namespace SBX
         {
             p.actualizaTope(Convert.ToInt32(txt_max_paginas.Text));
             actualizar();
+        }
+
+        private void btn_estado_stock_Click(object sender, EventArgs e)
+        {
+            frm_Alerta_stocks frm_Alerta_Stocks = new frm_Alerta_stocks();
+            frm_Alerta_Stocks.Show();
+        }
+
+        private void btn_fecha_vencimiento_Click(object sender, EventArgs e)
+        {
+            frm_estado_fechas_vencimiento frm_Estado_Fechas_Vencimiento = new frm_estado_fechas_vencimiento();
+            frm_Estado_Fechas_Vencimiento.Show();
         }
     }
 }

@@ -73,11 +73,12 @@ namespace SBX
                     dtg_movimientos.Rows[v_contador].Cells["cl_codigo_barras"].Value = rows["CodigoBarras"];
                     dtg_movimientos.Rows[v_contador].Cells["cl_modo_venta"].Value = rows["ModoVenta"];
                     dtg_movimientos.Rows[v_contador].Cells["cl_UM"].Value = rows["UM"];
-                    dtg_movimientos.Rows[v_contador].Cells["cl_cantidad"].Value = rows["Cantidad"];            
+                    dtg_movimientos.Rows[v_contador].Cells["cl_cantidad"].Value = rows["Cantidad"];    
                     v_valores = Convert.ToDouble(rows["Costo"]);
                     dtg_movimientos.Rows[v_contador].Cells["cl_costo"].Value = v_valores.ToString("N");
                     v_valores = Convert.ToDouble(rows["PrecioVenta"]);
                     dtg_movimientos.Rows[v_contador].Cells["cl_precio_venta"].Value = v_valores.ToString("N");
+                    dtg_movimientos.Rows[v_contador].Cells["cl_nota"].Value = rows["Nota"];
                     dtg_movimientos.Rows[v_contador].Cells["cl_dni"].Value = rows["DNIproveedor"];
                     dtg_movimientos.Rows[v_contador].Cells["cl_proveedor"].Value = rows["Proveedor"];
                     dtg_movimientos.Rows[v_contador].Cells["cl_accion"].Value = rows["Accion"];

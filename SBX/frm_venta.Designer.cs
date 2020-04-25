@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_venta));
             this.pnl_centro = new System.Windows.Forms.Panel();
             this.dtg_venta = new System.Windows.Forms.DataGridView();
@@ -53,6 +53,7 @@
             this.cl_subCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_sobre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnl_abajo = new System.Windows.Forms.Panel();
+            this.lbl_fecha_hora = new System.Windows.Forms.Label();
             this.lbl_cambio = new System.Windows.Forms.Label();
             this.txt_cliente = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -84,11 +85,14 @@
             this.btn_buscar = new System.Windows.Forms.Button();
             this.txt_producto = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pnl_centro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_venta)).BeginInit();
             this.pnl_abajo.SuspendLayout();
             this.pnl_arriba.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnl_centro
@@ -100,7 +104,7 @@
             this.pnl_centro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_centro.Location = new System.Drawing.Point(0, 0);
             this.pnl_centro.Name = "pnl_centro";
-            this.pnl_centro.Size = new System.Drawing.Size(900, 428);
+            this.pnl_centro.Size = new System.Drawing.Size(900, 452);
             this.pnl_centro.TabIndex = 1;
             // 
             // dtg_venta
@@ -129,19 +133,19 @@
             this.cl_desc_proveedor,
             this.cl_subCantidad,
             this.cl_sobre});
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_venta.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_venta.DefaultCellStyle = dataGridViewCellStyle15;
             this.dtg_venta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtg_venta.Location = new System.Drawing.Point(0, 45);
             this.dtg_venta.Name = "dtg_venta";
             this.dtg_venta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_venta.Size = new System.Drawing.Size(896, 217);
+            this.dtg_venta.Size = new System.Drawing.Size(896, 230);
             this.dtg_venta.TabIndex = 27;
             this.dtg_venta.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dtg_venta_CellValidating);
             this.dtg_venta.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dtg_venta_EditingControlShowing);
@@ -149,8 +153,8 @@
             // 
             // cl_item
             // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomLeft;
-            this.cl_item.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomLeft;
+            this.cl_item.DefaultCellStyle = dataGridViewCellStyle13;
             this.cl_item.FillWeight = 70.91371F;
             this.cl_item.HeaderText = "Item";
             this.cl_item.Name = "cl_item";
@@ -179,8 +183,8 @@
             // 
             // cl_cantidad
             // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomLeft;
-            this.cl_cantidad.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomLeft;
+            this.cl_cantidad.DefaultCellStyle = dataGridViewCellStyle14;
             this.cl_cantidad.FillWeight = 70.91371F;
             this.cl_cantidad.HeaderText = "Cantidad";
             this.cl_cantidad.Name = "cl_cantidad";
@@ -264,6 +268,7 @@
             // 
             // pnl_abajo
             // 
+            this.pnl_abajo.Controls.Add(this.panel1);
             this.pnl_abajo.Controls.Add(this.lbl_cambio);
             this.pnl_abajo.Controls.Add(this.txt_cliente);
             this.pnl_abajo.Controls.Add(this.label8);
@@ -283,10 +288,21 @@
             this.pnl_abajo.Controls.Add(this.label3);
             this.pnl_abajo.Controls.Add(this.label2);
             this.pnl_abajo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnl_abajo.Location = new System.Drawing.Point(0, 262);
+            this.pnl_abajo.Location = new System.Drawing.Point(0, 275);
             this.pnl_abajo.Name = "pnl_abajo";
-            this.pnl_abajo.Size = new System.Drawing.Size(896, 162);
+            this.pnl_abajo.Size = new System.Drawing.Size(896, 173);
             this.pnl_abajo.TabIndex = 26;
+            // 
+            // lbl_fecha_hora
+            // 
+            this.lbl_fecha_hora.AutoSize = true;
+            this.lbl_fecha_hora.Font = new System.Drawing.Font("Arial", 10F);
+            this.lbl_fecha_hora.ForeColor = System.Drawing.SystemColors.Window;
+            this.lbl_fecha_hora.Location = new System.Drawing.Point(7, 5);
+            this.lbl_fecha_hora.Name = "lbl_fecha_hora";
+            this.lbl_fecha_hora.Size = new System.Drawing.Size(92, 16);
+            this.lbl_fecha_hora.TabIndex = 26;
+            this.lbl_fecha_hora.Text = "Fecha y hora";
             // 
             // lbl_cambio
             // 
@@ -340,7 +356,7 @@
             this.label7.AutoSize = true;
             this.label7.Enabled = false;
             this.label7.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(813, 127);
+            this.label7.Location = new System.Drawing.Point(813, 209);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(20, 21);
             this.label7.TabIndex = 19;
@@ -364,7 +380,7 @@
             this.label6.AutoSize = true;
             this.label6.Enabled = false;
             this.label6.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(813, 93);
+            this.label6.Location = new System.Drawing.Point(813, 175);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(20, 21);
             this.label6.TabIndex = 18;
@@ -393,7 +409,7 @@
             this.txt_num_baucher_credito.Enabled = false;
             this.txt_num_baucher_credito.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_num_baucher_credito.ForeColor = System.Drawing.Color.Gray;
-            this.txt_num_baucher_credito.Location = new System.Drawing.Point(839, 125);
+            this.txt_num_baucher_credito.Location = new System.Drawing.Point(839, 207);
             this.txt_num_baucher_credito.Name = "txt_num_baucher_credito";
             this.txt_num_baucher_credito.Size = new System.Drawing.Size(53, 26);
             this.txt_num_baucher_credito.TabIndex = 16;
@@ -409,7 +425,7 @@
             this.txt_num_baucher_debit.Enabled = false;
             this.txt_num_baucher_debit.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_num_baucher_debit.ForeColor = System.Drawing.Color.Gray;
-            this.txt_num_baucher_debit.Location = new System.Drawing.Point(839, 90);
+            this.txt_num_baucher_debit.Location = new System.Drawing.Point(839, 172);
             this.txt_num_baucher_debit.Name = "txt_num_baucher_debit";
             this.txt_num_baucher_debit.Size = new System.Drawing.Size(53, 26);
             this.txt_num_baucher_debit.TabIndex = 15;
@@ -424,7 +440,7 @@
             this.txt_credito.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_credito.Enabled = false;
             this.txt_credito.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_credito.Location = new System.Drawing.Point(747, 125);
+            this.txt_credito.Location = new System.Drawing.Point(747, 207);
             this.txt_credito.Name = "txt_credito";
             this.txt_credito.Size = new System.Drawing.Size(52, 26);
             this.txt_credito.TabIndex = 12;
@@ -450,7 +466,7 @@
             this.label4.AutoSize = true;
             this.label4.Enabled = false;
             this.label4.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(643, 127);
+            this.label4.Location = new System.Drawing.Point(643, 209);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 21);
             this.label4.TabIndex = 11;
@@ -473,7 +489,7 @@
             this.txt_debito.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_debito.Enabled = false;
             this.txt_debito.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_debito.Location = new System.Drawing.Point(747, 90);
+            this.txt_debito.Location = new System.Drawing.Point(747, 172);
             this.txt_debito.Name = "txt_debito";
             this.txt_debito.Size = new System.Drawing.Size(52, 26);
             this.txt_debito.TabIndex = 10;
@@ -499,7 +515,7 @@
             this.label3.AutoSize = true;
             this.label3.Enabled = false;
             this.label3.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(643, 92);
+            this.label3.Location = new System.Drawing.Point(643, 174);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 21);
             this.label3.TabIndex = 9;
@@ -722,18 +738,33 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Gray;
+            this.panel1.Controls.Add(this.lbl_fecha_hora);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 147);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(896, 26);
+            this.panel1.TabIndex = 27;
+            // 
             // frm_venta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(900, 428);
+            this.ClientSize = new System.Drawing.Size(900, 452);
             this.Controls.Add(this.pnl_centro);
             this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MinimumSize = new System.Drawing.Size(900, 400);
             this.Name = "frm_venta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Venta";
             this.Load += new System.EventHandler(this.frm_venta_Load);
             this.pnl_centro.ResumeLayout(false);
@@ -743,6 +774,8 @@
             this.pnl_arriba.ResumeLayout(false);
             this.pnl_arriba.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -799,6 +832,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_desc_proveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_subCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_sobre;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lbl_fecha_hora;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

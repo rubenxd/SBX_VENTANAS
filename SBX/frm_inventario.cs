@@ -64,12 +64,12 @@ namespace SBX
             InitializeComponent();
             mtd_cargar_consecutivo_item();
             txt_desc.Text = "0";
-            pnl_arriba.Height = 32;
+            //pnl_arriba.Height = 32;
         }
         public frm_inventario(string Accion)
         {
             InitializeComponent();
-            pnl_arriba.Height = 32;
+            //pnl_arriba.Height = 32;
            
 
             if (Accion != "Modificar")
@@ -175,6 +175,7 @@ namespace SBX
             txt_fecha_vence.Text = "";
             mtd_cargar_consecutivo_item();
             btn_add_fecha_vence.Enabled = false;
+            txt_nota.Text = "";
         }
         private void mtd_validar()
         {
@@ -802,6 +803,7 @@ namespace SBX
                 cls_Producto.descuento_proveedor = txt_desc.Text;
                 cls_Producto.FechaVencimiento = txt_fecha_vence.Text;
                 cls_Producto.Usuario = Convert.ToInt32(Usuario);
+                cls_Producto.Nota = txt_nota.Text;
 
                 v_ok = cls_Producto.mtd_registrar();
 
@@ -911,6 +913,7 @@ namespace SBX
                     cls_Producto.descuento_proveedor = txt_desc.Text;
                     cls_Producto.FechaVencimiento = txt_fecha_vence.Text;
                     cls_Producto.Usuario = Convert.ToInt32(Usuario);
+                    cls_Producto.Nota = txt_nota.Text;
 
                     v_ok = cls_Producto.mtd_Editar();
 
@@ -1010,6 +1013,7 @@ namespace SBX
                 txt_nom_proveedor.Text = v_row["Nom_proveedor"].ToString(); 
                 txt_desc.Text = v_row["DescuentoProveedor"].ToString();
                 txt_fecha_vence.Text = v_row["FechaVencimiento"].ToString();
+                txt_nota.Text = v_row["Nota"].ToString();
                 //calcular Costo - descuento + iva
                 mtd_calculo_costo();
                 //calculiar margen

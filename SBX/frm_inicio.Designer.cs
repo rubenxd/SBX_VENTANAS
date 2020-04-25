@@ -175,6 +175,7 @@
             this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMinimizar.TabIndex = 5;
             this.btnMinimizar.TabStop = false;
+            this.btnMinimizar.Visible = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
             // btnCerrar
@@ -188,6 +189,7 @@
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCerrar.TabIndex = 4;
             this.btnCerrar.TabStop = false;
+            this.btnCerrar.Visible = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btn_Maximizar
@@ -201,6 +203,7 @@
             this.btn_Maximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btn_Maximizar.TabIndex = 11;
             this.btn_Maximizar.TabStop = false;
+            this.btn_Maximizar.Visible = false;
             this.btn_Maximizar.Click += new System.EventHandler(this.btn_Maximizar_Click);
             // 
             // btn_Restaurar
@@ -534,11 +537,12 @@
             this.Controls.Add(this.pnl_centro);
             this.Controls.Add(this.pnl_menu);
             this.Controls.Add(this.pnl_arriba);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frm_inicio";
+            this.Text = "Inicio";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_inicio_FormClosing);
             this.Load += new System.EventHandler(this.frm_inicio_Load);
             this.pnl_arriba.ResumeLayout(false);
             this.pnl_arriba.PerformLayout();

@@ -243,3 +243,5 @@ C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.csproj.Generate
 C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.exe
 C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.pdb
 C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_cargando.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_Alerta_stocks.resources
+C:\Users\Ruben\Documents\SBX VENTANAS\SBX_2019\SBX\obj\Debug\SBX.frm_estado_fechas_vencimiento.resources

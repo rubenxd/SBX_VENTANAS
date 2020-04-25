@@ -449,5 +449,19 @@ namespace SBX
                 lbl_noti.Visible = true;
             }
         }
+
+        private void frm_inicio_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            frm_confirmacion frm_Confirmacion = new frm_confirmacion();
+            frm_Confirmacion.Confirma += new frm_confirmacion.Confirmacion(mtd_confirmacion);
+            frm_Confirmacion.txt_mensaje.Text = "¿Está seguro que desea salir?";
+            frm_Confirmacion.ShowDialog();
+            if (v_confirmacion == true)
+            {
+                frm_login frm_Login = new frm_login();
+                frm_Login.Show();
+                this.Hide();
+            }
+        }
     }
 }

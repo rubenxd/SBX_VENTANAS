@@ -30,12 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_inventario));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_arriba = new System.Windows.Forms.Panel();
             this.lbl_minimizar = new System.Windows.Forms.Label();
             this.lbl_cerrar = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnl_centro = new System.Windows.Forms.Panel();
+            this.label30 = new System.Windows.Forms.Label();
+            this.txt_nota = new System.Windows.Forms.TextBox();
             this.txt_fecha_vence = new System.Windows.Forms.TextBox();
             this.btn_add_fecha_vence = new System.Windows.Forms.Button();
             this.label29 = new System.Windows.Forms.Label();
@@ -186,6 +188,8 @@
             // pnl_centro
             // 
             this.pnl_centro.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnl_centro.Controls.Add(this.label30);
+            this.pnl_centro.Controls.Add(this.txt_nota);
             this.pnl_centro.Controls.Add(this.txt_fecha_vence);
             this.pnl_centro.Controls.Add(this.btn_add_fecha_vence);
             this.pnl_centro.Controls.Add(this.label29);
@@ -265,6 +269,27 @@
             this.pnl_centro.Name = "pnl_centro";
             this.pnl_centro.Size = new System.Drawing.Size(900, 555);
             this.pnl_centro.TabIndex = 1;
+            // 
+            // label30
+            // 
+            this.label30.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(372, 451);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(33, 15);
+            this.label30.TabIndex = 80;
+            this.label30.Text = "Nota";
+            // 
+            // txt_nota
+            // 
+            this.txt_nota.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txt_nota.Location = new System.Drawing.Point(458, 449);
+            this.txt_nota.MaxLength = 300;
+            this.txt_nota.Multiline = true;
+            this.txt_nota.Name = "txt_nota";
+            this.txt_nota.Size = new System.Drawing.Size(197, 67);
+            this.txt_nota.TabIndex = 79;
             // 
             // txt_fecha_vence
             // 
@@ -361,7 +386,7 @@
             this.pnl_nombres.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnl_nombres.Controls.Add(this.dtg_busca_nombre);
             this.pnl_nombres.Controls.Add(this.pnl_titulo);
-            this.pnl_nombres.Location = new System.Drawing.Point(360, 79);
+            this.pnl_nombres.Location = new System.Drawing.Point(323, 79);
             this.pnl_nombres.Name = "pnl_nombres";
             this.pnl_nombres.Size = new System.Drawing.Size(367, 150);
             this.pnl_nombres.TabIndex = 62;
@@ -376,14 +401,14 @@
             this.dtg_busca_nombre.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_busca_nombre.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cl_Nombre});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_busca_nombre.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_busca_nombre.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_busca_nombre.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtg_busca_nombre.Location = new System.Drawing.Point(0, 21);
             this.dtg_busca_nombre.Name = "dtg_busca_nombre";
@@ -432,6 +457,7 @@
             this.lbl_estado_stock.Size = new System.Drawing.Size(18, 16);
             this.lbl_estado_stock.TabIndex = 61;
             this.lbl_estado_stock.Text = "--";
+            this.lbl_estado_stock.Visible = false;
             // 
             // btn_buscar_producto
             // 
@@ -1274,11 +1300,11 @@
             this.ClientSize = new System.Drawing.Size(900, 555);
             this.Controls.Add(this.pnl_centro);
             this.Controls.Add(this.pnl_arriba);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_inventario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frm_producto";
+            this.Text = "Producto";
             this.Load += new System.EventHandler(this.frm_producto_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frm_producto_KeyUp);
             this.pnl_arriba.ResumeLayout(false);
@@ -1387,5 +1413,7 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Button btn_add_fecha_vence;
         private System.Windows.Forms.TextBox txt_fecha_vence;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox txt_nota;
     }
 }
