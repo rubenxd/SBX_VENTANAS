@@ -240,7 +240,7 @@ namespace SBX
                         Error = 0;
                         foreach (DataGridViewRow rows in dtg_productos.SelectedRows)
                         { 
-                            int Items = Convert.ToInt32(rows.Cells["cl_item"].Value);
+                            int Items = Convert.ToInt32(rows.Cells["Item"].Value);
                             cls_Producto.Item = Items.ToString();
                             v_ok = cls_Producto.mtd_eliminar();
                             if (v_ok)
