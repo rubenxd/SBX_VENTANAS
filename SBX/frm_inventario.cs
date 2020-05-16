@@ -113,7 +113,10 @@ namespace SBX
                                 break;
                         }
                     }
-                }            
+                }
+            //Actualiza fechas de vencimiento
+            cls_Producto.v_buscar = "";
+            cls_Producto.mtd_consultar_estado_fechas_vencimiento();
         }
 
         //Metodos

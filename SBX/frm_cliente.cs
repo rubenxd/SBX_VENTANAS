@@ -454,7 +454,10 @@ namespace SBX
         }
         private void btn_exportar_excel_Click(object sender, EventArgs e)
         {
-            mtd_exporta_excel();
+            if (dtg_cliente.Rows.Count > 0)
+            {
+                mtd_exporta_excel();
+            }       
         }
         private void txt_dni_KeyPress(object sender, KeyPressEventArgs e)
         {

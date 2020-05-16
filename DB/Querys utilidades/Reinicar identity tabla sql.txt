@@ -1,0 +1,1 @@
+DBCC CHECKIDENT (Proveedor, RESEED,0)
