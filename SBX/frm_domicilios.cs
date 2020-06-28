@@ -87,6 +87,7 @@ namespace SBX
                     dtg_domicilio.Rows[v_contador].Cells["cl_celular"].Value = rows["Celular"];
                     dtg_domicilio.Rows[v_contador].Cells["cl_dni"].Value = rows["DNI"];
                     dtg_domicilio.Rows[v_contador].Cells["cl_nombre"].Value = rows["Nombre"];
+                    dtg_domicilio.Rows[v_contador].Cells["cl_sucursal"].Value = rows["Sucursal"];
                     dtg_domicilio.Rows[v_contador].Cells["cl_direccion"].Value = rows["Direccion"];
                     dtg_domicilio.Rows[v_contador].Cells["cl_mensajero"].Value = rows["Mensajero"];
                     dtg_domicilio.Rows[v_contador].Cells["cl_factura"].Value = rows["Factura"];

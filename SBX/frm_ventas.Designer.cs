@@ -58,6 +58,7 @@
             this.cl_efectivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_cambio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -75,6 +76,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lbl_total_ventas = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btn_rp_factura = new System.Windows.Forms.Button();
             this.pnl_arriba.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_ventas)).BeginInit();
             this.panel1.SuspendLayout();
@@ -175,6 +177,7 @@
             this.cl_efectivo,
             this.cl_cambio,
             this.cl_cliente,
+            this.cl_sucursal,
             this.cl_domicilio,
             this.cl_Usuario});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -327,6 +330,12 @@
             this.cl_cliente.Name = "cl_cliente";
             this.cl_cliente.ReadOnly = true;
             // 
+            // cl_sucursal
+            // 
+            this.cl_sucursal.HeaderText = "Sucursal";
+            this.cl_sucursal.Name = "cl_sucursal";
+            this.cl_sucursal.ReadOnly = true;
+            // 
             // cl_domicilio
             // 
             this.cl_domicilio.HeaderText = "Domicilio";
@@ -342,6 +351,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.btn_rp_factura);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.dtp_fecha_fin);
@@ -527,6 +537,21 @@
             this.label4.TabIndex = 81;
             this.label4.Text = "Total Venta:";
             // 
+            // btn_rp_factura
+            // 
+            this.btn_rp_factura.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_rp_factura.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_rp_factura.FlatAppearance.BorderSize = 0;
+            this.btn_rp_factura.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_rp_factura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_rp_factura.Image = ((System.Drawing.Image)(resources.GetObject("btn_rp_factura.Image")));
+            this.btn_rp_factura.Location = new System.Drawing.Point(74, 7);
+            this.btn_rp_factura.Name = "btn_rp_factura";
+            this.btn_rp_factura.Size = new System.Drawing.Size(26, 26);
+            this.btn_rp_factura.TabIndex = 81;
+            this.btn_rp_factura.UseVisualStyleBackColor = false;
+            this.btn_rp_factura.Click += new System.EventHandler(this.btn_rp_factura_Click);
+            // 
             // frm_ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -598,7 +623,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_efectivo;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_cambio;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_sucursal;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_domicilio;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_Usuario;
+        private System.Windows.Forms.Button btn_rp_factura;
     }
 }

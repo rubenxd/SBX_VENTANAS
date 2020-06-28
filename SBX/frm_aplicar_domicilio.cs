@@ -16,7 +16,7 @@ namespace SBX
     {
         //Delegado
         public delegate void EnviarInfo(string dni,string celular,string nombre,
-                                        string direccion,string telefono,string mensajero,string valor_domicilio);
+                                        string direccion,string telefono,string mensajero,string valor_domicilio,string codigoSu);
         public event EnviarInfo Enviainfo;
 
         //instancias
@@ -79,7 +79,7 @@ namespace SBX
             txt_direccion.Enabled = false;
             txt_telefono.Enabled = false;
         }
-        private void mtd_carga_cliente(string dni)
+        private void mtd_carga_cliente(string dni, string Codsu, string Nomsu)
         {
             txt_dni.Text = dni;
          
@@ -94,15 +94,29 @@ namespace SBX
                     v_row = v_dt.Rows[0];
                     cliente = v_row["Codigo"].ToString();
                     txt_nombre.Text = v_row["Nombre"].ToString();
-                    txt_celular.Text = v_row["Celular"].ToString();
-                    txt_direccion.Text = v_row["Direccion"].ToString();
-                    txt_telefono.Text = v_row["Telefono"].ToString();
+                    lbl_codigo.Text = Codsu;
+                    lbl_nomSuc.Text = Nomsu;
+                    if (Codsu == "")
+                    {
+                        txt_celular.Text = v_row["Celular"].ToString();
+                        txt_direccion.Text = v_row["Direccion"].ToString();
+                        txt_telefono.Text = v_row["Telefono"].ToString();
+                    }
+                    else
+                    {
+                        txt_celular.Text = v_row["CelularS"].ToString();
+                        txt_direccion.Text = v_row["DireccionS"].ToString();
+                        txt_telefono.Text = v_row["TelefonoS"].ToString();
+                    }
+                  
                 }
                 else
                 {
                     mtd_activa();
                     txt_celular.Text = "";
                     txt_nombre.Text = "";
+                    lbl_codigo.Text = "";
+                    lbl_nomSuc.Text = "";
                     txt_direccion.Text = "";
                     txt_telefono.Text = "";
                     errorProvider.SetError(txt_dni, "Cliente no existe");
@@ -151,7 +165,7 @@ namespace SBX
             errorProvider.Clear();
             v_validado = 0;
 
-            mtd_carga_cliente(txt_dni.Text);
+            mtd_carga_cliente(txt_dni.Text,lbl_codigo.Text,lbl_nomSuc.Text);
             mtd_carga_mensajero(txt_mensajero.Text);
             if (v_validado == 0)
             {
@@ -265,7 +279,7 @@ namespace SBX
             if (frm_Ayuda == null || frm_Ayuda.IsDisposed)
             {
                 frm_Ayuda = new frm_ayuda("Buscar cliente");
-                frm_Ayuda.Enviainfo += new frm_ayuda.EnviarInfo(mtd_carga_cliente);
+                frm_Ayuda.Enviainfo2 += new frm_ayuda.EnviarInfo2(mtd_carga_cliente);
                 frm_Ayuda.Show();
             }
             else
@@ -276,7 +290,7 @@ namespace SBX
         }
         private void txt_dni_KeyUp(object sender, KeyEventArgs e)
         {
-            mtd_carga_cliente(txt_dni.Text);
+            mtd_carga_cliente(txt_dni.Text,"","");
         }
         private void txt_celular_KeyUp(object sender, KeyEventArgs e)
         {
@@ -288,7 +302,7 @@ namespace SBX
                 if (v_validado == 0)
                 {
                     Enviainfo(cliente, txt_celular.Text, txt_nombre.Text, txt_direccion.Text, txt_telefono.Text,
-                              mesajero, txt_valor_domicilio.Text);
+                              mesajero, txt_valor_domicilio.Text,lbl_codigo.Text);
                     this.Dispose();
                 }
         }

@@ -32,12 +32,25 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_domicilios));
             this.dtg_domicilio = new System.Windows.Forms.DataGridView();
+            this.pnl_arriba = new System.Windows.Forms.Panel();
+            this.btn_pago_domicilio = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtp_fecha_fin = new System.Windows.Forms.DateTimePicker();
+            this.dtp_fecha_inicio = new System.Windows.Forms.DateTimePicker();
+            this.cbx_tipo_busqueda = new System.Windows.Forms.ComboBox();
+            this.btn_mensajero = new System.Windows.Forms.Button();
+            this.btn_eliminar = new System.Windows.Forms.Button();
+            this.btn_buscar = new System.Windows.Forms.Button();
+            this.txt_buscar = new System.Windows.Forms.TextBox();
+            this.btn_exportar_excel = new System.Windows.Forms.Button();
             this.cl_numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_mensajero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_factura = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,18 +65,6 @@
             this.cl_valor_descuento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_valor_domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnl_arriba = new System.Windows.Forms.Panel();
-            this.btn_pago_domicilio = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtp_fecha_fin = new System.Windows.Forms.DateTimePicker();
-            this.dtp_fecha_inicio = new System.Windows.Forms.DateTimePicker();
-            this.cbx_tipo_busqueda = new System.Windows.Forms.ComboBox();
-            this.btn_mensajero = new System.Windows.Forms.Button();
-            this.btn_eliminar = new System.Windows.Forms.Button();
-            this.btn_buscar = new System.Windows.Forms.Button();
-            this.txt_buscar = new System.Windows.Forms.TextBox();
-            this.btn_exportar_excel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_domicilio)).BeginInit();
             this.pnl_arriba.SuspendLayout();
             this.SuspendLayout();
@@ -90,6 +91,7 @@
             this.cl_celular,
             this.cl_dni,
             this.cl_nombre,
+            this.cl_sucursal,
             this.cl_direccion,
             this.cl_mensajero,
             this.cl_factura,
@@ -118,127 +120,6 @@
             this.dtg_domicilio.ReadOnly = true;
             this.dtg_domicilio.Size = new System.Drawing.Size(900, 430);
             this.dtg_domicilio.TabIndex = 7;
-            // 
-            // cl_numero
-            // 
-            this.cl_numero.HeaderText = "Num";
-            this.cl_numero.Name = "cl_numero";
-            this.cl_numero.ReadOnly = true;
-            this.cl_numero.Width = 50;
-            // 
-            // cl_fecha
-            // 
-            this.cl_fecha.HeaderText = "Fecha";
-            this.cl_fecha.Name = "cl_fecha";
-            this.cl_fecha.ReadOnly = true;
-            // 
-            // cl_estado
-            // 
-            this.cl_estado.HeaderText = "Estado";
-            this.cl_estado.Name = "cl_estado";
-            this.cl_estado.ReadOnly = true;
-            // 
-            // cl_celular
-            // 
-            this.cl_celular.HeaderText = "Celular";
-            this.cl_celular.Name = "cl_celular";
-            this.cl_celular.ReadOnly = true;
-            // 
-            // cl_dni
-            // 
-            this.cl_dni.HeaderText = "DNI";
-            this.cl_dni.Name = "cl_dni";
-            this.cl_dni.ReadOnly = true;
-            // 
-            // cl_nombre
-            // 
-            this.cl_nombre.HeaderText = "Nombre";
-            this.cl_nombre.Name = "cl_nombre";
-            this.cl_nombre.ReadOnly = true;
-            // 
-            // cl_direccion
-            // 
-            this.cl_direccion.HeaderText = "Direccion";
-            this.cl_direccion.Name = "cl_direccion";
-            this.cl_direccion.ReadOnly = true;
-            // 
-            // cl_mensajero
-            // 
-            this.cl_mensajero.HeaderText = "Mensajero";
-            this.cl_mensajero.Name = "cl_mensajero";
-            this.cl_mensajero.ReadOnly = true;
-            // 
-            // cl_factura
-            // 
-            this.cl_factura.HeaderText = "Factura";
-            this.cl_factura.Name = "cl_factura";
-            this.cl_factura.ReadOnly = true;
-            // 
-            // cl_item
-            // 
-            this.cl_item.HeaderText = "Item";
-            this.cl_item.Name = "cl_item";
-            this.cl_item.ReadOnly = true;
-            // 
-            // cl_referencia
-            // 
-            this.cl_referencia.HeaderText = "Referencia";
-            this.cl_referencia.Name = "cl_referencia";
-            this.cl_referencia.ReadOnly = true;
-            // 
-            // cl_codigo_barras
-            // 
-            this.cl_codigo_barras.HeaderText = "Codigo barras";
-            this.cl_codigo_barras.Name = "cl_codigo_barras";
-            this.cl_codigo_barras.ReadOnly = true;
-            // 
-            // cl_nombre_producto
-            // 
-            this.cl_nombre_producto.HeaderText = "Nombre Producto";
-            this.cl_nombre_producto.Name = "cl_nombre_producto";
-            this.cl_nombre_producto.ReadOnly = true;
-            // 
-            // cl_cantidad
-            // 
-            this.cl_cantidad.HeaderText = "Cantidad";
-            this.cl_cantidad.Name = "cl_cantidad";
-            this.cl_cantidad.ReadOnly = true;
-            // 
-            // cl_um
-            // 
-            this.cl_um.HeaderText = "UM";
-            this.cl_um.Name = "cl_um";
-            this.cl_um.ReadOnly = true;
-            // 
-            // cl_precio
-            // 
-            this.cl_precio.HeaderText = "Precio";
-            this.cl_precio.Name = "cl_precio";
-            this.cl_precio.ReadOnly = true;
-            // 
-            // cl_descuento
-            // 
-            this.cl_descuento.HeaderText = "% desc";
-            this.cl_descuento.Name = "cl_descuento";
-            this.cl_descuento.ReadOnly = true;
-            // 
-            // cl_valor_descuento
-            // 
-            this.cl_valor_descuento.HeaderText = "Valor Descuento";
-            this.cl_valor_descuento.Name = "cl_valor_descuento";
-            this.cl_valor_descuento.ReadOnly = true;
-            // 
-            // cl_valor_domicilio
-            // 
-            this.cl_valor_domicilio.HeaderText = "Valor Domicilio";
-            this.cl_valor_domicilio.Name = "cl_valor_domicilio";
-            this.cl_valor_domicilio.ReadOnly = true;
-            // 
-            // cl_total
-            // 
-            this.cl_total.HeaderText = "Total";
-            this.cl_total.Name = "cl_total";
-            this.cl_total.ReadOnly = true;
             // 
             // pnl_arriba
             // 
@@ -406,6 +287,133 @@
             this.btn_exportar_excel.UseVisualStyleBackColor = false;
             this.btn_exportar_excel.Click += new System.EventHandler(this.btn_exportar_excel_Click);
             // 
+            // cl_numero
+            // 
+            this.cl_numero.HeaderText = "Num";
+            this.cl_numero.Name = "cl_numero";
+            this.cl_numero.ReadOnly = true;
+            this.cl_numero.Width = 50;
+            // 
+            // cl_fecha
+            // 
+            this.cl_fecha.HeaderText = "Fecha";
+            this.cl_fecha.Name = "cl_fecha";
+            this.cl_fecha.ReadOnly = true;
+            // 
+            // cl_estado
+            // 
+            this.cl_estado.HeaderText = "Estado";
+            this.cl_estado.Name = "cl_estado";
+            this.cl_estado.ReadOnly = true;
+            // 
+            // cl_celular
+            // 
+            this.cl_celular.HeaderText = "Celular";
+            this.cl_celular.Name = "cl_celular";
+            this.cl_celular.ReadOnly = true;
+            // 
+            // cl_dni
+            // 
+            this.cl_dni.HeaderText = "DNI";
+            this.cl_dni.Name = "cl_dni";
+            this.cl_dni.ReadOnly = true;
+            // 
+            // cl_nombre
+            // 
+            this.cl_nombre.HeaderText = "Nombre";
+            this.cl_nombre.Name = "cl_nombre";
+            this.cl_nombre.ReadOnly = true;
+            // 
+            // cl_sucursal
+            // 
+            this.cl_sucursal.HeaderText = "Sucursal";
+            this.cl_sucursal.Name = "cl_sucursal";
+            this.cl_sucursal.ReadOnly = true;
+            // 
+            // cl_direccion
+            // 
+            this.cl_direccion.HeaderText = "Direccion";
+            this.cl_direccion.Name = "cl_direccion";
+            this.cl_direccion.ReadOnly = true;
+            // 
+            // cl_mensajero
+            // 
+            this.cl_mensajero.HeaderText = "Mensajero";
+            this.cl_mensajero.Name = "cl_mensajero";
+            this.cl_mensajero.ReadOnly = true;
+            // 
+            // cl_factura
+            // 
+            this.cl_factura.HeaderText = "Factura";
+            this.cl_factura.Name = "cl_factura";
+            this.cl_factura.ReadOnly = true;
+            // 
+            // cl_item
+            // 
+            this.cl_item.HeaderText = "Item";
+            this.cl_item.Name = "cl_item";
+            this.cl_item.ReadOnly = true;
+            // 
+            // cl_referencia
+            // 
+            this.cl_referencia.HeaderText = "Referencia";
+            this.cl_referencia.Name = "cl_referencia";
+            this.cl_referencia.ReadOnly = true;
+            // 
+            // cl_codigo_barras
+            // 
+            this.cl_codigo_barras.HeaderText = "Codigo barras";
+            this.cl_codigo_barras.Name = "cl_codigo_barras";
+            this.cl_codigo_barras.ReadOnly = true;
+            // 
+            // cl_nombre_producto
+            // 
+            this.cl_nombre_producto.HeaderText = "Nombre Producto";
+            this.cl_nombre_producto.Name = "cl_nombre_producto";
+            this.cl_nombre_producto.ReadOnly = true;
+            // 
+            // cl_cantidad
+            // 
+            this.cl_cantidad.HeaderText = "Cantidad";
+            this.cl_cantidad.Name = "cl_cantidad";
+            this.cl_cantidad.ReadOnly = true;
+            // 
+            // cl_um
+            // 
+            this.cl_um.HeaderText = "UM";
+            this.cl_um.Name = "cl_um";
+            this.cl_um.ReadOnly = true;
+            // 
+            // cl_precio
+            // 
+            this.cl_precio.HeaderText = "Precio";
+            this.cl_precio.Name = "cl_precio";
+            this.cl_precio.ReadOnly = true;
+            // 
+            // cl_descuento
+            // 
+            this.cl_descuento.HeaderText = "% desc";
+            this.cl_descuento.Name = "cl_descuento";
+            this.cl_descuento.ReadOnly = true;
+            // 
+            // cl_valor_descuento
+            // 
+            this.cl_valor_descuento.HeaderText = "Valor Descuento";
+            this.cl_valor_descuento.Name = "cl_valor_descuento";
+            this.cl_valor_descuento.ReadOnly = true;
+            // 
+            // cl_valor_domicilio
+            // 
+            this.cl_valor_domicilio.HeaderText = "Valor Domicilio";
+            this.cl_valor_domicilio.Name = "cl_valor_domicilio";
+            this.cl_valor_domicilio.ReadOnly = true;
+            // 
+            // cl_total
+            // 
+            this.cl_total.HeaderText = "Total";
+            this.cl_total.Name = "cl_total";
+            this.cl_total.ReadOnly = true;
+            // 
             // frm_domicilios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -435,12 +443,20 @@
         private System.Windows.Forms.Button btn_buscar;
         private System.Windows.Forms.TextBox txt_buscar;
         private System.Windows.Forms.Button btn_exportar_excel;
+        private System.Windows.Forms.Button btn_mensajero;
+        private System.Windows.Forms.ComboBox cbx_tipo_busqueda;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dtp_fecha_fin;
+        private System.Windows.Forms.DateTimePicker dtp_fecha_inicio;
+        private System.Windows.Forms.Button btn_pago_domicilio;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_celular;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_dni;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_sucursal;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_direccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_mensajero;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_factura;
@@ -455,12 +471,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_valor_descuento;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_valor_domicilio;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_total;
-        private System.Windows.Forms.Button btn_mensajero;
-        private System.Windows.Forms.ComboBox cbx_tipo_busqueda;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dtp_fecha_fin;
-        private System.Windows.Forms.DateTimePicker dtp_fecha_inicio;
-        private System.Windows.Forms.Button btn_pago_domicilio;
     }
 }

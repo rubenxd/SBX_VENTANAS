@@ -183,6 +183,9 @@
   <metadata name="cl_cliente.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="cl_sucursal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="cl_domicilio.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -190,6 +193,17 @@
     <value>True</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_rp_factura.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAAHYAAAB2AU57JggAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAAA2klEQVQ4T5XSsQpBURjA8WvxDMrEyG4yyQPYlAeQJxETk8FmUjYp3TewKJsysNlkUsLA/6vv3I7b
+        Ofd0v/rVvadz/uU6kU4J3wwDtFCAc+zAGw/r3QSWmMA5dmCLrvVuB+TZGTGBJ2ooI9Y1Exhir3r4GxM4
+        o4INTrompminFJGM/RPmqGNhrbnImWRM4IYGOhjrmo8zIGZo4oWdku8xUldkBi5Y63PugBzuB8geb0C+
+        wSpA9ngDR6T/rjTZ4w3IFTaXxcdcc2fggGqA7PEGPrgHyB5vIA/ORNEPrUmNlFn8SAEAAAAASUVORK5C
+        YII=
+</value>
+  </data>
   <data name="btn_eliminar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6

@@ -115,6 +115,7 @@ namespace SBX
                     dtg_ventas.Rows[v_contador].Cells["cl_Total"].Value = Total.ToString("N2");
                     dtg_ventas.Rows[v_contador].Cells["cl_Usuario"].Value = rows["Usuario"];
                     dtg_ventas.Rows[v_contador].Cells["cl_cliente"].Value = rows["Cliente"];
+                    dtg_ventas.Rows[v_contador].Cells["cl_sucursal"].Value = rows["Sucursal"];
                     dtg_ventas.Rows[v_contador].Cells["cl_domicilio"].Value = rows["Domicilio"];
                     Factura = rows["Factura"].ToString();
                     v_contador++;
@@ -283,6 +284,13 @@ namespace SBX
                     }
                 }
             }
+        }
+        private void btn_rp_factura_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            frm_reporte frm_Reporte = new frm_reporte();           
+            frm_Reporte.Show();
+            this.Cursor = Cursors.Default;
         }
     }
 }

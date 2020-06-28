@@ -36,13 +36,41 @@
     <ApplicationIcon>SBX.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>..\..\Microsoft.Office.Interop.Excel.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,6 +88,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DB_SBXDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Factura.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Factura.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="frm_agregar_abono.cs">
       <SubType>Form</SubType>
@@ -295,6 +329,12 @@
     <Compile Include="frm_proveedor.Designer.cs">
       <DependentUpon>frm_proveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_reporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_reporte.Designer.cs">
+      <DependentUpon>frm_reporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_reportes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -312,6 +352,12 @@
     </Compile>
     <Compile Include="frm_separados.Designer.cs">
       <DependentUpon>frm_separados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_sucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_sucursal.Designer.cs">
+      <DependentUpon>frm_sucursal.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_venta.cs">
       <SubType>Form</SubType>
@@ -345,6 +391,7 @@
     <Compile Include="MODEL\cls_rol_modulo_permiso.cs" />
     <Compile Include="MODEL\cls_salida_para.cs" />
     <Compile Include="MODEL\cls_sistema_separado.cs" />
+    <Compile Include="MODEL\cls_sucursal.cs" />
     <Compile Include="MODEL\cls_ubicacion.cs" />
     <Compile Include="MODEL\cls_unidad_medida.cs" />
     <Compile Include="MODEL\cls_usuario.cs" />
@@ -353,6 +400,11 @@
     <Compile Include="MODEL\Paginar.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Factura.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Factura.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_agregar_abono.resx">
       <DependentUpon>frm_agregar_abono.cs</DependentUpon>
     </EmbeddedResource>
@@ -470,6 +522,9 @@
     <EmbeddedResource Include="frm_proveedor.resx">
       <DependentUpon>frm_proveedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_reporte.resx">
+      <DependentUpon>frm_reporte.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_reportes.resx">
       <DependentUpon>frm_reportes.cs</DependentUpon>
     </EmbeddedResource>
@@ -478,6 +533,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_separados.resx">
       <DependentUpon>frm_separados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_sucursal.resx">
+      <DependentUpon>frm_sucursal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_venta.resx">
       <DependentUpon>frm_venta.cs</DependentUpon>
@@ -505,6 +563,7 @@
     <None Include="DB_SBXDataSet.xss">
       <DependentUpon>DB_SBXDataSet.xsd</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -520,6 +579,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SBX.ico" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

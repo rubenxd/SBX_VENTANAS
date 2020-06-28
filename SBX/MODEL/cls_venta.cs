@@ -52,6 +52,8 @@ namespace SBX.MODEL
         public float IVA { get; set; }
         public string Usuario { get; set; }
         public string DescuentoProveedor { get; set; }
+        public string Nota { get; set; }
+        public string sucursal { get; set; }
 
         //Metodos
         public DataTable mtd_consultar_Venta()
@@ -72,7 +74,7 @@ namespace SBX.MODEL
                         "v.Fecha,v.NombreDocumento,v.ConsecutivoDocumento,CONCAT(c.DNI, ' - ', c.Nombre) ClienteVenta,d.Codigo CodigoDomicilio, "+
                         "d.Cliente ClienteDomicilio, d.Celular,d.Nombre NombreC, d.Direccion,d.Telefono,d.Mensajero,ISNULL(d.ValorDomicilio,0) ValorDomicilio, " +
                         "p.Item, p.Nombre,v.UM,v.PrecioVenta,v.Cantidad,v.descuento,V.IVA,V.Efectivo,V.Tdebito,V.Tcredito,V.Cambio,v.Total, " +
-                        "m.Codigo Mensajero, m.Nombre NMensajero,p.SubCantidad,p.Sobres,v.ModoVenta " +
+                        "m.Codigo Mensajero, m.Nombre NMensajero,p.SubCantidad,p.Sobres,v.ModoVenta,v.Nota " +
                         "FROM " +
                         "Venta v " +
                         "LEFT JOIN Domicilio d ON v.Domicilio = d.Codigo " +
@@ -85,7 +87,7 @@ namespace SBX.MODEL
         }
         private void mtd_asignaParametros()
         {
-            Parametros = new SqlParameter[25];
+            Parametros = new SqlParameter[27];
 
             Parametros[0] = new SqlParameter();
             Parametros[0].ParameterName = "@Codigo";
@@ -210,29 +212,60 @@ namespace SBX.MODEL
             Parametros[24] = new SqlParameter();
             Parametros[24].ParameterName = "@DescuentoProveedor";
             Parametros[24].SqlDbType = SqlDbType.Float;
-            Parametros[24].SqlValue = DescuentoProveedor;         
+            Parametros[24].SqlValue = DescuentoProveedor;
+
+            Parametros[25] = new SqlParameter();
+            Parametros[25].ParameterName = "@Nota";
+            Parametros[25].SqlDbType = SqlDbType.VarChar;
+            Parametros[25].SqlValue = Nota;
+
+            Parametros[26] = new SqlParameter();
+            Parametros[26].ParameterName = "@Sucursal";
+            Parametros[26].SqlDbType = SqlDbType.VarChar;
+            Parametros[26].SqlValue = sucursal;
         }
         public Boolean mtd_registrar()
         {
             switch (Registro)
             {
                 case "":
-                    v_query = " INSERT INTO Venta (Fecha,NombreDocumento,ConsecutivoDocumento,Producto,ModoVenta,UM,Cantidad,Costo,PrecioVenta," +
-                     " descuento,Efectivo,Tdebito,Tcredito,NumBaucherDebito,NumBaucherCredito,Cambio,Total,Proveedor,Cliente,IVA,Usuario,DescuentoProveedor)" +
-                     " VALUES (@Fecha,@NombreDocumento,@ConsecutivoDocumento,@Producto,@ModoVenta,@UM,@Cantidad,@Costo,@PrecioVenta," +
-                     " @descuento,@Efectivo,@Tdebito,@Tcredito,@NumBaucherDebito,@NumBaucherCredito,@Cambio,@Total,@Proveedor,@Cliente,@IVA,@Usuario,@DescuentoProveedor)";
+                    if (sucursal == "")
+                    {
+                        v_query = " INSERT INTO Venta (Fecha,NombreDocumento,ConsecutivoDocumento,Producto,ModoVenta,UM,Cantidad,Costo,PrecioVenta," +
+                    " descuento,Efectivo,Tdebito,Tcredito,NumBaucherDebito,NumBaucherCredito,Cambio,Total,Proveedor,Cliente,IVA,Usuario,DescuentoProveedor,Nota)" +
+                    " VALUES (@Fecha,@NombreDocumento,@ConsecutivoDocumento,@Producto,@ModoVenta,@UM,@Cantidad,@Costo,@PrecioVenta," +
+                    " @descuento,@Efectivo,@Tdebito,@Tcredito,@NumBaucherDebito,@NumBaucherCredito,@Cambio,@Total,@Proveedor,@Cliente,@IVA,@Usuario,@DescuentoProveedor,@Nota)";
+                    }
+                    else
+                    {
+                        v_query = " INSERT INTO Venta (Fecha,NombreDocumento,ConsecutivoDocumento,Producto,ModoVenta,UM,Cantidad,Costo,PrecioVenta," +
+                    " descuento,Efectivo,Tdebito,Tcredito,NumBaucherDebito,NumBaucherCredito,Cambio,Total,Proveedor,Cliente,IVA,Usuario,DescuentoProveedor,Nota,sucursal)" +
+                    " VALUES (@Fecha,@NombreDocumento,@ConsecutivoDocumento,@Producto,@ModoVenta,@UM,@Cantidad,@Costo,@PrecioVenta," +
+                    " @descuento,@Efectivo,@Tdebito,@Tcredito,@NumBaucherDebito,@NumBaucherCredito,@Cambio,@Total,@Proveedor,@Cliente,@IVA,@Usuario,@DescuentoProveedor,@Nota,@sucursal)";
+                    }                  
                     break;
                 case "Domicilio":
-                    v_query = " INSERT INTO Venta (Fecha,NombreDocumento,ConsecutivoDocumento,Producto,ModoVenta,UM,Cantidad,Costo,PrecioVenta," +
-                     " descuento,Efectivo,Tdebito,Tcredito,NumBaucherDebito,NumBaucherCredito,Cambio,Total,Proveedor,Cliente,Domicilio,IVA,Usuario,DescuentoProveedor)" +
-                     " VALUES (@Fecha,@NombreDocumento,@ConsecutivoDocumento,@Producto,@ModoVenta,@UM,@Cantidad,@Costo,@PrecioVenta," +
-                     " @descuento,@Efectivo,@Tdebito,@Tcredito,@NumBaucherDebito,@NumBaucherCredito,@Cambio,@Total,@Proveedor,@Cliente,@Domicilio,@IVA,@Usuario,@DescuentoProveedor)";
+                    if (sucursal == "")
+                    {
+                        v_query = " INSERT INTO Venta (Fecha,NombreDocumento,ConsecutivoDocumento,Producto,ModoVenta,UM,Cantidad,Costo,PrecioVenta," +
+                                         " descuento,Efectivo,Tdebito,Tcredito,NumBaucherDebito,NumBaucherCredito,Cambio,Total,Proveedor,Cliente,Domicilio,IVA,Usuario,DescuentoProveedor,Nota)" +
+                                         " VALUES (@Fecha,@NombreDocumento,@ConsecutivoDocumento,@Producto,@ModoVenta,@UM,@Cantidad,@Costo,@PrecioVenta," +
+                                         " @descuento,@Efectivo,@Tdebito,@Tcredito,@NumBaucherDebito,@NumBaucherCredito,@Cambio,@Total,@Proveedor,@Cliente,@Domicilio,@IVA,@Usuario,@DescuentoProveedor,@Nota)";
+                    }
+                    else
+                    {
+                        v_query = " INSERT INTO Venta (Fecha,NombreDocumento,ConsecutivoDocumento,Producto,ModoVenta,UM,Cantidad,Costo,PrecioVenta," +
+                                  " descuento,Efectivo,Tdebito,Tcredito,NumBaucherDebito,NumBaucherCredito,Cambio,Total,Proveedor,Cliente,Domicilio,IVA,Usuario,DescuentoProveedor,Nota,sucursal)" +
+                                  " VALUES (@Fecha,@NombreDocumento,@ConsecutivoDocumento,@Producto,@ModoVenta,@UM,@Cantidad,@Costo,@PrecioVenta," +
+                                  " @descuento,@Efectivo,@Tdebito,@Tcredito,@NumBaucherDebito,@NumBaucherCredito,@Cambio,@Total,@Proveedor,@Cliente,@Domicilio,@IVA,@Usuario,@DescuentoProveedor,@Nota,@sucursal)";
+                    }
+
                     break;
                 case "SistemaSeparado":
                     v_query = " INSERT INTO Venta (Fecha,NombreDocumento,ConsecutivoDocumento,Producto,ModoVenta,UM,Cantidad,Costo,PrecioVenta," +
-                     " descuento,Efectivo,Tdebito,Tcredito,NumBaucherDebito,NumBaucherCredito,Cambio,Total,Proveedor,Cliente,SistemaSeparado,IVA,Usuario,DescuentoProveedor)" +
+                     " descuento,Efectivo,Tdebito,Tcredito,NumBaucherDebito,NumBaucherCredito,Cambio,Total,Proveedor,Cliente,SistemaSeparado,IVA,Usuario,DescuentoProveedor,Nota)" +
                      " VALUES (@Fecha,@NombreDocumento,@ConsecutivoDocumento,@Producto,@ModoVenta,@UM,@Cantidad,@Costo,@PrecioVenta," +
-                     " @descuento,@Efectivo,@Tdebito,@Tcredito,@NumBaucherDebito,@NumBaucherCredito,@Cambio,@Total,@Proveedor,@Cliente,@SistemaSeparado,@IVA,@Usuario,@DescuentoProveedor)";
+                     " @descuento,@Efectivo,@Tdebito,@Tcredito,@NumBaucherDebito,@NumBaucherCredito,@Cambio,@Total,@Proveedor,@Cliente,@SistemaSeparado,@IVA,@Usuario,@DescuentoProveedor,@Nota)";
                     break;
             }
           
@@ -245,7 +278,7 @@ namespace SBX.MODEL
             v_query = " UPDATE Venta SET Fecha = @Fecha,NombreDocumento = @NombreDocumento,ConsecutivoDocumento = @ConsecutivoDocumento,Producto = @Producto, "+
                       " ModoVenta = @ModoVenta,UM = @UM,Cantidad = @Cantidad,Costo = @Costo,PrecioVenta = @PrecioVenta," +
                       " descuento = @descuento,Efectivo = @Efectivo,Tdebito = @Tdebito,Tcredito = @Tcredito,NumBaucherDebito = @NumBaucherDebito, "+
-                      " NumBaucherCredito = @NumBaucherCredito,Cambio = @Cambio,Total = @Total,Proveedor = @Proveedor,Cliente = @Cliente,Domicilio = @Domicilio,SistemaSeparado = @SistemaSeparado " +
+                      " NumBaucherCredito = @NumBaucherCredito,Cambio = @Cambio,Total = @Total,Proveedor = @Proveedor,Cliente = @Cliente,Domicilio = @Domicilio,SistemaSeparado = @SistemaSeparado, Nota = @Nota " +
                       " WHERE Codigo = " + Codigo;
 
             mtd_asignaParametros();

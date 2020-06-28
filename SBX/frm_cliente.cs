@@ -17,6 +17,7 @@ namespace SBX
         //Instancias
         cls_global cls_Global = new cls_global();
         cls_cliente cls_Cliente = new cls_cliente();
+        cls_sucursal cls_Sucursal = new cls_sucursal();
 
         //Variables globales
         int v_contador = 0;
@@ -124,6 +125,7 @@ namespace SBX
             txt_sitio_web.Text = "";
             v_registro = true;
             lbl_codigo.Text = "";
+            dtg_Sucursal.Rows.Clear();
         }
         public string CalcularDigitoVerificacion(string Nit)
         {
@@ -166,6 +168,7 @@ namespace SBX
 
             return Residuo.ToString();
         }
+        
         private void mtd_Cargar_cliente()
         {
             if (txt_buscar.Text == "DNI-Nombre")
@@ -198,7 +201,7 @@ namespace SBX
                     dtg_cliente.Rows[v_contador].Cells["cl_sitio_web"].Value = rows["SitioWeb"];
                     v_contador++;
                 }
-            }
+            }       
         }
         private void mtd_guardar()
         {
@@ -542,6 +545,22 @@ namespace SBX
                         {
                             txt_digito_verificacion.Text = "";
                         }
+                        //Consulta sucursales
+                        cls_Sucursal.CodigoCliente = lbl_codigo.Text;
+                        v_dt = cls_Sucursal.mtd_consultar_sucursal_por_Cliente();
+                        dtg_Sucursal.Rows.Clear();
+                        if (v_dt.Rows.Count > 0)
+                        {
+                            v_contador = 0;
+                            v_filas = v_dt.Rows.Count;
+                            dtg_Sucursal.Rows.Add(v_filas);
+                            foreach (DataRow rows in v_dt.Rows)
+                            {
+                                dtg_Sucursal.Rows[v_contador].Cells["cl_cod_sucursal"].Value = rows["Codigo"];
+                                dtg_Sucursal.Rows[v_contador].Cells["cl_sucursal"].Value = rows["Nombre"];
+                                v_contador++;
+                            }
+                        }
                     }
                 }           
             }
@@ -563,6 +582,58 @@ namespace SBX
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btn_sucursal_Click(object sender, EventArgs e)
+        {
+            if (this.lbl_codigo.Text != "")
+            {
+                frm_sucursal frm_Sucursal = new frm_sucursal();
+                frm_Sucursal.lbl_codigo.Text = this.lbl_codigo.Text;
+                frm_Sucursal.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un Cliente");
+            }
+        }
+
+        private void dtg_Sucursal_DoubleClick(object sender, EventArgs e)
+        {
+            frm_sucursal frm_Sucursal;
+            if (dtg_Sucursal.Rows.Count > 0)
+            {
+                if (dtg_Sucursal.SelectedRows.Count > 0)
+                {
+                    foreach (DataGridViewRow row in dtg_Sucursal.SelectedRows)
+                    {
+                        frm_Sucursal = new frm_sucursal(row.Cells["cl_cod_sucursal"].Value.ToString());
+                        frm_Sucursal.txt_codigo.Text   = row.Cells["cl_cod_sucursal"].Value.ToString();
+                        frm_Sucursal.txt_nombre.Text  = row.Cells["cl_sucursal"].Value.ToString();
+                        frm_Sucursal.Enviainfo += new frm_sucursal.EnviarInfo(mtd_dato);
+                        frm_Sucursal.ShowDialog();
+                    }                 
+                }
+            }
+        }
+        private void mtd_dato() 
+        {
+            //Consulta sucursales
+            cls_Sucursal.CodigoCliente = lbl_codigo.Text;
+            v_dt = cls_Sucursal.mtd_consultar_sucursal_por_Cliente();
+            dtg_Sucursal.Rows.Clear();
+            if (v_dt.Rows.Count > 0)
+            {
+                v_contador = 0;
+                v_filas = v_dt.Rows.Count;
+                dtg_Sucursal.Rows.Add(v_filas);
+                foreach (DataRow rows in v_dt.Rows)
+                {
+                    dtg_Sucursal.Rows[v_contador].Cells["cl_cod_sucursal"].Value = rows["Codigo"];
+                    dtg_Sucursal.Rows[v_contador].Cells["cl_sucursal"].Value = rows["Nombre"];
+                    v_contador++;
+                }
+            }
         }
     }
 }

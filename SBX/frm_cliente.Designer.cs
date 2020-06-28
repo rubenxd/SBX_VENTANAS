@@ -33,6 +33,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_cliente));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_centro = new System.Windows.Forms.Panel();
             this.dtg_cliente = new System.Windows.Forms.DataGridView();
             this.cl_codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +54,7 @@
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.txt_buscar = new System.Windows.Forms.TextBox();
             this.pnl_txt = new System.Windows.Forms.Panel();
+            this.dtg_Sucursal = new System.Windows.Forms.DataGridView();
             this.lbl_codigo = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txt_sitio_web = new System.Windows.Forms.TextBox();
@@ -71,6 +74,7 @@
             this.txt_dni = new System.Windows.Forms.TextBox();
             this.txt_digito_verificacion = new System.Windows.Forms.TextBox();
             this.pnl_botones = new System.Windows.Forms.Panel();
+            this.btn_sucursal = new System.Windows.Forms.Button();
             this.btn_limpiar = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.pnl_arriba = new System.Windows.Forms.Panel();
@@ -78,10 +82,13 @@
             this.lbl_cerrar = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cl_cod_sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnl_centro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_cliente)).BeginInit();
             this.panel1.SuspendLayout();
             this.pnl_txt.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtg_Sucursal)).BeginInit();
             this.pnl_botones.SuspendLayout();
             this.pnl_arriba.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -322,6 +329,7 @@
             // 
             // pnl_txt
             // 
+            this.pnl_txt.Controls.Add(this.dtg_Sucursal);
             this.pnl_txt.Controls.Add(this.lbl_codigo);
             this.pnl_txt.Controls.Add(this.label7);
             this.pnl_txt.Controls.Add(this.txt_sitio_web);
@@ -346,12 +354,45 @@
             this.pnl_txt.Size = new System.Drawing.Size(880, 156);
             this.pnl_txt.TabIndex = 36;
             // 
+            // dtg_Sucursal
+            // 
+            this.dtg_Sucursal.AllowUserToAddRows = false;
+            this.dtg_Sucursal.AllowUserToDeleteRows = false;
+            this.dtg_Sucursal.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dtg_Sucursal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtg_Sucursal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtg_Sucursal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cl_cod_sucursal,
+            this.cl_sucursal});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_Sucursal.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dtg_Sucursal.Location = new System.Drawing.Point(597, 29);
+            this.dtg_Sucursal.Name = "dtg_Sucursal";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_Sucursal.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dtg_Sucursal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtg_Sucursal.Size = new System.Drawing.Size(270, 98);
+            this.dtg_Sucursal.TabIndex = 52;
+            this.dtg_Sucursal.DoubleClick += new System.EventHandler(this.dtg_Sucursal_DoubleClick);
+            // 
             // lbl_codigo
             // 
             this.lbl_codigo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_codigo.AutoSize = true;
             this.lbl_codigo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_codigo.Location = new System.Drawing.Point(160, 8);
+            this.lbl_codigo.Location = new System.Drawing.Point(14, 8);
             this.lbl_codigo.Name = "lbl_codigo";
             this.lbl_codigo.Size = new System.Drawing.Size(0, 15);
             this.lbl_codigo.TabIndex = 51;
@@ -362,7 +403,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(460, 110);
+            this.label7.Location = new System.Drawing.Point(314, 110);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 15);
             this.label7.TabIndex = 49;
@@ -371,7 +412,7 @@
             // txt_sitio_web
             // 
             this.txt_sitio_web.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_sitio_web.Location = new System.Drawing.Point(524, 107);
+            this.txt_sitio_web.Location = new System.Drawing.Point(378, 107);
             this.txt_sitio_web.MaxLength = 100;
             this.txt_sitio_web.Name = "txt_sitio_web";
             this.txt_sitio_web.Size = new System.Drawing.Size(197, 20);
@@ -383,7 +424,7 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(460, 84);
+            this.label8.Location = new System.Drawing.Point(314, 84);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(39, 15);
             this.label8.TabIndex = 48;
@@ -392,7 +433,7 @@
             // txt_email
             // 
             this.txt_email.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_email.Location = new System.Drawing.Point(524, 81);
+            this.txt_email.Location = new System.Drawing.Point(378, 81);
             this.txt_email.MaxLength = 100;
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(197, 20);
@@ -404,7 +445,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(460, 58);
+            this.label1.Location = new System.Drawing.Point(314, 58);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 15);
             this.label1.TabIndex = 47;
@@ -413,7 +454,7 @@
             // txt_celular
             // 
             this.txt_celular.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_celular.Location = new System.Drawing.Point(524, 55);
+            this.txt_celular.Location = new System.Drawing.Point(378, 55);
             this.txt_celular.MaxLength = 12;
             this.txt_celular.Name = "txt_celular";
             this.txt_celular.Size = new System.Drawing.Size(197, 20);
@@ -426,7 +467,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(460, 32);
+            this.label6.Location = new System.Drawing.Point(314, 32);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 15);
             this.label6.TabIndex = 46;
@@ -435,7 +476,7 @@
             // txt_telefono
             // 
             this.txt_telefono.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_telefono.Location = new System.Drawing.Point(524, 29);
+            this.txt_telefono.Location = new System.Drawing.Point(378, 29);
             this.txt_telefono.MaxLength = 10;
             this.txt_telefono.Name = "txt_telefono";
             this.txt_telefono.Size = new System.Drawing.Size(197, 20);
@@ -448,7 +489,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(160, 110);
+            this.label5.Location = new System.Drawing.Point(14, 110);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 15);
             this.label5.TabIndex = 45;
@@ -457,7 +498,7 @@
             // txt_direccion
             // 
             this.txt_direccion.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_direccion.Location = new System.Drawing.Point(228, 107);
+            this.txt_direccion.Location = new System.Drawing.Point(82, 107);
             this.txt_direccion.MaxLength = 200;
             this.txt_direccion.Name = "txt_direccion";
             this.txt_direccion.Size = new System.Drawing.Size(211, 20);
@@ -469,7 +510,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(160, 84);
+            this.label4.Location = new System.Drawing.Point(14, 84);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 15);
             this.label4.TabIndex = 44;
@@ -478,7 +519,7 @@
             // txt_ciudad
             // 
             this.txt_ciudad.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_ciudad.Location = new System.Drawing.Point(228, 81);
+            this.txt_ciudad.Location = new System.Drawing.Point(82, 81);
             this.txt_ciudad.MaxLength = 100;
             this.txt_ciudad.Name = "txt_ciudad";
             this.txt_ciudad.Size = new System.Drawing.Size(211, 20);
@@ -490,7 +531,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(160, 58);
+            this.label3.Location = new System.Drawing.Point(14, 58);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 15);
             this.label3.TabIndex = 43;
@@ -499,7 +540,7 @@
             // txt_nombre
             // 
             this.txt_nombre.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_nombre.Location = new System.Drawing.Point(228, 55);
+            this.txt_nombre.Location = new System.Drawing.Point(82, 55);
             this.txt_nombre.MaxLength = 200;
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(211, 20);
@@ -511,7 +552,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(160, 29);
+            this.label2.Location = new System.Drawing.Point(14, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(36, 15);
             this.label2.TabIndex = 42;
@@ -520,7 +561,7 @@
             // txt_dni
             // 
             this.txt_dni.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_dni.Location = new System.Drawing.Point(228, 29);
+            this.txt_dni.Location = new System.Drawing.Point(82, 29);
             this.txt_dni.MaxLength = 50;
             this.txt_dni.Name = "txt_dni";
             this.txt_dni.Size = new System.Drawing.Size(157, 20);
@@ -532,7 +573,7 @@
             // 
             this.txt_digito_verificacion.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_digito_verificacion.Enabled = false;
-            this.txt_digito_verificacion.Location = new System.Drawing.Point(405, 29);
+            this.txt_digito_verificacion.Location = new System.Drawing.Point(259, 29);
             this.txt_digito_verificacion.Name = "txt_digito_verificacion";
             this.txt_digito_verificacion.Size = new System.Drawing.Size(34, 20);
             this.txt_digito_verificacion.TabIndex = 50;
@@ -540,6 +581,7 @@
             // pnl_botones
             // 
             this.pnl_botones.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_botones.Controls.Add(this.btn_sucursal);
             this.pnl_botones.Controls.Add(this.btn_limpiar);
             this.pnl_botones.Controls.Add(this.btn_guardar);
             this.pnl_botones.Dock = System.Windows.Forms.DockStyle.Top;
@@ -547,6 +589,21 @@
             this.pnl_botones.Name = "pnl_botones";
             this.pnl_botones.Size = new System.Drawing.Size(880, 42);
             this.pnl_botones.TabIndex = 34;
+            // 
+            // btn_sucursal
+            // 
+            this.btn_sucursal.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_sucursal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_sucursal.FlatAppearance.BorderSize = 0;
+            this.btn_sucursal.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_sucursal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_sucursal.Image = ((System.Drawing.Image)(resources.GetObject("btn_sucursal.Image")));
+            this.btn_sucursal.Location = new System.Drawing.Point(81, 8);
+            this.btn_sucursal.Name = "btn_sucursal";
+            this.btn_sucursal.Size = new System.Drawing.Size(26, 26);
+            this.btn_sucursal.TabIndex = 3;
+            this.btn_sucursal.UseVisualStyleBackColor = false;
+            this.btn_sucursal.Click += new System.EventHandler(this.btn_sucursal_Click);
             // 
             // btn_limpiar
             // 
@@ -640,6 +697,19 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // cl_cod_sucursal
+            // 
+            this.cl_cod_sucursal.HeaderText = "codigo";
+            this.cl_cod_sucursal.Name = "cl_cod_sucursal";
+            this.cl_cod_sucursal.Visible = false;
+            // 
+            // cl_sucursal
+            // 
+            this.cl_sucursal.HeaderText = "Sucursal";
+            this.cl_sucursal.Name = "cl_sucursal";
+            this.cl_sucursal.ReadOnly = true;
+            this.cl_sucursal.Width = 228;
+            // 
             // frm_cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -659,6 +729,7 @@
             this.panel1.PerformLayout();
             this.pnl_txt.ResumeLayout(false);
             this.pnl_txt.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtg_Sucursal)).EndInit();
             this.pnl_botones.ResumeLayout(false);
             this.pnl_arriba.ResumeLayout(false);
             this.pnl_arriba.PerformLayout();
@@ -714,5 +785,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_email;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_sitio_web;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.DataGridView dtg_Sucursal;
+        private System.Windows.Forms.Button btn_sucursal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_cod_sucursal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_sucursal;
     }
 }

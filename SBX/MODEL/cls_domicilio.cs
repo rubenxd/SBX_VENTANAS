@@ -36,7 +36,8 @@ namespace SBX.MODEL
         public DateTime Fecha { get; set; }
         public string Mensajero { get; set; }
         public double Valor_domicilio { get; set; }
-        public string Estado { get; set; } 
+        public string Estado { get; set; }
+        public string codigoSu { get; set; }
 
         //Metodos
         public DataTable mtd_consultar_domicilio()
@@ -47,7 +48,7 @@ namespace SBX.MODEL
         }
         private void mtd_asignaParametros()
         {
-            Parametros = new SqlParameter[10];
+            Parametros = new SqlParameter[11];
 
             Parametros[0] = new SqlParameter();
             Parametros[0].ParameterName = "@Codigo";
@@ -98,11 +99,17 @@ namespace SBX.MODEL
             Parametros[9].ParameterName = "@Estado";
             Parametros[9].SqlDbType = SqlDbType.VarChar;
             Parametros[9].SqlValue = Estado;
+
+            Parametros[10] = new SqlParameter();
+            Parametros[10].ParameterName = "@sucursal";
+            Parametros[10].SqlDbType = SqlDbType.VarChar;
+            Parametros[10].SqlValue = codigoSu;
         }
         public Boolean mtd_registrar()
         {
-           v_query = " INSERT INTO Domicilio (Cliente,Nombre,Direccion,Telefono,Celular,Mensajero,ValorDomicilio,Fecha,Estado)" +
-                      " VALUES (@Cliente,@Nombre,@Direccion,@Telefono,@Celular,@Mensajero,@ValorDomicilio,@Fecha,@Estado)";
+           
+           v_query = " INSERT INTO Domicilio (Cliente,Nombre,Direccion,Telefono,Celular,Mensajero,ValorDomicilio,Fecha,Estado,sucursal)" +
+                      " VALUES (@Cliente,@Nombre,@Direccion,@Telefono,@Celular,@Mensajero,@ValorDomicilio,@Fecha,@Estado,@sucursal)";
             
             mtd_asignaParametros();
             v_ok = cls_datos.mtd_registrar(Parametros, v_query);

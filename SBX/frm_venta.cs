@@ -37,6 +37,8 @@ namespace SBX
         int Error = 0;
         int Codigo_cliente;
         bool v_confirmacion;
+        string codigoSucursal = "";
+        string NombreSucursal = "";
         public string Usuario { get; set; }
 
         //getter and setter
@@ -436,8 +438,11 @@ namespace SBX
 
             lbl_total.Text = Total.ToString("N0");
         }
-        private void mtd_carga_cliente(string dni)
+        
+        private void mtd_carga_cliente(string dni,string Codsu,string Nomsu)
         {
+            codigoSucursal = Codsu;
+            NombreSucursal = Nomsu;
             txt_cliente.Text = dni;
             errorProvider.Clear();
             v_validado = 0;
@@ -451,7 +456,7 @@ namespace SBX
                 if (v_dt.Rows.Count > 0)
                 {
                     v_row = v_dt.Rows[0];
-                    lbl_nombre_cliente.Text = v_row["Nombre"].ToString();
+                    lbl_nombre_cliente.Text = v_row["Nombre"].ToString() + " - " + codigoSucursal + " - "+ NombreSucursal;
                     Codigo_cliente = Convert.ToInt32(v_row["Codigo"]);
                 }
                 else
@@ -470,7 +475,7 @@ namespace SBX
         {
             v_validado = 0;
             errorProvider.Clear();
-            mtd_carga_cliente(txt_cliente.Text);
+            mtd_carga_cliente(txt_cliente.Text,codigoSucursal,NombreSucursal);
             if (txt_efectivo.Text.Trim() == "")
             {
                 errorProvider.SetError(txt_efectivo, "Ingrese Efectivo");
@@ -545,6 +550,8 @@ namespace SBX
                         cls_Venta.Proveedor = rows.Cells["cl_proveedor"].Value.ToString();
                         cls_Venta.IVA = Convert.ToInt32(rows.Cells["cl_iva"].Value);
                         cls_Venta.DescuentoProveedor = rows.Cells["cl_desc_proveedor"].Value.ToString();
+                        cls_Venta.Nota = txt_nota.Text;
+                        cls_Venta.sucursal = codigoSucursal;
                         if (txt_cliente.Text == "")
                         {
                             cls_Venta.Cliente = 1;
@@ -587,6 +594,7 @@ namespace SBX
                     lbl_total.Text = "0";
                     txt_cliente.Text = "";
                     lbl_nombre_cliente.Text = "--";
+                    txt_nota.Text = "";
                 }
             }
             else if (v_sistema_separado == true)
@@ -640,6 +648,7 @@ namespace SBX
                         cls_Venta.Proveedor = rows.Cells["cl_proveedor"].Value.ToString();
                         cls_Venta.IVA = Convert.ToInt32(rows.Cells["cl_iva"].Value);
                         cls_Venta.DescuentoProveedor = rows.Cells["cl_desc_proveedor"].Value.ToString();
+                        cls_Venta.Nota = txt_nota.Text;
                         if (txt_cliente.Text == "")
                         {
                             cls_Venta.Cliente = 1;
@@ -682,6 +691,7 @@ namespace SBX
                     lbl_total.Text = "0";
                     txt_cliente.Text = "";
                     lbl_nombre_cliente.Text = "--";
+                    txt_nota.Text = "";
                 }
             }
             else
@@ -751,6 +761,8 @@ namespace SBX
                             cls_Venta.Proveedor = rows.Cells["cl_proveedor"].Value.ToString();
                             cls_Venta.IVA = Convert.ToInt32(rows.Cells["cl_iva"].Value);
                             cls_Venta.DescuentoProveedor = rows.Cells["cl_desc_proveedor"].Value.ToString();
+                            cls_Venta.Nota = txt_nota.Text;
+                            cls_Venta.sucursal = codigoSucursal;
                             if (txt_cliente.Text == "")
                             {
                                 cls_Venta.Cliente = 1;
@@ -792,6 +804,7 @@ namespace SBX
                         lbl_total.Text = "0";
                         txt_cliente.Text = "";
                         lbl_nombre_cliente.Text = "--";
+                        txt_nota.Text = "";
                     }
                 }
             }
@@ -830,7 +843,7 @@ namespace SBX
             }
         }
         private void mtd_info_domicilio(string dnid, string celulard, string nombred,
-        string direcciond, string telefonod, string mensajerod, string valor_domiciliod)
+        string direcciond, string telefonod, string mensajerod, string valor_domiciliod,string codigoSu)
         {
             DNI = dnid;
             Celular = celulard;
@@ -849,6 +862,9 @@ namespace SBX
             cls_Domicilio.Mensajero = mensajerod;
             cls_Domicilio.Valor_domicilio = Convert.ToDouble(valor_domicilio);
             cls_Domicilio.Estado = "Pendiente";
+            cls_Domicilio.codigoSu = codigoSu;
+            codigoSucursal = codigoSu;
+
             v_ok =  cls_Domicilio.mtd_registrar();
             if (v_ok == true)
             {
@@ -1211,6 +1227,15 @@ namespace SBX
                 {
                     row.Cells["cl_cantidad"].Value = "1";
                 }
+
+                if (row.Cells["cl_precio"].Value == null)
+                {
+                    row.Cells["cl_precio"].Value = "1";
+                }
+                else if (!cls_Global.IsNumericDouble(row.Cells["cl_precio"].Value.ToString()))
+                {
+                    row.Cells["cl_precio"].Value = "1";
+                }
             }
             mtd_calcular_venta();
             mtd_validar();
@@ -1229,6 +1254,16 @@ namespace SBX
                 {
                     row.Cells["cl_cantidad"].Value = "1";
                 }
+
+                if (row.Cells["cl_precio"].Value == null)
+                {
+                    row.Cells["cl_precio"].Value = "1";
+
+                }
+                else if (!cls_Global.IsNumericDouble(row.Cells["cl_precio"].Value.ToString()))
+                {
+                    row.Cells["cl_precio"].Value = "1";
+                }
             }
             mtd_calcular_venta();
             mtd_validar();
@@ -1245,7 +1280,7 @@ namespace SBX
             if (frm_Ayuda == null || frm_Ayuda.IsDisposed)
             {
                 frm_Ayuda = new frm_ayuda("Buscar cliente");
-                frm_Ayuda.Enviainfo += new frm_ayuda.EnviarInfo(mtd_carga_cliente);
+                frm_Ayuda.Enviainfo2 += new frm_ayuda.EnviarInfo2(mtd_carga_cliente);
                 frm_Ayuda.Show();
             }
             else
@@ -1256,7 +1291,7 @@ namespace SBX
         }
         private void txt_cliente_KeyUp(object sender, KeyEventArgs e)
         {
-            mtd_carga_cliente(txt_cliente.Text);
+            mtd_carga_cliente(txt_cliente.Text,codigoSucursal,NombreSucursal);
         }
         private void txt_cliente_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -1429,6 +1464,24 @@ namespace SBX
         private void timer1_Tick(object sender, EventArgs e)
         {
             lbl_fecha_hora.Text = DateTime.Now.ToString();
+        }
+
+        private void txt_nota_Leave(object sender, EventArgs e)
+        {
+            if (txt_nota.Text == "")
+            {
+                txt_nota.Text = "Nota";
+                txt_nota.ForeColor = Color.Silver;
+            }
+        }
+
+        private void txt_nota_Enter(object sender, EventArgs e)
+        {
+            if (txt_nota.Text == "Nota")
+            {
+                txt_nota.Text = "";
+                txt_nota.ForeColor = Color.Black;
+            }
         }
     }
 }

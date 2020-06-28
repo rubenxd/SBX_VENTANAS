@@ -310,12 +310,16 @@ namespace SBX
                             dtg_ayudas.Columns[4].ReadOnly = true;
                             dtg_ayudas.Columns.Add("cl_celular", "Celular");
                             dtg_ayudas.Columns[5].ReadOnly = true;
-                            dtg_ayudas.Columns.Add("cl_email", "Email");
+                            //dtg_ayudas.Columns.Add("cl_email", "Email");
+                            //dtg_ayudas.Columns[6].ReadOnly = true;
+                            //dtg_ayudas.Columns.Add("cl_sitio_web", "Sitio web");
+                            //dtg_ayudas.Columns[7].ReadOnly = true;
+                            dtg_ayudas.Columns.Add("cl_sucursal_codigo", "Cod Suc");                    
                             dtg_ayudas.Columns[6].ReadOnly = true;
-                            dtg_ayudas.Columns.Add("cl_sitio_web", "Sitio web");
+                            dtg_ayudas.Columns.Add("cl_sucursal", "Sucursal");
                             dtg_ayudas.Columns[7].ReadOnly = true;
 
-                            v_contador = 0;
+                        v_contador = 0;
                             v_filas = v_dt.Rows.Count;
                             dtg_ayudas.Rows.Add(v_filas);
                             foreach (DataRow rows in v_dt.Rows)
@@ -326,10 +330,12 @@ namespace SBX
                                 dtg_ayudas.Rows[v_contador].Cells["cl_direccion"].Value = rows["Direccion"].ToString();
                                 dtg_ayudas.Rows[v_contador].Cells["cl_telefono"].Value = rows["Telefono"].ToString();
                                 dtg_ayudas.Rows[v_contador].Cells["cl_celular"].Value = rows["Celular"].ToString();
-                                dtg_ayudas.Rows[v_contador].Cells["cl_email"].Value = rows["Email"].ToString();
-                                dtg_ayudas.Rows[v_contador].Cells["cl_sitio_web"].Value = rows["SitioWeb"].ToString();
+                                //dtg_ayudas.Rows[v_contador].Cells["cl_email"].Value = rows["Email"].ToString();
+                                //dtg_ayudas.Rows[v_contador].Cells["cl_sitio_web"].Value = rows["SitioWeb"].ToString();
+                                dtg_ayudas.Rows[v_contador].Cells["cl_sucursal_codigo"].Value = rows["cods"].ToString();
+                                dtg_ayudas.Rows[v_contador].Cells["cl_sucursal"].Value = rows["NombreS"].ToString();
 
-                                v_contador++;
+                            v_contador++;
                             }
                         }
                     break;
@@ -544,6 +550,8 @@ namespace SBX
                     case "Buscar cliente":
                         //Enviar DNI de ciente
                         v_dato = dtg_ayudas[0, v_filas].Value.ToString();
+                        v_dato2 = dtg_ayudas[6, v_filas].Value.ToString();
+                        v_dato3 = dtg_ayudas[7, v_filas].Value.ToString();
                         break;
                     case "Buscar Mensajero":
                         //Enviar DNI de mensajero
@@ -557,7 +565,7 @@ namespace SBX
                         break;
                 }
 
-                if (v_busqueda == "Buscar Rol_permiso" || v_busqueda == "Buscar proveedor")
+                if (v_busqueda == "Buscar Rol_permiso" || v_busqueda == "Buscar proveedor" || v_busqueda == "Buscar cliente")
                 {
                     Enviainfo2(v_dato,v_dato2,v_dato3);
                 }
