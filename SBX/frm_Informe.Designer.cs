@@ -43,16 +43,6 @@
             this.pnl_centro = new System.Windows.Forms.Panel();
             this.pnl_abajo = new System.Windows.Forms.Panel();
             this.dtg_informe = new System.Windows.Forms.DataGridView();
-            this.pnl_contenido = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt_resultado = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lbl_resultado = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txt_ventas_domicilio = new System.Windows.Forms.TextBox();
-            this.txt_costos = new System.Windows.Forms.TextBox();
-            this.txt_ventas_directas = new System.Windows.Forms.TextBox();
             this.cl_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_codigo_barras = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_referencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +56,16 @@
             this.cl_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_resultado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.v_modulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnl_contenido = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_resultado = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lbl_resultado = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_ventas_domicilio = new System.Windows.Forms.TextBox();
+            this.txt_costos = new System.Windows.Forms.TextBox();
+            this.txt_ventas_directas = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.pnl_centro.SuspendLayout();
             this.pnl_abajo.SuspendLayout();
@@ -184,7 +184,6 @@
             this.btn_imprimir_reporte.Size = new System.Drawing.Size(26, 26);
             this.btn_imprimir_reporte.TabIndex = 2;
             this.btn_imprimir_reporte.UseVisualStyleBackColor = false;
-            this.btn_imprimir_reporte.Visible = false;
             this.btn_imprimir_reporte.Click += new System.EventHandler(this.btn_imprimir_reporte_Click);
             // 
             // pnl_centro
@@ -252,6 +251,84 @@
             this.dtg_informe.ReadOnly = true;
             this.dtg_informe.Size = new System.Drawing.Size(907, 192);
             this.dtg_informe.TabIndex = 10;
+            // 
+            // cl_item
+            // 
+            this.cl_item.HeaderText = "Item";
+            this.cl_item.Name = "cl_item";
+            this.cl_item.ReadOnly = true;
+            // 
+            // cl_codigo_barras
+            // 
+            this.cl_codigo_barras.HeaderText = "Codigo Barras";
+            this.cl_codigo_barras.Name = "cl_codigo_barras";
+            this.cl_codigo_barras.ReadOnly = true;
+            // 
+            // cl_referencia
+            // 
+            this.cl_referencia.HeaderText = "Referencia";
+            this.cl_referencia.Name = "cl_referencia";
+            this.cl_referencia.ReadOnly = true;
+            // 
+            // cl_nombre
+            // 
+            this.cl_nombre.HeaderText = "Nombre";
+            this.cl_nombre.Name = "cl_nombre";
+            this.cl_nombre.ReadOnly = true;
+            // 
+            // cl_cantidad
+            // 
+            this.cl_cantidad.HeaderText = "Cantidad";
+            this.cl_cantidad.Name = "cl_cantidad";
+            this.cl_cantidad.ReadOnly = true;
+            // 
+            // cl_cantidad_exacta
+            // 
+            this.cl_cantidad_exacta.HeaderText = "Desc. Cantidad";
+            this.cl_cantidad_exacta.Name = "cl_cantidad_exacta";
+            this.cl_cantidad_exacta.ReadOnly = true;
+            // 
+            // cl_um
+            // 
+            this.cl_um.HeaderText = "UM";
+            this.cl_um.Name = "cl_um";
+            this.cl_um.ReadOnly = true;
+            // 
+            // cl_costos
+            // 
+            this.cl_costos.HeaderText = "Costos";
+            this.cl_costos.Name = "cl_costos";
+            this.cl_costos.ReadOnly = true;
+            // 
+            // cl_precio_venta
+            // 
+            this.cl_precio_venta.HeaderText = "Precio venta";
+            this.cl_precio_venta.Name = "cl_precio_venta";
+            this.cl_precio_venta.ReadOnly = true;
+            // 
+            // cl_Descuentos
+            // 
+            this.cl_Descuentos.HeaderText = "Descuentos";
+            this.cl_Descuentos.Name = "cl_Descuentos";
+            this.cl_Descuentos.ReadOnly = true;
+            // 
+            // cl_total
+            // 
+            this.cl_total.HeaderText = "Total";
+            this.cl_total.Name = "cl_total";
+            this.cl_total.ReadOnly = true;
+            // 
+            // cl_resultado
+            // 
+            this.cl_resultado.HeaderText = "Resultado";
+            this.cl_resultado.Name = "cl_resultado";
+            this.cl_resultado.ReadOnly = true;
+            // 
+            // v_modulo
+            // 
+            this.v_modulo.HeaderText = "Modulo";
+            this.v_modulo.Name = "v_modulo";
+            this.v_modulo.ReadOnly = true;
             // 
             // pnl_contenido
             // 
@@ -364,84 +441,6 @@
             this.txt_ventas_directas.Name = "txt_ventas_directas";
             this.txt_ventas_directas.Size = new System.Drawing.Size(250, 26);
             this.txt_ventas_directas.TabIndex = 5;
-            // 
-            // cl_item
-            // 
-            this.cl_item.HeaderText = "Item";
-            this.cl_item.Name = "cl_item";
-            this.cl_item.ReadOnly = true;
-            // 
-            // cl_codigo_barras
-            // 
-            this.cl_codigo_barras.HeaderText = "Codigo Barras";
-            this.cl_codigo_barras.Name = "cl_codigo_barras";
-            this.cl_codigo_barras.ReadOnly = true;
-            // 
-            // cl_referencia
-            // 
-            this.cl_referencia.HeaderText = "Referencia";
-            this.cl_referencia.Name = "cl_referencia";
-            this.cl_referencia.ReadOnly = true;
-            // 
-            // cl_nombre
-            // 
-            this.cl_nombre.HeaderText = "Nombre";
-            this.cl_nombre.Name = "cl_nombre";
-            this.cl_nombre.ReadOnly = true;
-            // 
-            // cl_cantidad
-            // 
-            this.cl_cantidad.HeaderText = "Cantidad";
-            this.cl_cantidad.Name = "cl_cantidad";
-            this.cl_cantidad.ReadOnly = true;
-            // 
-            // cl_cantidad_exacta
-            // 
-            this.cl_cantidad_exacta.HeaderText = "Desc. Cantidad";
-            this.cl_cantidad_exacta.Name = "cl_cantidad_exacta";
-            this.cl_cantidad_exacta.ReadOnly = true;
-            // 
-            // cl_um
-            // 
-            this.cl_um.HeaderText = "UM";
-            this.cl_um.Name = "cl_um";
-            this.cl_um.ReadOnly = true;
-            // 
-            // cl_costos
-            // 
-            this.cl_costos.HeaderText = "Costos";
-            this.cl_costos.Name = "cl_costos";
-            this.cl_costos.ReadOnly = true;
-            // 
-            // cl_precio_venta
-            // 
-            this.cl_precio_venta.HeaderText = "Precio venta";
-            this.cl_precio_venta.Name = "cl_precio_venta";
-            this.cl_precio_venta.ReadOnly = true;
-            // 
-            // cl_Descuentos
-            // 
-            this.cl_Descuentos.HeaderText = "Descuentos";
-            this.cl_Descuentos.Name = "cl_Descuentos";
-            this.cl_Descuentos.ReadOnly = true;
-            // 
-            // cl_total
-            // 
-            this.cl_total.HeaderText = "Total";
-            this.cl_total.Name = "cl_total";
-            this.cl_total.ReadOnly = true;
-            // 
-            // cl_resultado
-            // 
-            this.cl_resultado.HeaderText = "Resultado";
-            this.cl_resultado.Name = "cl_resultado";
-            this.cl_resultado.ReadOnly = true;
-            // 
-            // v_modulo
-            // 
-            this.v_modulo.HeaderText = "Modulo";
-            this.v_modulo.Name = "v_modulo";
-            this.v_modulo.ReadOnly = true;
             // 
             // frm_Informe
             // 

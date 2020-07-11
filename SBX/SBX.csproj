@@ -371,6 +371,12 @@
     <Compile Include="frm_ventas.Designer.cs">
       <DependentUpon>frm_ventas.cs</DependentUpon>
     </Compile>
+    <Compile Include="GananciasPerdidas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GananciasPerdidas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MODEL\cls_caja.cs" />
     <Compile Include="MODEL\cls_categoria.cs" />
     <Compile Include="MODEL\cls_cliente.cs" />
@@ -542,6 +548,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_ventas.resx">
       <DependentUpon>frm_ventas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GananciasPerdidas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GananciasPerdidas.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

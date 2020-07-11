@@ -34,7 +34,7 @@ SELECT
 ,CONCAT(us.Codigo,'-',us.NombreUsuario) Usuario
 FROM Venta v
 INNER JOIN Producto p ON p.Item = v.Producto
-INNER JOIN Cliente c ON c.Codigo = v.Cliente
+LEFT JOIN Cliente c ON c.Codigo = v.Cliente
 LEFT JOIN Sucursal s ON s.Codigo = v.Sucursal
 INNER JOIN Usuario us ON us.Codigo = v.Usuario
 WHERE  CONVERT(date,v.Fecha) BETWEEN @FechaInicio AND @FechaFin
@@ -71,12 +71,12 @@ SELECT
 ,CONCAT(us.Codigo,'-',us.NombreUsuario) Usuario
 FROM Venta v
 INNER JOIN Producto p ON p.Item = v.Producto
-INNER JOIN Cliente c ON c.Codigo = v.Cliente
+LEFT JOIN Cliente c ON c.Codigo = v.Cliente
 LEFT JOIN Sucursal s ON s.Codigo = v.Sucursal
 INNER JOIN Usuario us ON us.Codigo = v.Usuario
-WHERE CONCAT(v.NombreDocumento,'-',v.ConsecutivoDocumento) LIKE @Busqueda+'%' 
+WHERE (CONCAT(v.NombreDocumento,'-',v.ConsecutivoDocumento) LIKE @Busqueda+'%' 
 OR 
-Item LIKE CASE WHEN ISNUMERIC(@Busqueda) = 1 THEN @Busqueda ELSE 0 END 
+Item LIKE CASE WHEN ISNUMERIC(@Busqueda) = 1 THEN @Busqueda ELSE 0 END )
 AND CONVERT(date,v.Fecha) BETWEEN @FechaInicio AND @FechaFin
 END
 ELSE
@@ -109,12 +109,13 @@ SELECT
 ,CONCAT(us.Codigo,'-',us.NombreUsuario) Usuario
 FROM Venta v
 INNER JOIN Producto p ON p.Item = v.Producto
-INNER JOIN Cliente c ON c.Codigo = v.Cliente
+LEFT JOIN Cliente c ON c.Codigo = v.Cliente
 LEFT JOIN Sucursal s ON s.Codigo = v.Sucursal
 INNER JOIN Usuario us ON us.Codigo = v.Usuario
-WHERE CONCAT(v.NombreDocumento,'-',v.ConsecutivoDocumento) = @Busqueda
+WHERE (CONCAT(v.NombreDocumento,'-',v.ConsecutivoDocumento) = @Busqueda
 OR 
-Item = CASE WHEN ISNUMERIC(@Busqueda) = 1 THEN @Busqueda ELSE 0 END
+Item = CASE WHEN ISNUMERIC(@Busqueda) = 1 THEN @Busqueda ELSE 0 END)
 AND CONVERT(date,v.Fecha) BETWEEN @FechaInicio AND @FechaFin
 END
 END
+

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SBX.MODEL;
 using System.Runtime.InteropServices;
+using CrystalDecisions.Shared;
 
 namespace SBX
 {
@@ -145,7 +146,7 @@ namespace SBX
                         Eliminados = 0;
                         Error = 0;
                         foreach (DataGridViewRow rows in dtg_ventas.SelectedRows)
-                        {
+                        { 
                             int num = Convert.ToInt32(rows.Cells["cl_codigo"].Value);
                             cls_Venta.Codigo = num;
                             v_ok = cls_Venta.mtd_eliminar();
@@ -215,7 +216,7 @@ namespace SBX
         }
         private void txt_buscar_KeyUp(object sender, KeyEventArgs e)
         {
-            mtd_cargar_ventas();
+           // mtd_cargar_ventas();
         }
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
@@ -288,8 +289,28 @@ namespace SBX
         private void btn_rp_factura_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            frm_reporte frm_Reporte = new frm_reporte();           
-            frm_Reporte.Show();
+            if (dtg_ventas.SelectedRows.Count > 0)
+            {
+                frm_reporte frm_Reporte = new frm_reporte();
+                Factura factura = new Factura();
+                //instancias                                  
+                ParameterField parameterField = new ParameterField();
+                ParameterFields parameterFields = new ParameterFields();
+                ParameterDiscreteValue parameterDiscreteValue = new ParameterDiscreteValue();
+                foreach (DataGridViewRow rows in dtg_ventas.SelectedRows)
+                {                  
+                    parameterField.Name = "@Factura";
+                    string Fac = rows.Cells["cl_factura"].Value.ToString();
+                    parameterDiscreteValue.Value = Fac;
+                    parameterField.CurrentValues.Add(parameterDiscreteValue);
+                    parameterFields.Add(parameterField);
+                    frm_Reporte.crystalReportViewer1.ParameterFieldInfo = parameterFields;
+                    factura.Load(@"C:\Users\RUBEN\Documents\Ruben\SBX\SBX_VENTANAS\SBX\Factura.rpt");
+                    frm_Reporte.crystalReportViewer1.ReportSource = factura;           
+                }
+                frm_Reporte.Show();
+                //factura.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:\Users\RUBEN\Documents\Ruben\SBX\FacturasPDF\fact.pdf");
+            }
             this.Cursor = Cursors.Default;
         }
     }

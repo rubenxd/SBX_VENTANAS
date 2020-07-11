@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CrystalDecisions.Shared;
 using SBX.MODEL;
 
 namespace SBX
@@ -29,8 +30,35 @@ namespace SBX
 
         private void btn_imprimir_reporte_Click(object sender, EventArgs e)
         {
-            frm_reportes frm_Reportes = new frm_reportes();
-            frm_Reportes.ShowDialog();
+            //frm_reportes frm_Reportes = new frm_reportes();
+            //frm_Reportes.ShowDialog();
+            this.Cursor = Cursors.WaitCursor;          
+            frm_reporte frm_Reporte = new frm_reporte();
+            GananciasPerdidas gananciasPerdidas = new GananciasPerdidas();
+            //instancias                                  
+            ParameterField parameterField = new ParameterField();
+            ParameterFields parameterFields = new ParameterFields();
+            ParameterDiscreteValue parameterDiscreteValue = new ParameterDiscreteValue();
+               
+            parameterField.Name = "@FechaIni";
+            parameterDiscreteValue.Value = dtp_fecha_inicio.Text;
+            parameterField.CurrentValues.Add(parameterDiscreteValue);
+            parameterField.Name = "@FechaFin";
+            parameterDiscreteValue.Value = dtp_fecha_fin.Text;
+            parameterField.CurrentValues.Add(parameterDiscreteValue);
+            parameterField.Name = "@tipoBusqueda";
+            parameterDiscreteValue.Value = cbx_tipo_busqueda.Text;
+            parameterField.CurrentValues.Add(parameterDiscreteValue);
+            parameterField.Name = "@Buscar";
+            parameterDiscreteValue.Value = txt_buscar.Text;
+            parameterField.CurrentValues.Add(parameterDiscreteValue);
+            parameterFields.Add(parameterField);
+            frm_Reporte.crystalReportViewer1.ParameterFieldInfo = parameterFields;
+            gananciasPerdidas.Load(@"C:\Users\RUBEN\Documents\Ruben\SBX\SBX_VENTANAS\SBX\GananciasPerdidas.rpt");
+            frm_Reporte.crystalReportViewer1.ReportSource = gananciasPerdidas;          
+            frm_Reporte.Show();
+            //factura.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:\Users\RUBEN\Documents\Ruben\SBX\FacturasPDF\fact.pdf");          
+            this.Cursor = Cursors.Default;
         }
 
         private void btn_consultar_Click(object sender, EventArgs e)

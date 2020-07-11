@@ -186,6 +186,10 @@ namespace SBX
             if (v_dt.Rows.Count > 0)
             {
                 v_contador = 0;
+                v_dt = v_dt.AsEnumerable()
+                   .GroupBy(r => new { Col1 = r["Codigo"], Col2 = r["Nombre"], Col3 = r["Celular"], Col4 = r["Ciudad"], Col5 = r["Direccion"], Col6 = r["Email"], Col7 = r["SitioWeb"], Col8 = r["Telefono"] })
+                   .Select(g => g.OrderBy(r => r["Codigo"]).First())
+                   .CopyToDataTable();
                 v_filas = v_dt.Rows.Count;
                 dtg_cliente.Rows.Add(v_filas);
                 foreach (DataRow rows in v_dt.Rows)

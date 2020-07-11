@@ -357,6 +357,7 @@ namespace SBX
         }
         private void dtg_productos_DoubleClick(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             if (dtg_productos.Rows.Count > 0)
             {
                 if (btn_editar.Enabled == true)
@@ -372,7 +373,8 @@ namespace SBX
                         frm_Inventario.ShowDialog();
                     }
                 }
-            }          
+            }
+            this.Cursor = Cursors.Default;
         }
         private void btn_eliminar_Click(object sender, EventArgs e)
         {

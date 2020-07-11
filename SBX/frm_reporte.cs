@@ -16,5 +16,13 @@ namespace SBX
         {
             InitializeComponent();
         }
+
+        private void frm_reporte_Load(object sender, EventArgs e)
+        {
+            //Factura factura = new Factura();
+            //factura.SetParameterValue("@NomDOC", "F");
+            //factura.SetParameterValue("@NumDOC", "1");
+            //crystalReportViewer1.ReportSource = factura;
+        }
     }
 }
