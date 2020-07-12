@@ -234,14 +234,14 @@ namespace SBX
                     }
                     mtd_calcular_venta();
                     txt_producto.Text = "";
-                    mtd_rellenar();
+                    mtd_rellenar();                  
                     mtd_calculo_pago();
                 }
             }
             else
             {
                 errorProvider.SetError(txt_producto, "Producto No existe");
-            }
+            }         
         }
         private void mtd_buscar_producto()
         {
@@ -421,6 +421,7 @@ namespace SBX
         }
         private void mtd_calcular_venta()
         {
+            CalcularIVAEMOS();
             double Venta = 0;
             double subtotal = 0;
             double descuento = 0;
@@ -813,6 +814,7 @@ namespace SBX
         }
         private void mtd_calculo_pago()
         {
+            CalcularIVAEMOS();
             double efectivo = 0;
             double debito = 0;
             double credito = 0;
@@ -1183,7 +1185,7 @@ namespace SBX
                     VerificarCaja();
                     if (v_confirmacion == true)
                     { 
-                        mtd_buscar_producto();
+                        mtd_buscar_producto();                      
                         mtd_calculo_pago();
                     }
                 }
@@ -1216,7 +1218,7 @@ namespace SBX
             }
         }
         private void dtg_venta_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
-        {
+        {         
             foreach (DataGridViewRow row in dtg_venta.Rows)
             {
                 if (row.Cells["cl_cantidad"].Value == null)
@@ -1235,12 +1237,38 @@ namespace SBX
                 else if (!cls_Global.IsNumericDouble(row.Cells["cl_precio"].Value.ToString()))
                 {
                     row.Cells["cl_precio"].Value = "1";
-                }
+                }        
             }
+            CalcularIVAEMOS();
             mtd_calcular_venta();
             mtd_validar();
             mtd_calculo_pago();
         }
+
+        private void CalcularIVAEMOS() 
+        {
+            double VALOR_IVA = 0;
+            double IVA = 0;
+            foreach (DataGridViewRow row in dtg_venta.Rows) 
+            {
+                //Validacion iva, cliente EMOS
+                if (row.Cells["cl_nombre"].Value.ToString() == "IVA EMOS")
+                {
+                    IVA = Convert.ToDouble(row.Cells["cl_iva"].Value);
+                    foreach (DataGridViewRow rowIVA in dtg_venta.Rows)
+                    {
+                        if (rowIVA.Cells["cl_nombre"].Value.ToString() != "IVA EMOS")
+                        {
+                            VALOR_IVA += Convert.ToDouble(rowIVA.Cells["cl_costo"].Value) * (IVA / 100);
+                            rowIVA.Cells["cl_precio"].Value = "0";
+                        }
+                    }
+                    row.Cells["cl_precio"].Value = "0";
+                    row.Cells["cl_costo"].Value = VALOR_IVA.ToString("N");
+                }
+            }
+        }
+
         private void dtg_venta_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             foreach (DataGridViewRow row in dtg_venta.Rows)
@@ -1263,8 +1291,9 @@ namespace SBX
                 else if (!cls_Global.IsNumericDouble(row.Cells["cl_precio"].Value.ToString()))
                 {
                     row.Cells["cl_precio"].Value = "1";
-                }
+                }              
             }
+            CalcularIVAEMOS();
             mtd_calcular_venta();
             mtd_validar();
             mtd_calculo_pago();
