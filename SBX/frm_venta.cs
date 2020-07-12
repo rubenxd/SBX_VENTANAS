@@ -1259,7 +1259,7 @@ namespace SBX
                     {
                         if (rowIVA.Cells["cl_nombre"].Value.ToString() != "IVA EMOS")
                         {
-                            VALOR_IVA += Convert.ToDouble(rowIVA.Cells["cl_costo"].Value) * (IVA / 100);
+                            VALOR_IVA += (Convert.ToDouble(rowIVA.Cells["cl_costo"].Value) * Convert.ToDouble(rowIVA.Cells["cl_cantidad"].Value)) * (IVA / 100);
                             rowIVA.Cells["cl_precio"].Value = "0";
                         }
                     }
