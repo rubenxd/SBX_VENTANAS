@@ -50,9 +50,9 @@ namespace SBX
         private void btn_aceptar_Click(object sender, EventArgs e)
         {
             errorProvider.Clear();
-            if (txt_valor.Text.Trim() != "")
+            if (txt_valor.Text.Trim() != "" && txt_valor_iva.Text.Trim() != "")
             {
-                if (cls_Global.IsNumericDouble(txt_valor.Text))
+                if (cls_Global.IsNumericDouble(txt_valor.Text) && cls_Global.IsNumericDouble(txt_valor_iva.Text))
                 {
                     v_dt = cls_Gastos.mtd_consultar_gastos();
                     if (v_dt.Rows.Count > 0)
@@ -67,8 +67,10 @@ namespace SBX
 
                         if (Codigo != 0)
                         {
+                            cls_Gm.proveedor = txt_proveedor.Text;
                             cls_Gm.Gasto = Codigo;
                             cls_Gm.Valor = Convert.ToDouble(txt_valor.Text);
+                            cls_Gm.Valor_iva = txt_valor_iva.Text;
                             v_ok = cls_Gm.mtd_registrar();
                             if (v_ok == true)
                             {
@@ -83,11 +85,13 @@ namespace SBX
                 else
                 {
                     errorProvider.SetError(txt_valor, "Ingrese valores numericos");
+                    errorProvider.SetError(txt_valor_iva, "Ingrese valores numericos");
                 }
             }
             else
             {
                 errorProvider.SetError(txt_valor,"Ingrese valor Gasto");
+                errorProvider.SetError(txt_valor_iva, "Ingrese valores numericos");
             }
         }
 
@@ -99,6 +103,26 @@ namespace SBX
         private void lbl_cerrar_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+        frm_ayuda frm_Ayuda;
+        private void btn_buscar_proveedor_Click(object sender, EventArgs e)
+        {
+            if (frm_Ayuda == null || frm_Ayuda.IsDisposed)
+            {
+                frm_Ayuda = new frm_ayuda("Buscar proveedor");
+                frm_Ayuda.Enviainfo2 += new frm_ayuda.EnviarInfo2(mtd_dato_proveedor);
+                frm_Ayuda.Show();
+            }
+            else
+            {
+                frm_Ayuda.BringToFront();
+                frm_Ayuda.WindowState = FormWindowState.Normal;
+            }
+        }
+        private void mtd_dato_proveedor(string info, string info2, string info3)
+        {
+            txt_proveedor.Text = info;
+            txt_nom_proveedor.Text = info2;
         }
     }
 }

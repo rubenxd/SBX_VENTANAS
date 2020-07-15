@@ -1,6 +1,0 @@
---23-06-2020- Ruben c 
-ALTER TABLE Venta
-ADD Nota VARCHAR(MAX)
----
-ALTER TABLE Venta
-DROP COLUMN Notas_venta

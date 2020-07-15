@@ -34,6 +34,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_cerrar = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txt_nom_proveedor = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_valor_iva = new System.Windows.Forms.TextBox();
+            this.btn_buscar_proveedor = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txt_proveedor = new System.Windows.Forms.TextBox();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_aceptar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -55,7 +62,7 @@
             this.pnl_arriba.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_arriba.Location = new System.Drawing.Point(0, 0);
             this.pnl_arriba.Name = "pnl_arriba";
-            this.pnl_arriba.Size = new System.Drawing.Size(310, 28);
+            this.pnl_arriba.Size = new System.Drawing.Size(341, 28);
             this.pnl_arriba.TabIndex = 1;
             // 
             // label1
@@ -77,7 +84,7 @@
             this.lbl_cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_cerrar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_cerrar.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbl_cerrar.Location = new System.Drawing.Point(283, 3);
+            this.lbl_cerrar.Location = new System.Drawing.Point(314, 3);
             this.lbl_cerrar.Name = "lbl_cerrar";
             this.lbl_cerrar.Size = new System.Drawing.Size(17, 16);
             this.lbl_cerrar.TabIndex = 0;
@@ -87,6 +94,13 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.txt_nom_proveedor);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.txt_valor_iva);
+            this.panel1.Controls.Add(this.btn_buscar_proveedor);
+            this.panel1.Controls.Add(this.label20);
+            this.panel1.Controls.Add(this.txt_proveedor);
             this.panel1.Controls.Add(this.btn_cancelar);
             this.panel1.Controls.Add(this.btn_aceptar);
             this.panel1.Controls.Add(this.label6);
@@ -96,8 +110,85 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(310, 126);
+            this.panel1.Size = new System.Drawing.Size(341, 203);
             this.panel1.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(9, 48);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 15);
+            this.label3.TabIndex = 47;
+            this.label3.Text = "Nombre";
+            // 
+            // txt_nom_proveedor
+            // 
+            this.txt_nom_proveedor.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txt_nom_proveedor.Enabled = false;
+            this.txt_nom_proveedor.Location = new System.Drawing.Point(95, 46);
+            this.txt_nom_proveedor.MaxLength = 200;
+            this.txt_nom_proveedor.Name = "txt_nom_proveedor";
+            this.txt_nom_proveedor.Size = new System.Drawing.Size(197, 20);
+            this.txt_nom_proveedor.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 9F);
+            this.label2.Location = new System.Drawing.Point(10, 128);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 15);
+            this.label2.TabIndex = 45;
+            this.label2.Text = "Valor IVA";
+            // 
+            // txt_valor_iva
+            // 
+            this.txt_valor_iva.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_valor_iva.Location = new System.Drawing.Point(95, 125);
+            this.txt_valor_iva.Name = "txt_valor_iva";
+            this.txt_valor_iva.Size = new System.Drawing.Size(197, 20);
+            this.txt_valor_iva.TabIndex = 5;
+            // 
+            // btn_buscar_proveedor
+            // 
+            this.btn_buscar_proveedor.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_buscar_proveedor.BackColor = System.Drawing.SystemColors.Control;
+            this.btn_buscar_proveedor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_buscar_proveedor.FlatAppearance.BorderSize = 0;
+            this.btn_buscar_proveedor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_buscar_proveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_buscar_proveedor.Image = ((System.Drawing.Image)(resources.GetObject("btn_buscar_proveedor.Image")));
+            this.btn_buscar_proveedor.Location = new System.Drawing.Point(309, 18);
+            this.btn_buscar_proveedor.Name = "btn_buscar_proveedor";
+            this.btn_buscar_proveedor.Size = new System.Drawing.Size(22, 22);
+            this.btn_buscar_proveedor.TabIndex = 1;
+            this.btn_buscar_proveedor.UseVisualStyleBackColor = false;
+            this.btn_buscar_proveedor.Click += new System.EventHandler(this.btn_buscar_proveedor_Click);
+            // 
+            // label20
+            // 
+            this.label20.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(9, 22);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(63, 15);
+            this.label20.TabIndex = 43;
+            this.label20.Text = "Proveedor";
+            // 
+            // txt_proveedor
+            // 
+            this.txt_proveedor.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txt_proveedor.Enabled = false;
+            this.txt_proveedor.Location = new System.Drawing.Point(95, 20);
+            this.txt_proveedor.MaxLength = 50;
+            this.txt_proveedor.Name = "txt_proveedor";
+            this.txt_proveedor.Size = new System.Drawing.Size(197, 20);
+            this.txt_proveedor.TabIndex = 0;
+            this.txt_proveedor.Text = "0";
             // 
             // btn_cancelar
             // 
@@ -108,10 +199,10 @@
             this.btn_cancelar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cancelar.ForeColor = System.Drawing.SystemColors.Window;
             this.btn_cancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_cancelar.Location = new System.Drawing.Point(154, 80);
+            this.btn_cancelar.Location = new System.Drawing.Point(171, 158);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(80, 30);
-            this.btn_cancelar.TabIndex = 33;
+            this.btn_cancelar.TabIndex = 7;
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = false;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
@@ -125,10 +216,10 @@
             this.btn_aceptar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_aceptar.ForeColor = System.Drawing.SystemColors.Window;
             this.btn_aceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_aceptar.Location = new System.Drawing.Point(82, 80);
+            this.btn_aceptar.Location = new System.Drawing.Point(99, 158);
             this.btn_aceptar.Name = "btn_aceptar";
             this.btn_aceptar.Size = new System.Drawing.Size(66, 30);
-            this.btn_aceptar.TabIndex = 32;
+            this.btn_aceptar.TabIndex = 6;
             this.btn_aceptar.Text = "Guardar";
             this.btn_aceptar.UseVisualStyleBackColor = false;
             this.btn_aceptar.Click += new System.EventHandler(this.btn_aceptar_Click);
@@ -138,7 +229,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(15, 15);
+            this.label6.Location = new System.Drawing.Point(10, 74);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 15);
             this.label6.TabIndex = 31;
@@ -149,16 +240,16 @@
             this.cbx_Gasto.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbx_Gasto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_Gasto.FormattingEnabled = true;
-            this.cbx_Gasto.Location = new System.Drawing.Point(80, 13);
+            this.cbx_Gasto.Location = new System.Drawing.Point(95, 72);
             this.cbx_Gasto.Name = "cbx_Gasto";
             this.cbx_Gasto.Size = new System.Drawing.Size(197, 21);
-            this.cbx_Gasto.TabIndex = 30;
+            this.cbx_Gasto.TabIndex = 3;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 9F);
-            this.label4.Location = new System.Drawing.Point(21, 42);
+            this.label4.Location = new System.Drawing.Point(10, 103);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 15);
             this.label4.TabIndex = 29;
@@ -167,10 +258,10 @@
             // txt_valor
             // 
             this.txt_valor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_valor.Location = new System.Drawing.Point(80, 40);
+            this.txt_valor.Location = new System.Drawing.Point(95, 99);
             this.txt_valor.Name = "txt_valor";
             this.txt_valor.Size = new System.Drawing.Size(197, 20);
-            this.txt_valor.TabIndex = 28;
+            this.txt_valor.TabIndex = 4;
             // 
             // errorProvider
             // 
@@ -180,7 +271,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(310, 154);
+            this.ClientSize = new System.Drawing.Size(341, 231);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnl_arriba);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -211,5 +302,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_valor;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Button btn_buscar_proveedor;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txt_proveedor;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txt_valor_iva;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txt_nom_proveedor;
     }
 }

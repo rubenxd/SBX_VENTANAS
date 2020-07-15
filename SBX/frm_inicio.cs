@@ -407,6 +407,7 @@ namespace SBX
         {
             formul.Dispose();
             frm_Informe frm_Informe = new frm_Informe();
+            frm_Informe.v_dt_Permi = v_dt_permisos;
             frm_Informe.Codigo = Codigo;
             ColoresBotones("btn_reportes");
             AbrirFormularioEnPanel(frm_Informe);

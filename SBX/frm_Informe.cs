@@ -17,6 +17,7 @@ namespace SBX
         cls_ganancias_perdidas cl_gp = new cls_ganancias_perdidas();
 
         public string Codigo { get; set; }
+        public DataTable v_dt_Permi { get; set; }
 
         DataTable v_dt;
         int Contador = 0;
@@ -66,11 +67,39 @@ namespace SBX
             double Costos = 0;
             double VentasD = 0;
             double VentasDomicilio = 0;
+            double Gastos = 0;
             double TotalVentas = 0;
             double Resultado = 0;
+            double TotalGastos = 0;
+            double TotalIva = 0;
             Contador = 0;
             Filas = 0;
 
+            //buscar gastos
+            cls_gastos_m cl_gm = new cls_gastos_m();
+            cl_gm.FechaIni = dtp_fecha_inicio.Text;
+            cl_gm.Fechafin = dtp_fecha_fin.Text;
+            v_dt = cl_gm.mtd_consultar_gastos();
+            TotalGastos = 0;
+            TotalIva = 0;
+            if (v_dt.Rows.Count > 0)
+            {
+                foreach (DataRow rows in v_dt.Rows)
+                {
+                    double Valores = Convert.ToDouble(rows["Valor"]);
+                    TotalGastos += Valores;
+                    double ValoresIVA = Convert.ToDouble(rows["ValorIva"]);
+                    TotalIva += ValoresIVA;
+                }
+                double total = TotalGastos + TotalIva;
+                txt_gastos.Text = total.ToString("N0");
+            }
+            else 
+            {
+                txt_gastos.Text = "0";
+            }
+
+             //
             cl_gp.FechaIni = dtp_fecha_inicio.Text;
             cl_gp.FechaFin = dtp_fecha_fin.Text;
             cl_gp.TipoBusqueda = cbx_tipo_busqueda.Text;
@@ -93,7 +122,7 @@ namespace SBX
                     }
                 }
                 TotalVentas = VentasD + VentasDomicilio;
-                Resultado = TotalVentas - Costos;
+                Resultado = (TotalVentas - Costos) - Convert.ToDouble(txt_gastos.Text);
 
                 txt_costos.Text = Costos.ToString("N2");
                 txt_ventas_directas.Text = VentasD.ToString("N2");
@@ -151,6 +180,25 @@ namespace SBX
 
                     Contador++;
                 }
+            }
+            else 
+            {
+                Resultado = (TotalVentas - Costos) - Convert.ToDouble(txt_gastos.Text);
+
+                txt_costos.Text = Costos.ToString("N2");
+                txt_ventas_directas.Text = VentasD.ToString("N2");
+                txt_ventas_domicilio.Text = VentasDomicilio.ToString("N2");
+                txt_resultado.Text = Resultado.ToString("N2");
+
+                if (Resultado < 0)
+                {
+                    lbl_resultado.ForeColor = Color.OrangeRed;
+                }
+                else
+                {
+                    lbl_resultado.ForeColor = Color.SeaGreen;
+                }
+
             }
         }
 
@@ -245,6 +293,16 @@ namespace SBX
                     Contador++;
                 }
             }
+        }
+
+        private void btn_ver_gastos_Click(object sender, EventArgs e)
+        {
+            frm_gastos frm_Gastos = new frm_gastos("Informe");
+            frm_Gastos.dtp_fecha_inicio.Text = this.dtp_fecha_inicio.Text;
+            frm_Gastos.dtp_fecha_fin.Text = this.dtp_fecha_fin.Text;
+            frm_Gastos.FormBorderStyle = FormBorderStyle.FixedDialog;
+            frm_Gastos.v_dt_Permi = v_dt_Permi;
+            frm_Gastos.ShowDialog();
         }
     }
 }

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_gastos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_arriba = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,7 +47,13 @@
             this.cl_id_gasto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_desc_gasto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_valor_iva = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnl_abajo = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txt_valorMasIVA = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txt_total_iva = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_total = new System.Windows.Forms.TextBox();
             this.pnl_arriba.SuspendLayout();
@@ -211,28 +217,30 @@
             this.dtg_gastos.AllowUserToOrderColumns = true;
             this.dtg_gastos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg_gastos.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_gastos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_gastos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtg_gastos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_gastos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cl_fecha,
             this.cl_id_gasto,
             this.cl_desc_gasto,
-            this.cl_valor});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_gastos.DefaultCellStyle = dataGridViewCellStyle6;
+            this.cl_valor,
+            this.cl_proveedor,
+            this.cl_valor_iva});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_gastos.DefaultCellStyle = dataGridViewCellStyle4;
             this.dtg_gastos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtg_gastos.Location = new System.Drawing.Point(0, 42);
             this.dtg_gastos.Name = "dtg_gastos";
@@ -264,9 +272,25 @@
             this.cl_valor.Name = "cl_valor";
             this.cl_valor.ReadOnly = true;
             // 
+            // cl_proveedor
+            // 
+            this.cl_proveedor.HeaderText = "Proveedor";
+            this.cl_proveedor.Name = "cl_proveedor";
+            this.cl_proveedor.ReadOnly = true;
+            // 
+            // cl_valor_iva
+            // 
+            this.cl_valor_iva.HeaderText = "Valor IVA";
+            this.cl_valor_iva.Name = "cl_valor_iva";
+            this.cl_valor_iva.ReadOnly = true;
+            // 
             // pnl_abajo
             // 
             this.pnl_abajo.BackColor = System.Drawing.SystemColors.Window;
+            this.pnl_abajo.Controls.Add(this.label5);
+            this.pnl_abajo.Controls.Add(this.txt_valorMasIVA);
+            this.pnl_abajo.Controls.Add(this.label4);
+            this.pnl_abajo.Controls.Add(this.txt_total_iva);
             this.pnl_abajo.Controls.Add(this.label1);
             this.pnl_abajo.Controls.Add(this.txt_total);
             this.pnl_abajo.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -275,26 +299,70 @@
             this.pnl_abajo.Size = new System.Drawing.Size(784, 47);
             this.pnl_abajo.TabIndex = 6;
             // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(545, 17);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 17);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "Total:";
+            // 
+            // txt_valorMasIVA
+            // 
+            this.txt_valorMasIVA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_valorMasIVA.Enabled = false;
+            this.txt_valorMasIVA.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_valorMasIVA.ForeColor = System.Drawing.Color.Black;
+            this.txt_valorMasIVA.Location = new System.Drawing.Point(595, 14);
+            this.txt_valorMasIVA.Name = "txt_valorMasIVA";
+            this.txt_valorMasIVA.Size = new System.Drawing.Size(175, 23);
+            this.txt_valorMasIVA.TabIndex = 28;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(272, 17);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(69, 17);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "Total IVA:";
+            // 
+            // txt_total_iva
+            // 
+            this.txt_total_iva.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_total_iva.Enabled = false;
+            this.txt_total_iva.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_total_iva.ForeColor = System.Drawing.Color.Black;
+            this.txt_total_iva.Location = new System.Drawing.Point(344, 14);
+            this.txt_total_iva.Name = "txt_total_iva";
+            this.txt_total_iva.Size = new System.Drawing.Size(175, 23);
+            this.txt_total_iva.TabIndex = 26;
+            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(443, 17);
+            this.label1.Location = new System.Drawing.Point(4, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 17);
+            this.label1.Size = new System.Drawing.Size(81, 17);
             this.label1.TabIndex = 25;
-            this.label1.Text = "Total:";
+            this.label1.Text = "Total Valor:";
             // 
             // txt_total
             // 
             this.txt_total.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_total.Enabled = false;
-            this.txt_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_total.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_total.ForeColor = System.Drawing.Color.Black;
-            this.txt_total.Location = new System.Drawing.Point(493, 14);
+            this.txt_total.Location = new System.Drawing.Point(89, 14);
             this.txt_total.Name = "txt_total";
-            this.txt_total.Size = new System.Drawing.Size(282, 23);
+            this.txt_total.Size = new System.Drawing.Size(175, 23);
             this.txt_total.TabIndex = 24;
             // 
             // frm_gastos
@@ -308,7 +376,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_gastos";
-            this.Text = "frm_gastos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Gastos";
             this.Load += new System.EventHandler(this.frm_gastos_Load);
             this.pnl_arriba.ResumeLayout(false);
             this.pnl_arriba.PerformLayout();
@@ -331,14 +400,20 @@
         private System.Windows.Forms.Button btn_agregar_gastos;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dtp_fecha_fin;
-        private System.Windows.Forms.DateTimePicker dtp_fecha_inicio;
+        private System.Windows.Forms.Panel pnl_abajo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txt_total;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_id_gasto;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_desc_gasto;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_valor;
-        private System.Windows.Forms.Panel pnl_abajo;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txt_total;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_proveedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_valor_iva;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txt_total_iva;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txt_valorMasIVA;
+        public System.Windows.Forms.DateTimePicker dtp_fecha_fin;
+        public System.Windows.Forms.DateTimePicker dtp_fecha_inicio;
     }
 }

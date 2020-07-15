@@ -21,38 +21,56 @@ namespace SBX
         int Contador = 0;
         bool v_confirmacion;
         double TotalGastos = 0;
+        double TotalIva = 0;
+        double aplicarPermisos = 0;
+        
         public DataTable v_dt_Permi { get; set; }
 
         public frm_gastos()
         {
             InitializeComponent();
+            aplicarPermisos = 1;
+        }
+        public frm_gastos(string informe)
+        {
+            InitializeComponent();
+            btn_eliminar.Enabled = false;
+            btn_agregar.Enabled = false;
+            btn_agregar_gastos.Enabled = false;
+            dtp_fecha_inicio.Enabled = false;
+            dtp_fecha_fin.Enabled = false;
+            txt_buscar.Enabled = false;
+            aplicarPermisos = 0;
+            mtd_consultar();
         }
         private void frm_gastos_Load(object sender, EventArgs e)
         {
             MensajeInformativoBotones();
             mtd_consultar();
-
-            foreach (DataRow rows in v_dt_Permi.Rows)
+            if (aplicarPermisos == 1)
             {
-                if (rows["Modulo"].ToString() == "GASTOS")
+                foreach (DataRow rows in v_dt_Permi.Rows)
                 {
-                    switch (rows["Permiso"].ToString())
+                    if (rows["Modulo"].ToString() == "GASTOS")
                     {
-                        case "exportar_excel":
-                            btn_exportar_excel.Enabled = true;
-                            break;
-                        case "eliminar":
-                            btn_eliminar.Enabled = true;
-                            break;
-                        case "NomGasto":
-                            btn_agregar.Enabled = true;
-                            break;
-                        case "AgregaGasto":
-                            btn_agregar_gastos.Enabled = true;
-                            break;
+                        switch (rows["Permiso"].ToString())
+                        {
+                            case "exportar_excel":
+                                btn_exportar_excel.Enabled = true;
+                                break;
+                            case "eliminar":
+                                btn_eliminar.Enabled = true;
+                                break;
+                            case "NomGasto":
+                                btn_agregar.Enabled = true;
+                                break;
+                            case "AgregaGasto":
+                                btn_agregar_gastos.Enabled = true;
+                                break;
+                        }
                     }
                 }
-            }
+            }   
         }
         //metodos
         private void mtd_confirmacion(bool confirma)
@@ -113,26 +131,34 @@ namespace SBX
             cl_gm.Fechafin = dtp_fecha_fin.Text;
             v_dt = cl_gm.mtd_consultar_gastos();
             TotalGastos = 0;
+            TotalIva = 0;
             dtg_gastos.Rows.Clear();
             if (v_dt.Rows.Count > 0)
             {
                 Fila = v_dt.Rows.Count;
                 dtg_gastos.Rows.Add(Fila);
                 Contador = 0;
-                
+
                 foreach (DataRow rows in v_dt.Rows)
-                {
+                { 
                     dtg_gastos.Rows[Contador].Cells["cl_id_gasto"].Value = rows["Codigo"];
                     dtg_gastos.Rows[Contador].Cells["cl_fecha"].Value = rows["FechaRegistro"];
                     dtg_gastos.Rows[Contador].Cells["cl_desc_gasto"].Value = rows["Gasto"];
                     double Valores = Convert.ToDouble(rows["Valor"]);
                     TotalGastos += Valores;
                     dtg_gastos.Rows[Contador].Cells["cl_valor"].Value = Valores.ToString("N0");
+                    dtg_gastos.Rows[Contador].Cells["cl_proveedor"].Value = rows["proveedor"];
+                    double ValoresIVA = Convert.ToDouble(rows["ValorIva"]);
+                    TotalIva += ValoresIVA;
+                    dtg_gastos.Rows[Contador].Cells["cl_valor_iva"].Value = ValoresIVA.ToString("N0");
                     Contador++;
                 }
             }
 
             txt_total.Text = TotalGastos.ToString("N0");
+            txt_total_iva.Text = TotalIva.ToString("N0");
+            double total  = TotalGastos + TotalIva;
+            txt_valorMasIVA.Text = total.ToString("N0");
         }
         private void btn_agregar_Click(object sender, EventArgs e)
         {

@@ -141,6 +141,16 @@
         jjZqt5mCUp5MvEwQ87k+pwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="btn_ver_gastos.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAAHkAAAB5ATi1iBIAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAAArElEQVQ4T6WSyw2DQAxEfc6NIqgixXAIEi2QalJFCqCh3FEilploLHmlPSRepIfMs2dZPlZK6aIp
+        /6EtzQZwBTfBemjOVhdmI3iAN6CI0LE3VpkQnsAHeGADd8HaPWemagEcMziAD63yF6J6Bd7n7Cz/3fYO
+        vLmpsYCXWOTiTphh1p4SDrfMOzPojjUde3GW2f4F+h5BjfxL5EkD+c8YFsn/SJXM/soZmvJ3ip0gr7uI
+        tBZeCAAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="cl_item.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

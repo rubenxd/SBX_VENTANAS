@@ -119,5 +119,23 @@ namespace SBX
         {
             mtd_ingresar();
         }
+
+        private void txtContrasena_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Enter
+            if (e.KeyChar == (char)13)
+            {
+                mtd_ingresar();
+            }
+        }
+
+        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Enter
+            if (e.KeyChar == (char)13)
+            {
+                mtd_ingresar();
+            }
+        }
     }
 }

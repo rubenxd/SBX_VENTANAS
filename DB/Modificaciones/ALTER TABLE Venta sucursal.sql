@@ -1,5 +1,0 @@
-ALTER TABLE Venta
-ADD Sucursal INT
-
-ALTER TABLE Venta
-ADD FOREIGN KEY (Sucursal) REFERENCES Sucursal(Codigo)

@@ -117,10 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_buscar_proveedor.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        cwAAAHMBY8FD/gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADNSURBVDhPvZGx
+        DcIwFEQv9hgoIzBAGhiAJmUyQhq2YQQkJqHPCGmzQ2T+2SQy34YQIVGclNzdf/6W4ZxbBNi6gHGUgbnN
+        Pr9zvp95+fkdgJ1AmiBUkV/lfJ89C/v5hPikWDrnTAQwnS6sA0y3AKRw1YU1AGcWgBhDpvARIBrC9kCZ
+        Cb8BcLoU2TYXckjueabeA2zL+1/S0N4lrLliWNOe6OkeZ3n/Xgd873k4gjS6J+oJmJS5BTARoM0tAP+E
+        qflvwJiYwCEF4Kh7Bcz4ANUlUQ4BG03HAAAAAElFTkSuQmCC
+</value>
+  </data>
   <metadata name="errorProvider.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAwAAAAQAAEABABbJAAAxgAAAAAAAAABAAgAq14AACElAAAAAAAAAQAgAK7VAADMgwAAEBAQAAEA
