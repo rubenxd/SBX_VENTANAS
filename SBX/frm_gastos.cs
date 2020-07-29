@@ -223,5 +223,50 @@ namespace SBX
             }
             gm.Codigo = 0;
         }
+
+        private void btn_exportar_excel_Click(object sender, EventArgs e)
+        {
+            cl_gm.Buscar = txt_buscar.Text;
+            cl_gm.FechaIni = dtp_fecha_inicio.Text;
+            cl_gm.Fechafin = dtp_fecha_fin.Text;
+            v_dt = cl_gm.mtd_consultar_gastos();
+            mtd_exporta_excel();
+        }
+        private void mtd_exporta_excel()
+        {
+            frm_exportar_excel frm_Exportando_excel = new frm_exportar_excel();
+            frm_Exportando_excel.Show();
+
+            Microsoft.Office.Interop.Excel.Application Excel = new Microsoft.Office.Interop.Excel.Application();
+            Excel.Application.Workbooks.Add(true);
+            int IndiceColumna = 0;
+
+            frm_Exportando_excel.mtd_progreso(20);
+
+            foreach (DataColumn columna in v_dt.Columns)
+            {
+                IndiceColumna++;
+                Excel.Cells[1, IndiceColumna] = columna.ColumnName;
+            }
+            frm_Exportando_excel.mtd_progreso(70);
+            int IndiceFila = 0;
+
+            foreach (DataRow Row in v_dt.Rows)
+            {
+                IndiceFila++;
+                IndiceColumna = 0;
+
+                foreach (DataColumn Columna in v_dt.Columns)
+                {
+                    IndiceColumna++;
+                    Excel.Cells[IndiceFila + 1, IndiceColumna] = Row[Columna.ColumnName];
+
+                }
+            }
+            frm_Exportando_excel.mtd_progreso(100);
+            frm_Exportando_excel.Hide();
+
+            Excel.Visible = true;
+        }
     }
 }
