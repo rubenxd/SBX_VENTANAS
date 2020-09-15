@@ -333,11 +333,11 @@
             this.label25.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(583, 366);
+            this.label25.Location = new System.Drawing.Point(516, 366);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(29, 15);
             this.label25.TabIndex = 66;
-            this.label25.Text = "Sob";
+            this.label25.Text = "Sub";
             this.label25.Visible = false;
             // 
             // lbl_sob
@@ -347,7 +347,7 @@
             this.lbl_sob.BackColor = System.Drawing.Color.SeaGreen;
             this.lbl_sob.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_sob.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbl_sob.Location = new System.Drawing.Point(619, 366);
+            this.lbl_sob.Location = new System.Drawing.Point(552, 366);
             this.lbl_sob.Name = "lbl_sob";
             this.lbl_sob.Size = new System.Drawing.Size(16, 18);
             this.lbl_sob.TabIndex = 65;
@@ -359,11 +359,11 @@
             this.label24.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(510, 366);
+            this.label24.Location = new System.Drawing.Point(601, 366);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(32, 15);
+            this.label24.Size = new System.Drawing.Size(31, 15);
             this.label24.TabIndex = 64;
-            this.label24.Text = "Sub:";
+            this.label24.Text = "und:";
             this.label24.Visible = false;
             // 
             // lbl_sub
@@ -373,7 +373,7 @@
             this.lbl_sub.BackColor = System.Drawing.Color.SeaGreen;
             this.lbl_sub.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_sub.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbl_sub.Location = new System.Drawing.Point(546, 366);
+            this.lbl_sub.Location = new System.Drawing.Point(637, 366);
             this.lbl_sub.Name = "lbl_sub";
             this.lbl_sub.Size = new System.Drawing.Size(16, 18);
             this.lbl_sub.TabIndex = 63;

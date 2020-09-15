@@ -1032,10 +1032,10 @@ namespace SBX
                 v_row = v_dt.Rows[0];
                 double Stock = Convert.ToDouble(v_row["Stock"]);
                 lbl_stock_actual.Text = Math.Round(Stock, 2).ToString();
-                double StockSubCantidad = Convert.ToDouble(v_row["Stock Sub"]);
+                double StockSubCantidad = Convert.ToDouble(v_row["Stock und"]);
                 lbl_sub.Text = Math.Round(StockSubCantidad, 2).ToString();
-                //double StockSobres = Convert.ToDouble(v_row["StockSobres"]);
-                //lbl_sob.Text = Math.Round(StockSobres, 2).ToString();
+                double StockSobres = Convert.ToDouble(v_row["Stock Sub"]);
+                lbl_sob.Text = Math.Round(StockSobres, 2).ToString();
             }
 
             txt_item.Enabled = false;

@@ -16,7 +16,9 @@ namespace SBX
         cls_global cls_Global = new cls_global();
         cls_caja cls_Caja = new cls_caja();
         bool v_ok = true;
-
+        //Delegado
+        public delegate void Confirmacion(bool dato);
+        public event Confirmacion Confirma;
         public string Usuario { get; set; }
 
         public frm_apertura_caja()
@@ -37,7 +39,7 @@ namespace SBX
                     cls_Caja.Codigo_Ultima_venta = "0";
                     v_ok = cls_Caja.mtd_registrar();
                     if (v_ok == true)
-                    {
+                    {                      
                         frm_msg frm_Msg = new frm_msg();
                         frm_Msg.txt_mensaje.Text = "Apertura de caja correcta";
                         frm_Msg.ShowDialog();
@@ -57,7 +59,13 @@ namespace SBX
 
         private void lbl_cerrar_Click(object sender, EventArgs e)
         {
+            Confirma(false);
             this.Close();
+        }
+
+        private void frm_apertura_caja_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

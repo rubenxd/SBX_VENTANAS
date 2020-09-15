@@ -57,6 +57,7 @@
             this.lbl_cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_cerrar.AutoSize = true;
             this.lbl_cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_cerrar.Enabled = false;
             this.lbl_cerrar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_cerrar.ForeColor = System.Drawing.SystemColors.Window;
             this.lbl_cerrar.Location = new System.Drawing.Point(421, 3);
@@ -64,6 +65,7 @@
             this.lbl_cerrar.Size = new System.Drawing.Size(17, 16);
             this.lbl_cerrar.TabIndex = 1;
             this.lbl_cerrar.Text = "X";
+            this.lbl_cerrar.Visible = false;
             this.lbl_cerrar.Click += new System.EventHandler(this.lbl_cerrar_Click);
             // 
             // lbl_titulo

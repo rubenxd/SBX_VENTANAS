@@ -147,6 +147,7 @@
             this.Name = "frm_apertura_caja";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_apertura_caja";
+            this.Load += new System.EventHandler(this.frm_apertura_caja_Load);
             this.pnl_arriba.ResumeLayout(false);
             this.pnl_arriba.PerformLayout();
             this.panel1.ResumeLayout(false);

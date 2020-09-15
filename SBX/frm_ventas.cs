@@ -67,6 +67,7 @@ namespace SBX
                 lbl_total_ventas.Text = "0";
                 double VentasTotales = 0;
                 double CantidadVenta = 0;
+                float CantidadExacta = 0;
                 string Factura = "";
                 
                 foreach (DataRow rows in v_dt.Rows)
@@ -80,11 +81,12 @@ namespace SBX
                     dtg_ventas.Rows[v_contador].Cells["cl_codigo_baras"].Value = rows["CodigoBarras"];
                     dtg_ventas.Rows[v_contador].Cells["cl_modo_venta"].Value = rows["ModoVenta"];
                     dtg_ventas.Rows[v_contador].Cells["cl_um"].Value = rows["UM"];
-                    CantidadVenta += Convert.ToDouble(rows["Cantidad"]);
-                    dtg_ventas.Rows[v_contador].Cells["cl_cantidad"].Value = rows["Cantidad"];
-                    double costo = Convert.ToDouble(rows["Costo"]);
+                    CantidadExacta += float.Parse(rows["Cantidad_exacta"].ToString());
+                    dtg_ventas.Rows[v_contador].Cells["cl_cantidad"].Value = rows["Cantidad_exacta"].ToString();
+                  
+                    double costo = Convert.ToDouble(rows["Costo2"]);
                     dtg_ventas.Rows[v_contador].Cells["cl_costo"].Value = costo.ToString("N2");
-                    double PrecioVenta = Convert.ToDouble(rows["PrecioVenta"]) ;
+                    double PrecioVenta = Convert.ToDouble(rows["PrecioVenta2"]) ;
                     dtg_ventas.Rows[v_contador].Cells["cl_precio_venta"].Value = PrecioVenta.ToString("N2");
                     dtg_ventas.Rows[v_contador].Cells["descuento"].Value = rows["descuento"];
                     double ValorDescuento = Convert.ToDouble(rows["ValorDescuento"]);
@@ -123,7 +125,8 @@ namespace SBX
                 }
 
                 lbl_total_ventas.Text = VentasTotales.ToString("N");
-                lbl_cantidad.Text = CantidadVenta.ToString();
+                //lbl_cantidad.Text = CantidadVenta.ToString();
+                lbl_cantidad.Text = CantidadExacta.ToString();
             }
         }
         private void mtd_confirmacion(bool confirma)

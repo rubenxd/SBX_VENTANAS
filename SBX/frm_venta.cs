@@ -522,21 +522,41 @@ namespace SBX
                         cls_Venta.ModoVenta = rows.Cells["cl_modo_venta"].Value.ToString();
                         cls_Venta.UM = rows.Cells["cl_UM"].Value.ToString();
                         float Cantidad = 0;
-                        if (rows.Cells["cl_UM"].Value.ToString() != "UND" && rows.Cells["cl_UM"].Value.ToString() != "Bulto" && rows.Cells["cl_UM"].Value.ToString() != "Caja" && rows.Cells["cl_UM"].Value.ToString() != "Bolsa")
+                        float Base = 0;
+                        float Division = 0;
+                        switch (rows.Cells["cl_modo_venta"].Value.ToString())
                         {
-                            if (rows.Cells["cl_UM"].Value.ToString() == "Sobre")
-                            {
-                                Cantidad = (1 / float.Parse(rows.Cells["cl_sobre"].Value.ToString())) * float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
-                            }
-                            else
-                            {
-                                Cantidad = (1 / float.Parse(rows.Cells["cl_subCantidad"].Value.ToString())) * float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
-                            }
+                            case "Multi":
+                                Base = (float.Parse(rows.Cells["cl_subCantidad"].Value.ToString()) * float.Parse(rows.Cells["cl_sobre"].Value.ToString()));
+                                Division = 1 / Base;
+                                Cantidad = (Division * float.Parse(rows.Cells["cl_cantidad"].Value.ToString()));
+                                break;
+                            case "pesaje":
+                                Base = (float.Parse(rows.Cells["cl_subCantidad"].Value.ToString()));
+                                Division = 1 / Base;
+                                Cantidad = (Division * float.Parse(rows.Cells["cl_cantidad"].Value.ToString()));
+                                break;
+
                         }
-                        else
-                        {
-                            Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
-                        }
+
+                        //if (rows.Cells["cl_UM"].Value.ToString() != "UND" && rows.Cells["cl_UM"].Value.ToString() != "Bulto" && rows.Cells["cl_UM"].Value.ToString() != "Caja" && rows.Cells["cl_UM"].Value.ToString() != "Bolsa")
+                        //{
+                        //    if (rows.Cells["cl_UM"].Value.ToString() == "Sobre")
+                        //    {
+                        //        Cantidad = (1 / float.Parse(rows.Cells["cl_sobre"].Value.ToString())) * float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                        //    }
+                        //    else
+                        //    {
+                        //        float Base = (float.Parse(rows.Cells["cl_subCantidad"].Value.ToString()) * float.Parse(rows.Cells["cl_sobre"].Value.ToString()));
+                        //        float Division = 1 / Base;
+                        //        Cantidad = (Division * float.Parse(rows.Cells["cl_cantidad"].Value.ToString()));
+                        //    }
+                        //}
+                        //else
+                        //{
+                        //    Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                        //}
+                        //Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
                         cls_Venta.Cantidad = Cantidad;
                         cls_Venta.Costo = Convert.ToDouble(rows.Cells["cl_costo"].Value);
                         cls_Venta.PrecioVenta = Convert.ToDouble(rows.Cells["cl_precio"].Value);
@@ -620,21 +640,41 @@ namespace SBX
                         cls_Venta.ModoVenta = rows.Cells["cl_modo_venta"].Value.ToString();
                         cls_Venta.UM = rows.Cells["cl_UM"].Value.ToString();
                         float Cantidad = 0;
-                        if (rows.Cells["cl_UM"].Value.ToString() != "UND" && rows.Cells["cl_UM"].Value.ToString() != "Bulto" && rows.Cells["cl_UM"].Value.ToString() != "Caja" && rows.Cells["cl_UM"].Value.ToString() != "Bolsa")
+                        float Base = 0;
+                        float Division = 0;
+                        switch (rows.Cells["cl_modo_venta"].Value.ToString())
                         {
-                            if (rows.Cells["cl_UM"].Value.ToString() == "Sobre")
-                            {
-                                Cantidad = (1 / float.Parse(rows.Cells["cl_sobre"].Value.ToString())) * float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
-                            }
-                            else
-                            {
-                                Cantidad = (1 / float.Parse(rows.Cells["cl_subCantidad"].Value.ToString())) * float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
-                            }
+                            case "Multi":
+                                Base = (float.Parse(rows.Cells["cl_subCantidad"].Value.ToString()) * float.Parse(rows.Cells["cl_sobre"].Value.ToString()));
+                                Division = 1 / Base;
+                                Cantidad = (Division * float.Parse(rows.Cells["cl_cantidad"].Value.ToString()));
+                                break;
+                            case "pesaje":
+                                Base = (float.Parse(rows.Cells["cl_subCantidad"].Value.ToString()));
+                                Division = 1 / Base;
+                                Cantidad = (Division * float.Parse(rows.Cells["cl_cantidad"].Value.ToString()));
+                                break;
+
                         }
-                        else
-                        {
-                            Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
-                        }
+
+                        //if (rows.Cells["cl_UM"].Value.ToString() != "UND" && rows.Cells["cl_UM"].Value.ToString() != "Bulto" && rows.Cells["cl_UM"].Value.ToString() != "Caja" && rows.Cells["cl_UM"].Value.ToString() != "Bolsa")
+                        //{
+                        //    if (rows.Cells["cl_UM"].Value.ToString() == "Sobre")
+                        //    {
+                        //        Cantidad = (1 / float.Parse(rows.Cells["cl_sobre"].Value.ToString())) * float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                        //    }
+                        //    else
+                        //    {
+                        //        float Base = (float.Parse(rows.Cells["cl_subCantidad"].Value.ToString()) * float.Parse(rows.Cells["cl_sobre"].Value.ToString()));
+                        //        float Division = 1 / Base;
+                        //        Cantidad = (Division * float.Parse(rows.Cells["cl_cantidad"].Value.ToString()));
+                        //    }
+                        //}
+                        //else
+                        //{
+                        //    Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                        //}
+                        //Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
                         cls_Venta.Cantidad = Cantidad;
                         cls_Venta.Costo = Convert.ToDouble(rows.Cells["cl_costo"].Value);
                         cls_Venta.PrecioVenta = Convert.ToDouble(rows.Cells["cl_precio"].Value);
@@ -713,6 +753,7 @@ namespace SBX
 
                         foreach (DataGridViewRow rows in dtg_venta.Rows)
                         {
+                            
                             cls_Venta.Fecha = DateTime.Now.ToString();
                             cls_Venta.NombreDocumento = Documento;
                             cls_Venta.ConsecutivoDocumento = ConsDocumento.ToString();
@@ -720,21 +761,78 @@ namespace SBX
                             cls_Venta.ModoVenta = rows.Cells["cl_modo_venta"].Value.ToString();
                             cls_Venta.UM = rows.Cells["cl_UM"].Value.ToString();
                             float Cantidad = 0;
-                            if (rows.Cells["cl_UM"].Value.ToString() != "UND" && rows.Cells["cl_UM"].Value.ToString() != "Bulto" && rows.Cells["cl_UM"].Value.ToString() != "Caja" && rows.Cells["cl_UM"].Value.ToString() != "Bolsa")
+                            float Base = 0;
+                            float Division = 0;
+                            switch (rows.Cells["cl_modo_venta"].Value.ToString())
                             {
-                                if (rows.Cells["cl_UM"].Value.ToString() == "Sobre")
-                                {
-                                    Cantidad = (1 / float.Parse(rows.Cells["cl_sobre"].Value.ToString())) * float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
-                                }
-                                else
-                                {
-                                    Cantidad = (1 / float.Parse(rows.Cells["cl_subCantidad"].Value.ToString())) * float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
-                                }
+                                case "Unidad":
+                                    Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                                    break;
+                                case "Multi":
+                                    if (rows.Cells["cl_UM"].Value.ToString() == "UND P")
+                                    {
+                                        Base = (float.Parse(rows.Cells["cl_subCantidad"].Value.ToString()) * float.Parse(rows.Cells["cl_sobre"].Value.ToString()));
+                                        Division = 1 / Base;
+                                        Cantidad = (Division * float.Parse(rows.Cells["cl_cantidad"].Value.ToString()));
+                                    }
+                                    if (rows.Cells["cl_UM"].Value.ToString() == "Sobre")
+                                    {
+                                        Cantidad = (1 / float.Parse(rows.Cells["cl_sobre"].Value.ToString())) * float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                                    }
+                                    if (rows.Cells["cl_UM"].Value.ToString() == "Caja")
+                                    {
+                                        Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                                    }                                                                   
+                                    break;
+                                case "Pesaje":
+                                    if (rows.Cells["cl_UM"].Value.ToString() != "Bulto")
+                                    {
+                                        Base = (float.Parse(rows.Cells["cl_subCantidad"].Value.ToString()));
+                                        Division = 1 / Base;
+                                        Cantidad = (Division * float.Parse(rows.Cells["cl_cantidad"].Value.ToString()));
+                                    }
+                                    else
+                                    {
+                                        Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                                    }
+                                   
+                                    break;
+                                case "Desechable":
+                                    if (rows.Cells["cl_UM"].Value.ToString() != "Bolsa")
+                                    {
+                                        Base = (float.Parse(rows.Cells["cl_subCantidad"].Value.ToString()));
+                                        Division = 1 / Base;
+                                        Cantidad = (Division * float.Parse(rows.Cells["cl_cantidad"].Value.ToString()));
+                                    }
+                                    else
+                                    {
+                                        Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                                    }                                   
+                                    break;
+                                case "Queso":
+                                    Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                                    break;
                             }
-                            else
-                            {
-                                Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
-                            }
+
+                           
+                            //if (rows.Cells["cl_UM"].Value.ToString() != "UND" && rows.Cells["cl_UM"].Value.ToString() != "Bulto" && rows.Cells["cl_UM"].Value.ToString() != "Caja" && rows.Cells["cl_UM"].Value.ToString() != "Bolsa")
+                            //{
+                            //    if (rows.Cells["cl_UM"].Value.ToString() == "Sobre")
+                            //    {
+                            //        Cantidad = (1 / float.Parse(rows.Cells["cl_sobre"].Value.ToString())) * float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                            //    }
+                            //    else
+                            //    {
+                            //        float Base = (float.Parse(rows.Cells["cl_subCantidad"].Value.ToString()) * float.Parse(rows.Cells["cl_sobre"].Value.ToString()));
+                            //        float Division = 1 / Base;
+                            //        Cantidad = (Division * float.Parse(rows.Cells["cl_cantidad"].Value.ToString()));
+                            //    }
+                            //}
+                            //else
+                            //{
+                            //    Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                            //}
+                            //Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
                             cls_Venta.Cantidad = Cantidad;
                             cls_Venta.Costo = Convert.ToDouble(rows.Cells["cl_costo"].Value);
                             cls_Venta.PrecioVenta = Convert.ToDouble(rows.Cells["cl_precio"].Value);

@@ -188,23 +188,40 @@ namespace SBX
                             dtg_ayudas.Columns[2].ReadOnly = true;
                             dtg_ayudas.Columns.Add("cl_precioVenta", "Precio");
                             dtg_ayudas.Columns[3].ReadOnly = true;
-                            dtg_ayudas.Columns.Add("cl_stock", "Stock");
+                            dtg_ayudas.Columns.Add("cl_stock", "Stock");            
                             dtg_ayudas.Columns[4].ReadOnly = true;
-                            dtg_ayudas.Columns.Add("cl_codigo_barras", "Codigo barras");
+                            dtg_ayudas.Columns.Add("cl_precio_sub", "Precio sub");
                             dtg_ayudas.Columns[5].ReadOnly = true;
-
+                            dtg_ayudas.Columns.Add("cl_sub", "stock sub");
+                            dtg_ayudas.Columns[6].ReadOnly = true;
+                            dtg_ayudas.Columns.Add("cl_precio_und", "Precio und");
+                            dtg_ayudas.Columns[7].ReadOnly = true;
+                            dtg_ayudas.Columns.Add("cl_und", "Stock und");
+                            dtg_ayudas.Columns[8].ReadOnly = true;
+                            dtg_ayudas.Columns.Add("cl_codigo_barras", "Codigo barras");
                             v_contador = 0;
+                            cls_producto cls_Producto = new cls_producto();
+                            DataTable DTDatos = new DataTable();
+                            double precio = 0;
                             v_filas = v_dt.Rows.Count;
                             dtg_ayudas.Rows.Add(v_filas);
                             foreach (DataRow rows in v_dt.Rows)
                             {
-
+                                precio = 0;
                                 dtg_ayudas.Rows[v_contador].Cells["cl_item"].Value = string.Format("{0:0000}", rows["Item"]);
                                 dtg_ayudas.Rows[v_contador].Cells["cl_nombre"].Value = rows["Nombre"].ToString();
                                 dtg_ayudas.Rows[v_contador].Cells["cl_referencia"].Value = rows["Referencia"].ToString();
-                                double precio = Convert.ToDouble(rows["PrecioVenta"]);
-                                dtg_ayudas.Rows[v_contador].Cells["cl_precioVenta"].Value = precio.ToString("N0");
-                                dtg_ayudas.Rows[v_contador].Cells["cl_stock"].Value = rows["Stock"].ToString();
+                                //Consulta stock de producto              
+                                cls_Producto.v_buscar = rows["Item"].ToString();
+                                cls_Producto.v_tipo_busqueda = "Exactamente";
+                                DTDatos = cls_Producto.mtd_consultar_producto_kardex();
+                                DataRow DTRows = DTDatos.Rows[0];                             
+                                dtg_ayudas.Rows[v_contador].Cells["cl_precioVenta"].Value = DTRows["Precio"].ToString();
+                                dtg_ayudas.Rows[v_contador].Cells["cl_stock"].Value = DTRows["Stock"].ToString();                              
+                                dtg_ayudas.Rows[v_contador].Cells["cl_precio_sub"].Value = DTRows["Vlr. Sub"];
+                                dtg_ayudas.Rows[v_contador].Cells["cl_sub"].Value = DTRows["Stock Sub"].ToString();                               
+                                dtg_ayudas.Rows[v_contador].Cells["cl_precio_und"].Value = DTRows["Vlr. und"];
+                                dtg_ayudas.Rows[v_contador].Cells["cl_und"].Value = DTRows["Stock und"].ToString();
                                 dtg_ayudas.Rows[v_contador].Cells["cl_codigo_barras"].Value = rows["CodigoBarras"].ToString();
                                 v_contador++;
 
@@ -471,9 +488,18 @@ namespace SBX
                 dtg_ayudas.Columns[3].ReadOnly = true;
                 dtg_ayudas.Columns.Add("cl_stock", "Stock");
                 dtg_ayudas.Columns[4].ReadOnly = true;
-                dtg_ayudas.Columns.Add("cl_codigo_barras", "Codigo barras");
+                dtg_ayudas.Columns.Add("cl_precio_sub", "Precio sub");
                 dtg_ayudas.Columns[5].ReadOnly = true;
-
+                dtg_ayudas.Columns.Add("cl_sub", "stock sub");
+                dtg_ayudas.Columns[6].ReadOnly = true;
+                dtg_ayudas.Columns.Add("cl_precio_und", "Precio und");
+                dtg_ayudas.Columns[7].ReadOnly = true;
+                dtg_ayudas.Columns.Add("cl_und", "Stock und");
+                dtg_ayudas.Columns[8].ReadOnly = true;
+                dtg_ayudas.Columns.Add("cl_codigo_barras", "Codigo barras");
+                cls_producto cls_Producto = new cls_producto();
+                DataTable DTDatos = new DataTable();
+                double precio = 0;
                 v_contador = 0;
                 v_filas = v_dt.Rows.Count;
                 dtg_ayudas.Rows.Add(v_filas);
@@ -483,9 +509,17 @@ namespace SBX
                     dtg_ayudas.Rows[v_contador].Cells["cl_item"].Value = string.Format("{0:0000}", rows["Item"]);
                     dtg_ayudas.Rows[v_contador].Cells["cl_nombre"].Value = rows["Nombre"].ToString();
                     dtg_ayudas.Rows[v_contador].Cells["cl_referencia"].Value = rows["Referencia"].ToString();
-                    double precio = Convert.ToDouble(rows["PrecioVenta"]);
-                    dtg_ayudas.Rows[v_contador].Cells["cl_precioVenta"].Value = precio.ToString("N0");
-                    dtg_ayudas.Rows[v_contador].Cells["cl_stock"].Value = rows["Stock"].ToString();
+                    //Consulta stock de producto              
+                    cls_Producto.v_buscar = rows["Item"].ToString();
+                    cls_Producto.v_tipo_busqueda = "Exactamente";
+                    DTDatos = cls_Producto.mtd_consultar_producto_kardex();
+                    DataRow DTRows = DTDatos.Rows[0];
+                    dtg_ayudas.Rows[v_contador].Cells["cl_precioVenta"].Value = DTRows["Precio"].ToString();
+                    dtg_ayudas.Rows[v_contador].Cells["cl_stock"].Value = DTRows["Stock"].ToString();
+                    dtg_ayudas.Rows[v_contador].Cells["cl_precio_sub"].Value = DTRows["Vlr. Sub"];
+                    dtg_ayudas.Rows[v_contador].Cells["cl_sub"].Value = DTRows["Stock Sub"].ToString();
+                    dtg_ayudas.Rows[v_contador].Cells["cl_precio_und"].Value = DTRows["Vlr. und"];
+                    dtg_ayudas.Rows[v_contador].Cells["cl_und"].Value = DTRows["Stock und"].ToString();
                     dtg_ayudas.Rows[v_contador].Cells["cl_codigo_barras"].Value = rows["CodigoBarras"].ToString();
                     v_contador++;
 
