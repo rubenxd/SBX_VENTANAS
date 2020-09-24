@@ -40,6 +40,7 @@ namespace SBX
         {
             mtd_mensajeInformativoBotones();
             cbx_tipo_busqueda.SelectedIndex = 0;
+            cbx_dato_busqueda.SelectedIndex = 0;
 
             foreach (DataRow rows in v_dt_Permi.Rows)
             {
@@ -77,6 +78,7 @@ namespace SBX
         }
         string v_buscar = "";
         string v_tipo_busqueda = "";
+        string v_dato_busqueda = "";
         private void mtd_cargar_productos()
         {
             this.Cursor = Cursors.WaitCursor;
@@ -92,16 +94,23 @@ namespace SBX
                 cls_Producto.v_buscar = txt_buscar.Text;
                 v_buscar = txt_buscar.Text;
             }
-          
-            DataSet ds = new DataSet();
-            int maximo_x_pagina = 16;//cargar por default
-            p = new Paginar("EXECUTE SP_CONSULTA_ESTADO_PRODUCTOS '" + v_buscar + "','" + v_tipo_busqueda + "' ", "DataMember1", maximo_x_pagina);
-          
-            //v_dt = cls_Producto.mtd_consultar_producto_kardex();
-            //dtg_productos.Rows.Clear();
-            dtg_productos.DataSource = p.cargar();
-            dtg_productos.DataMember = "datamember1";
-            dtg_productos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            v_dato_busqueda = cbx_dato_busqueda.Text;
+            cls_Producto.v_data_busqueda = v_dato_busqueda;
+            dtg_productos.DataSource = cls_Producto.mtd_consultar_todos_productos();
+
+
+            //DataSet ds = new DataSet();
+            //int maximo_x_pagina = 16;//cargar por default
+            //p = new Paginar("EXECUTE SP_CONSULTA_ESTADO_PRODUCTOS '" + v_buscar + "','" + cbx_tipo_busqueda.Text + "','" + v_dato_busqueda + "' ", "DataMember1", maximo_x_pagina);
+
+            ////v_dt = cls_Producto.mtd_consultar_producto_kardex();
+            ////dtg_productos.Rows.Clear();
+            //dtg_productos.DataSource = p.cargar();
+            //dtg_productos.DataMember = "datamember1";
+            //dtg_productos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+
+
             //if (v_dt.Rows.Count > 0)
             //{
             //    v_fila = v_dt.Rows.Count;
@@ -178,7 +187,7 @@ namespace SBX
             //        v_contador++;
             //    }
             //}
-            actualizar();
+            //actualizar();
             this.Cursor = Cursors.Default;
         }
         private void mtd_exporta_excel()
@@ -319,7 +328,7 @@ namespace SBX
         }
         private void txt_buscar_KeyUp(object sender, KeyEventArgs e)
         {
-            mtd_cargar_productos();
+            //mtd_cargar_productos();
             //mtd_calculo_totales();
         }
         private void btn_exportar_excel_Click(object sender, EventArgs e)
@@ -433,6 +442,14 @@ namespace SBX
         {
             frm_estado_fechas_vencimiento frm_Estado_Fechas_Vencimiento = new frm_estado_fechas_vencimiento();
             frm_Estado_Fechas_Vencimiento.Show();
+        }
+
+        private void txt_buscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {            
+                mtd_cargar_productos();
+            }
         }
     }
 }

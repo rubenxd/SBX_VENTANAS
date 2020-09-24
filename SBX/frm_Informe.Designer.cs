@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Informe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbx_tipo_busqueda = new System.Windows.Forms.ComboBox();
             this.txt_buscar = new System.Windows.Forms.TextBox();
@@ -57,6 +57,9 @@
             this.cl_resultado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.v_modulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnl_contenido = new System.Windows.Forms.Panel();
+            this.btn_ver_gastos = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txt_gastos = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_resultado = new System.Windows.Forms.TextBox();
@@ -66,9 +69,6 @@
             this.txt_ventas_domicilio = new System.Windows.Forms.TextBox();
             this.txt_costos = new System.Windows.Forms.TextBox();
             this.txt_ventas_directas = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txt_gastos = new System.Windows.Forms.TextBox();
-            this.btn_ver_gastos = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pnl_centro.SuspendLayout();
             this.pnl_abajo.SuspendLayout();
@@ -115,6 +115,7 @@
             this.txt_buscar.Name = "txt_buscar";
             this.txt_buscar.Size = new System.Drawing.Size(181, 20);
             this.txt_buscar.TabIndex = 86;
+            this.txt_buscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_buscar_KeyPress);
             this.txt_buscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txt_buscar_KeyUp);
             // 
             // btn_consultar
@@ -217,14 +218,14 @@
             this.dtg_informe.AllowUserToOrderColumns = true;
             this.dtg_informe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg_informe.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_informe.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_informe.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_informe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_informe.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cl_item,
@@ -240,14 +241,14 @@
             this.cl_total,
             this.cl_resultado,
             this.v_modulo});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_informe.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_informe.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_informe.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtg_informe.Location = new System.Drawing.Point(0, 0);
             this.dtg_informe.Name = "dtg_informe";
@@ -353,6 +354,43 @@
             this.pnl_contenido.Size = new System.Drawing.Size(907, 218);
             this.pnl_contenido.TabIndex = 11;
             // 
+            // btn_ver_gastos
+            // 
+            this.btn_ver_gastos.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_ver_gastos.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_ver_gastos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ver_gastos.FlatAppearance.BorderSize = 0;
+            this.btn_ver_gastos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_ver_gastos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ver_gastos.Image = ((System.Drawing.Image)(resources.GetObject("btn_ver_gastos.Image")));
+            this.btn_ver_gastos.Location = new System.Drawing.Point(638, 148);
+            this.btn_ver_gastos.Name = "btn_ver_gastos";
+            this.btn_ver_gastos.Size = new System.Drawing.Size(26, 26);
+            this.btn_ver_gastos.TabIndex = 86;
+            this.btn_ver_gastos.UseVisualStyleBackColor = false;
+            this.btn_ver_gastos.Click += new System.EventHandler(this.btn_ver_gastos_Click);
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(255, 151);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(61, 20);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Gastos";
+            // 
+            // txt_gastos
+            // 
+            this.txt_gastos.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txt_gastos.Enabled = false;
+            this.txt_gastos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_gastos.Location = new System.Drawing.Point(384, 148);
+            this.txt_gastos.Name = "txt_gastos";
+            this.txt_gastos.Size = new System.Drawing.Size(250, 26);
+            this.txt_gastos.TabIndex = 10;
+            // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -447,43 +485,6 @@
             this.txt_ventas_directas.Name = "txt_ventas_directas";
             this.txt_ventas_directas.Size = new System.Drawing.Size(250, 26);
             this.txt_ventas_directas.TabIndex = 5;
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(255, 151);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 20);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Gastos";
-            // 
-            // txt_gastos
-            // 
-            this.txt_gastos.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_gastos.Enabled = false;
-            this.txt_gastos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_gastos.Location = new System.Drawing.Point(384, 148);
-            this.txt_gastos.Name = "txt_gastos";
-            this.txt_gastos.Size = new System.Drawing.Size(250, 26);
-            this.txt_gastos.TabIndex = 10;
-            // 
-            // btn_ver_gastos
-            // 
-            this.btn_ver_gastos.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_ver_gastos.BackColor = System.Drawing.SystemColors.Window;
-            this.btn_ver_gastos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ver_gastos.FlatAppearance.BorderSize = 0;
-            this.btn_ver_gastos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btn_ver_gastos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ver_gastos.Image = ((System.Drawing.Image)(resources.GetObject("btn_ver_gastos.Image")));
-            this.btn_ver_gastos.Location = new System.Drawing.Point(638, 148);
-            this.btn_ver_gastos.Name = "btn_ver_gastos";
-            this.btn_ver_gastos.Size = new System.Drawing.Size(26, 26);
-            this.btn_ver_gastos.TabIndex = 86;
-            this.btn_ver_gastos.UseVisualStyleBackColor = false;
-            this.btn_ver_gastos.Click += new System.EventHandler(this.btn_ver_gastos_Click);
             // 
             // frm_Informe
             // 

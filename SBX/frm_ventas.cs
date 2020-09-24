@@ -69,6 +69,8 @@ namespace SBX
                 double CantidadVenta = 0;
                 float CantidadExacta = 0;
                 string Factura = "";
+                float cantidad = 0;
+                float precioVentas = 0;
                 
                 foreach (DataRow rows in v_dt.Rows)
                 {
@@ -82,12 +84,13 @@ namespace SBX
                     dtg_ventas.Rows[v_contador].Cells["cl_modo_venta"].Value = rows["ModoVenta"];
                     dtg_ventas.Rows[v_contador].Cells["cl_um"].Value = rows["UM"];
                     CantidadExacta += float.Parse(rows["Cantidad_exacta"].ToString());
-                    dtg_ventas.Rows[v_contador].Cells["cl_cantidad"].Value = rows["Cantidad_exacta"].ToString();
-                  
+                    cantidad = float.Parse(rows["Cantidad_exacta"].ToString());
+                    dtg_ventas.Rows[v_contador].Cells["cl_cantidad"].Value = rows["Cantidad_exacta"].ToString();                  
                     double costo = Convert.ToDouble(rows["Costo2"]);
                     dtg_ventas.Rows[v_contador].Cells["cl_costo"].Value = costo.ToString("N2");
                     double PrecioVenta = Convert.ToDouble(rows["PrecioVenta2"]) ;
                     dtg_ventas.Rows[v_contador].Cells["cl_precio_venta"].Value = PrecioVenta.ToString("N2");
+                    VentasTotales += PrecioVenta;
                     dtg_ventas.Rows[v_contador].Cells["descuento"].Value = rows["descuento"];
                     double ValorDescuento = Convert.ToDouble(rows["ValorDescuento"]);
                     dtg_ventas.Rows[v_contador].Cells["cl_valor_descuento"].Value = ValorDescuento.ToString("N2");
@@ -102,18 +105,20 @@ namespace SBX
                     double Cambio = Convert.ToDouble(rows["Cambio"]);
                     dtg_ventas.Rows[v_contador].Cells["cl_cambio"].Value = Cambio.ToString("N2");
                     double Total = Convert.ToDouble(rows["Total"]);
-                    if (Factura == "")
-                    {
-                        VentasTotales = Total;
-                    }
-                    else
-                    {
-                        //Factura = rows["Factura"].ToString();
-                        if (Factura != rows["Factura"].ToString())
-                        {
-                            VentasTotales += Total;
-                        }           
-                    }
+                    //if (Factura == "")
+                    //{
+                    //    VentasTotales = Total;
+                    //}
+                    //else
+                    //{
+                    //    //Factura = rows["Factura"].ToString();
+                    //    if (Factura != rows["Factura"].ToString())
+                    //    {
+                    //        VentasTotales += Total;
+                    //    }           
+                    //}
+
+
              
                     dtg_ventas.Rows[v_contador].Cells["cl_Total"].Value = Total.ToString("N2");
                     dtg_ventas.Rows[v_contador].Cells["cl_Usuario"].Value = rows["Usuario"];
@@ -215,7 +220,9 @@ namespace SBX
         }
         private void btn_buscar_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             mtd_cargar_ventas();
+            this.Cursor = Cursors.Default;
         }
         private void txt_buscar_KeyUp(object sender, KeyEventArgs e)
         {
@@ -315,6 +322,15 @@ namespace SBX
                 //factura.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:\Users\RUBEN\Documents\Ruben\SBX\FacturasPDF\fact.pdf");
             }
             this.Cursor = Cursors.Default;
+        }
+        private void txt_buscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                this.Cursor = Cursors.WaitCursor;
+                mtd_cargar_ventas();
+                this.Cursor = Cursors.Default;
+            }             
         }
     }
 }

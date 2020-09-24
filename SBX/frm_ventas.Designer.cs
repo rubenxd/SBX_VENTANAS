@@ -62,6 +62,7 @@
             this.cl_domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_rp_factura = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dtp_fecha_fin = new System.Windows.Forms.DateTimePicker();
@@ -76,7 +77,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lbl_total_ventas = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btn_rp_factura = new System.Windows.Forms.Button();
             this.pnl_arriba.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_ventas)).BeginInit();
             this.panel1.SuspendLayout();
@@ -367,6 +367,21 @@
             this.panel1.Size = new System.Drawing.Size(945, 42);
             this.panel1.TabIndex = 8;
             // 
+            // btn_rp_factura
+            // 
+            this.btn_rp_factura.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_rp_factura.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_rp_factura.FlatAppearance.BorderSize = 0;
+            this.btn_rp_factura.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_rp_factura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_rp_factura.Image = ((System.Drawing.Image)(resources.GetObject("btn_rp_factura.Image")));
+            this.btn_rp_factura.Location = new System.Drawing.Point(74, 7);
+            this.btn_rp_factura.Name = "btn_rp_factura";
+            this.btn_rp_factura.Size = new System.Drawing.Size(26, 26);
+            this.btn_rp_factura.TabIndex = 81;
+            this.btn_rp_factura.UseVisualStyleBackColor = false;
+            this.btn_rp_factura.Click += new System.EventHandler(this.btn_rp_factura_Click);
+            // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -461,6 +476,7 @@
             this.txt_buscar.TabIndex = 7;
             this.txt_buscar.Text = "Producto-Factura";
             this.txt_buscar.Enter += new System.EventHandler(this.txt_buscar_Enter);
+            this.txt_buscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_buscar_KeyPress);
             this.txt_buscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_buscar_KeyUp);
             this.txt_buscar.Leave += new System.EventHandler(this.txt_buscar_Leave);
             // 
@@ -536,21 +552,6 @@
             this.label4.Size = new System.Drawing.Size(119, 25);
             this.label4.TabIndex = 81;
             this.label4.Text = "Total Venta:";
-            // 
-            // btn_rp_factura
-            // 
-            this.btn_rp_factura.BackColor = System.Drawing.SystemColors.Window;
-            this.btn_rp_factura.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_rp_factura.FlatAppearance.BorderSize = 0;
-            this.btn_rp_factura.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btn_rp_factura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_rp_factura.Image = ((System.Drawing.Image)(resources.GetObject("btn_rp_factura.Image")));
-            this.btn_rp_factura.Location = new System.Drawing.Point(74, 7);
-            this.btn_rp_factura.Name = "btn_rp_factura";
-            this.btn_rp_factura.Size = new System.Drawing.Size(26, 26);
-            this.btn_rp_factura.TabIndex = 81;
-            this.btn_rp_factura.UseVisualStyleBackColor = false;
-            this.btn_rp_factura.Click += new System.EventHandler(this.btn_rp_factura_Click);
             // 
             // frm_ventas
             // 

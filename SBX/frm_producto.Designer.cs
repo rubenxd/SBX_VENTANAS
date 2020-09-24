@@ -49,6 +49,8 @@
             this.lbl_registros = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnl_arriba = new System.Windows.Forms.Panel();
+            this.cbx_dato_busqueda = new System.Windows.Forms.ComboBox();
+            this.btn_fecha_vencimiento = new System.Windows.Forms.Button();
             this.btn_estado_stock = new System.Windows.Forms.Button();
             this.btn_producto_mas_vendido = new System.Windows.Forms.Button();
             this.cbx_tipo_busqueda = new System.Windows.Forms.ComboBox();
@@ -61,7 +63,6 @@
             this.lbl_minimizar = new System.Windows.Forms.Label();
             this.lbl_cerrar = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_fecha_vencimiento = new System.Windows.Forms.Button();
             this.pnl_centro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_productos)).BeginInit();
             this.panel1.SuspendLayout();
@@ -111,7 +112,7 @@
             this.dtg_productos.Location = new System.Drawing.Point(0, 42);
             this.dtg_productos.Name = "dtg_productos";
             this.dtg_productos.ReadOnly = true;
-            this.dtg_productos.Size = new System.Drawing.Size(935, 408);
+            this.dtg_productos.Size = new System.Drawing.Size(935, 453);
             this.dtg_productos.TabIndex = 6;
             this.dtg_productos.DoubleClick += new System.EventHandler(this.dtg_productos_DoubleClick);
             // 
@@ -119,9 +120,9 @@
             // 
             this.panel1.Controls.Add(this.pnl_paginacion);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 450);
+            this.panel1.Location = new System.Drawing.Point(0, 495);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(935, 46);
+            this.panel1.Size = new System.Drawing.Size(935, 1);
             this.panel1.TabIndex = 7;
             // 
             // pnl_paginacion
@@ -143,7 +144,7 @@
             this.pnl_paginacion.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnl_paginacion.Location = new System.Drawing.Point(0, 0);
             this.pnl_paginacion.Name = "pnl_paginacion";
-            this.pnl_paginacion.Size = new System.Drawing.Size(935, 46);
+            this.pnl_paginacion.Size = new System.Drawing.Size(935, 1);
             this.pnl_paginacion.TabIndex = 11;
             // 
             // btn_actualizar
@@ -160,6 +161,7 @@
             this.btn_actualizar.Size = new System.Drawing.Size(25, 25);
             this.btn_actualizar.TabIndex = 15;
             this.btn_actualizar.UseVisualStyleBackColor = false;
+            this.btn_actualizar.Visible = false;
             this.btn_actualizar.Click += new System.EventHandler(this.btn_actualizar_Click);
             // 
             // btn_ultima
@@ -176,6 +178,7 @@
             this.btn_ultima.Size = new System.Drawing.Size(30, 30);
             this.btn_ultima.TabIndex = 14;
             this.btn_ultima.UseVisualStyleBackColor = false;
+            this.btn_ultima.Visible = false;
             this.btn_ultima.Click += new System.EventHandler(this.btn_ultima_Click);
             // 
             // btn_siguiente
@@ -192,6 +195,7 @@
             this.btn_siguiente.Size = new System.Drawing.Size(30, 30);
             this.btn_siguiente.TabIndex = 13;
             this.btn_siguiente.UseVisualStyleBackColor = false;
+            this.btn_siguiente.Visible = false;
             this.btn_siguiente.Click += new System.EventHandler(this.btn_siguiente_Click);
             // 
             // btn_atras
@@ -208,6 +212,7 @@
             this.btn_atras.Size = new System.Drawing.Size(30, 30);
             this.btn_atras.TabIndex = 12;
             this.btn_atras.UseVisualStyleBackColor = false;
+            this.btn_atras.Visible = false;
             this.btn_atras.Click += new System.EventHandler(this.btn_atras_Click);
             // 
             // btn_primero
@@ -224,6 +229,7 @@
             this.btn_primero.Size = new System.Drawing.Size(30, 30);
             this.btn_primero.TabIndex = 11;
             this.btn_primero.UseVisualStyleBackColor = false;
+            this.btn_primero.Visible = false;
             this.btn_primero.Click += new System.EventHandler(this.btn_primero_Click);
             // 
             // txt_max_paginas
@@ -233,6 +239,7 @@
             this.txt_max_paginas.Name = "txt_max_paginas";
             this.txt_max_paginas.Size = new System.Drawing.Size(56, 20);
             this.txt_max_paginas.TabIndex = 7;
+            this.txt_max_paginas.Visible = false;
             // 
             // label5
             // 
@@ -243,6 +250,7 @@
             this.label5.Size = new System.Drawing.Size(89, 13);
             this.label5.TabIndex = 6;
             this.label5.Text = "Maximo paginas: ";
+            this.label5.Visible = false;
             // 
             // lbl_ultima_pagina
             // 
@@ -253,6 +261,7 @@
             this.lbl_ultima_pagina.Size = new System.Drawing.Size(13, 13);
             this.lbl_ultima_pagina.TabIndex = 5;
             this.lbl_ultima_pagina.Text = "0";
+            this.lbl_ultima_pagina.Visible = false;
             // 
             // label4
             // 
@@ -263,6 +272,7 @@
             this.label4.Size = new System.Drawing.Size(77, 13);
             this.label4.TabIndex = 4;
             this.label4.Text = "Ultima pagina: ";
+            this.label4.Visible = false;
             // 
             // lbl_paginas
             // 
@@ -273,6 +283,7 @@
             this.lbl_paginas.Size = new System.Drawing.Size(13, 13);
             this.lbl_paginas.TabIndex = 3;
             this.lbl_paginas.Text = "0";
+            this.lbl_paginas.Visible = false;
             // 
             // label3
             // 
@@ -283,6 +294,7 @@
             this.label3.Size = new System.Drawing.Size(51, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Paginas: ";
+            this.label3.Visible = false;
             // 
             // lbl_registros
             // 
@@ -293,6 +305,7 @@
             this.lbl_registros.Size = new System.Drawing.Size(13, 13);
             this.lbl_registros.TabIndex = 1;
             this.lbl_registros.Text = "0";
+            this.lbl_registros.Visible = false;
             // 
             // label2
             // 
@@ -303,10 +316,12 @@
             this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Registros: ";
+            this.label2.Visible = false;
             // 
             // pnl_arriba
             // 
             this.pnl_arriba.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnl_arriba.Controls.Add(this.cbx_dato_busqueda);
             this.pnl_arriba.Controls.Add(this.btn_fecha_vencimiento);
             this.pnl_arriba.Controls.Add(this.btn_estado_stock);
             this.pnl_arriba.Controls.Add(this.btn_producto_mas_vendido);
@@ -321,6 +336,35 @@
             this.pnl_arriba.Name = "pnl_arriba";
             this.pnl_arriba.Size = new System.Drawing.Size(935, 42);
             this.pnl_arriba.TabIndex = 4;
+            // 
+            // cbx_dato_busqueda
+            // 
+            this.cbx_dato_busqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_dato_busqueda.FormattingEnabled = true;
+            this.cbx_dato_busqueda.Items.AddRange(new object[] {
+            "Nombre",
+            "Item",
+            "Referencia",
+            "Codigo Barras"});
+            this.cbx_dato_busqueda.Location = new System.Drawing.Point(483, 8);
+            this.cbx_dato_busqueda.Name = "cbx_dato_busqueda";
+            this.cbx_dato_busqueda.Size = new System.Drawing.Size(168, 21);
+            this.cbx_dato_busqueda.TabIndex = 20;
+            // 
+            // btn_fecha_vencimiento
+            // 
+            this.btn_fecha_vencimiento.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_fecha_vencimiento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_fecha_vencimiento.FlatAppearance.BorderSize = 0;
+            this.btn_fecha_vencimiento.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_fecha_vencimiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_fecha_vencimiento.Image = ((System.Drawing.Image)(resources.GetObject("btn_fecha_vencimiento.Image")));
+            this.btn_fecha_vencimiento.Location = new System.Drawing.Point(138, 6);
+            this.btn_fecha_vencimiento.Name = "btn_fecha_vencimiento";
+            this.btn_fecha_vencimiento.Size = new System.Drawing.Size(26, 26);
+            this.btn_fecha_vencimiento.TabIndex = 19;
+            this.btn_fecha_vencimiento.UseVisualStyleBackColor = false;
+            this.btn_fecha_vencimiento.Click += new System.EventHandler(this.btn_fecha_vencimiento_Click);
             // 
             // btn_estado_stock
             // 
@@ -361,7 +405,7 @@
             this.cbx_tipo_busqueda.Items.AddRange(new object[] {
             "Contiene",
             "Exactamente"});
-            this.cbx_tipo_busqueda.Location = new System.Drawing.Point(528, 10);
+            this.cbx_tipo_busqueda.Location = new System.Drawing.Point(349, 8);
             this.cbx_tipo_busqueda.Name = "cbx_tipo_busqueda";
             this.cbx_tipo_busqueda.Size = new System.Drawing.Size(123, 21);
             this.cbx_tipo_busqueda.TabIndex = 16;
@@ -425,6 +469,7 @@
             this.txt_buscar.TabIndex = 7;
             this.txt_buscar.Text = "Item-Nombre-Referencia-Codigo barras";
             this.txt_buscar.Enter += new System.EventHandler(this.txt_buscar_Enter);
+            this.txt_buscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_buscar_KeyPress);
             this.txt_buscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_buscar_KeyUp);
             this.txt_buscar.Leave += new System.EventHandler(this.txt_buscar_Leave);
             // 
@@ -496,21 +541,6 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Productos";
             // 
-            // btn_fecha_vencimiento
-            // 
-            this.btn_fecha_vencimiento.BackColor = System.Drawing.SystemColors.Window;
-            this.btn_fecha_vencimiento.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_fecha_vencimiento.FlatAppearance.BorderSize = 0;
-            this.btn_fecha_vencimiento.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btn_fecha_vencimiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_fecha_vencimiento.Image = ((System.Drawing.Image)(resources.GetObject("btn_fecha_vencimiento.Image")));
-            this.btn_fecha_vencimiento.Location = new System.Drawing.Point(138, 6);
-            this.btn_fecha_vencimiento.Name = "btn_fecha_vencimiento";
-            this.btn_fecha_vencimiento.Size = new System.Drawing.Size(26, 26);
-            this.btn_fecha_vencimiento.TabIndex = 19;
-            this.btn_fecha_vencimiento.UseVisualStyleBackColor = false;
-            this.btn_fecha_vencimiento.Click += new System.EventHandler(this.btn_fecha_vencimiento_Click);
-            // 
             // frm_producto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -569,5 +599,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_estado_stock;
         private System.Windows.Forms.Button btn_fecha_vencimiento;
+        private System.Windows.Forms.ComboBox cbx_dato_busqueda;
     }
 }

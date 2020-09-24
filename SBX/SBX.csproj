@@ -329,6 +329,12 @@
     <Compile Include="frm_proveedor.Designer.cs">
       <DependentUpon>frm_proveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_prueba_consultas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_prueba_consultas.Designer.cs">
+      <DependentUpon>frm_prueba_consultas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_reporte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -527,6 +533,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_proveedor.resx">
       <DependentUpon>frm_proveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_prueba_consultas.resx">
+      <DependentUpon>frm_prueba_consultas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_reporte.resx">
       <DependentUpon>frm_reporte.cs</DependentUpon>

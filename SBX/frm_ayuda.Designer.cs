@@ -39,6 +39,7 @@
             this.btn_buscar = new System.Windows.Forms.Button();
             this.txt_buscar = new System.Windows.Forms.TextBox();
             this.pnl_acciones = new System.Windows.Forms.Panel();
+            this.cbx_dato_busqueda = new System.Windows.Forms.ComboBox();
             this.cbx_tipo_busqueda = new System.Windows.Forms.ComboBox();
             this.pnl_paginacion = new System.Windows.Forms.Panel();
             this.btn_actualizar = new System.Windows.Forms.Button();
@@ -157,12 +158,14 @@
             this.txt_buscar.TabIndex = 7;
             this.txt_buscar.Text = "Buscar";
             this.txt_buscar.Enter += new System.EventHandler(this.txt_buscar_Enter);
+            this.txt_buscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_buscar_KeyPress);
             this.txt_buscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_buscar_KeyUp);
             this.txt_buscar.Leave += new System.EventHandler(this.txt_buscar_Leave);
             // 
             // pnl_acciones
             // 
             this.pnl_acciones.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_acciones.Controls.Add(this.cbx_dato_busqueda);
             this.pnl_acciones.Controls.Add(this.cbx_tipo_busqueda);
             this.pnl_acciones.Controls.Add(this.btn_buscar);
             this.pnl_acciones.Controls.Add(this.txt_buscar);
@@ -172,6 +175,20 @@
             this.pnl_acciones.Size = new System.Drawing.Size(830, 43);
             this.pnl_acciones.TabIndex = 9;
             // 
+            // cbx_dato_busqueda
+            // 
+            this.cbx_dato_busqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_dato_busqueda.FormattingEnabled = true;
+            this.cbx_dato_busqueda.Items.AddRange(new object[] {
+            "Nombre",
+            "Item",
+            "Referencia",
+            "Codigo Barras"});
+            this.cbx_dato_busqueda.Location = new System.Drawing.Point(416, 11);
+            this.cbx_dato_busqueda.Name = "cbx_dato_busqueda";
+            this.cbx_dato_busqueda.Size = new System.Drawing.Size(168, 21);
+            this.cbx_dato_busqueda.TabIndex = 16;
+            // 
             // cbx_tipo_busqueda
             // 
             this.cbx_tipo_busqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -179,10 +196,11 @@
             this.cbx_tipo_busqueda.Items.AddRange(new object[] {
             "Contiene",
             "Exactamente"});
-            this.cbx_tipo_busqueda.Location = new System.Drawing.Point(382, 11);
+            this.cbx_tipo_busqueda.Location = new System.Drawing.Point(212, 11);
             this.cbx_tipo_busqueda.Name = "cbx_tipo_busqueda";
             this.cbx_tipo_busqueda.Size = new System.Drawing.Size(200, 21);
             this.cbx_tipo_busqueda.TabIndex = 15;
+            this.cbx_tipo_busqueda.SelectedIndexChanged += new System.EventHandler(this.cbx_tipo_busqueda_SelectedIndexChanged);
             // 
             // pnl_paginacion
             // 
@@ -201,9 +219,9 @@
             this.pnl_paginacion.Controls.Add(this.lbl_registros);
             this.pnl_paginacion.Controls.Add(this.label1);
             this.pnl_paginacion.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnl_paginacion.Location = new System.Drawing.Point(0, 390);
+            this.pnl_paginacion.Location = new System.Drawing.Point(0, 434);
             this.pnl_paginacion.Name = "pnl_paginacion";
-            this.pnl_paginacion.Size = new System.Drawing.Size(830, 45);
+            this.pnl_paginacion.Size = new System.Drawing.Size(830, 1);
             this.pnl_paginacion.TabIndex = 10;
             // 
             // btn_actualizar
@@ -220,6 +238,7 @@
             this.btn_actualizar.Size = new System.Drawing.Size(25, 25);
             this.btn_actualizar.TabIndex = 15;
             this.btn_actualizar.UseVisualStyleBackColor = false;
+            this.btn_actualizar.Visible = false;
             this.btn_actualizar.Click += new System.EventHandler(this.btn_actualizar_Click);
             // 
             // btn_ultima
@@ -236,6 +255,7 @@
             this.btn_ultima.Size = new System.Drawing.Size(30, 30);
             this.btn_ultima.TabIndex = 14;
             this.btn_ultima.UseVisualStyleBackColor = false;
+            this.btn_ultima.Visible = false;
             this.btn_ultima.Click += new System.EventHandler(this.btn_ultima_Click);
             // 
             // btn_siguiente
@@ -252,6 +272,7 @@
             this.btn_siguiente.Size = new System.Drawing.Size(30, 30);
             this.btn_siguiente.TabIndex = 13;
             this.btn_siguiente.UseVisualStyleBackColor = false;
+            this.btn_siguiente.Visible = false;
             this.btn_siguiente.Click += new System.EventHandler(this.btn_siguiente_Click);
             // 
             // btn_atras
@@ -268,6 +289,7 @@
             this.btn_atras.Size = new System.Drawing.Size(30, 30);
             this.btn_atras.TabIndex = 12;
             this.btn_atras.UseVisualStyleBackColor = false;
+            this.btn_atras.Visible = false;
             this.btn_atras.Click += new System.EventHandler(this.btn_atras_Click);
             // 
             // btn_primero
@@ -284,6 +306,7 @@
             this.btn_primero.Size = new System.Drawing.Size(30, 30);
             this.btn_primero.TabIndex = 11;
             this.btn_primero.UseVisualStyleBackColor = false;
+            this.btn_primero.Visible = false;
             this.btn_primero.Click += new System.EventHandler(this.btn_primero_Click);
             // 
             // txt_max_paginas
@@ -293,6 +316,7 @@
             this.txt_max_paginas.Name = "txt_max_paginas";
             this.txt_max_paginas.Size = new System.Drawing.Size(56, 20);
             this.txt_max_paginas.TabIndex = 7;
+            this.txt_max_paginas.Visible = false;
             // 
             // label5
             // 
@@ -303,6 +327,7 @@
             this.label5.Size = new System.Drawing.Size(89, 13);
             this.label5.TabIndex = 6;
             this.label5.Text = "Maximo paginas: ";
+            this.label5.Visible = false;
             // 
             // lbl_ultima_pagina
             // 
@@ -313,6 +338,7 @@
             this.lbl_ultima_pagina.Size = new System.Drawing.Size(13, 13);
             this.lbl_ultima_pagina.TabIndex = 5;
             this.lbl_ultima_pagina.Text = "0";
+            this.lbl_ultima_pagina.Visible = false;
             // 
             // label4
             // 
@@ -323,6 +349,7 @@
             this.label4.Size = new System.Drawing.Size(77, 13);
             this.label4.TabIndex = 4;
             this.label4.Text = "Ultima pagina: ";
+            this.label4.Visible = false;
             // 
             // lbl_paginas
             // 
@@ -333,6 +360,7 @@
             this.lbl_paginas.Size = new System.Drawing.Size(13, 13);
             this.lbl_paginas.TabIndex = 3;
             this.lbl_paginas.Text = "0";
+            this.lbl_paginas.Visible = false;
             // 
             // label3
             // 
@@ -343,6 +371,7 @@
             this.label3.Size = new System.Drawing.Size(51, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Paginas: ";
+            this.label3.Visible = false;
             // 
             // lbl_registros
             // 
@@ -353,6 +382,7 @@
             this.lbl_registros.Size = new System.Drawing.Size(13, 13);
             this.lbl_registros.TabIndex = 1;
             this.lbl_registros.Text = "0";
+            this.lbl_registros.Visible = false;
             // 
             // label1
             // 
@@ -363,6 +393,7 @@
             this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Registros: ";
+            this.label1.Visible = false;
             // 
             // dtg_ayudas
             // 
@@ -390,8 +421,9 @@
             this.dtg_ayudas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtg_ayudas.Location = new System.Drawing.Point(0, 75);
             this.dtg_ayudas.Name = "dtg_ayudas";
+            this.dtg_ayudas.ReadOnly = true;
             this.dtg_ayudas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dtg_ayudas.Size = new System.Drawing.Size(830, 315);
+            this.dtg_ayudas.Size = new System.Drawing.Size(830, 359);
             this.dtg_ayudas.TabIndex = 11;
             this.dtg_ayudas.DoubleClick += new System.EventHandler(this.dtg_ayudas_DoubleClick);
             // 
@@ -448,5 +480,6 @@
         private System.Windows.Forms.Label lbl_registros;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dtg_ayudas;
+        private System.Windows.Forms.ComboBox cbx_dato_busqueda;
     }
 }

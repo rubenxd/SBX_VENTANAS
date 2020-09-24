@@ -298,5 +298,11 @@ namespace SBX.MODEL
             }
             return v_ok;
         }
+        public DataTable mtd_consultar_dato_impresion()
+        {
+            v_query = " EXECUTE SP_BUSCAR_IMPRESION '" + v_buscar + "'  ";
+            v_dt = cls_datos.mtd_consultar(v_query);
+            return v_dt;
+        }
     }
 }

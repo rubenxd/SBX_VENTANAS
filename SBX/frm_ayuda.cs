@@ -61,6 +61,7 @@ namespace SBX
         private void frm_ayuda_Load(object sender, EventArgs e)
         {
             cbx_tipo_busqueda.SelectedIndex = 0;
+            cbx_dato_busqueda.SelectedIndex = 0;
         }
 
         //Metodos
@@ -69,6 +70,7 @@ namespace SBX
         {
             string v_buscar = "";
             string v_tipo_busqueda = "";
+            string v_dato_busqueda = "";
             switch (v_busqueda)
             {
                 case "Buscar producto":
@@ -94,48 +96,54 @@ namespace SBX
                             cls_Producto.v_tipo_busqueda = "Buscar_data_producto_exacto";
                         v_tipo_busqueda = "Buscar_data_producto_exacto";
                     }
+                    v_dato_busqueda = cbx_dato_busqueda.Text;
+                    cls_Producto.v_tipo_busqueda = cbx_tipo_busqueda.Text;
+                    cls_Producto.v_data_busqueda = cbx_dato_busqueda.Text;
+                    dtg_ayudas.DataSource = cls_Producto.mtd_consultar_todos_productos();
 
                     //------------
-                    DataSet ds = new DataSet();                   
-                    int maximo_x_pagina = 10;//cargar por default
-                    p = new Paginar("EXECUTE sp_consultar_producto '" + v_tipo_busqueda + "','" + v_buscar + "','','','' ", "DataMember1", maximo_x_pagina);
-                    ds = p.cargar();
-                    v_dt = ds.Tables[0];
-                    //-------------
+                    //DataSet ds = new DataSet();                   
+                    //    int maximo_x_pagina = 10;//cargar por default
+                    //    //p = new Paginar("EXECUTE sp_consultar_producto '" + v_tipo_busqueda + "','" + v_buscar + "','','','','"+ v_dato_busqueda + "' ", "DataMember1", maximo_x_pagina);
+                    //    p = new Paginar("EXECUTE SP_CONSULTA_ESTADO_PRODUCTOS '" + v_buscar + "','" + cbx_tipo_busqueda.Text + "','" + v_dato_busqueda + "' ", "DataMember1", maximo_x_pagina);
 
-                    //v_dt = cls_Producto.mtd_consultar_producto_Paginado();
-                  
-                       dtg_ayudas.Rows.Clear();
-                        if (v_dt.Rows.Count > 0)
-                        {
-                            dtg_ayudas.Columns.Clear();
-                            dtg_ayudas.Columns.Add("cl_item", "Item");
-                            dtg_ayudas.Columns[0].Width = 50;
-                            dtg_ayudas.Columns[0].ReadOnly = true;
-                            dtg_ayudas.Columns.Add("cl_nombre", "Nombre");
-                            dtg_ayudas.Columns[1].Width = 500;
-                            dtg_ayudas.Columns[1].ReadOnly = true;
-                            dtg_ayudas.Columns.Add("cl_referencia", "Referencia");
-                            dtg_ayudas.Columns[2].ReadOnly = true;
-                            dtg_ayudas.Columns.Add("cl_codigo_barras", "CodigoBarras");
-                            dtg_ayudas.Columns[3].ReadOnly = true;
-                            dtg_ayudas.Columns.Add("cl_descripcion", "Descripcion");
-                            dtg_ayudas.Columns[4].ReadOnly = true;
+                    //    ds = p.cargar();
+                    //    v_dt = ds.Tables[0];
+                    //    //-------------
 
-                            v_contador = 0;
-                            v_filas = v_dt.Rows.Count;
-                            dtg_ayudas.Rows.Add(v_filas);
-                            foreach (DataRow rows in v_dt.Rows)
-                            {
-                                dtg_ayudas.Rows[v_contador].Cells["cl_item"].Value = string.Format("{0:0000}", rows["Item"]);
-                                dtg_ayudas.Rows[v_contador].Cells["cl_nombre"].Value = rows["Nombre"].ToString();
-                                dtg_ayudas.Rows[v_contador].Cells["cl_referencia"].Value = rows["Referencia"].ToString();
-                                dtg_ayudas.Rows[v_contador].Cells["cl_codigo_barras"].Value = rows["CodigoBarras"].ToString();
-                                dtg_ayudas.Rows[v_contador].Cells["cl_descripcion"].Value = rows["Descripcion"].ToString();
-                                v_contador++;
-                            }
-                        }
-                    actualizar();
+                    //    //v_dt = cls_Producto.mtd_consultar_producto_Paginado();
+
+                    //       dtg_ayudas.Rows.Clear();
+                    //        if (v_dt.Rows.Count > 0)
+                    //        {
+                    //            dtg_ayudas.Columns.Clear();
+                    //            dtg_ayudas.Columns.Add("cl_item", "Item");
+                    //            dtg_ayudas.Columns[0].Width = 50;
+                    //            dtg_ayudas.Columns[0].ReadOnly = true;
+                    //            dtg_ayudas.Columns.Add("cl_nombre", "Nombre");
+                    //            dtg_ayudas.Columns[1].Width = 500;
+                    //            dtg_ayudas.Columns[1].ReadOnly = true;
+                    //            dtg_ayudas.Columns.Add("cl_referencia", "Referencia");
+                    //            dtg_ayudas.Columns[2].ReadOnly = true;
+                    //            dtg_ayudas.Columns.Add("cl_codigo_barras", "CodigoBarras");
+                    //            dtg_ayudas.Columns[3].ReadOnly = true;
+                    //            //dtg_ayudas.Columns.Add("cl_descripcion", "Descripcion");
+                    //            //dtg_ayudas.Columns[4].ReadOnly = true;
+
+                    //            v_contador = 0;
+                    //            v_filas = v_dt.Rows.Count;
+                    //            dtg_ayudas.Rows.Add(v_filas);
+                    //            foreach (DataRow rows in v_dt.Rows)
+                    //            {
+                    //                dtg_ayudas.Rows[v_contador].Cells["cl_item"].Value = string.Format("{0:0000}", rows["Item"]);
+                    //                dtg_ayudas.Rows[v_contador].Cells["cl_nombre"].Value = rows["Nombre"].ToString();
+                    //                dtg_ayudas.Rows[v_contador].Cells["cl_referencia"].Value = rows["Referencia"].ToString();
+                    //                dtg_ayudas.Rows[v_contador].Cells["cl_codigo_barras"].Value = rows["CodigoBarras"].ToString();
+                    //                //dtg_ayudas.Rows[v_contador].Cells["cl_descripcion"].Value = rows["Descripcion"].ToString();
+                    //                v_contador++;
+                    //            }
+                    //        }
+                    //    actualizar();
                     break;
                 case "Buscar producto venta":
                     if (txt_buscar.Text == "Buscar")
@@ -160,77 +168,81 @@ namespace SBX
                         cls_Producto.v_tipo_busqueda = "Buscar_data_producto_exacto_venta";
                         v_tipo_busqueda = "Buscar_data_producto_exacto_venta";
                     }
+                    v_dato_busqueda = cbx_dato_busqueda.Text;
+                    cls_Producto.v_tipo_busqueda = cbx_tipo_busqueda.Text;
+                    cls_Producto.v_data_busqueda = cbx_dato_busqueda.Text;
+                    dtg_ayudas.DataSource = cls_Producto.mtd_consultar_todos_productos();
+                    ////------------       OPCION DE PAGINACION ----------------------------------------------------------------       
+                    //maximo_x_pagina = 10;
+                    ////p = new Paginar("EXECUTE sp_consultar_producto '" + v_tipo_busqueda + "','" + v_buscar + "','','','','" + v_dato_busqueda + "' ", "DataMember1", maximo_x_pagina);
+                    //p = new Paginar("EXECUTE SP_CONSULTA_ESTADO_PRODUCTOS '" + v_buscar + "','" + cbx_tipo_busqueda.Text + "','"+ v_dato_busqueda + "' ", "DataMember1", maximo_x_pagina);
+                    ////dtg_ayudas.DataSource = p.cargar();
+                    ////dtg_ayudas.DataMember = "datamember1";
+                    //ds = p.cargar();
+                    //v_dt = ds.Tables["DataMember1"];
+                    ////-------------
 
-                    //------------              
-                    maximo_x_pagina = 10;
-                    p = new Paginar("EXECUTE sp_consultar_producto '" + v_tipo_busqueda + "','" + v_buscar + "','','','' ", "DataMember1", maximo_x_pagina);
-                    //dtg_ayudas.DataSource = p.cargar();
-                    //dtg_ayudas.DataMember = "datamember1";
-                    ds = p.cargar();
-                    v_dt = ds.Tables["DataMember1"];
-                    //-------------
+                    ////v_dt = cls_Producto.mtd_consultar_producto();
+                    //dtg_ayudas.Rows.Clear();
+                    //if (v_dt != null)
+                    //{
+                    //    if (v_dt.Rows.Count > 0)
+                    //    {
+                    //        dtg_ayudas.Columns.Clear();
+                    //        dtg_ayudas.Columns.Add("cl_item", "Item");
+                    //        dtg_ayudas.Columns[0].Width = 50;
+                    //        dtg_ayudas.Columns[0].ReadOnly = true;
+                    //        dtg_ayudas.Columns.Add("cl_nombre", "Nombre");
+                    //        dtg_ayudas.Columns[1].Width = 350;
+                    //        dtg_ayudas.Columns[1].ReadOnly = true;
+                    //        dtg_ayudas.Columns.Add("cl_referencia", "Referencia");
+                    //        dtg_ayudas.Columns[2].Width = 100;
+                    //        dtg_ayudas.Columns[2].ReadOnly = true;
+                    //        dtg_ayudas.Columns.Add("cl_precioVenta", "Precio");
+                    //        dtg_ayudas.Columns[3].ReadOnly = true;
+                    //        dtg_ayudas.Columns.Add("cl_stock", "Stock");
+                    //        dtg_ayudas.Columns[4].ReadOnly = true;
+                    //        dtg_ayudas.Columns.Add("cl_precio_sub", "Precio sub");
+                    //        dtg_ayudas.Columns[5].ReadOnly = true;
+                    //        dtg_ayudas.Columns.Add("cl_sub", "stock sub");
+                    //        dtg_ayudas.Columns[6].ReadOnly = true;
+                    //        dtg_ayudas.Columns.Add("cl_precio_und", "Precio und");
+                    //        dtg_ayudas.Columns[7].ReadOnly = true;
+                    //        dtg_ayudas.Columns.Add("cl_und", "Stock und");
+                    //        dtg_ayudas.Columns[8].ReadOnly = true;
+                    //        dtg_ayudas.Columns.Add("cl_codigo_barras", "Codigo barras");
+                    //        v_contador = 0;
+                    //        cls_producto cls_Producto = new cls_producto();
+                    //        DataTable DTDatos = new DataTable();
+                    //        double precio = 0;
+                    //        v_filas = v_dt.Rows.Count;
+                    //        dtg_ayudas.Rows.Add(v_filas);
+                    //        foreach (DataRow rows in v_dt.Rows)
+                    //        {
+                    //            precio = 0;
+                    //            dtg_ayudas.Rows[v_contador].Cells["cl_item"].Value = string.Format("{0:0000}", rows["Item"]);
+                    //            dtg_ayudas.Rows[v_contador].Cells["cl_nombre"].Value = rows["Nombre"].ToString();
+                    //            dtg_ayudas.Rows[v_contador].Cells["cl_referencia"].Value = rows["Referencia"].ToString();
+                    //            ////Consulta stock de producto              
+                    //            //cls_Producto.v_buscar = rows["Item"].ToString();
+                    //            //cls_Producto.v_tipo_busqueda = "Exactamente";
+                    //            //DTDatos = cls_Producto.mtd_consultar_producto_kardex();
+                    //            //DataRow DTRows = DTDatos.Rows[0];
+                    //            dtg_ayudas.Rows[v_contador].Cells["cl_precioVenta"].Value = rows["Precio"].ToString();
+                    //            dtg_ayudas.Rows[v_contador].Cells["cl_stock"].Value = rows["Stock"].ToString();
+                    //            dtg_ayudas.Rows[v_contador].Cells["cl_precio_sub"].Value = rows["Vlr. Sub"];
+                    //            dtg_ayudas.Rows[v_contador].Cells["cl_sub"].Value = rows["Stock Sub"].ToString();
+                    //            dtg_ayudas.Rows[v_contador].Cells["cl_precio_und"].Value = rows["Vlr. und"];
+                    //            dtg_ayudas.Rows[v_contador].Cells["cl_und"].Value = rows["Stock und"].ToString();
+                    //            dtg_ayudas.Rows[v_contador].Cells["cl_codigo_barras"].Value = rows["CodigoBarras"].ToString();
+                    //            v_contador++;
 
-                    //v_dt = cls_Producto.mtd_consultar_producto();
-                    dtg_ayudas.Rows.Clear();
-                    if (v_dt != null)
-                    {
-                        if (v_dt.Rows.Count > 0)
-                        {
-                            dtg_ayudas.Columns.Clear();
-                            dtg_ayudas.Columns.Add("cl_item", "Item");
-                            dtg_ayudas.Columns[0].Width = 50;
-                            dtg_ayudas.Columns[0].ReadOnly = true;
-                            dtg_ayudas.Columns.Add("cl_nombre", "Nombre");
-                            dtg_ayudas.Columns[1].Width = 350;
-                            dtg_ayudas.Columns[1].ReadOnly = true;
-                            dtg_ayudas.Columns.Add("cl_referencia", "Referencia");
-                            dtg_ayudas.Columns[2].Width = 100;
-                            dtg_ayudas.Columns[2].ReadOnly = true;
-                            dtg_ayudas.Columns.Add("cl_precioVenta", "Precio");
-                            dtg_ayudas.Columns[3].ReadOnly = true;
-                            dtg_ayudas.Columns.Add("cl_stock", "Stock");            
-                            dtg_ayudas.Columns[4].ReadOnly = true;
-                            dtg_ayudas.Columns.Add("cl_precio_sub", "Precio sub");
-                            dtg_ayudas.Columns[5].ReadOnly = true;
-                            dtg_ayudas.Columns.Add("cl_sub", "stock sub");
-                            dtg_ayudas.Columns[6].ReadOnly = true;
-                            dtg_ayudas.Columns.Add("cl_precio_und", "Precio und");
-                            dtg_ayudas.Columns[7].ReadOnly = true;
-                            dtg_ayudas.Columns.Add("cl_und", "Stock und");
-                            dtg_ayudas.Columns[8].ReadOnly = true;
-                            dtg_ayudas.Columns.Add("cl_codigo_barras", "Codigo barras");
-                            v_contador = 0;
-                            cls_producto cls_Producto = new cls_producto();
-                            DataTable DTDatos = new DataTable();
-                            double precio = 0;
-                            v_filas = v_dt.Rows.Count;
-                            dtg_ayudas.Rows.Add(v_filas);
-                            foreach (DataRow rows in v_dt.Rows)
-                            {
-                                precio = 0;
-                                dtg_ayudas.Rows[v_contador].Cells["cl_item"].Value = string.Format("{0:0000}", rows["Item"]);
-                                dtg_ayudas.Rows[v_contador].Cells["cl_nombre"].Value = rows["Nombre"].ToString();
-                                dtg_ayudas.Rows[v_contador].Cells["cl_referencia"].Value = rows["Referencia"].ToString();
-                                //Consulta stock de producto              
-                                cls_Producto.v_buscar = rows["Item"].ToString();
-                                cls_Producto.v_tipo_busqueda = "Exactamente";
-                                DTDatos = cls_Producto.mtd_consultar_producto_kardex();
-                                DataRow DTRows = DTDatos.Rows[0];                             
-                                dtg_ayudas.Rows[v_contador].Cells["cl_precioVenta"].Value = DTRows["Precio"].ToString();
-                                dtg_ayudas.Rows[v_contador].Cells["cl_stock"].Value = DTRows["Stock"].ToString();                              
-                                dtg_ayudas.Rows[v_contador].Cells["cl_precio_sub"].Value = DTRows["Vlr. Sub"];
-                                dtg_ayudas.Rows[v_contador].Cells["cl_sub"].Value = DTRows["Stock Sub"].ToString();                               
-                                dtg_ayudas.Rows[v_contador].Cells["cl_precio_und"].Value = DTRows["Vlr. und"];
-                                dtg_ayudas.Rows[v_contador].Cells["cl_und"].Value = DTRows["Stock und"].ToString();
-                                dtg_ayudas.Rows[v_contador].Cells["cl_codigo_barras"].Value = rows["CodigoBarras"].ToString();
-                                v_contador++;
-
-                            }
-                        }
-                        // dtg_ayudas.DataMember = "datamember1";
-                        actualizar();
-                    }
-                    
+                    //        }
+                    //    }
+                    //    dtg_ayudas.DataMember = "datamember1";
+                    //    actualizar();
+                    //}
+                    //------------   FIN    OPCION DE PAGINACION ----------------------------------------------------------------                 
                     break;
                 case "Buscar proveedor":
                     if (txt_buscar.Text == "Buscar")
@@ -510,16 +522,26 @@ namespace SBX
                     dtg_ayudas.Rows[v_contador].Cells["cl_nombre"].Value = rows["Nombre"].ToString();
                     dtg_ayudas.Rows[v_contador].Cells["cl_referencia"].Value = rows["Referencia"].ToString();
                     //Consulta stock de producto              
-                    cls_Producto.v_buscar = rows["Item"].ToString();
-                    cls_Producto.v_tipo_busqueda = "Exactamente";
-                    DTDatos = cls_Producto.mtd_consultar_producto_kardex();
-                    DataRow DTRows = DTDatos.Rows[0];
-                    dtg_ayudas.Rows[v_contador].Cells["cl_precioVenta"].Value = DTRows["Precio"].ToString();
-                    dtg_ayudas.Rows[v_contador].Cells["cl_stock"].Value = DTRows["Stock"].ToString();
-                    dtg_ayudas.Rows[v_contador].Cells["cl_precio_sub"].Value = DTRows["Vlr. Sub"];
-                    dtg_ayudas.Rows[v_contador].Cells["cl_sub"].Value = DTRows["Stock Sub"].ToString();
-                    dtg_ayudas.Rows[v_contador].Cells["cl_precio_und"].Value = DTRows["Vlr. und"];
-                    dtg_ayudas.Rows[v_contador].Cells["cl_und"].Value = DTRows["Stock und"].ToString();
+                    //cls_Producto.v_buscar = rows["Item"].ToString();
+                    //cls_Producto.v_tipo_busqueda = "Exactamente";
+                    //DTDatos = cls_Producto.mtd_consultar_producto_kardex();
+                    //if (DTDatos.Rows.Count > 0)
+                    //{
+                    //    DataRow DTRows = DTDatos.Rows[0];
+                    //    dtg_ayudas.Rows[v_contador].Cells["cl_precioVenta"].Value = DTRows["Precio"].ToString();
+                    //    dtg_ayudas.Rows[v_contador].Cells["cl_stock"].Value = DTRows["Stock"].ToString();
+                    //    dtg_ayudas.Rows[v_contador].Cells["cl_precio_sub"].Value = DTRows["Vlr. Sub"];
+                    //    dtg_ayudas.Rows[v_contador].Cells["cl_sub"].Value = DTRows["Stock Sub"].ToString();
+                    //    dtg_ayudas.Rows[v_contador].Cells["cl_precio_und"].Value = DTRows["Vlr. und"];
+                    //    dtg_ayudas.Rows[v_contador].Cells["cl_und"].Value = DTRows["Stock und"].ToString();
+                    //    dtg_ayudas.Rows[v_contador].Cells["cl_codigo_barras"].Value = rows["CodigoBarras"].ToString();
+                    //}
+                    dtg_ayudas.Rows[v_contador].Cells["cl_precioVenta"].Value = rows["Precio"].ToString();
+                    dtg_ayudas.Rows[v_contador].Cells["cl_stock"].Value = rows["Stock"].ToString();
+                    dtg_ayudas.Rows[v_contador].Cells["cl_precio_sub"].Value = rows["Vlr. Sub"];
+                    dtg_ayudas.Rows[v_contador].Cells["cl_sub"].Value = rows["Stock Sub"].ToString();
+                    dtg_ayudas.Rows[v_contador].Cells["cl_precio_und"].Value = rows["Vlr. und"];
+                    dtg_ayudas.Rows[v_contador].Cells["cl_und"].Value = rows["Stock und"].ToString();
                     dtg_ayudas.Rows[v_contador].Cells["cl_codigo_barras"].Value = rows["CodigoBarras"].ToString();
                     v_contador++;
 
@@ -538,11 +560,13 @@ namespace SBX
         }
         private void btn_buscar_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             mtd_cargar_informacion();
+            this.Cursor = Cursors.Default;
         }
         private void txt_buscar_KeyUp(object sender, KeyEventArgs e)
         {
-            mtd_cargar_informacion();
+            //mtd_cargar_informacion();
         }
         private void txt_buscar_Enter(object sender, EventArgs e)
         {
@@ -654,6 +678,28 @@ namespace SBX
         {
             p.ultimaPagina();
             actualizar();
+        }
+
+        private void txt_buscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                this.Cursor = Cursors.WaitCursor;
+                mtd_cargar_informacion();
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void cbx_tipo_busqueda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbx_tipo_busqueda.SelectedIndex == 0)
+            {
+                cbx_dato_busqueda.Enabled = true;
+            }
+            else
+            {
+                cbx_dato_busqueda.Enabled = false;
+            }
         }
     }
 }

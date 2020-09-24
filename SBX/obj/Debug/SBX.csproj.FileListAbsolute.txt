@@ -402,3 +402,4 @@ C:\SBX_VENTANAS\SBX\obj\Debug\SBX.csproj.CoreCompileInputs.cache
 C:\SBX_VENTANAS\SBX\obj\Debug\SBX.csproj.CopyComplete
 C:\SBX_VENTANAS\SBX\obj\Debug\SBX.exe
 C:\SBX_VENTANAS\SBX\obj\Debug\SBX.pdb
+C:\Users\RUBEN\Documents\Ruben\SBX\SBX_VENTANAS\SBX\obj\Debug\SBX.frm_prueba_consultas.resources

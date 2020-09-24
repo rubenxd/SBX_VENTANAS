@@ -970,73 +970,139 @@ namespace SBX
         }
         public void mtd_dato_venta(string info)
         {
-            mtd_limpiar();
-            cls_Producto.v_tipo_busqueda = "Buscar_data_producto_exacto_item";
+            //mtd_limpiar();
+            //cls_Producto.v_tipo_busqueda = "Buscar_data_producto_exacto_item";
             int Item = Convert.ToInt32(info);
+            //cls_Producto.Item = Item.ToString();
+            //v_dt = cls_Producto.mtd_consultar_producto();
+
             cls_Producto.Item = Item.ToString();
-            v_dt = cls_Producto.mtd_consultar_producto();
-            if (v_dt.Rows.Count > 0)
-            { 
-                v_row = v_dt.Rows[0];
-                cbx_modo_venta.Text = v_row["ModoVenta"].ToString();
-                txt_nombre.Text = v_row["Nombre"].ToString();
-                txt_descripcion.Text = v_row["Descripcion"].ToString();
-                v_item_producto = v_row["item"].ToString();
-                txt_item.Text = string.Format("{0:0000}", v_row["item"]);
-                txt_referencia.Text = v_row["Referencia"].ToString();
-                txt_codigo_barras.Text = v_row["CodigoBarras"].ToString();
-                txt_iva.Text = v_row["IVA"].ToString();
-                cbx_unidad_medida.Text = v_row["Nombre_Unidad_medida"].ToString();
-                txt_medida.Text = v_row["Medida"].ToString();
-                cbx_estado.Text = v_row["Nombre_Estado"].ToString();
-                cbx_categoria.Text = v_row["Nombre_Categoria"].ToString();
-                cbx_marca.Text = v_row["Nombre_Marca"].ToString();
-                txt_subcantidad.Text = v_row["SubCantidad"].ToString();
-                v_valores = Convert.ToDouble(v_row["ValorSubcantidad"]);
-                txt_valor_subcantidad.Text = v_valores.ToString("N");
-                txt_sobres.Text = v_row["Sobres"].ToString();
-                v_valores = Convert.ToDouble(v_row["ValorSobre"]);
-                txt_valor_sobres.Text = v_valores.ToString("N");
-                txt_proveedor.Text = v_row["Proveedor"].ToString();              
-                v_valores = Convert.ToDouble(v_row["Costo"]);
-                txt_costo.Text = v_valores.ToString("N");
-                v_valores = Convert.ToDouble(v_row["PrecioVenta"]);
-                txt_precio_venta.Text = v_valores.ToString("N");
-                cbx_ubicacion.Text = v_row["Nombre_ubicacion"].ToString();
-                cbx_salida_para.Text = v_row["Nombre_Salida_para"].ToString();
-                txt_stock_minimo.Text = v_row["Stock_minimo"].ToString();
-                txt_stock_maximo.Text = v_row["Stock_maximo"].ToString();
-                txt_cantidad.Text = "0";
-                string ft = v_row["Foto"].ToString();
-                if (ft != "System.Byte[]")
-                {
-                    byte[] imagen = (byte[])v_row["Foto"];
-                    pbx_foto.Image = byteArrayToImage(imagen);
-                }
-                txt_nom_proveedor.Text = v_row["Nom_proveedor"].ToString(); 
-                txt_desc.Text = v_row["DescuentoProveedor"].ToString();
-                txt_fecha_vence.Text = v_row["FechaVencimiento"].ToString();
-                txt_nota.Text = v_row["Nota"].ToString();
-                //calcular Costo - descuento + iva
-                mtd_calculo_costo();
-                //calculiar margen
-                mtd_calcular_margen();
-                //
-                btn_add_fecha_vence.Enabled = true;
-            }
-            cls_Producto.v_tipo_busqueda = "";
-            cls_Producto.v_buscar = info;
-            v_dt = cls_Producto.mtd_consultar_producto_kardex();
-            if (v_dt.Rows.Count > 0)
+            v_dt = cls_Producto.mtd_consultar_dato_inventario();
+            int contador = 0;
+            if (v_dt.Rows.Count > 0) 
             {
-                v_row = v_dt.Rows[0];
-                double Stock = Convert.ToDouble(v_row["Stock"]);
-                lbl_stock_actual.Text = Math.Round(Stock, 2).ToString();
-                double StockSubCantidad = Convert.ToDouble(v_row["Stock und"]);
-                lbl_sub.Text = Math.Round(StockSubCantidad, 2).ToString();
-                double StockSobres = Convert.ToDouble(v_row["Stock Sub"]);
-                lbl_sob.Text = Math.Round(StockSobres, 2).ToString();
+                foreach (DataRow item in v_dt.Rows)
+                {
+                    if (contador == 0)
+                    {
+                        cbx_modo_venta.Text = item["ModoVenta"].ToString();
+                        txt_nombre.Text = item["Nombre"].ToString();
+                        txt_descripcion.Text = item["Descripcion"].ToString();
+                        v_item_producto = item["item"].ToString();
+                        txt_item.Text = string.Format("{0:0000}", item["item"]);
+                        txt_referencia.Text = item["Referencia"].ToString();
+                        txt_codigo_barras.Text = item["CodigoBarras"].ToString();
+                        txt_iva.Text = item["IVA"].ToString();
+                        cbx_unidad_medida.Text = item["Nombre_Unidad_medida"].ToString();
+                        txt_medida.Text = item["Medida"].ToString();
+                        cbx_estado.Text = item["Nombre_Estado"].ToString();
+                        cbx_categoria.Text = item["Nombre_Categoria"].ToString();
+                        cbx_marca.Text = item["Nombre_Marca"].ToString();
+                        txt_subcantidad.Text = item["SubCantidad"].ToString();
+                        v_valores = Convert.ToDouble(item["ValorSubcantidad"]);
+                        txt_valor_subcantidad.Text = v_valores.ToString("N");
+                        txt_sobres.Text = item["Sobres"].ToString();
+                        v_valores = Convert.ToDouble(item["ValorSobre"]);
+                        txt_valor_sobres.Text = v_valores.ToString("N");
+                        txt_proveedor.Text = item["Proveedor"].ToString();
+                        v_valores = Convert.ToDouble(item["Costo"]);
+                        txt_costo.Text = v_valores.ToString("N");
+                        v_valores = Convert.ToDouble(item["PrecioVenta"]);
+                        txt_precio_venta.Text = v_valores.ToString("N");
+                        cbx_ubicacion.Text = item["Nombre_ubicacion"].ToString();
+                        cbx_salida_para.Text = item["Nombre_Salida_para"].ToString();
+                        txt_stock_minimo.Text = item["Stock_minimo"].ToString();
+                        txt_stock_maximo.Text = item["Stock_maximo"].ToString();
+                        txt_cantidad.Text = "0";
+                        string ft = item["Foto"].ToString();
+                        if (ft != "System.Byte[]")
+                        {
+                            byte[] imagen = (byte[])v_row["Foto"];
+                            pbx_foto.Image = byteArrayToImage(imagen);
+                        }
+                        txt_nom_proveedor.Text = item["Nom_proveedor"].ToString();
+                        txt_desc.Text = item["DescuentoProveedor"].ToString();
+                        txt_fecha_vence.Text = item["FechaVencimiento"].ToString();
+                        txt_nota.Text = item["Nota"].ToString();
+                        //calcular Costo - descuento + iva
+                        mtd_calculo_costo();
+                        //calculiar margen
+                        mtd_calcular_margen();
+                        //
+                        btn_add_fecha_vence.Enabled = true;
+                    }
+                    else
+                    {
+                        lbl_stock_actual.Text = item["Stock"].ToString();
+                        lbl_sub.Text = item["Stock und"].ToString();
+                        lbl_sob.Text = item["Stock Sub"].ToString();
+                    }
+                    contador++;
+                }
             }
+            //------------------------------------------------------
+            //    if (v_dt.Rows.Count > 0)
+            //{ 
+            //    v_row = v_dt.Rows[0];
+            //    cbx_modo_venta.Text = v_row["ModoVenta"].ToString();
+            //    txt_nombre.Text = v_row["Nombre"].ToString();
+            //    txt_descripcion.Text = v_row["Descripcion"].ToString();
+            //    v_item_producto = v_row["item"].ToString();
+            //    txt_item.Text = string.Format("{0:0000}", v_row["item"]);
+            //    txt_referencia.Text = v_row["Referencia"].ToString();
+            //    txt_codigo_barras.Text = v_row["CodigoBarras"].ToString();
+            //    txt_iva.Text = v_row["IVA"].ToString();
+            //    cbx_unidad_medida.Text = v_row["Nombre_Unidad_medida"].ToString();
+            //    txt_medida.Text = v_row["Medida"].ToString();
+            //    cbx_estado.Text = v_row["Nombre_Estado"].ToString();
+            //    cbx_categoria.Text = v_row["Nombre_Categoria"].ToString();
+            //    cbx_marca.Text = v_row["Nombre_Marca"].ToString();
+            //    txt_subcantidad.Text = v_row["SubCantidad"].ToString();
+            //    v_valores = Convert.ToDouble(v_row["ValorSubcantidad"]);
+            //    txt_valor_subcantidad.Text = v_valores.ToString("N");
+            //    txt_sobres.Text = v_row["Sobres"].ToString();
+            //    v_valores = Convert.ToDouble(v_row["ValorSobre"]);
+            //    txt_valor_sobres.Text = v_valores.ToString("N");
+            //    txt_proveedor.Text = v_row["Proveedor"].ToString();              
+            //    v_valores = Convert.ToDouble(v_row["Costo"]);
+            //    txt_costo.Text = v_valores.ToString("N");
+            //    v_valores = Convert.ToDouble(v_row["PrecioVenta"]);
+            //    txt_precio_venta.Text = v_valores.ToString("N");
+            //    cbx_ubicacion.Text = v_row["Nombre_ubicacion"].ToString();
+            //    cbx_salida_para.Text = v_row["Nombre_Salida_para"].ToString();
+            //    txt_stock_minimo.Text = v_row["Stock_minimo"].ToString();
+            //    txt_stock_maximo.Text = v_row["Stock_maximo"].ToString();
+            //    txt_cantidad.Text = "0";
+            //    string ft = v_row["Foto"].ToString();
+            //    if (ft != "System.Byte[]")
+            //    {
+            //        byte[] imagen = (byte[])v_row["Foto"];
+            //        pbx_foto.Image = byteArrayToImage(imagen);
+            //    }
+            //    txt_nom_proveedor.Text = v_row["Nom_proveedor"].ToString(); 
+            //    txt_desc.Text = v_row["DescuentoProveedor"].ToString();
+            //    txt_fecha_vence.Text = v_row["FechaVencimiento"].ToString();
+            //    txt_nota.Text = v_row["Nota"].ToString();
+            //    //calcular Costo - descuento + iva
+            //    mtd_calculo_costo();
+            //    //calculiar margen
+            //    mtd_calcular_margen();
+            //    //
+            //    btn_add_fecha_vence.Enabled = true;
+            //}
+            //cls_Producto.v_tipo_busqueda = "";
+            //cls_Producto.v_buscar = info;
+            //v_dt = cls_Producto.mtd_consultar_producto_kardex();
+            //if (v_dt.Rows.Count > 0)
+            //{
+            //    v_row = v_dt.Rows[0];
+            //    double Stock = Convert.ToDouble(v_row["Stock"]);
+            //    lbl_stock_actual.Text = Math.Round(Stock, 2).ToString();
+            //    double StockSubCantidad = Convert.ToDouble(v_row["Stock und"]);
+            //    lbl_sub.Text = Math.Round(StockSubCantidad, 2).ToString();
+            //    double StockSobres = Convert.ToDouble(v_row["Stock Sub"]);
+            //    lbl_sob.Text = Math.Round(StockSobres, 2).ToString();
+            //}
 
             txt_item.Enabled = false;
             cbx_modo_venta.Enabled = false;

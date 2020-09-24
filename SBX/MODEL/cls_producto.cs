@@ -23,6 +23,7 @@ namespace SBX.MODEL
         string v_query = "";
         public string v_tipo_busqueda { get; set; }
         public string v_buscar { get; set; }
+        public string v_data_busqueda { get; set; }
         bool v_ok;
 
         //getter and setter
@@ -73,7 +74,13 @@ namespace SBX.MODEL
             v_dt = cls_Datos.mtd_consultar(v_query);
             return v_dt;
         }
-
+        public DataTable mtd_consultar_producto_pruebas()
+        {
+            v_query = " EXECUTE sp_consultar_producto '" + v_tipo_busqueda + "','" + v_buscar + "','" + Item + "','" + Referencia + "','" + CodigoBarras + "','"+ v_data_busqueda + "' ";
+            v_dt = cls_Datos.mtd_consultar(v_query);
+            return v_dt;
+        }
+        
         public DataTable mtd_consultar_producto_Paginado()
         {
             DataSet ds = new DataSet();
@@ -86,7 +93,7 @@ namespace SBX.MODEL
         }          
         public DataTable mtd_consultar_producto_kardex()
         {
-            v_query = " EXECUTE SP_CONSULTA_ESTADO_PRODUCTOS '" + v_buscar + "','" + v_tipo_busqueda + "' ";
+            v_query = " EXECUTE SP_CONSULTA_ESTADO_PRODUCTOS '" + v_buscar + "','" + v_tipo_busqueda + "','Item' ";
             v_dt = cls_Datos.mtd_consultar(v_query);
             return v_dt;
         }
@@ -455,6 +462,19 @@ namespace SBX.MODEL
             v_query = "DELETE FROM FechasVencimiento WHERE Item = '" + Item + "' AND FechaVecimiento = '"+FechaVencimiento+"'";
             v_ok = cls_Datos.mtd_eliminar(v_query);
             return v_ok;
+        }
+
+        public DataTable mtd_consultar_todos_productos()
+        {
+            v_query = " EXECUTE SP_CONSULTA_ESTADO_PRODUCTOS '" + v_buscar + "','" + v_tipo_busqueda + "','" + v_data_busqueda + "'  ";
+            v_dt = cls_Datos.mtd_consultar(v_query);
+            return v_dt;
+        }
+        public DataTable mtd_consultar_dato_inventario()
+        {
+            v_query = " EXECUTE sp_datos_inventario '" + Item + "'  ";
+            v_dt = cls_Datos.mtd_consultar(v_query);
+            return v_dt;
         }
     }
 }

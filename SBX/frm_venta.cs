@@ -1043,13 +1043,15 @@ namespace SBX
             DataTable DTVenta;
             cls_Venta.NombreDocumento = NombDoc;
             cls_Venta.ConsecutivoDocumento = ConsecutivoDoc;
-            DTVenta = cls_Venta.mtd_consultar_Ventas_factura();
+            //DTVenta = cls_Venta.mtd_consultar_Ventas_factura();
+            cls_Venta.v_buscar = NombDoc + '-' + ConsecutivoDoc;
+            DTVenta = cls_Venta.mtd_consultar_dato_impresion();
             row = DTVenta.Rows[0];
             ///
-            ticket.TextoIzquierda("FACTURA N. " + row["NombreDocumento"].ToString() + "-" + row["ConsecutivoDocumento"].ToString() + "");
+            ticket.TextoIzquierda("FACTURA N. " + row["Factura"].ToString());
             if (v_domicilio == false)
             {
-                ticket.TextoIzquierda("CLIENTE: " + row["ClienteVenta"].ToString() + "");
+                ticket.TextoIzquierda("CLIENTE: " + row["Cliente"].ToString() + "");
             }          
             ticket.TextoIzquierda("");
             ticket.lineasAsteriscos();
@@ -1076,45 +1078,45 @@ namespace SBX
             double ValorDomicilio = 0;
             foreach (DataRow rows in DTVenta.Rows)
             {
-                //CONVERTIR CANTIDADES EXACTAS 
-                if (rows["ModoVenta"].ToString() == "Multi" && rows["UM"].ToString() == "UND P")
-                {
-                    rows["Cantidad"] = Convert.ToDouble(rows["Cantidad"]) * Convert.ToDouble(rows["SubCantidad"]);
-                }
-                else if (rows["ModoVenta"].ToString() == "Multi" && rows["UM"].ToString() == "Sobre")
-                {
-                    rows["Cantidad"] = Convert.ToDouble(rows["Cantidad"]) * Convert.ToDouble(rows["Sobres"]);
-                }
-                else if (rows["ModoVenta"].ToString() == "Pesaje" && rows["UM"].ToString() != "Bulto")
-                {
-                    rows["Cantidad"] = Convert.ToDouble(rows["Cantidad"]) * Convert.ToDouble(rows["SubCantidad"]);
-                }
+                ////CONVERTIR CANTIDADES EXACTAS 
+                //if (rows["ModoVenta"].ToString() == "Multi" && rows["UM"].ToString() == "UND P")
+                //{
+                //    rows["Cantidad"] = Convert.ToDouble(rows["Cantidad"]) * Convert.ToDouble(rows["SubCantidad"]);
+                //}
+                //else if (rows["ModoVenta"].ToString() == "Multi" && rows["UM"].ToString() == "Sobre")
+                //{
+                //    rows["Cantidad"] = Convert.ToDouble(rows["Cantidad"]) * Convert.ToDouble(rows["Sobres"]);
+                //}
+                //else if (rows["ModoVenta"].ToString() == "Pesaje" && rows["UM"].ToString() != "Bulto")
+                //{
+                //    rows["Cantidad"] = Convert.ToDouble(rows["Cantidad"]) * Convert.ToDouble(rows["SubCantidad"]);
+                //}
                 //else if (rows["UM"].ToString() == "UND" && rows["UM"].ToString() == "Caja" && rows["UM"].ToString() == "Bulto")
                 //{
 
                 //}
                 //
                 double Cant;
-                Cant = Math.Round(Convert.ToDouble(rows["Cantidad"]));
-                rows["Cantidad"] = Cant.ToString();
+                //Cant = Math.Round(Convert.ToDouble(rows["Cantidad_Exacta"]));
+                //rows["Cantidad"] = Cant.ToString();
 
                 ticket.TextoIzquierda("---------");
-                ticket.AgregaArticulo(rows["Item"].ToString(), rows["Nombre"].ToString()+" ", rows["UM"].ToString()+" ", (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad"])));
+                ticket.AgregaArticulo(rows["Item"].ToString(), rows["Nombre"].ToString()+" ", rows["UM"].ToString()+" ", (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"])));
                
-                ticket.MuestraCalculoPRecioProducto(rows["Cantidad"].ToString(), Convert.ToDouble(rows["PrecioVenta"]));
-                Descuento = ((Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad"])) * (Convert.ToDouble(rows["Descuento"]) / 100));
+                ticket.MuestraCalculoPRecioProducto(rows["Cantidad_Exacta"].ToString(), Convert.ToDouble(rows["PrecioVenta"]));
+                Descuento = ((Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"])) * (Convert.ToDouble(rows["Descuento"]) / 100));
                 ticket.AgregarTotales("Descuento.........", Descuento);
                 //ticket.AgregarTotales("IVA %.........",  Convert.ToDouble(rows["IVA"]));
                 ticket.AgregarTotales("IVA %.........",  0);
                 //ticket.AgregarTotales("Valor IVA.........", (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad"])) * (Convert.ToDouble(rows["IVA"])/100));
                 ticket.AgregarTotales("Valor IVA.........", 0);
                 TotalDescuento += Descuento;
-                Subtotal += (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad"]));
+                Subtotal += (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"]));
                 //Impuesto += ((Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad"])) * (Convert.ToDouble(rows["IVA"]) / 100));
                 Impuesto = 0;
                 Recibido = Convert.ToDouble(rows["Efectivo"]) + Convert.ToDouble(rows["Tdebito"]) + Convert.ToDouble(rows["Tcredito"]);
                 Devueltas = Convert.ToDouble(rows["Cambio"]);
-                AritculosVendidos += Convert.ToDouble(rows["Cantidad"]);
+                AritculosVendidos += Convert.ToDouble(rows["Cantidad_Exacta"]);
                 ValorDomicilio = Convert.ToDouble(rows["ValorDomicilio"]);
                 Total = (Subtotal - TotalDescuento) + Impuesto;
             }
