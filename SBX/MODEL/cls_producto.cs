@@ -93,13 +93,13 @@ namespace SBX.MODEL
         }          
         public DataTable mtd_consultar_producto_kardex()
         {
-            v_query = " EXECUTE SP_CONSULTA_ESTADO_PRODUCTOS '" + v_buscar + "','" + v_tipo_busqueda + "','Item' ";
+            v_query = " EXECUTE SP_CONSULTA_ESTADO_PRODUCTOS '" + v_buscar + "','" + v_tipo_busqueda + "','"+v_data_busqueda+"' ";
             v_dt = cls_Datos.mtd_consultar(v_query);
             return v_dt;
         }
         public DataTable mtd_consultar_estado_fechas_vencimiento()
         {
-            v_query = " EXECUTE sp_estado_fecha_vencimiento  '"+v_buscar+"'";
+            v_query = " EXECUTE sp_estado_fecha_vencimiento  '"+v_buscar+ "','" + v_tipo_busqueda + "'";
             v_dt = cls_Datos.mtd_consultar(v_query);
             return v_dt;
         }

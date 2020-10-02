@@ -188,6 +188,7 @@
             this.btn_imprimir_reporte.Size = new System.Drawing.Size(26, 26);
             this.btn_imprimir_reporte.TabIndex = 2;
             this.btn_imprimir_reporte.UseVisualStyleBackColor = false;
+            this.btn_imprimir_reporte.Visible = false;
             this.btn_imprimir_reporte.Click += new System.EventHandler(this.btn_imprimir_reporte_Click);
             // 
             // pnl_centro

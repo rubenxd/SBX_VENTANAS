@@ -77,6 +77,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lbl_total_ventas = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btn_impresion_ticket = new System.Windows.Forms.Button();
             this.pnl_arriba.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_ventas)).BeginInit();
             this.panel1.SuspendLayout();
@@ -351,6 +352,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.btn_impresion_ticket);
             this.panel1.Controls.Add(this.btn_rp_factura);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
@@ -375,11 +377,12 @@
             this.btn_rp_factura.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btn_rp_factura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_rp_factura.Image = ((System.Drawing.Image)(resources.GetObject("btn_rp_factura.Image")));
-            this.btn_rp_factura.Location = new System.Drawing.Point(74, 7);
+            this.btn_rp_factura.Location = new System.Drawing.Point(157, 6);
             this.btn_rp_factura.Name = "btn_rp_factura";
             this.btn_rp_factura.Size = new System.Drawing.Size(26, 26);
             this.btn_rp_factura.TabIndex = 81;
             this.btn_rp_factura.UseVisualStyleBackColor = false;
+            this.btn_rp_factura.Visible = false;
             this.btn_rp_factura.Click += new System.EventHandler(this.btn_rp_factura_Click);
             // 
             // label3
@@ -553,6 +556,21 @@
             this.label4.TabIndex = 81;
             this.label4.Text = "Total Venta:";
             // 
+            // btn_impresion_ticket
+            // 
+            this.btn_impresion_ticket.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_impresion_ticket.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_impresion_ticket.FlatAppearance.BorderSize = 0;
+            this.btn_impresion_ticket.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_impresion_ticket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_impresion_ticket.Image = ((System.Drawing.Image)(resources.GetObject("btn_impresion_ticket.Image")));
+            this.btn_impresion_ticket.Location = new System.Drawing.Point(74, 6);
+            this.btn_impresion_ticket.Name = "btn_impresion_ticket";
+            this.btn_impresion_ticket.Size = new System.Drawing.Size(26, 26);
+            this.btn_impresion_ticket.TabIndex = 82;
+            this.btn_impresion_ticket.UseVisualStyleBackColor = false;
+            this.btn_impresion_ticket.Click += new System.EventHandler(this.btn_impresion_ticket_Click);
+            // 
             // frm_ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -628,5 +646,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_domicilio;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_Usuario;
         private System.Windows.Forms.Button btn_rp_factura;
+        private System.Windows.Forms.Button btn_impresion_ticket;
     }
 }

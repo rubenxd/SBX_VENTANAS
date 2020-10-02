@@ -69,8 +69,8 @@ namespace SBX
         public frm_inventario(string Accion)
         {
             InitializeComponent();
-            //pnl_arriba.Height = 32;
-           
+           // pnl_arriba.Height = 32;
+
 
             if (Accion != "Modificar")
             {
@@ -86,34 +86,34 @@ namespace SBX
             {
                 cbx_modo_venta.Text = "Unidad";
             }
-            
+
             rd_entrada.Checked = true;
             mtd_caracteristicas();
-           
-                foreach (DataRow rows in v_dt_Permi.Rows)
+
+            foreach (DataRow rows in v_dt_Permi.Rows)
+            {
+                if (rows["Modulo"].ToString() == "INVENTARIO")
                 {
-                    if (rows["Modulo"].ToString() == "INVENTARIO")
+                    switch (rows["Permiso"].ToString())
                     {
-                        switch (rows["Permiso"].ToString())
-                        {
-                            case "guardar":
-                                btn_guardar.Enabled = true;
-                                break;
-                            case "consultas":
-                                btn_consultas.Enabled = true;
-                                break;
-                            case "limpiar":
-                                btn_limpiar.Enabled = true;
-                                break;
-                            case "caracteristicas":
-                                btn_caracteristicas.Enabled = true;
-                                break;
-                            case "agregar_proveedor":
-                                btn_agregar_proveedor.Enabled = true;
-                                break;
-                        }
+                        case "guardar":
+                            btn_guardar.Enabled = true;
+                            break;
+                        case "consultas":
+                            btn_consultas.Enabled = true;
+                            break;
+                        case "limpiar":
+                            btn_limpiar.Enabled = true;
+                            break;
+                        case "caracteristicas":
+                            btn_caracteristicas.Enabled = true;
+                            break;
+                        case "agregar_proveedor":
+                            btn_agregar_proveedor.Enabled = true;
+                            break;
                     }
                 }
+            }
             //Actualiza fechas de vencimiento
             cls_Producto.v_buscar = "";
             cls_Producto.mtd_consultar_estado_fechas_vencimiento();

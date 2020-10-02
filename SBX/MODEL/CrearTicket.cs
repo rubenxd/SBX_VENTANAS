@@ -226,41 +226,45 @@ namespace SBX.MODEL
             string elemento = "", espacios = "";
             int nroEspacios = 0;
             string DescripcionR = Descripcion;
-            if (Descripcion.Length > 11)
+            if (Descripcion.Length > 5)
             {
-                DescripcionR = Descripcion.Substring(0, 10);
+                DescripcionR = Descripcion.Substring(0, 7);
             }
-            for (int i = 0; i < (7 - Item.Length); i++)
-            {
-                espacios += " ";
-            }
+            ////for (int i = 0; i < (7 - Item.Length); i++)
+            ////{
+            ////    espacios += " ";
+            ////}
+            espacios = "   ";
             elemento = Item + espacios;
 
             //Colocar la descripcion a la derecha.
-            nroEspacios = (14 - DescripcionR.ToString().Length);
-            espacios = "";
-            for (int i = 0; i < nroEspacios; i++)
-            {
-                espacios += " ";
-            }
+            ////nroEspacios = (14 - DescripcionR.ToString().Length);
+            ////espacios = "";
+            ////for (int i = 0; i < nroEspacios; i++)
+            ////{
+            ////    espacios += " ";
+            ////}
+            espacios = "  ";
             elemento += espacios + DescripcionR.ToString();
 
             //Colocar la unidad de medida a la derecha.
-            nroEspacios = (3 - UM.ToString().Length);
-            espacios = "";
-            for (int i = 0; i < nroEspacios; i++)
-            {
-                espacios += " ";
-            }
+            ////nroEspacios = (3 - UM.ToString().Length);
+            ////espacios = "";
+            ////for (int i = 0; i < nroEspacios; i++)
+            ////{
+            ////    espacios += " ";
+            ////}
+            espacios = " ";
             elemento += espacios + UM.ToString();
 
             //Colocar el total a la derecha.
-            nroEspacios = (8 - String.Format("{0:###,##0.}", Convert.ToDouble(Total)).Length);
-            espacios = "";
-            for (int i = 0; i < nroEspacios; i++)
-            {
-                espacios += " ";
-            }
+            ////nroEspacios = (8 - String.Format("{0:###,##0.}", Convert.ToDouble(Total)).Length);
+            ////espacios = "";
+            ////for (int i = 0; i < nroEspacios; i++)
+            ////{
+            ////    espacios += " ";
+            ////}
+            espacios = " ";
             elemento += espacios + String.Format("{0:###,##0.}", Convert.ToDouble(Total));
 
             linea.AppendLine(elemento);

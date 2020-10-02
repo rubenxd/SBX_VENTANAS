@@ -495,6 +495,7 @@ namespace SBX
         }
         private void mtd_guardar()
         {
+            ///////////////////////////////////////////////////////////////////
             Vendidos = 0;
             Error = 0;
             double ConsDocumento = 0;
@@ -526,37 +527,56 @@ namespace SBX
                         float Division = 0;
                         switch (rows.Cells["cl_modo_venta"].Value.ToString())
                         {
+                            case "Unidad":
+                                Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                                break;
                             case "Multi":
-                                Base = (float.Parse(rows.Cells["cl_subCantidad"].Value.ToString()) * float.Parse(rows.Cells["cl_sobre"].Value.ToString()));
-                                Division = 1 / Base;
-                                Cantidad = (Division * float.Parse(rows.Cells["cl_cantidad"].Value.ToString()));
+                                if (rows.Cells["cl_UM"].Value.ToString() == "UND P")
+                                {
+                                    Base = (float.Parse(rows.Cells["cl_subCantidad"].Value.ToString()) * float.Parse(rows.Cells["cl_sobre"].Value.ToString()));
+                                    Division = 1 / Base;
+                                    Cantidad = (Division * float.Parse(rows.Cells["cl_cantidad"].Value.ToString()));
+                                }
+                                if (rows.Cells["cl_UM"].Value.ToString() == "Sobre")
+                                {
+                                    Cantidad = (1 / float.Parse(rows.Cells["cl_sobre"].Value.ToString())) * float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                                }
+                                if (rows.Cells["cl_UM"].Value.ToString() == "Caja")
+                                {
+                                    Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                                }
                                 break;
-                            case "pesaje":
-                                Base = (float.Parse(rows.Cells["cl_subCantidad"].Value.ToString()));
-                                Division = 1 / Base;
-                                Cantidad = (Division * float.Parse(rows.Cells["cl_cantidad"].Value.ToString()));
-                                break;
+                            case "Pesaje":
+                                if (rows.Cells["cl_UM"].Value.ToString() != "Bulto")
+                                {
+                                    Base = (float.Parse(rows.Cells["cl_subCantidad"].Value.ToString()));
+                                    Division = 1 / Base;
+                                    Cantidad = (Division * float.Parse(rows.Cells["cl_cantidad"].Value.ToString()));
+                                }
+                                else
+                                {
+                                    Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                                }
 
+                                break;
+                            case "Desechable":
+                                if (rows.Cells["cl_UM"].Value.ToString() != "Bolsa")
+                                {
+                                    Base = (float.Parse(rows.Cells["cl_subCantidad"].Value.ToString()));
+                                    Division = 1 / Base;
+                                    Cantidad = (Division * float.Parse(rows.Cells["cl_cantidad"].Value.ToString()));
+                                }
+                                else
+                                {
+                                    Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                                }
+                                break;
+                            case "Queso":
+                                Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                                break;
                         }
 
-                        //if (rows.Cells["cl_UM"].Value.ToString() != "UND" && rows.Cells["cl_UM"].Value.ToString() != "Bulto" && rows.Cells["cl_UM"].Value.ToString() != "Caja" && rows.Cells["cl_UM"].Value.ToString() != "Bolsa")
-                        //{
-                        //    if (rows.Cells["cl_UM"].Value.ToString() == "Sobre")
-                        //    {
-                        //        Cantidad = (1 / float.Parse(rows.Cells["cl_sobre"].Value.ToString())) * float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
-                        //    }
-                        //    else
-                        //    {
-                        //        float Base = (float.Parse(rows.Cells["cl_subCantidad"].Value.ToString()) * float.Parse(rows.Cells["cl_sobre"].Value.ToString()));
-                        //        float Division = 1 / Base;
-                        //        Cantidad = (Division * float.Parse(rows.Cells["cl_cantidad"].Value.ToString()));
-                        //    }
-                        //}
-                        //else
-                        //{
-                        //    Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
-                        //}
-                        //Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                       
                         cls_Venta.Cantidad = Cantidad;
                         cls_Venta.Costo = Convert.ToDouble(rows.Cells["cl_costo"].Value);
                         cls_Venta.PrecioVenta = Convert.ToDouble(rows.Cells["cl_precio"].Value);
@@ -1100,9 +1120,9 @@ namespace SBX
                 //Cant = Math.Round(Convert.ToDouble(rows["Cantidad_Exacta"]));
                 //rows["Cantidad"] = Cant.ToString();
 
-                ticket.TextoIzquierda("---------");
-                ticket.AgregaArticulo(rows["Item"].ToString(), rows["Nombre"].ToString()+" ", rows["UM"].ToString()+" ", (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"])));
-               
+                ticket.TextoIzquierda("--------------------------------------");
+                ticket.AgregaArticulo(rows["Item"].ToString()," ", rows["UM"].ToString()+" ", (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"])));
+                ticket.TextoIzquierda(rows["Nombre"].ToString());
                 ticket.MuestraCalculoPRecioProducto(rows["Cantidad_Exacta"].ToString(), Convert.ToDouble(rows["PrecioVenta"]));
                 Descuento = ((Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"])) * (Convert.ToDouble(rows["Descuento"]) / 100));
                 ticket.AgregarTotales("Descuento.........", Descuento);
@@ -1110,6 +1130,9 @@ namespace SBX
                 ticket.AgregarTotales("IVA %.........",  0);
                 //ticket.AgregarTotales("Valor IVA.........", (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad"])) * (Convert.ToDouble(rows["IVA"])/100));
                 ticket.AgregarTotales("Valor IVA.........", 0);
+                double subtotal_inicial = 0;
+                subtotal_inicial = (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"])) - Descuento;
+                ticket.AgregarTotales("SubTotal.........", subtotal_inicial);
                 TotalDescuento += Descuento;
                 Subtotal += (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"]));
                 //Impuesto += ((Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad"])) * (Convert.ToDouble(rows["IVA"]) / 100));

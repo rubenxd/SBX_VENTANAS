@@ -25,6 +25,7 @@ namespace SBX
         {
             this.Cursor = Cursors.WaitCursor;
             cls_Producto.v_buscar = txt_buscar.Text;
+            cls_Producto.v_tipo_busqueda = cbx_tipo_busqueda.Text;
             v_dt = cls_Producto.mtd_consultar_estado_fechas_vencimiento();
             dtg_productos.DataSource = v_dt;
             foreach (DataGridViewRow item in dtg_productos.Rows)
@@ -42,21 +43,27 @@ namespace SBX
         }
 
         private void btn_buscar_Click(object sender, EventArgs e)
-        {
-            
-                mtd_buscar();
-               
+        {           
+                mtd_buscar();            
         }
 
         private void txt_buscar_KeyUp(object sender, KeyEventArgs e)
         {
             
-                mtd_buscar();    
+               
         }
 
         private void txt_buscar_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+            if (e.KeyChar == (char)13)
+            {
+                mtd_buscar();
+            }
+        }
+
+        private void frm_estado_fechas_vencimiento_Load(object sender, EventArgs e)
+        {
+            cbx_tipo_busqueda.SelectedIndex = 0;
         }
     }
 }

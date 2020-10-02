@@ -228,6 +228,7 @@ namespace SBX
        
         private void btn_venta_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             if (frm_Venta == null || frm_Venta.IsDisposed)
             {
                 frm_Venta = new frm_venta();
@@ -240,7 +241,7 @@ namespace SBX
                 frm_Venta.BringToFront();
                 frm_Venta.WindowState = FormWindowState.Normal;
             }
-
+            this.Cursor = Cursors.Default;
             //formul.Dispose();
             //frm_venta frm_Venta = new frm_venta();
             //frm_Venta.Usuario = Codigo;
@@ -252,6 +253,7 @@ namespace SBX
         }
         private void btn_producto_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             if (frm_Producto == null || frm_Producto.IsDisposed)
             {
                 frm_Producto = new frm_producto();               
@@ -263,6 +265,7 @@ namespace SBX
                 frm_Producto.BringToFront();
                 frm_Producto.WindowState = FormWindowState.Normal;
             }
+            this.Cursor = Cursors.Default;
             //formul.Dispose();
             //frm_producto frm_Producto = new frm_producto();
             //frm_Producto.v_dt_Permi = v_dt_permisos;
@@ -272,6 +275,7 @@ namespace SBX
         }
         private void btn_inventario_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             if (frm_Inventario == null || frm_Inventario.IsDisposed)
             {
                 frm_Inventario = new frm_inventario();
@@ -284,7 +288,7 @@ namespace SBX
                 frm_Inventario.BringToFront();
                 frm_Inventario.WindowState = FormWindowState.Normal;
             }
-
+            this.Cursor = Cursors.Default;
             //formul.Dispose();
             //frm_inventario frm_Inventario = new frm_inventario();
             //frm_Inventario.Usuario = Codigo;

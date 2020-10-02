@@ -193,6 +193,16 @@
     <value>True</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_impresion_ticket.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        dgAAAHYBTnsmCAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADaSURBVDhPldKx
+        CkFRGMDxa/EMysTIbjLJA9iUB5AnEROTwWZSNindN7AomzKw2WRSwsD/q+/cjts593S/+tW9p3P+5TqR
+        TgnfDAO0UIBz7MAbD+vdBJaYwDl2YIuu9W4H5NkZMYEnaigj1jUTGGKvevgbEzijgg1OuiamaKcUkYz9
+        E+aoY2GtuciZZEzghgY6GOuajzMgZmjihZ2S7zFSV2QGLljrc+6AHO4HyB5vQL7BKkD2eANHpP+uNNnj
+        DcgVNpfFx1xzZ+CAaoDs8QY+uAfIHm8gD85E0Q+tSY2UWfxIAQAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="btn_rp_factura.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
