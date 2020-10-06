@@ -55,8 +55,8 @@ namespace SBX
             }
             cls_Venta.v_tipo_busqueda = cbx_tipo_busqueda.Text;
            
-            cls_Venta.Fecha_inicio = dtp_fecha_inicio.Value.ToString();
-            cls_Venta.Fecha_fin = dtp_fecha_fin.Value.ToString();
+            cls_Venta.Fecha_inicio = dtp_fecha_inicio.Text;
+            cls_Venta.Fecha_fin = dtp_fecha_fin.Text;
             v_dt = cls_Venta.mtd_consultar_Venta();
             dtg_ventas.Rows.Clear();
             if (v_dt.Rows.Count > 0)
@@ -66,11 +66,13 @@ namespace SBX
                 v_contador = 0;
                 lbl_total_ventas.Text = "0";
                 double VentasTotales = 0;
+                double DescuentosTotales = 0;
                 double CantidadVenta = 0;
                 float CantidadExacta = 0;
                 string Factura = "";
                 float cantidad = 0;
                 float precioVentas = 0;
+                double totalVentas = 0;
                 
                 foreach (DataRow rows in v_dt.Rows)
                 {
@@ -93,6 +95,7 @@ namespace SBX
                     VentasTotales += PrecioVenta;
                     dtg_ventas.Rows[v_contador].Cells["descuento"].Value = rows["descuento"];
                     double ValorDescuento = Convert.ToDouble(rows["ValorDescuento"]);
+                    DescuentosTotales += ValorDescuento;
                     dtg_ventas.Rows[v_contador].Cells["cl_valor_descuento"].Value = ValorDescuento.ToString("N2");
                     double Efectivo = Convert.ToDouble(rows["Efectivo"]);
                     dtg_ventas.Rows[v_contador].Cells["cl_efectivo"].Value = Efectivo.ToString("N2");
@@ -128,8 +131,8 @@ namespace SBX
                     Factura = rows["Factura"].ToString();
                     v_contador++;
                 }
-
-                lbl_total_ventas.Text = VentasTotales.ToString("N");
+                totalVentas = VentasTotales - DescuentosTotales;
+                lbl_total_ventas.Text = totalVentas.ToString("N");
                 //lbl_cantidad.Text = CantidadVenta.ToString();
                 lbl_cantidad.Text = CantidadExacta.ToString();
             }

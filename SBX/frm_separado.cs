@@ -30,6 +30,7 @@ namespace SBX
         double periodo = 0;
         double v_valor_cuota = 0;
         double v_num_cuotas = 0;
+        public DataTable v_dt_Permi { get; set; }
 
         //Codigo para mover venta
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -50,7 +51,7 @@ namespace SBX
         }
 
         //Metodos
-        private void mtd_carga_cliente(string dni)
+        private void mtd_carga_cliente(string dni,string dato2,string dato3)
         {
             txt_dni.Text = dni;
 
@@ -217,7 +218,7 @@ namespace SBX
             if (frm_Ayuda == null || frm_Ayuda.IsDisposed)
             {
                 frm_Ayuda = new frm_ayuda("Buscar cliente");
-                frm_Ayuda.Enviainfo += new frm_ayuda.EnviarInfo(mtd_carga_cliente);
+                frm_Ayuda.Enviainfo2 += new frm_ayuda.EnviarInfo2(mtd_carga_cliente);
                 frm_Ayuda.Show();
             }
             else
@@ -262,7 +263,7 @@ namespace SBX
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             Validar_calcular();
-            mtd_carga_cliente(txt_dni.Text);
+            mtd_carga_cliente(txt_dni.Text,"","");
             if (v_validado == 0)
             {
                 Enviainfo(cliente,txt_valor.Text,txt_abono_unicial.Text,cbx_periodo_pago.Text,cbx_suministrar.Text,
@@ -276,6 +277,7 @@ namespace SBX
             if (frm_cliente == null || frm_cliente.IsDisposed)
             {
                 frm_cliente = new frm_cliente(true);
+                frm_cliente.v_dt_Permi = this.v_dt_Permi;
                 frm_cliente.Show();
             }
             else
@@ -306,7 +308,7 @@ namespace SBX
         }
         private void txt_dni_KeyUp(object sender, KeyEventArgs e)
         {
-            mtd_carga_cliente(txt_dni.Text);
+            mtd_carga_cliente(txt_dni.Text,"","");
         }
     }
 }

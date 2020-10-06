@@ -566,7 +566,9 @@ namespace SBX
         }
         private void txt_buscar_KeyUp(object sender, KeyEventArgs e)
         {
-            //mtd_cargar_informacion();
+            this.Cursor = Cursors.WaitCursor;
+            mtd_cargar_informacion();
+            this.Cursor = Cursors.Default;
         }
         private void txt_buscar_Enter(object sender, EventArgs e)
         {

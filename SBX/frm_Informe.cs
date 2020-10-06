@@ -151,41 +151,49 @@ namespace SBX
                 dtg_informe.Rows.Add(Filas);
                 foreach (DataRow rows in v_dt.Rows)
                 {
-                    dtg_informe.Rows[Contador].Cells["cl_item"].Value = rows["Item"];
-                    dtg_informe.Rows[Contador].Cells["cl_codigo_barras"].Value = rows["CodigoBarras"];
-                    dtg_informe.Rows[Contador].Cells["cl_referencia"].Value = rows["Referencia"];
-                    dtg_informe.Rows[Contador].Cells["cl_nombre"].Value = rows["Nombre"];
-
-                    dtg_informe.Rows[Contador].Cells["cl_cantidad"].Value = rows["Cantidad"];
-                    double CantidadExacta = Convert.ToDouble(rows["Cantidad_exacta"]);
-                    if (CantidadExacta < 1)
+                    if (rows["Estado_sistema_separado"].ToString() != "Pendiente")
                     {
-                        dtg_informe.Rows[Contador].Cells["cl_cantidad_exacta"].Value = Math.Round(CantidadExacta, 2);
-                    }
-                    else
-                    {
-                        dtg_informe.Rows[Contador].Cells["cl_cantidad_exacta"].Value = Math.Round(CantidadExacta);
-                    }
+                        dtg_informe.Rows[Contador].Cells["cl_item"].Value = rows["Item"];
+                        dtg_informe.Rows[Contador].Cells["cl_codigo_barras"].Value = rows["CodigoBarras"];
+                        dtg_informe.Rows[Contador].Cells["cl_referencia"].Value = rows["Referencia"];
+                        dtg_informe.Rows[Contador].Cells["cl_nombre"].Value = rows["Nombre"];
 
-                    dtg_informe.Rows[Contador].Cells["cl_um"].Value = rows["UM"];
-                    double costo = Convert.ToDouble(rows["Costo"]);
-                    dtg_informe.Rows[Contador].Cells["cl_costos"].Value = costo.ToString("N2");
-                    double PrecioVenta = Convert.ToDouble(rows["PrecioVenta"]);
-                    dtg_informe.Rows[Contador].Cells["cl_precio_venta"].Value = PrecioVenta.ToString("N2");
-                    double ValorDescuento = Convert.ToDouble(rows["ValorDescuento"]);
-                    dtg_informe.Rows[Contador].Cells["cl_Descuentos"].Value = ValorDescuento.ToString("N2");
-                    double Total = PrecioVenta - ValorDescuento;
-                    dtg_informe.Rows[Contador].Cells["cl_total"].Value = Total.ToString("N2");
-                    double Resultados = Total - costo;
-                    dtg_informe.Rows[Contador].Cells["cl_resultado"].Value = Resultados.ToString("N2");
-                    string Modulo = "V. Directa";
-                    if (rows["Domicilio"].ToString() != " -  -  -  -  -  -  - ")
-                    {
-                        Modulo = "Domicilio";
-                    }
-                    dtg_informe.Rows[Contador].Cells["v_modulo"].Value = Modulo;
+                        dtg_informe.Rows[Contador].Cells["cl_cantidad"].Value = rows["Cantidad"];
+                        double CantidadExacta = Convert.ToDouble(rows["Cantidad_exacta"]);
+                        if (CantidadExacta < 1)
+                        {
+                            dtg_informe.Rows[Contador].Cells["cl_cantidad_exacta"].Value = Math.Round(CantidadExacta, 2);
+                        }
+                        else
+                        {
+                            dtg_informe.Rows[Contador].Cells["cl_cantidad_exacta"].Value = Math.Round(CantidadExacta);
+                        }
 
-                    Contador++;
+                        dtg_informe.Rows[Contador].Cells["cl_um"].Value = rows["UM"];
+                        double costo = Convert.ToDouble(rows["Costo"]);
+                        dtg_informe.Rows[Contador].Cells["cl_costos"].Value = costo.ToString("N2");
+                        double PrecioVenta = Convert.ToDouble(rows["PrecioVenta"]);
+                        dtg_informe.Rows[Contador].Cells["cl_precio_venta"].Value = PrecioVenta.ToString("N2");
+                        double ValorDescuento = Convert.ToDouble(rows["ValorDescuento"]);
+                        dtg_informe.Rows[Contador].Cells["cl_Descuentos"].Value = ValorDescuento.ToString("N2");
+                        double Total = PrecioVenta - ValorDescuento;
+                        dtg_informe.Rows[Contador].Cells["cl_total"].Value = Total.ToString("N2");
+                        double Resultados = Total - costo;
+                        dtg_informe.Rows[Contador].Cells["cl_resultado"].Value = Resultados.ToString("N2");
+                        //string Modulo = "V. Directa";
+                        //if (rows["Domicilio"].ToString() != " -  -  -  -  -  -  - ")
+                        //{
+                        //    Modulo = "Domicilio";
+                        //}
+                        dtg_informe.Rows[Contador].Cells["v_modulo"].Value = "V. Directa";
+                        dtg_informe.Rows[Contador].Cells["cl_domicilio"].Value = rows["Domicilio"];
+                        dtg_informe.Rows[Contador].Cells["cl_separado"].Value = rows["SistemaSeparado"];
+                        Contador++;
+                    }
+                    else 
+                    {
+                        dtg_informe.Rows.Add(-1);
+                    }                
                 }
             }
             else

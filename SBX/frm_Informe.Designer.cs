@@ -43,19 +43,6 @@
             this.pnl_centro = new System.Windows.Forms.Panel();
             this.pnl_abajo = new System.Windows.Forms.Panel();
             this.dtg_informe = new System.Windows.Forms.DataGridView();
-            this.cl_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_codigo_barras = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_referencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_cantidad_exacta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_um = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_costos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_precio_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_Descuentos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cl_resultado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.v_modulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnl_contenido = new System.Windows.Forms.Panel();
             this.btn_ver_gastos = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -69,6 +56,21 @@
             this.txt_ventas_domicilio = new System.Windows.Forms.TextBox();
             this.txt_costos = new System.Windows.Forms.TextBox();
             this.txt_ventas_directas = new System.Windows.Forms.TextBox();
+            this.cl_item = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_codigo_barras = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_referencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_cantidad_exacta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_um = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_costos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_precio_venta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_Descuentos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_resultado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.v_modulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_separado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.pnl_centro.SuspendLayout();
             this.pnl_abajo.SuspendLayout();
@@ -217,8 +219,8 @@
             this.dtg_informe.AllowUserToAddRows = false;
             this.dtg_informe.AllowUserToDeleteRows = false;
             this.dtg_informe.AllowUserToOrderColumns = true;
-            this.dtg_informe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg_informe.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dtg_informe.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -227,7 +229,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtg_informe.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtg_informe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtg_informe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dtg_informe.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cl_item,
             this.cl_codigo_barras,
@@ -241,7 +243,9 @@
             this.cl_Descuentos,
             this.cl_total,
             this.cl_resultado,
-            this.v_modulo});
+            this.v_modulo,
+            this.cl_domicilio,
+            this.cl_separado});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -256,84 +260,6 @@
             this.dtg_informe.ReadOnly = true;
             this.dtg_informe.Size = new System.Drawing.Size(907, 177);
             this.dtg_informe.TabIndex = 10;
-            // 
-            // cl_item
-            // 
-            this.cl_item.HeaderText = "Item";
-            this.cl_item.Name = "cl_item";
-            this.cl_item.ReadOnly = true;
-            // 
-            // cl_codigo_barras
-            // 
-            this.cl_codigo_barras.HeaderText = "Codigo Barras";
-            this.cl_codigo_barras.Name = "cl_codigo_barras";
-            this.cl_codigo_barras.ReadOnly = true;
-            // 
-            // cl_referencia
-            // 
-            this.cl_referencia.HeaderText = "Referencia";
-            this.cl_referencia.Name = "cl_referencia";
-            this.cl_referencia.ReadOnly = true;
-            // 
-            // cl_nombre
-            // 
-            this.cl_nombre.HeaderText = "Nombre";
-            this.cl_nombre.Name = "cl_nombre";
-            this.cl_nombre.ReadOnly = true;
-            // 
-            // cl_cantidad
-            // 
-            this.cl_cantidad.HeaderText = "Cantidad";
-            this.cl_cantidad.Name = "cl_cantidad";
-            this.cl_cantidad.ReadOnly = true;
-            // 
-            // cl_cantidad_exacta
-            // 
-            this.cl_cantidad_exacta.HeaderText = "Desc. Cantidad";
-            this.cl_cantidad_exacta.Name = "cl_cantidad_exacta";
-            this.cl_cantidad_exacta.ReadOnly = true;
-            // 
-            // cl_um
-            // 
-            this.cl_um.HeaderText = "UM";
-            this.cl_um.Name = "cl_um";
-            this.cl_um.ReadOnly = true;
-            // 
-            // cl_costos
-            // 
-            this.cl_costos.HeaderText = "Costos";
-            this.cl_costos.Name = "cl_costos";
-            this.cl_costos.ReadOnly = true;
-            // 
-            // cl_precio_venta
-            // 
-            this.cl_precio_venta.HeaderText = "Precio venta";
-            this.cl_precio_venta.Name = "cl_precio_venta";
-            this.cl_precio_venta.ReadOnly = true;
-            // 
-            // cl_Descuentos
-            // 
-            this.cl_Descuentos.HeaderText = "Descuentos";
-            this.cl_Descuentos.Name = "cl_Descuentos";
-            this.cl_Descuentos.ReadOnly = true;
-            // 
-            // cl_total
-            // 
-            this.cl_total.HeaderText = "Total";
-            this.cl_total.Name = "cl_total";
-            this.cl_total.ReadOnly = true;
-            // 
-            // cl_resultado
-            // 
-            this.cl_resultado.HeaderText = "Resultado";
-            this.cl_resultado.Name = "cl_resultado";
-            this.cl_resultado.ReadOnly = true;
-            // 
-            // v_modulo
-            // 
-            this.v_modulo.HeaderText = "Modulo";
-            this.v_modulo.Name = "v_modulo";
-            this.v_modulo.ReadOnly = true;
             // 
             // pnl_contenido
             // 
@@ -487,6 +413,112 @@
             this.txt_ventas_directas.Size = new System.Drawing.Size(250, 26);
             this.txt_ventas_directas.TabIndex = 5;
             // 
+            // cl_item
+            // 
+            this.cl_item.FillWeight = 52.75564F;
+            this.cl_item.HeaderText = "Item";
+            this.cl_item.Name = "cl_item";
+            this.cl_item.ReadOnly = true;
+            // 
+            // cl_codigo_barras
+            // 
+            this.cl_codigo_barras.FillWeight = 761.4211F;
+            this.cl_codigo_barras.HeaderText = "Codigo Barras";
+            this.cl_codigo_barras.Name = "cl_codigo_barras";
+            this.cl_codigo_barras.ReadOnly = true;
+            // 
+            // cl_referencia
+            // 
+            this.cl_referencia.FillWeight = 52.75564F;
+            this.cl_referencia.HeaderText = "Referencia";
+            this.cl_referencia.Name = "cl_referencia";
+            this.cl_referencia.ReadOnly = true;
+            // 
+            // cl_nombre
+            // 
+            this.cl_nombre.FillWeight = 52.75564F;
+            this.cl_nombre.HeaderText = "Nombre";
+            this.cl_nombre.Name = "cl_nombre";
+            this.cl_nombre.ReadOnly = true;
+            // 
+            // cl_cantidad
+            // 
+            this.cl_cantidad.FillWeight = 52.75564F;
+            this.cl_cantidad.HeaderText = "Cantidad";
+            this.cl_cantidad.Name = "cl_cantidad";
+            this.cl_cantidad.ReadOnly = true;
+            // 
+            // cl_cantidad_exacta
+            // 
+            this.cl_cantidad_exacta.FillWeight = 52.75564F;
+            this.cl_cantidad_exacta.HeaderText = "Desc. Cantidad";
+            this.cl_cantidad_exacta.Name = "cl_cantidad_exacta";
+            this.cl_cantidad_exacta.ReadOnly = true;
+            // 
+            // cl_um
+            // 
+            this.cl_um.FillWeight = 52.75564F;
+            this.cl_um.HeaderText = "UM";
+            this.cl_um.Name = "cl_um";
+            this.cl_um.ReadOnly = true;
+            // 
+            // cl_costos
+            // 
+            this.cl_costos.FillWeight = 52.75564F;
+            this.cl_costos.HeaderText = "Costos";
+            this.cl_costos.Name = "cl_costos";
+            this.cl_costos.ReadOnly = true;
+            // 
+            // cl_precio_venta
+            // 
+            this.cl_precio_venta.FillWeight = 52.75564F;
+            this.cl_precio_venta.HeaderText = "Precio venta";
+            this.cl_precio_venta.Name = "cl_precio_venta";
+            this.cl_precio_venta.ReadOnly = true;
+            // 
+            // cl_Descuentos
+            // 
+            this.cl_Descuentos.FillWeight = 52.75564F;
+            this.cl_Descuentos.HeaderText = "Descuentos";
+            this.cl_Descuentos.Name = "cl_Descuentos";
+            this.cl_Descuentos.ReadOnly = true;
+            // 
+            // cl_total
+            // 
+            this.cl_total.FillWeight = 52.75564F;
+            this.cl_total.HeaderText = "Total";
+            this.cl_total.Name = "cl_total";
+            this.cl_total.ReadOnly = true;
+            // 
+            // cl_resultado
+            // 
+            this.cl_resultado.FillWeight = 52.75564F;
+            this.cl_resultado.HeaderText = "Resultado";
+            this.cl_resultado.Name = "cl_resultado";
+            this.cl_resultado.ReadOnly = true;
+            // 
+            // v_modulo
+            // 
+            this.v_modulo.FillWeight = 52.75564F;
+            this.v_modulo.HeaderText = "Modulo";
+            this.v_modulo.Name = "v_modulo";
+            this.v_modulo.ReadOnly = true;
+            // 
+            // cl_domicilio
+            // 
+            this.cl_domicilio.FillWeight = 52.75564F;
+            this.cl_domicilio.HeaderText = "Domicilio";
+            this.cl_domicilio.Name = "cl_domicilio";
+            this.cl_domicilio.ReadOnly = true;
+            // 
+            // cl_separado
+            // 
+            this.cl_separado.FillWeight = 52.75564F;
+            this.cl_separado.HeaderText = "Separado";
+            this.cl_separado.Name = "cl_separado";
+            this.cl_separado.ReadOnly = true;
+            this.cl_separado.Width = 150;
+            // 
             // frm_Informe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -534,6 +566,9 @@
         private System.Windows.Forms.Panel pnl_abajo;
         private System.Windows.Forms.ComboBox cbx_tipo_busqueda;
         private System.Windows.Forms.TextBox txt_buscar;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txt_gastos;
+        private System.Windows.Forms.Button btn_ver_gastos;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_item;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_codigo_barras;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_referencia;
@@ -547,8 +582,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_total;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_resultado;
         private System.Windows.Forms.DataGridViewTextBoxColumn v_modulo;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txt_gastos;
-        private System.Windows.Forms.Button btn_ver_gastos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_domicilio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_separado;
     }
 }

@@ -262,10 +262,24 @@ namespace SBX.MODEL
 
                     break;
                 case "SistemaSeparado":
-                    v_query = " INSERT INTO Venta (Fecha,NombreDocumento,ConsecutivoDocumento,Producto,ModoVenta,UM,Cantidad,Costo,PrecioVenta," +
-                     " descuento,Efectivo,Tdebito,Tcredito,NumBaucherDebito,NumBaucherCredito,Cambio,Total,Proveedor,Cliente,SistemaSeparado,IVA,Usuario,DescuentoProveedor,Nota)" +
-                     " VALUES (@Fecha,@NombreDocumento,@ConsecutivoDocumento,@Producto,@ModoVenta,@UM,@Cantidad,@Costo,@PrecioVenta," +
-                     " @descuento,@Efectivo,@Tdebito,@Tcredito,@NumBaucherDebito,@NumBaucherCredito,@Cambio,@Total,@Proveedor,@Cliente,@SistemaSeparado,@IVA,@Usuario,@DescuentoProveedor,@Nota)";
+                    //v_query = " INSERT INTO Venta (Fecha,NombreDocumento,ConsecutivoDocumento,Producto,ModoVenta,UM,Cantidad,Costo,PrecioVenta," +
+                    // " descuento,Efectivo,Tdebito,Tcredito,NumBaucherDebito,NumBaucherCredito,Cambio,Total,Proveedor,Cliente,SistemaSeparado,IVA,Usuario,DescuentoProveedor,Nota)" +
+                    // " VALUES (@Fecha,@NombreDocumento,@ConsecutivoDocumento,@Producto,@ModoVenta,@UM,@Cantidad,@Costo,@PrecioVenta," +
+                    // " @descuento,@Efectivo,@Tdebito,@Tcredito,@NumBaucherDebito,@NumBaucherCredito,@Cambio,@Total,@Proveedor,@Cliente,@SistemaSeparado,@IVA,@Usuario,@DescuentoProveedor,@Nota)";
+                    if (sucursal == "")
+                    {
+                        v_query = " INSERT INTO Venta (Fecha,NombreDocumento,ConsecutivoDocumento,Producto,ModoVenta,UM,Cantidad,Costo,PrecioVenta," +
+                                         " descuento,Efectivo,Tdebito,Tcredito,NumBaucherDebito,NumBaucherCredito,Cambio,Total,Proveedor,Cliente,SistemaSeparado,IVA,Usuario,DescuentoProveedor,Nota)" +
+                                         " VALUES (@Fecha,@NombreDocumento,@ConsecutivoDocumento,@Producto,@ModoVenta,@UM,@Cantidad,@Costo,@PrecioVenta," +
+                                         " @descuento,@Efectivo,@Tdebito,@Tcredito,@NumBaucherDebito,@NumBaucherCredito,@Cambio,@Total,@Proveedor,@Cliente,@SistemaSeparado,@IVA,@Usuario,@DescuentoProveedor,@Nota)";
+                    }
+                    else
+                    {
+                        v_query = " INSERT INTO Venta (Fecha,NombreDocumento,ConsecutivoDocumento,Producto,ModoVenta,UM,Cantidad,Costo,PrecioVenta," +
+                                  " descuento,Efectivo,Tdebito,Tcredito,NumBaucherDebito,NumBaucherCredito,Cambio,Total,Proveedor,Cliente,SistemaSeparado,IVA,Usuario,DescuentoProveedor,Nota,sucursal)" +
+                                  " VALUES (@Fecha,@NombreDocumento,@ConsecutivoDocumento,@Producto,@ModoVenta,@UM,@Cantidad,@Costo,@PrecioVenta," +
+                                  " @descuento,@Efectivo,@Tdebito,@Tcredito,@NumBaucherDebito,@NumBaucherCredito,@Cambio,@Total,@Proveedor,@Cliente,@SistemaSeparado,@IVA,@Usuario,@DescuentoProveedor,@Nota,@sucursal)";
+                    }
                     break;
             }
           
