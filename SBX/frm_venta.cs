@@ -1166,6 +1166,10 @@ namespace SBX
             ticket.TextoCentro(NumerosCelular);
             ticket.TextoIzquierda("");
             ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("");
             ticket.CortaTicket();
             ticket.ImprimirTicket(NombreImpresora);//Nombre de la impresora ticketera
         }
