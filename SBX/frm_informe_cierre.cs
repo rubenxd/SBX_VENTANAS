@@ -262,7 +262,10 @@ namespace SBX
             //{
             //    ticket.TextoIzquierda("No ha realizado ventas");
             //}
-
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("");
             ticket.CortaTicket();
 
             ticket.ImprimirTicketCaja(NombreImpresora);//Nombre de la impresora ticketera
