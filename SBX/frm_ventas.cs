@@ -487,8 +487,8 @@ namespace SBX
             ticket.TextoIzquierda("ARTICULOS VENDIDOS: " + AritculosVendidos + "");
             ticket.TextoIzquierda("");
             ticket.TextoIzquierda("");
-            ticket.TextoCentro("SERVICIO A DOMICILIO");
-            ticket.TextoCentro(NumerosCelular);
+            //ticket.TextoCentro("SERVICIO A DOMICILIO");
+            //ticket.TextoCentro(NumerosCelular);
             ticket.TextoIzquierda("");
             ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
             ticket.TextoIzquierda("");

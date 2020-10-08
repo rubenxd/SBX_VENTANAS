@@ -13,8 +13,8 @@ namespace SBX.MODEL
         //Creamos un objeto de la clase StringBuilder, en este objeto agregaremos las lineas del ticket
         StringBuilder linea = new StringBuilder();
         //Creamos una variable para almacenar el numero maximo de caracteres que permitiremos en el ticket.
-        int maxCar = 32, cortar;//Para una impresora ticketera que imprime a 40 columnas. La variable cortar cortara el texto cuando rebase el limte.
-
+       // int maxCar = 32, cortar;//Para una impresora ticketera que imprime a 40 columnas. La variable cortar cortara el texto cuando rebase el limte.
+        int maxCar = 42, cortar;
         //Creamos el primer metodo, este dibujara lineas guion.
         public string lineasGuio()
         {
