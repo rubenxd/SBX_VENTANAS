@@ -192,3 +192,5 @@ INSERT INTO Rol_Modulo_Permiso VALUES
 GO
 INSERT INTO Usuario VALUES
 ('1','Admin','','','','',null,'Admin',ENCRYPTBYPASSPHRASE('password','admin'),'Activo',1)
+GO
+  insert into Parametros values('NO','NO')

@@ -107,7 +107,7 @@ namespace SBX
             double TConteoDinero = 0;
             TConteoDinero = Convert.ToDouble(txt_conteo_dinero.Text);
             //Armar informe cierre de caja
-
+            ticket.AbreCajon();//Para abrir el cajon de dinero.
             DataRow row;
             DataTable DTEmpresa;
             DTEmpresa = Empres.mtd_consultar_Empresa();
@@ -164,110 +164,11 @@ namespace SBX
             ticket.TextoIzquierda("DIFERENCIA:");
             ticket.TextoIzquierda("" + TotalDiferencia.ToString("N2") + "");
             ticket.lineasAsteriscos();
-            //
-            //ticket.TextoCentro("VENTAS");
-            //ticket.lineasAsteriscos();
-            //ticket.TextoIzquierda("");
-            ////informacion de ventas
-            //vent.CodigoUsuario = CodigoUsuario;
-            //DT = vent.InformeVentasCierreCaja();
-            //if (DT.Rows.Count > 0)
-            //{
-            //    string NomDocTemp = "";
-            //    string ConseDocTemp = "";
-
-            //    foreach (DataRow rowsVent in DT.Rows)
-            //    {
-            //        if (NomDocTemp != "" && ConseDocTemp != "")
-            //        {
-            //            if (NomDocTemp == rowsVent["NombreDocumento"].ToString() && ConseDocTemp == rowsVent["ConsecutivoDocumento"].ToString())
-            //            {                         
-            //                ticket.TextoIzquierda("Item: " + rowsVent["Item"].ToString() + "");
-            //                ticket.TextoIzquierda("Codigo Barras: " + rowsVent["CodigoBarras"].ToString() + "");
-            //                ticket.TextoIzquierda("Nombre: " + rowsVent["Nombre"].ToString() + "");
-            //                double ValorUnidad = Convert.ToDouble(rowsVent["ValorUnidad"]);
-            //                ticket.TextoIzquierda("Valor Unidad: " + ValorUnidad.ToString("N") + "");
-            //                ticket.TextoIzquierda("Cantidad: " + rowsVent["Cantidad"].ToString() + "");
-            //                double Subtotal = Convert.ToDouble(rowsVent["SubTotal"]);
-            //                ticket.TextoIzquierda("SubTotal: " + Subtotal.ToString("N") + "");
-            //                ticket.TextoIzquierda("Descuento %: " + rowsVent["Descuento"] + "");
-            //                double ValorDescuento = Convert.ToDouble(rowsVent["ValorDescuento"]);
-            //                ticket.TextoIzquierda("Valor Desc.: " + ValorDescuento.ToString("N") + "");
-            //                ticket.TextoIzquierda("Propina %: " + rowsVent["Propina"] + "");
-            //                double ValorPropina = Convert.ToDouble(rowsVent["ValorPropina"]);
-            //                ticket.TextoIzquierda("Valor Prop.: " + ValorPropina.ToString("N") + "");
-            //                double ValorDomicilio = Convert.ToDouble(rowsVent["ValorDomicilio"]);
-            //                ticket.TextoIzquierda("Valor Domi.: " + ValorDomicilio.ToString("N") + "");
-            //                double Total = Convert.ToDouble(rowsVent["TOTAL"]);
-            //                ticket.TextoIzquierda("TOTAL: " + Total.ToString("N") + "");
-            //                ticket.TextoIzquierda("-------------------------");
-            //            }
-            //            else
-            //            {
-            //                ticket.TextoIzquierda("");
-            //                ticket.lineasAsteriscos();
-            //                ticket.TextoIzquierda("");
-            //                ticket.TextoIzquierda("FACTURA: " + rowsVent["NombreDocumento"].ToString() + "-" + rowsVent["ConsecutivoDocumento"].ToString() + "");
-
-            //                ticket.TextoIzquierda("Item: " + rowsVent["Item"].ToString() + "");
-            //                ticket.TextoIzquierda("Codigo Barras: " + rowsVent["CodigoBarras"].ToString() + "");
-            //                ticket.TextoIzquierda("Nombre: " + rowsVent["Nombre"].ToString() + "");
-            //                double ValorUnidad = Convert.ToDouble(rowsVent["ValorUnidad"]);
-            //                ticket.TextoIzquierda("Valor Unidad: " + ValorUnidad.ToString("N") + "");
-            //                ticket.TextoIzquierda("Cantidad: " + rowsVent["Cantidad"].ToString() + "");
-            //                double Subtotal = Convert.ToDouble(rowsVent["SubTotal"]);
-            //                ticket.TextoIzquierda("SubTotal: " + Subtotal.ToString("N") + "");
-            //                ticket.TextoIzquierda("Descuento %: " + rowsVent["Descuento"] + "");
-            //                double ValorDescuento = Convert.ToDouble(rowsVent["ValorDescuento"]);
-            //                ticket.TextoIzquierda("Valor Desc.: " + ValorDescuento.ToString("N") + "");
-            //                ticket.TextoIzquierda("Propina %: " + rowsVent["Propina"] + "");
-            //                double ValorPropina = Convert.ToDouble(rowsVent["ValorPropina"]);
-            //                ticket.TextoIzquierda("Valor Prop.: " + ValorPropina.ToString("N") + "");
-            //                double ValorDomicilio = Convert.ToDouble(rowsVent["ValorDomicilio"]);
-            //                ticket.TextoIzquierda("Valor Domi.: " + ValorDomicilio.ToString("N") + "");
-            //                double Total = Convert.ToDouble(rowsVent["TOTAL"]);
-            //                ticket.TextoIzquierda("TOTAL: " + Total.ToString("N") + "");
-            //                ticket.TextoIzquierda("-------------------------");
-            //            }
-            //        }
-            //        else
-            //        {
-            //            ticket.TextoIzquierda("FACTURA: " + rowsVent["NombreDocumento"].ToString() + "-" + rowsVent["ConsecutivoDocumento"].ToString() + "");
-            //            ticket.TextoIzquierda("Item: " + rowsVent["Item"].ToString() + "");
-            //            ticket.TextoIzquierda("Codigo Barras: " + rowsVent["CodigoBarras"].ToString() + "");
-            //            ticket.TextoIzquierda("Nombre: " + rowsVent["Nombre"].ToString() + "");
-            //            double ValorUnidad = Convert.ToDouble(rowsVent["ValorUnidad"]);
-            //            ticket.TextoIzquierda("Valor Unidad: " + ValorUnidad.ToString("N") + "");
-            //            ticket.TextoIzquierda("Cantidad: " + rowsVent["Cantidad"].ToString() + "");
-            //            double Subtotal = Convert.ToDouble(rowsVent["SubTotal"]);
-            //            ticket.TextoIzquierda("SubTotal: " + Subtotal.ToString("N") + "");
-            //            ticket.TextoIzquierda("Descuento %: " + rowsVent["Descuento"] + "");
-            //            double ValorDescuento = Convert.ToDouble(rowsVent["ValorDescuento"]);
-            //            ticket.TextoIzquierda("Valor Desc.: " + ValorDescuento.ToString("N") + "");
-            //            ticket.TextoIzquierda("Propina %: " + rowsVent["Propina"] + "");
-            //            double ValorPropina = Convert.ToDouble(rowsVent["ValorPropina"]);
-            //            ticket.TextoIzquierda("Valor Prop.: " + ValorPropina.ToString("N") + "");
-            //            double ValorDomicilio = Convert.ToDouble(rowsVent["ValorDomicilio"]);
-            //            ticket.TextoIzquierda("Valor Domi.: " + ValorDomicilio.ToString("N") + "");
-            //            double Total = Convert.ToDouble(rowsVent["TOTAL"]);
-            //            ticket.TextoIzquierda("TOTAL: " + Total.ToString("N") + "");
-            //            ticket.TextoIzquierda("-------------------------");
-            //        }
-
-            //        NomDocTemp = rowsVent["NombreDocumento"].ToString();
-            //        ConseDocTemp = rowsVent["ConsecutivoDocumento"].ToString();                                               
-            //    }
-            //}
-            //else
-            //{
-            //    ticket.TextoIzquierda("No ha realizado ventas");
-            //}
             ticket.TextoIzquierda("");
             ticket.TextoIzquierda("");
             ticket.TextoIzquierda("");
             ticket.TextoIzquierda("");
             ticket.CortaTicket();
-
             ticket.ImprimirTicketCaja(NombreImpresora);//Nombre de la impresora ticketera
         }
 

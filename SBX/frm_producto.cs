@@ -25,6 +25,8 @@ namespace SBX
         int Eliminados;
         int Error;
         public DataTable v_dt_Permi { get; set; }
+        public int BuscaAutomaticamente { get; set; }
+        public int BuscaPaginados { get; set; }
 
         //Inicio de formulario
         public frm_producto()
@@ -60,10 +62,15 @@ namespace SBX
                     }
                 }
             }
+            if (BuscaPaginados == 0)
+            {
+                panel1.Visible = false;
+            }
         }
 
         //Metodos
         Paginar p;
+        DataTable datosProductos;
         public void mtd_mensajeInformativoBotones()
         {
             ToolTip Botones = new ToolTip();
@@ -96,98 +103,26 @@ namespace SBX
             }
             v_dato_busqueda = cbx_dato_busqueda.Text;
             cls_Producto.v_data_busqueda = v_dato_busqueda;
-            dtg_productos.DataSource = cls_Producto.mtd_consultar_todos_productos();
-
-
-            //DataSet ds = new DataSet();
-            //int maximo_x_pagina = 16;//cargar por default
-            //p = new Paginar("EXECUTE SP_CONSULTA_ESTADO_PRODUCTOS '" + v_buscar + "','" + cbx_tipo_busqueda.Text + "','" + v_dato_busqueda + "' ", "DataMember1", maximo_x_pagina);
-
-            ////v_dt = cls_Producto.mtd_consultar_producto_kardex();
-            ////dtg_productos.Rows.Clear();
-            //dtg_productos.DataSource = p.cargar();
-            //dtg_productos.DataMember = "datamember1";
-            //dtg_productos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
-
-
-            //if (v_dt.Rows.Count > 0)
-            //{
-            //    v_fila = v_dt.Rows.Count;
-            //    dtg_productos.Rows.Add(v_fila);
-            //    v_contador = 0;
-            //    foreach (DataRow rows in v_dt.Rows)
-            //    {
-            //        dtg_productos.Rows[v_contador].Cells["cl_item"].Value = string.Format("{0:0000}",rows["Item"]);
-            //        dtg_productos.Rows[v_contador].Cells["cl_referencia"].Value = rows["Referencia"];
-            //        dtg_productos.Rows[v_contador].Cells["cl_codigo_barras"].Value = rows["CodigoBarras"];
-            //        dtg_productos.Rows[v_contador].Cells["cl_nombre"].Value = rows["Nombre"];
-            //        dtg_productos.Rows[v_contador].Cells["cl_descripcion"].Value = rows["Descripcion"];
-            //        double Stock = Convert.ToDouble(rows["Stock"]);
-
-            //        dtg_productos.Rows[v_contador].Cells["cl_stock"].Value = Math.Round(Stock, 2);
-            //        double stockSubcantidad = Convert.ToDouble(rows["stockSubcantidad"]);
-            //        dtg_productos.Rows[v_contador].Cells["cl_stock_subcantidad"].Value = Math.Round(stockSubcantidad, 2);
-            //        double stockSobres = Convert.ToDouble(rows["stockSobres"]);
-            //        dtg_productos.Rows[v_contador].Cells["cl_stock_sobre"].Value = Math.Round(stockSobres, 2);
-            //        if (rows["ModoVenta"].ToString() != "Unidad" && rows["ModoVenta"].ToString() != "Queso")
-            //        {
-            //            //Sub cantidad
-            //            int Entero = (int)Stock;
-            //            double decimales = Stock - Entero;                     
-            //            double subC = decimales * Convert.ToDouble(rows["Subcantidad"]);                   
-            //            string Stock_glo = "";
-            //            if (rows["ModoVenta"].ToString() == "Multi")
-            //            {
-            //                //sobres
-            //                int EnteroSob = (int)stockSobres;
-            //                double decimalesSob = stockSobres - EnteroSob;
-            //                double sobr = decimalesSob * Convert.ToDouble(rows["Sobres"]);
-            //                int EnteroSobre = (int)sobr;
-            //                Stock_glo = "Cant: " + Entero + " - Sub: " + Math.Round(subC, 2) + " - Sb: " + EnteroSobre;
-            //            }
-            //            else
-            //            {
-            //                 Stock_glo = "Cant: " + Entero + " - Sub: " + Math.Round(subC, 2);
-            //            }
-
-            //            dtg_productos.Rows[v_contador].Cells["cl_stock_global"].Value = Stock_glo;
-            //        }
-            //        else
-            //        {
-            //            dtg_productos.Rows[v_contador].Cells["cl_stock_global"].Value = Math.Round(Stock, 2);
-            //        }
-            //        double costo = Convert.ToDouble(rows["CostoCalculado"]);
-            //        dtg_productos.Rows[v_contador].Cells["cl_costo"].Value = costo.ToString("N2");
-            //        double TCostos = Convert.ToDouble(rows["TotalCostoCalculado"]);
-            //        dtg_productos.Rows[v_contador].Cells["cl_total_costo"].Value = TCostos.ToString("N2");
-            //        double Precio_venta = Convert.ToDouble(rows["PrecioVenta"]);
-            //        dtg_productos.Rows[v_contador].Cells["cl_precio_venta"].Value = Precio_venta.ToString("N2");
-            //        double TPrecioVenta = Convert.ToDouble(rows["TotalPrecioVenta"]);
-            //        dtg_productos.Rows[v_contador].Cells["cl_total_venta"].Value = TPrecioVenta.ToString("N2");
-            //        double vlr_sub = Convert.ToDouble(rows["ValorSubCantidad"]);
-            //        dtg_productos.Rows[v_contador].Cells["cl_valor_subcantidad"].Value = vlr_sub.ToString("N2");
-            //        double t_valor_subCantidad = Convert.ToDouble(rows["TotalPrecioVentaSubcantidad"]);
-            //        dtg_productos.Rows[v_contador].Cells["cl_total_valor_subcatidad"].Value = t_valor_subCantidad.ToString("N2");
-
-            //        double vlr_sob = Convert.ToDouble(rows["ValorSobre"]);
-            //        dtg_productos.Rows[v_contador].Cells["cl_valor_sobre"].Value = vlr_sob.ToString("N2");
-            //        double Tvalor_sobre = Convert.ToDouble(rows["TotalPrecioVentaSobres"]);
-            //        dtg_productos.Rows[v_contador].Cells["cl_total_valor_sobre"].Value = Tvalor_sobre.ToString("N2");
-            //        dtg_productos.Rows[v_contador].Cells["cl_iva"].Value = rows["IVA"];
-            //        dtg_productos.Rows[v_contador].Cells["cl_unidad_medida"].Value = rows["UnidadMedida"];
-            //        dtg_productos.Rows[v_contador].Cells["cl_categoria"].Value = rows["Categoria"];
-            //        dtg_productos.Rows[v_contador].Cells["cl_marca"].Value = rows["Marca"];
-            //        dtg_productos.Rows[v_contador].Cells["cl_ubicacion"].Value = rows["Ubicacion"];
-            //        dtg_productos.Rows[v_contador].Cells["cl_salida_para"].Value = rows["Salidapara"];
-            //        dtg_productos.Rows[v_contador].Cells["cl_dni_proveedor"].Value = rows["proveedor"];
-            //        dtg_productos.Rows[v_contador].Cells["cl_proveedor"].Value = rows["NombreProveedor"];
-            //        dtg_productos.Rows[v_contador].Cells["cl_stock_minimo"].Value = rows["Stock_minimo"];
-            //        dtg_productos.Rows[v_contador].Cells["cl_stock_maximo"].Value = rows["Stock_maximo"];
-            //        v_contador++;
-            //    }
-            //}
-            //actualizar();
+            if (BuscaPaginados == 1)
+            {
+                //datos paginados
+                panel1.Visible = true;
+                DataSet ds = new DataSet();
+                int maximo_x_pagina = 16;//cargar por default
+                p = new Paginar("EXECUTE SP_CONSULTA_ESTADO_PRODUCTOS '" + v_buscar + "','" + cbx_tipo_busqueda.Text + "','" + v_dato_busqueda + "' ", "DataMember1", maximo_x_pagina);
+                dtg_productos.DataSource = p.cargar();
+                dtg_productos.DataMember = "datamember1";
+                dtg_productos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                actualizar();
+            }
+            else
+            {
+                //datos listado
+                dtg_productos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                panel1.Visible = false;
+                datosProductos = cls_Producto.mtd_consultar_todos_productos();
+                dtg_productos.DataSource = datosProductos;
+            }
             this.Cursor = Cursors.Default;
         }
         private void mtd_exporta_excel()
@@ -328,7 +263,11 @@ namespace SBX
         }
         private void txt_buscar_KeyUp(object sender, KeyEventArgs e)
         {
-            //mtd_cargar_productos();
+            if (BuscaAutomaticamente == 1)
+            {
+                mtd_cargar_productos();
+            }
+           
             //mtd_calculo_totales();
         }
         private void btn_exportar_excel_Click(object sender, EventArgs e)

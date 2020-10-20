@@ -75,6 +75,8 @@
             this.lbl_minimixar = new System.Windows.Forms.Label();
             this.lbl_cerrar = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label18 = new System.Windows.Forms.Label();
+            this.txt_tamano_papel = new System.Windows.Forms.TextBox();
             this.pnl_centro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_foto)).BeginInit();
             this.pnl_botones.SuspendLayout();
@@ -85,6 +87,8 @@
             // pnl_centro
             // 
             this.pnl_centro.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnl_centro.Controls.Add(this.label18);
+            this.pnl_centro.Controls.Add(this.txt_tamano_papel);
             this.pnl_centro.Controls.Add(this.label17);
             this.pnl_centro.Controls.Add(this.txt_nom_doc);
             this.pnl_centro.Controls.Add(this.label16);
@@ -134,7 +138,7 @@
             this.label17.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(382, 278);
+            this.label17.Location = new System.Drawing.Point(382, 307);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(70, 15);
             this.label17.TabIndex = 87;
@@ -143,7 +147,7 @@
             // txt_nom_doc
             // 
             this.txt_nom_doc.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_nom_doc.Location = new System.Drawing.Point(457, 275);
+            this.txt_nom_doc.Location = new System.Drawing.Point(475, 304);
             this.txt_nom_doc.MaxLength = 100;
             this.txt_nom_doc.Name = "txt_nom_doc";
             this.txt_nom_doc.Size = new System.Drawing.Size(197, 20);
@@ -181,7 +185,7 @@
             this.btn_foto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_foto.ForeColor = System.Drawing.SystemColors.Window;
             this.btn_foto.Image = ((System.Drawing.Image)(resources.GetObject("btn_foto.Image")));
-            this.btn_foto.Location = new System.Drawing.Point(792, 158);
+            this.btn_foto.Location = new System.Drawing.Point(810, 158);
             this.btn_foto.Name = "btn_foto";
             this.btn_foto.Size = new System.Drawing.Size(40, 35);
             this.btn_foto.TabIndex = 82;
@@ -194,7 +198,7 @@
             this.pbx_foto.BackColor = System.Drawing.SystemColors.Window;
             this.pbx_foto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbx_foto.Image = ((System.Drawing.Image)(resources.GetObject("pbx_foto.Image")));
-            this.pbx_foto.Location = new System.Drawing.Point(682, 93);
+            this.pbx_foto.Location = new System.Drawing.Point(700, 93);
             this.pbx_foto.Name = "pbx_foto";
             this.pbx_foto.Size = new System.Drawing.Size(100, 100);
             this.pbx_foto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -206,7 +210,7 @@
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(382, 252);
+            this.label15.Location = new System.Drawing.Point(382, 281);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(38, 15);
             this.label15.TabIndex = 81;
@@ -215,7 +219,7 @@
             // txt_alerta
             // 
             this.txt_alerta.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_alerta.Location = new System.Drawing.Point(457, 249);
+            this.txt_alerta.Location = new System.Drawing.Point(475, 278);
             this.txt_alerta.MaxLength = 100;
             this.txt_alerta.Name = "txt_alerta";
             this.txt_alerta.Size = new System.Drawing.Size(197, 20);
@@ -247,7 +251,7 @@
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(382, 226);
+            this.label12.Location = new System.Drawing.Point(382, 255);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(71, 15);
             this.label12.TabIndex = 77;
@@ -256,7 +260,7 @@
             // txt_conFinal
             // 
             this.txt_conFinal.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_conFinal.Location = new System.Drawing.Point(457, 223);
+            this.txt_conFinal.Location = new System.Drawing.Point(475, 252);
             this.txt_conFinal.MaxLength = 100;
             this.txt_conFinal.Name = "txt_conFinal";
             this.txt_conFinal.Size = new System.Drawing.Size(197, 20);
@@ -298,7 +302,7 @@
             // txt_impresora
             // 
             this.txt_impresora.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_impresora.Location = new System.Drawing.Point(457, 197);
+            this.txt_impresora.Location = new System.Drawing.Point(475, 197);
             this.txt_impresora.MaxLength = 100;
             this.txt_impresora.Name = "txt_impresora";
             this.txt_impresora.Size = new System.Drawing.Size(197, 20);
@@ -349,7 +353,7 @@
             // txt_sitio_web
             // 
             this.txt_sitio_web.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_sitio_web.Location = new System.Drawing.Point(457, 171);
+            this.txt_sitio_web.Location = new System.Drawing.Point(475, 171);
             this.txt_sitio_web.MaxLength = 100;
             this.txt_sitio_web.Name = "txt_sitio_web";
             this.txt_sitio_web.Size = new System.Drawing.Size(197, 20);
@@ -369,7 +373,7 @@
             // txt_email
             // 
             this.txt_email.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_email.Location = new System.Drawing.Point(457, 145);
+            this.txt_email.Location = new System.Drawing.Point(475, 145);
             this.txt_email.MaxLength = 100;
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(197, 20);
@@ -389,7 +393,7 @@
             // txt_celular
             // 
             this.txt_celular.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_celular.Location = new System.Drawing.Point(457, 119);
+            this.txt_celular.Location = new System.Drawing.Point(475, 119);
             this.txt_celular.MaxLength = 12;
             this.txt_celular.Name = "txt_celular";
             this.txt_celular.Size = new System.Drawing.Size(197, 20);
@@ -410,7 +414,7 @@
             // txt_telefono
             // 
             this.txt_telefono.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_telefono.Location = new System.Drawing.Point(457, 93);
+            this.txt_telefono.Location = new System.Drawing.Point(475, 93);
             this.txt_telefono.MaxLength = 10;
             this.txt_telefono.Name = "txt_telefono";
             this.txt_telefono.Size = new System.Drawing.Size(197, 20);
@@ -611,6 +615,26 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // label18
+            // 
+            this.label18.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(382, 226);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(86, 15);
+            this.label18.TabIndex = 89;
+            this.label18.Text = "Tamaño papel";
+            // 
+            // txt_tamano_papel
+            // 
+            this.txt_tamano_papel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txt_tamano_papel.Location = new System.Drawing.Point(475, 223);
+            this.txt_tamano_papel.MaxLength = 100;
+            this.txt_tamano_papel.Name = "txt_tamano_papel";
+            this.txt_tamano_papel.Size = new System.Drawing.Size(197, 20);
+            this.txt_tamano_papel.TabIndex = 88;
+            // 
             // frm_empresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -681,5 +705,7 @@
         private System.Windows.Forms.TextBox txt_consecutivo_actual;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txt_nom_doc;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txt_tamano_papel;
     }
 }

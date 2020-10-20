@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_producto));
             this.pnl_centro = new System.Windows.Forms.Panel();
             this.dtg_productos = new System.Windows.Forms.DataGridView();
@@ -81,7 +81,7 @@
             this.pnl_centro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_centro.Location = new System.Drawing.Point(0, 0);
             this.pnl_centro.Name = "pnl_centro";
-            this.pnl_centro.Size = new System.Drawing.Size(939, 500);
+            this.pnl_centro.Size = new System.Drawing.Size(962, 499);
             this.pnl_centro.TabIndex = 0;
             // 
             // dtg_productos
@@ -91,42 +91,43 @@
             this.dtg_productos.AllowUserToOrderColumns = true;
             this.dtg_productos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg_productos.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_productos.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_productos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_productos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtg_productos.Location = new System.Drawing.Point(0, 42);
             this.dtg_productos.Name = "dtg_productos";
             this.dtg_productos.ReadOnly = true;
-            this.dtg_productos.Size = new System.Drawing.Size(935, 453);
-            this.dtg_productos.TabIndex = 6;
+            this.dtg_productos.Size = new System.Drawing.Size(958, 403);
+            this.dtg_productos.TabIndex = 9;
             this.dtg_productos.DoubleClick += new System.EventHandler(this.dtg_productos_DoubleClick);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.pnl_paginacion);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 495);
+            this.panel1.Location = new System.Drawing.Point(0, 445);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(935, 1);
+            this.panel1.Size = new System.Drawing.Size(958, 50);
             this.panel1.TabIndex = 7;
             // 
             // pnl_paginacion
             // 
+            this.pnl_paginacion.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pnl_paginacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_paginacion.Controls.Add(this.btn_actualizar);
             this.pnl_paginacion.Controls.Add(this.btn_ultima);
@@ -141,10 +142,9 @@
             this.pnl_paginacion.Controls.Add(this.label3);
             this.pnl_paginacion.Controls.Add(this.lbl_registros);
             this.pnl_paginacion.Controls.Add(this.label2);
-            this.pnl_paginacion.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnl_paginacion.Location = new System.Drawing.Point(0, 0);
+            this.pnl_paginacion.Location = new System.Drawing.Point(114, 4);
             this.pnl_paginacion.Name = "pnl_paginacion";
-            this.pnl_paginacion.Size = new System.Drawing.Size(935, 1);
+            this.pnl_paginacion.Size = new System.Drawing.Size(686, 42);
             this.pnl_paginacion.TabIndex = 11;
             // 
             // btn_actualizar
@@ -156,12 +156,11 @@
             this.btn_actualizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btn_actualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_actualizar.Image = ((System.Drawing.Image)(resources.GetObject("btn_actualizar.Image")));
-            this.btn_actualizar.Location = new System.Drawing.Point(832, 8);
+            this.btn_actualizar.Location = new System.Drawing.Point(625, 8);
             this.btn_actualizar.Name = "btn_actualizar";
             this.btn_actualizar.Size = new System.Drawing.Size(25, 25);
             this.btn_actualizar.TabIndex = 15;
             this.btn_actualizar.UseVisualStyleBackColor = false;
-            this.btn_actualizar.Visible = false;
             this.btn_actualizar.Click += new System.EventHandler(this.btn_actualizar_Click);
             // 
             // btn_ultima
@@ -173,12 +172,11 @@
             this.btn_ultima.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btn_ultima.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ultima.Image = ((System.Drawing.Image)(resources.GetObject("btn_ultima.Image")));
-            this.btn_ultima.Location = new System.Drawing.Point(468, 5);
+            this.btn_ultima.Location = new System.Drawing.Point(261, 5);
             this.btn_ultima.Name = "btn_ultima";
             this.btn_ultima.Size = new System.Drawing.Size(30, 30);
             this.btn_ultima.TabIndex = 14;
             this.btn_ultima.UseVisualStyleBackColor = false;
-            this.btn_ultima.Visible = false;
             this.btn_ultima.Click += new System.EventHandler(this.btn_ultima_Click);
             // 
             // btn_siguiente
@@ -190,12 +188,11 @@
             this.btn_siguiente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btn_siguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_siguiente.Image = ((System.Drawing.Image)(resources.GetObject("btn_siguiente.Image")));
-            this.btn_siguiente.Location = new System.Drawing.Point(425, 5);
+            this.btn_siguiente.Location = new System.Drawing.Point(218, 5);
             this.btn_siguiente.Name = "btn_siguiente";
             this.btn_siguiente.Size = new System.Drawing.Size(30, 30);
             this.btn_siguiente.TabIndex = 13;
             this.btn_siguiente.UseVisualStyleBackColor = false;
-            this.btn_siguiente.Visible = false;
             this.btn_siguiente.Click += new System.EventHandler(this.btn_siguiente_Click);
             // 
             // btn_atras
@@ -207,12 +204,11 @@
             this.btn_atras.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btn_atras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_atras.Image = ((System.Drawing.Image)(resources.GetObject("btn_atras.Image")));
-            this.btn_atras.Location = new System.Drawing.Point(382, 5);
+            this.btn_atras.Location = new System.Drawing.Point(175, 5);
             this.btn_atras.Name = "btn_atras";
             this.btn_atras.Size = new System.Drawing.Size(30, 30);
             this.btn_atras.TabIndex = 12;
             this.btn_atras.UseVisualStyleBackColor = false;
-            this.btn_atras.Visible = false;
             this.btn_atras.Click += new System.EventHandler(this.btn_atras_Click);
             // 
             // btn_primero
@@ -224,83 +220,76 @@
             this.btn_primero.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btn_primero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_primero.Image = ((System.Drawing.Image)(resources.GetObject("btn_primero.Image")));
-            this.btn_primero.Location = new System.Drawing.Point(343, 5);
+            this.btn_primero.Location = new System.Drawing.Point(136, 5);
             this.btn_primero.Name = "btn_primero";
             this.btn_primero.Size = new System.Drawing.Size(30, 30);
             this.btn_primero.TabIndex = 11;
             this.btn_primero.UseVisualStyleBackColor = false;
-            this.btn_primero.Visible = false;
             this.btn_primero.Click += new System.EventHandler(this.btn_primero_Click);
             // 
             // txt_max_paginas
             // 
             this.txt_max_paginas.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_max_paginas.Location = new System.Drawing.Point(759, 11);
+            this.txt_max_paginas.Location = new System.Drawing.Point(552, 11);
             this.txt_max_paginas.Name = "txt_max_paginas";
             this.txt_max_paginas.Size = new System.Drawing.Size(56, 20);
             this.txt_max_paginas.TabIndex = 7;
-            this.txt_max_paginas.Visible = false;
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(666, 14);
+            this.label5.Location = new System.Drawing.Point(459, 14);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 13);
             this.label5.TabIndex = 6;
             this.label5.Text = "Maximo paginas: ";
-            this.label5.Visible = false;
             // 
             // lbl_ultima_pagina
             // 
             this.lbl_ultima_pagina.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_ultima_pagina.AutoSize = true;
-            this.lbl_ultima_pagina.Location = new System.Drawing.Point(603, 14);
+            this.lbl_ultima_pagina.Location = new System.Drawing.Point(396, 14);
             this.lbl_ultima_pagina.Name = "lbl_ultima_pagina";
             this.lbl_ultima_pagina.Size = new System.Drawing.Size(13, 13);
             this.lbl_ultima_pagina.TabIndex = 5;
             this.lbl_ultima_pagina.Text = "0";
-            this.lbl_ultima_pagina.Visible = false;
             // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(520, 14);
+            this.label4.Location = new System.Drawing.Point(313, 14);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 13);
             this.label4.TabIndex = 4;
             this.label4.Text = "Ultima pagina: ";
-            this.label4.Visible = false;
             // 
             // lbl_paginas
             // 
             this.lbl_paginas.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_paginas.AutoSize = true;
-            this.lbl_paginas.Location = new System.Drawing.Point(266, 14);
+            this.lbl_paginas.Location = new System.Drawing.Point(59, 14);
             this.lbl_paginas.Name = "lbl_paginas";
             this.lbl_paginas.Size = new System.Drawing.Size(13, 13);
             this.lbl_paginas.TabIndex = 3;
             this.lbl_paginas.Text = "0";
-            this.lbl_paginas.Visible = false;
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(209, 14);
+            this.label3.Location = new System.Drawing.Point(2, 14);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Paginas: ";
-            this.label3.Visible = false;
             // 
             // lbl_registros
             // 
             this.lbl_registros.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_registros.AutoSize = true;
-            this.lbl_registros.Location = new System.Drawing.Point(132, 14);
+            this.lbl_registros.Location = new System.Drawing.Point(-75, 14);
             this.lbl_registros.Name = "lbl_registros";
             this.lbl_registros.Size = new System.Drawing.Size(13, 13);
             this.lbl_registros.TabIndex = 1;
@@ -311,7 +300,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(69, 14);
+            this.label2.Location = new System.Drawing.Point(-138, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 0;
@@ -334,11 +323,12 @@
             this.pnl_arriba.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_arriba.Location = new System.Drawing.Point(0, 0);
             this.pnl_arriba.Name = "pnl_arriba";
-            this.pnl_arriba.Size = new System.Drawing.Size(935, 42);
+            this.pnl_arriba.Size = new System.Drawing.Size(958, 42);
             this.pnl_arriba.TabIndex = 4;
             // 
             // cbx_dato_busqueda
             // 
+            this.cbx_dato_busqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbx_dato_busqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_dato_busqueda.FormattingEnabled = true;
             this.cbx_dato_busqueda.Items.AddRange(new object[] {
@@ -346,7 +336,7 @@
             "Item",
             "Referencia",
             "Codigo Barras"});
-            this.cbx_dato_busqueda.Location = new System.Drawing.Point(483, 8);
+            this.cbx_dato_busqueda.Location = new System.Drawing.Point(502, 8);
             this.cbx_dato_busqueda.Name = "cbx_dato_busqueda";
             this.cbx_dato_busqueda.Size = new System.Drawing.Size(168, 21);
             this.cbx_dato_busqueda.TabIndex = 20;
@@ -389,7 +379,7 @@
             this.btn_producto_mas_vendido.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btn_producto_mas_vendido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_producto_mas_vendido.Image = ((System.Drawing.Image)(resources.GetObject("btn_producto_mas_vendido.Image")));
-            this.btn_producto_mas_vendido.Location = new System.Drawing.Point(195, 6);
+            this.btn_producto_mas_vendido.Location = new System.Drawing.Point(177, 6);
             this.btn_producto_mas_vendido.Name = "btn_producto_mas_vendido";
             this.btn_producto_mas_vendido.Size = new System.Drawing.Size(26, 26);
             this.btn_producto_mas_vendido.TabIndex = 17;
@@ -405,7 +395,7 @@
             this.cbx_tipo_busqueda.Items.AddRange(new object[] {
             "Contiene",
             "Exactamente"});
-            this.cbx_tipo_busqueda.Location = new System.Drawing.Point(349, 8);
+            this.cbx_tipo_busqueda.Location = new System.Drawing.Point(368, 8);
             this.cbx_tipo_busqueda.Name = "cbx_tipo_busqueda";
             this.cbx_tipo_busqueda.Size = new System.Drawing.Size(123, 21);
             this.cbx_tipo_busqueda.TabIndex = 16;
@@ -452,7 +442,7 @@
             this.btn_buscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_buscar.Image = ((System.Drawing.Image)(resources.GetObject("btn_buscar.Image")));
-            this.btn_buscar.Location = new System.Drawing.Point(902, 8);
+            this.btn_buscar.Location = new System.Drawing.Point(921, 8);
             this.btn_buscar.Name = "btn_buscar";
             this.btn_buscar.Size = new System.Drawing.Size(22, 22);
             this.btn_buscar.TabIndex = 8;
@@ -463,7 +453,7 @@
             // 
             this.txt_buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_buscar.ForeColor = System.Drawing.Color.Gray;
-            this.txt_buscar.Location = new System.Drawing.Point(657, 10);
+            this.txt_buscar.Location = new System.Drawing.Point(676, 10);
             this.txt_buscar.Name = "txt_buscar";
             this.txt_buscar.Size = new System.Drawing.Size(239, 20);
             this.txt_buscar.TabIndex = 7;
@@ -499,7 +489,7 @@
             this.pnl_titulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_titulo.Location = new System.Drawing.Point(0, 0);
             this.pnl_titulo.Name = "pnl_titulo";
-            this.pnl_titulo.Size = new System.Drawing.Size(935, 0);
+            this.pnl_titulo.Size = new System.Drawing.Size(958, 0);
             this.pnl_titulo.TabIndex = 3;
             // 
             // lbl_minimizar
@@ -509,7 +499,7 @@
             this.lbl_minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_minimizar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.lbl_minimizar.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbl_minimizar.Location = new System.Drawing.Point(883, 1);
+            this.lbl_minimizar.Location = new System.Drawing.Point(740, 1);
             this.lbl_minimizar.Name = "lbl_minimizar";
             this.lbl_minimizar.Size = new System.Drawing.Size(18, 19);
             this.lbl_minimizar.TabIndex = 5;
@@ -523,7 +513,7 @@
             this.lbl_cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_cerrar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.lbl_cerrar.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbl_cerrar.Location = new System.Drawing.Point(909, 4);
+            this.lbl_cerrar.Location = new System.Drawing.Point(766, 4);
             this.lbl_cerrar.Name = "lbl_cerrar";
             this.lbl_cerrar.Size = new System.Drawing.Size(20, 19);
             this.lbl_cerrar.TabIndex = 4;
@@ -546,7 +536,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(939, 500);
+            this.ClientSize = new System.Drawing.Size(962, 499);
             this.Controls.Add(this.pnl_centro);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_producto";
@@ -575,7 +565,6 @@
         private System.Windows.Forms.Button btn_buscar;
         private System.Windows.Forms.TextBox txt_buscar;
         private System.Windows.Forms.Button btn_exportar_excel;
-        private System.Windows.Forms.DataGridView dtg_productos;
         private System.Windows.Forms.Label lbl_minimizar;
         private System.Windows.Forms.Label lbl_cerrar;
         private System.Windows.Forms.Label label1;
@@ -600,5 +589,6 @@
         private System.Windows.Forms.Button btn_estado_stock;
         private System.Windows.Forms.Button btn_fecha_vencimiento;
         private System.Windows.Forms.ComboBox cbx_dato_busqueda;
+        private System.Windows.Forms.DataGridView dtg_productos;
     }
 }

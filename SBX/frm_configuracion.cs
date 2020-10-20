@@ -395,5 +395,57 @@ namespace SBX
                 errorProvider.SetError(txt_cod_rol,"Ingrese Rol");
             }
         }
+
+        private void btn_guardar_parametros_Click(object sender, EventArgs e)
+        {
+            string buscaAuto = "NO";
+            string paginado = "NO";
+            if (chk_ba.Checked == true)
+            {
+                buscaAuto = "SI";
+            }
+            if (chk_dp.Checked == true)
+            {
+                paginado = "SI";
+            }
+
+            cls_parametros cls_Parametros = new cls_parametros();
+            cls_Parametros.Buscar_automaticamente = buscaAuto;
+            cls_Parametros.Datos_paginados = paginado;
+            v_ok = cls_Parametros.mtd_Editar();
+          
+            if (v_ok == true)
+            {
+                frm_msg frm_Msg = new frm_msg();
+                frm_Msg.txt_mensaje.Text = "Registrado correctamente";
+                frm_Msg.ShowDialog();
+            }
+            else
+            {
+                frm_msg frm_Msg = new frm_msg();
+                frm_Msg.pnl_centro.BackColor = Color.White;
+                frm_Msg.lbl_titulo.Text = "ERROR";
+                frm_Msg.pnl_arriba.BackColor = Color.OrangeRed;
+                frm_Msg.txt_mensaje.Text = "Error al intentar registrar";
+                frm_Msg.ShowDialog();
+            }
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cls_parametros cls_Parametros = new cls_parametros();
+            v_dt = cls_Parametros.mtd_consultar_parametros();
+            foreach (DataRow item in v_dt.Rows)
+            {
+                if (item["Buscar_automaticamente"].ToString() == "SI")
+                {
+                    chk_ba.Checked = true;
+                }
+                if (item["Datos_paginados"].ToString() == "SI")
+                {
+                    chk_dp.Checked = true;
+                }
+            }
+        }
     }
 }

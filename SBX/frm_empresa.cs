@@ -104,6 +104,7 @@ namespace SBX
             txt_alerta.Text = "";
             pbx_foto.Image = ((System.Drawing.Image)(resources.GetObject("pbx_foto.Image")));
             txt_nom_doc.Text = "";
+            txt_tamano_papel.Text = "";
         }
         private void Validar()
         {
@@ -220,7 +221,7 @@ namespace SBX
                             pbx_foto.Image = byteArrayToImage(imagen);
                         }  
                     }
-                   
+                   txt_tamano_papel.Text = rows["tamano_papel"].ToString(); 
                     v_contador++;
                 }
                 txt_digito_verificacion.Text = CalcularDigitoVerificacion(txt_dni.Text);
@@ -274,6 +275,7 @@ namespace SBX
                 cls_Empresa.Alerta = Convert.ToInt32(txt_alerta.Text);
                 cls_Empresa.Foto = pbx_foto.Image;
                 cls_Empresa.NomDoc = txt_nom_doc.Text;
+                cls_Empresa.tamano_papel = txt_tamano_papel.Text;
                 v_ok = cls_Empresa.mtd_registrar();
 
                 frm_msg frm_Msg = new frm_msg();
@@ -319,6 +321,7 @@ namespace SBX
                 cls_Empresa.Alerta = Convert.ToInt32(txt_alerta.Text);
                 cls_Empresa.Foto = pbx_foto.Image;
             cls_Empresa.NomDoc = txt_nom_doc.Text;
+            cls_Empresa.tamano_papel = txt_tamano_papel.Text;
             v_ok = cls_Empresa.mtd_Editar();
                
                 frm_msg frm_Msg = new frm_msg();

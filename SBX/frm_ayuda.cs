@@ -40,6 +40,8 @@ namespace SBX
         string v_dato = "";
         string v_dato2 = "";
         string v_dato3 = "";
+        int BuscaAutomatica = 0;
+        int BuscaPaginado = 0;
 
         //Codigo para mover venta
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -62,6 +64,26 @@ namespace SBX
         {
             cbx_tipo_busqueda.SelectedIndex = 0;
             cbx_dato_busqueda.SelectedIndex = 0;
+            BuscaAutomatica = 0;
+            BuscaPaginado = 0;
+            //verifica Parametros
+            cls_parametros cls_Parametros = new cls_parametros();
+            v_dt = cls_Parametros.mtd_consultar_parametros();
+            foreach (DataRow item in v_dt.Rows)
+            {
+                if (item["Buscar_automaticamente"].ToString() == "SI")
+                {
+                    BuscaAutomatica = 1;
+                }
+                if (item["Datos_paginados"].ToString() == "SI")
+                {
+                    BuscaPaginado = 1;
+                }
+            }
+            if (BuscaPaginado == 0)
+            {
+                pnl_paginacion.Visible = false;
+            }
         }
 
         //Metodos
@@ -74,6 +96,7 @@ namespace SBX
             switch (v_busqueda)
             {
                 case "Buscar producto":
+                    pnl_paginacion.Visible = true;
                     if (txt_buscar.Text == "Buscar")
                     {
                         cls_Producto.v_buscar = "";
@@ -99,12 +122,29 @@ namespace SBX
                     v_dato_busqueda = cbx_dato_busqueda.Text;
                     cls_Producto.v_tipo_busqueda = cbx_tipo_busqueda.Text;
                     cls_Producto.v_data_busqueda = cbx_dato_busqueda.Text;
-                    dtg_ayudas.DataSource = cls_Producto.mtd_consultar_todos_productos();
+
+                    if (BuscaPaginado == 1)
+                    {
+                        DataSet ds = new DataSet();
+                        int maximo_x_pagina = 16;//cargar por default
+                        p = new Paginar("EXECUTE SP_CONSULTA_ESTADO_PRODUCTOS '" + v_buscar + "','" + cbx_tipo_busqueda.Text + "','" + v_dato_busqueda + "' ", "DataMember1", maximo_x_pagina);
+                        dtg_ayudas.DataSource = p.cargar();
+                        dtg_ayudas.DataMember = "datamember1";
+                        dtg_ayudas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                        actualizar();
+
+                    }
+                    else
+                    {
+                        pnl_paginacion.Visible = false;
+                        dtg_ayudas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                        dtg_ayudas.DataSource = cls_Producto.mtd_consultar_todos_productos();
+                    }
 
                     //------------
                     //DataSet ds = new DataSet();                   
-                    //    int maximo_x_pagina = 10;//cargar por default
-                    //    //p = new Paginar("EXECUTE sp_consultar_producto '" + v_tipo_busqueda + "','" + v_buscar + "','','','','"+ v_dato_busqueda + "' ", "DataMember1", maximo_x_pagina);
+                    //int maximo_x_pagina = 10;//cargar por default
+                    ////    //p = new Paginar("EXECUTE sp_consultar_producto '" + v_tipo_busqueda + "','" + v_buscar + "','','','','"+ v_dato_busqueda + "' ", "DataMember1", maximo_x_pagina);
                     //    p = new Paginar("EXECUTE SP_CONSULTA_ESTADO_PRODUCTOS '" + v_buscar + "','" + cbx_tipo_busqueda.Text + "','" + v_dato_busqueda + "' ", "DataMember1", maximo_x_pagina);
 
                     //    ds = p.cargar();
@@ -143,9 +183,10 @@ namespace SBX
                     //                v_contador++;
                     //            }
                     //        }
-                    //    actualizar();
+                    //   actualizar();
                     break;
                 case "Buscar producto venta":
+                    pnl_paginacion.Visible = true;
                     if (txt_buscar.Text == "Buscar")
                     {
                         cls_Producto.v_buscar = "";
@@ -171,7 +212,24 @@ namespace SBX
                     v_dato_busqueda = cbx_dato_busqueda.Text;
                     cls_Producto.v_tipo_busqueda = cbx_tipo_busqueda.Text;
                     cls_Producto.v_data_busqueda = cbx_dato_busqueda.Text;
-                    dtg_ayudas.DataSource = cls_Producto.mtd_consultar_todos_productos();
+                    //dtg_ayudas.DataSource = cls_Producto.mtd_consultar_todos_productos();
+                    if (BuscaPaginado == 1)
+                    {
+                        DataSet ds = new DataSet();
+                        int maximo_x_pagina = 16;//cargar por default
+                        p = new Paginar("EXECUTE SP_CONSULTA_ESTADO_PRODUCTOS '" + v_buscar + "','" + cbx_tipo_busqueda.Text + "','" + v_dato_busqueda + "' ", "DataMember1", maximo_x_pagina);
+                        dtg_ayudas.DataSource = p.cargar();
+                        dtg_ayudas.DataMember = "datamember1";
+                        dtg_ayudas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                        actualizar();
+                    }
+                    else
+                    {
+                        pnl_paginacion.Visible = false;
+                        dtg_ayudas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                        dtg_ayudas.DataSource = cls_Producto.mtd_consultar_todos_productos();
+                    }
+
                     ////------------       OPCION DE PAGINACION ----------------------------------------------------------------       
                     //maximo_x_pagina = 10;
                     ////p = new Paginar("EXECUTE sp_consultar_producto '" + v_tipo_busqueda + "','" + v_buscar + "','','','','" + v_dato_busqueda + "' ", "DataMember1", maximo_x_pagina);
@@ -245,6 +303,7 @@ namespace SBX
                     //------------   FIN    OPCION DE PAGINACION ----------------------------------------------------------------                 
                     break;
                 case "Buscar proveedor":
+                    pnl_paginacion.Visible = false;
                     if (txt_buscar.Text == "Buscar")
                     {
                         cls_Proveedor.v_buscar = "";
@@ -304,6 +363,7 @@ namespace SBX
                         }
                     break;
                 case "Buscar cliente":
+                    pnl_paginacion.Visible = false;
                     if (txt_buscar.Text == "Buscar")
                     {
                         cls_Cliente.v_buscar = "";
@@ -369,6 +429,7 @@ namespace SBX
                         }
                     break;
                 case "Buscar Mensajero":
+                    pnl_paginacion.Visible = false;
                     if (txt_buscar.Text == "Buscar")
                     {
                         cls_Mensajero.v_buscar = "";
@@ -425,6 +486,7 @@ namespace SBX
                         }
                     break;
                 case "Buscar Rol_permiso":
+                    pnl_paginacion.Visible = false;
                     if (txt_buscar.Text == "Buscar")
                     {
                         cls_Rol.buscar = "";
@@ -471,7 +533,7 @@ namespace SBX
                     break;
             }
         }
-        private void actualizar()
+        private void actualizar2()
         {
             lbl_registros.Text = p.countRow().ToString();
             lbl_paginas.Text = p.numPag().ToString();
@@ -548,7 +610,13 @@ namespace SBX
                 }
             }
         }
-
+        private void actualizar()
+        {
+            lbl_registros.Text = p.countRow().ToString();
+            lbl_paginas.Text = p.numPag().ToString();
+            lbl_ultima_pagina.Text = p.countPag().ToString();
+            txt_max_paginas.Text = p.limitRow().ToString();
+        }
         //Eventos
         private void lbl_cerrar_Click(object sender, EventArgs e)
         {
@@ -566,9 +634,12 @@ namespace SBX
         }
         private void txt_buscar_KeyUp(object sender, KeyEventArgs e)
         {
-            this.Cursor = Cursors.WaitCursor;
-            mtd_cargar_informacion();
-            this.Cursor = Cursors.Default;
+            if (BuscaAutomatica == 1 )
+            {
+                this.Cursor = Cursors.WaitCursor;
+                mtd_cargar_informacion();
+                this.Cursor = Cursors.Default;
+            }   
         }
         private void txt_buscar_Enter(object sender, EventArgs e)
         {

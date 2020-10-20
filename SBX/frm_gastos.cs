@@ -23,7 +23,8 @@ namespace SBX
         double TotalGastos = 0;
         double TotalIva = 0;
         double aplicarPermisos = 0;
-        
+        int BuscaAutomatica = 0;
+        int BuscaPaginado = 0;
         public DataTable v_dt_Permi { get; set; }
 
         public frm_gastos()
@@ -70,7 +71,23 @@ namespace SBX
                         }
                     }
                 }
-            }   
+            }
+            BuscaAutomatica = 0;
+            BuscaPaginado = 0;
+            //verifica Parametros
+            cls_parametros cls_Parametros = new cls_parametros();
+            v_dt = cls_Parametros.mtd_consultar_parametros();
+            foreach (DataRow item in v_dt.Rows)
+            {
+                if (item["Buscar_automaticamente"].ToString() == "SI")
+                {
+                    BuscaAutomatica = 1;
+                }
+                if (item["Datos_paginados"].ToString() == "SI")
+                {
+                    BuscaPaginado = 1;
+                }
+            }
         }
         //metodos
         private void mtd_confirmacion(bool confirma)
@@ -177,11 +194,18 @@ namespace SBX
         }
         private void btn_buscar_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             mtd_consultar();
+            this.Cursor = Cursors.Default;
         }
         private void txt_buscar_KeyUp(object sender, KeyEventArgs e)
         {
-            mtd_consultar();
+            if (BuscaAutomatica == 1)
+            {
+                this.Cursor = Cursors.WaitCursor;
+                mtd_consultar();
+                this.Cursor = Cursors.Default;
+            }        
         }
         private void Btn_eliminar_Click(object sender, EventArgs e)
         {
@@ -267,6 +291,16 @@ namespace SBX
             frm_Exportando_excel.Hide();
 
             Excel.Visible = true;
+        }
+
+        private void txt_buscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                this.Cursor = Cursors.WaitCursor;
+                mtd_consultar();
+                this.Cursor = Cursors.Default;
+            }
         }
     }
 }

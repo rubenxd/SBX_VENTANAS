@@ -25,11 +25,14 @@ namespace SBX
         public string NombreUsuario { get; set; }
         public string Nombre { get; set; }
         public string Codigo { get; set; }
+      
         DataTable v_dt;
         DataTable v_dt_permisos;
         DataRow rows;
         bool v_confirmacion;
         int Contador = 0;
+        int BuscaAutomatica = 0;
+        int BuscaPaginado = 0;
        
         //Codigo para mover venta
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -53,6 +56,7 @@ namespace SBX
             lbl_usuario.Text = NombreUsuario + " - " + Nombre;
             //VerificarCaja();
             VerificarPermisos();
+           
         }
 
         //Metodos
@@ -253,11 +257,31 @@ namespace SBX
         }
         private void btn_producto_Click(object sender, EventArgs e)
         {
+            
             this.Cursor = Cursors.WaitCursor;
+             BuscaAutomatica = 0;
+             BuscaPaginado = 0;
+            //verifica Parametros
+            cls_parametros cls_Parametros = new cls_parametros();
+            v_dt = cls_Parametros.mtd_consultar_parametros();
+            foreach (DataRow item in v_dt.Rows)
+            {
+                if (item["Buscar_automaticamente"].ToString() == "SI")
+                {
+                    BuscaAutomatica = 1;
+                }
+                if (item["Datos_paginados"].ToString() == "SI")
+                {
+                    BuscaPaginado = 1;
+                }
+            }
+
             if (frm_Producto == null || frm_Producto.IsDisposed)
             {
                 frm_Producto = new frm_producto();               
                 frm_Producto.v_dt_Permi = v_dt_permisos;
+                frm_Producto.BuscaAutomaticamente = BuscaAutomatica;
+                frm_Producto.BuscaPaginados = BuscaPaginado;
                 frm_Producto.Show();
             }
             else

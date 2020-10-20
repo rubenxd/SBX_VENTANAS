@@ -1073,8 +1073,8 @@ namespace SBX
             {
                 ticket.TextoIzquierda("CLIENTE: " + row["Cliente"].ToString() + "");
             }          
-            ticket.TextoIzquierda("");
-            ticket.lineasAsteriscos();
+            //ticket.TextoIzquierda("");
+            //ticket.lineasAsteriscos();
            
             if (v_domicilio == true)
             {
@@ -1085,7 +1085,7 @@ namespace SBX
                 ticket.TextoIzquierda("NOMBRES: " + row["NombreC"].ToString());
                 ticket.TextoIzquierda("DIRECCION: " + row["Direccion"].ToString());
             }
-            ticket.lineasAsteriscos();
+            //ticket.lineasAsteriscos();
 
             double Subtotal = 0;
             double Impuesto = 0;
@@ -1097,29 +1097,8 @@ namespace SBX
             double Total = 0;
             double ValorDomicilio = 0;
             foreach (DataRow rows in DTVenta.Rows)
-            {
-                ////CONVERTIR CANTIDADES EXACTAS 
-                //if (rows["ModoVenta"].ToString() == "Multi" && rows["UM"].ToString() == "UND P")
-                //{
-                //    rows["Cantidad"] = Convert.ToDouble(rows["Cantidad"]) * Convert.ToDouble(rows["SubCantidad"]);
-                //}
-                //else if (rows["ModoVenta"].ToString() == "Multi" && rows["UM"].ToString() == "Sobre")
-                //{
-                //    rows["Cantidad"] = Convert.ToDouble(rows["Cantidad"]) * Convert.ToDouble(rows["Sobres"]);
-                //}
-                //else if (rows["ModoVenta"].ToString() == "Pesaje" && rows["UM"].ToString() != "Bulto")
-                //{
-                //    rows["Cantidad"] = Convert.ToDouble(rows["Cantidad"]) * Convert.ToDouble(rows["SubCantidad"]);
-                //}
-                //else if (rows["UM"].ToString() == "UND" && rows["UM"].ToString() == "Caja" && rows["UM"].ToString() == "Bulto")
-                //{
-
-                //}
-                //
+            {            
                 double Cant;
-                //Cant = Math.Round(Convert.ToDouble(rows["Cantidad_Exacta"]));
-                //rows["Cantidad"] = Cant.ToString();
-
                 ticket.TextoIzquierda("--------------------------------------");
                 ticket.AgregaArticulo(rows["Item"].ToString()," ", rows["UM"].ToString()+" ", (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"])));
                 ticket.TextoIzquierda(rows["Nombre"].ToString());
@@ -1127,9 +1106,9 @@ namespace SBX
                 Descuento = ((Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"])) * (Convert.ToDouble(rows["Descuento"]) / 100));
                 ticket.AgregarTotales("Descuento.........", Descuento);
                 //ticket.AgregarTotales("IVA %.........",  Convert.ToDouble(rows["IVA"]));
-                ticket.AgregarTotales("IVA %.........",  0);
+               // ticket.AgregarTotales("IVA %.........",  0);
                 //ticket.AgregarTotales("Valor IVA.........", (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad"])) * (Convert.ToDouble(rows["IVA"])/100));
-                ticket.AgregarTotales("Valor IVA.........", 0);
+                //ticket.AgregarTotales("Valor IVA.........", 0);
                 double subtotal_inicial = 0;
                 subtotal_inicial = (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"])) - Descuento;
                 ticket.AgregarTotales("SubTotal.........", subtotal_inicial);
@@ -1146,7 +1125,7 @@ namespace SBX
             ticket.lineasIgual();
             //Resumen de la venta.
             ticket.AgregarTotales("SUBTOTAL......$", Subtotal);
-            ticket.AgregarTotales("IVA...........$", Impuesto);
+            //ticket.AgregarTotales("IVA...........$", Impuesto);
             ticket.AgregarTotales("DESCUENTO.....$", TotalDescuento);
 
             if (v_domicilio == true)
@@ -1154,14 +1133,14 @@ namespace SBX
                 ticket.AgregarTotales("DOMICILIO.....$", ValorDomicilio);
             }
             ticket.AgregarTotales("TOTAL.........$", Math.Round(Total));
-            ticket.TextoIzquierda("");
+            //ticket.TextoIzquierda("--------------------------------------");
             ticket.AgregarTotales("RECIBIDO......$", Recibido);
             ticket.AgregarTotales("CAMBIO........$", Devueltas);
             //Texto final del Ticket.
             ticket.TextoIzquierda("");
             ticket.TextoIzquierda("ARTICULOS VENDIDOS: " + AritculosVendidos + "");
-            ticket.TextoIzquierda("");
-            ticket.TextoIzquierda("");
+            //ticket.TextoIzquierda("");
+            //ticket.TextoIzquierda("");
             //ticket.TextoCentro("SERVICIO A DOMICILIO");
             //ticket.TextoCentro(NumerosCelular);
             ticket.TextoIzquierda("");

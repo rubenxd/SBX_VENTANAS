@@ -397,6 +397,7 @@
     <Compile Include="MODEL\cls_login.cs" />
     <Compile Include="MODEL\cls_marca.cs" />
     <Compile Include="MODEL\cls_mensajero.cs" />
+    <Compile Include="MODEL\cls_parametros.cs" />
     <Compile Include="MODEL\cls_producto.cs" />
     <Compile Include="MODEL\cls_proveedor.cs" />
     <Compile Include="MODEL\cls_rol.cs" />

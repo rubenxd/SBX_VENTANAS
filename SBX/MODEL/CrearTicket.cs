@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -10,10 +11,13 @@ namespace SBX.MODEL
 {
     public class CrearTicket
     {
+        
         //Creamos un objeto de la clase StringBuilder, en este objeto agregaremos las lineas del ticket
         StringBuilder linea = new StringBuilder();
         //Creamos una variable para almacenar el numero maximo de caracteres que permitiremos en el ticket.
-       // int maxCar = 32, cortar;//Para una impresora ticketera que imprime a 40 columnas. La variable cortar cortara el texto cuando rebase el limte.
+        // int maxCar = 32, cortar;//Para una impresora ticketera que imprime a 40 columnas. La variable cortar cortara el texto cuando rebase el limte.
+       
+        
         int maxCar = 42, cortar;
         //Creamos el primer metodo, este dibujara lineas guion.
         public string lineasGuio()
@@ -24,6 +28,24 @@ namespace SBX.MODEL
                 lineasGuion += "-";//Agregara un guio hasta llegar la numero maximo de caracteres.
             }
             return linea.AppendLine(lineasGuion).ToString(); //Devolvemos la lineaGuion
+        }
+        private void datosTamanoPapelEmpresa() 
+        {
+            DataTable DTEmpresa = new DataTable();
+            DataRow row;
+            cls_empresa Empres = new cls_empresa();
+           
+            DTEmpresa = Empres.mtd_consultar_Empresa();
+            row = DTEmpresa.Rows[0];
+            string TmPapel = row["tamano_papel"].ToString();
+            if (TmPapel == "80")
+            {
+                maxCar = 42;
+            }
+            else
+            {
+                maxCar = 32;
+            }
         }
 
         //Metodo para dibujar una linea con asteriscos
@@ -40,6 +62,7 @@ namespace SBX.MODEL
         //Realizamos el mismo procedimiento para dibujar una lineas con el signo igual
         public string lineasIgual()
         {
+            datosTamanoPapelEmpresa();
             string lineasIgual = "";
             for (int i = 0; i < maxCar; i++)
             {
@@ -58,6 +81,7 @@ namespace SBX.MODEL
         //Creamos un metodo para poner el texto a la izquierda
         public void TextoIzquierda(string texto)
         {
+            datosTamanoPapelEmpresa();
             //Si la longitud del texto es mayor al numero maximo de caracteres permitidos, realizar el siguiente procedimiento.
             if (texto.Length > maxCar)
             {
@@ -118,6 +142,7 @@ namespace SBX.MODEL
         //Metodo para centrar el texto
         public void TextoCentro(string texto)
         {
+            datosTamanoPapelEmpresa();
             if (texto.Length > maxCar)
             {
                 int caracterActual = 0;//Nos indicara en que caracter se quedo al bajar el texto a la siguiente linea
@@ -195,6 +220,7 @@ namespace SBX.MODEL
         //Metodo para agregar los totales d ela venta
         public void AgregarTotales(string texto, double total)
         {
+            datosTamanoPapelEmpresa();
             //Variables que usaremos
             string resumen, valor, textoCompleto, espacios = "";
 
@@ -223,6 +249,7 @@ namespace SBX.MODEL
         //Metodo para agreagar articulos al ticket de venta
         public void AgregaArticulo(string Item, string Descripcion, string UM, double Total)
         {
+            datosTamanoPapelEmpresa();
             string elemento = "", espacios = "";
             int nroEspacios = 0;
             string DescripcionR = Descripcion;
@@ -273,6 +300,7 @@ namespace SBX.MODEL
 
         public void MuestraCalculoPRecioProducto(string Cantidad, double ValorUnidad)
         {
+            datosTamanoPapelEmpresa();
             if (Cantidad.ToString().Length <= 16 && ValorUnidad.ToString().Length <= 16)
             {
                 string elemento = "", espacios = "";
@@ -316,7 +344,7 @@ namespace SBX.MODEL
         public void CortaTicket()
         {
             linea.AppendLine("\x1B" + "m"); //Caracteres de corte. Estos comando varian segun el tipo de impresora
-            linea.AppendLine("\x1B" + "d" + "\x09"); //Avanza 9 renglones, Tambien varian
+            //linea.AppendLine("\x1B" + "d" + "\x09"); //Avanza 9 renglones, Tambien varian
         }
         //Para abrir el cajon
         public void AbreCajon()
