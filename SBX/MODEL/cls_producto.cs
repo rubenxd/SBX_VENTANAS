@@ -470,6 +470,18 @@ namespace SBX.MODEL
             v_dt = cls_Datos.mtd_consultar(v_query);
             return v_dt;
         }
+        public DataTable mtd_consultar_todos_productos_saldos()
+        {
+            v_query = " EXECUTE SP_CONSULTA_ESTADO_PRODUCTOS_saldos '" + v_buscar + "','" + v_tipo_busqueda + "','" + v_data_busqueda + "'  ";
+            v_dt = cls_Datos.mtd_consultar(v_query);
+            return v_dt;
+        }
+        public DataTable mtd_consultar_todos_productos_saldos_totales()
+        {
+            v_query = " EXECUTE SP_CALCULO_SALDOS_TOTALES '" + v_buscar + "','" + v_tipo_busqueda + "','" + v_data_busqueda + "'  ";
+            v_dt = cls_Datos.mtd_consultar(v_query);
+            return v_dt;
+        }
         public DataTable mtd_consultar_dato_inventario()
         {
             v_query = " EXECUTE sp_datos_inventario '" + Item + "'  ";

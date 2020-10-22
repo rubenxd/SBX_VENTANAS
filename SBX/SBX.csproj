@@ -347,6 +347,12 @@
     <Compile Include="frm_reportes.Designer.cs">
       <DependentUpon>frm_reportes.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_saldos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_saldos.Designer.cs">
+      <DependentUpon>frm_saldos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_separado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -543,6 +549,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_reportes.resx">
       <DependentUpon>frm_reportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_saldos.resx">
+      <DependentUpon>frm_saldos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_separado.resx">
       <DependentUpon>frm_separado.cs</DependentUpon>

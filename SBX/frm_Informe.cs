@@ -329,5 +329,41 @@ namespace SBX
                 this.Cursor = Cursors.Default;
             }
         }
+        frm_saldos frm_Saldos;
+        private void btn_saldos_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            int BuscaAutomatica = 0;
+            int BuscaPaginado = 0;
+            //verifica Parametros
+            cls_parametros cls_Parametros = new cls_parametros();
+            v_dt = cls_Parametros.mtd_consultar_parametros();
+            foreach (DataRow item in v_dt.Rows)
+            {
+                if (item["Buscar_automaticamente"].ToString() == "SI")
+                {
+                    BuscaAutomatica = 1;
+                }
+                if (item["Datos_paginados"].ToString() == "SI")
+                {
+                    BuscaPaginado = 1;
+                }
+            }
+
+            if (frm_Saldos == null || frm_Saldos.IsDisposed)
+            {
+                frm_Saldos = new frm_saldos();           
+                frm_Saldos.BuscaAutomaticamente = BuscaAutomatica;
+                frm_Saldos.BuscaPaginados = BuscaPaginado;
+                frm_Saldos.Show();
+            }
+            else
+            {
+                frm_Saldos.BringToFront();
+                frm_Saldos.WindowState = FormWindowState.Normal;
+            }
+            this.Cursor = Cursors.Default;
+
+        }
     }
 }
