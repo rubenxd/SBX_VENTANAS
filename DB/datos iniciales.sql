@@ -1,5 +1,5 @@
 ---------DATOS INICIALES-----------------------------------------------------------------------------------------------------------------------------------
-INSERT INTO Empresa VALUES('0','N/A','N/A','N/A','0','0','','','','',null,0,10000,'N/A',100,'F')
+INSERT INTO Empresa VALUES('0','N/A','N/A','N/A','0','0','','','','',null,0,10000,'N/A',100,'F','')
 GO
 INSERT INTO Estado VALUES('Activo'),('Inactivo')
 GO
