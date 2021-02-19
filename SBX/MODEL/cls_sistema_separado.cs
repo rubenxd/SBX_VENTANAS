@@ -22,8 +22,9 @@ namespace SBX.MODEL
         bool v_ok;
         public string v_buscar { get; set; }
         public string v_tipo_busqueda { get; set; }
-        public DateTime Fecha_inicio { get; set; }
-        public DateTime Fecha_fin { get; set; }
+        public string Fecha_inicio { get; set; }
+        public string Fecha_fin { get; set; }
+        public List<int> Lst_sepaerados { get; set; }
 
         //getter and setter
         public int Codigo { get; set; }
@@ -37,12 +38,41 @@ namespace SBX.MODEL
         public string Fecha_primer_pago { get; set; }
         public string Fecha_vence { get; set; }
         public int Cliente { get; set; }
+        public string Cliente_separado { get; set; }
         public string Estado { get; set; }
+
+        public string Saldo { get; set; }
+        public string Valortotal { get; set; }
+        public string Modulo { get; set; }
 
         //Metodos
         public DataTable mtd_consultar_sistema_separado()
         {
-            v_query = " EXECUTE sp_consultar_sistema_separado  '" + v_buscar + "','" + v_tipo_busqueda + "','" + Fecha_inicio.Date + "','" + Fecha_fin.Date + "' ";
+            v_query = " EXECUTE sp_consultar_sistema_separado  '" + v_buscar + "','" + v_tipo_busqueda + "','" + Fecha_inicio + "','" + Fecha_fin + "' ";
+            v_dt = cls_datos.mtd_consultar(v_query);
+            return v_dt;
+        }
+        public DataTable mtd_consultar_sistema_separado_exacto()
+        {
+            v_query = " SELECT "+
+   "  Codigo,Estado,Fecha,Cliente,AbonoInicial,NumCuotas,ValorCuota,PeriodoPago,Valor," +
+   "  FechaPrimerPago,FechaVence,Factura" +
+   "  FROM(" +
+   "  SELECT sp.Codigo, sp.Estado, sp.Fecha, CONCAT(c.DNI, ' - ', c.Nombre) Cliente, " +
+   "  CONCAT(p.Item, ' - ', p.Referencia, ' - ', p.CodigoBarras, ' - ', p.Nombre) Producto, " +
+   "  v.Cantidad, v.Costo, v.PrecioVenta, sp.AbonoInicial, sp.NumCuotas, sp.ValorCuota, " +
+   "  sp.PeriodoPago, sp.Valor, sp.FechaPrimerPago, sp.FechaVence, ISNULL(ab.ValorAbono, 0) ValorAbono, ISNULL(ab.Fecha, '') FechaAbono, " +
+   "  CONCAT(v.NombreDocumento, ' - ', v.ConsecutivoDocumento) Factura" +
+   "  FROM Venta v" +
+   "  INNER JOIN SistemaSeparado sp ON sp.Codigo = v.SistemaSeparado" +
+   "  INNER JOIN Cliente c ON c.Codigo = sp.Cliente" +
+   "  INNER JOIN Producto p ON p.Item = v.Producto" +
+   "  LEFT JOIN AbonoSistemaSeparado ab ON ab.SistemaSeparado = sp.Codigo" +
+   "  WHERE CONVERT(VARCHAR, sp.Codigo) IN("+ v_buscar + ")" +
+   "  )gb" +
+   "  group by Codigo, Estado, Fecha, Cliente, AbonoInicial, NumCuotas, ValorCuota, PeriodoPago, Valor," +
+   "  FechaPrimerPago, FechaVence, Factura" +
+   "  ORDER BY Codigo DESC";
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }
@@ -176,15 +206,195 @@ namespace SBX.MODEL
 
             mtd_asignaParametros_abonar();
             v_ok = cls_datos.mtd_registrar(Parametros, v_query);
+            if (Modulo != "Venta")
+            {
+                if (v_ok == true)
+                {
+                    mtd_imprimir();
+                }
+            }
+           
             return v_ok;
         }
+
+        private void mtd_imprimir()
+        {
+            CrearTicket ticket = new CrearTicket();
+            cls_empresa Empres = new cls_empresa();
+
+            ticket.AbreCajon();//Para abrir el cajon de dinero.
+            DataRow row;
+            DataTable DTEmpresa;
+            DTEmpresa = Empres.mtd_consultar_Empresa();
+            row = DTEmpresa.Rows[0];
+            string NombreImpresora = row["Impresora"].ToString();
+            string NumerosCelular = row["Celular"].ToString();
+            //Datos de la cabecera del Ticket.
+            ticket.TextoCentro(row["Nombre"].ToString());
+            ticket.TextoCentro("NIT:" + row["DNI"]);
+            ticket.TextoIzquierda("DIREC: " + row["Direccion"] + "");
+            ticket.TextoIzquierda("TELEF: " + row["Telefono"] + "");
+            ticket.TextoIzquierda("CELUL: " + row["Celular"] + "");
+            ticket.TextoIzquierda("EMAIL: " + row["Email"] + "");
+            ticket.TextoIzquierda("WEB: " + row["SitioWeb"] + "");
+            ticket.TextoIzquierda("FECHA: " + DateTime.Now.ToShortDateString() + "");
+            ticket.TextoIzquierda("HORA: " + DateTime.Now.ToShortTimeString());
+            ticket.TextoIzquierda("--------------------------------------------");
+            ticket.TextoIzquierda("CLIENTE: "+Cliente_separado);
+
+            Codigo = Convert.ToInt32(Codigo);
+            v_dt = mtd_consultar_abono_sistema();
+            DataRow v_rows;
+            if (v_dt.Rows.Count > 0)
+            {
+                v_rows = v_dt.Rows[0];
+                double pago = Convert.ToDouble(v_rows["Pago"]);
+                double Saldo_1 = 0;
+                double Valortotal_1 = Convert.ToDouble(Valortotal);
+
+                ticket.TextoIzquierda("VALOR : " + Valortotal_1.ToString("N0") + "");
+                ticket.TextoIzquierda("VALOR ABONO : " + Valor.ToString("N0") + "");
+                ticket.TextoIzquierda("TOTAL PAGADO: " + pago.ToString("N0") + "");
+                double cuotas = Convert.ToDouble(v_rows["Cuotas"]) - 1;
+                ticket.TextoIzquierda("CUOTA: " + cuotas + "");
+                Saldo_1 = Valortotal_1 - pago;
+                ticket.TextoIzquierda("SALDO: " + Saldo_1.ToString("N0") + "");
+         
+                //double Saldo = Convert.ToDouble(lbl_valor.Text) - pago; 
+                //lbl_saldo.Text = Saldo.ToString("N0");
+            }
+            //ticket.TextoIzquierda("USUARIO: " + Usuario);
+            ///
+            //DataTable DTVenta;
+            //cls_Venta.NombreDocumento = NombDoc;
+            //cls_Venta.ConsecutivoDocumento = ConsecutivoDoc;
+            ////DTVenta = cls_Venta.mtd_consultar_Ventas_factura();
+            //cls_Venta.v_buscar = NombDoc + '-' + ConsecutivoDoc;
+            //DTVenta = cls_Venta.mtd_consultar_dato_impresion();
+            //row = DTVenta.Rows[0];
+            /////
+            //ticket.TextoIzquierda("FACTURA N. " + row["Factura"].ToString());
+            //if (v_domicilio == false && v_sistema_separado == false)
+            //{
+            //    ticket.TextoIzquierda("CLIENTE: " + row["Cliente"].ToString() + "");
+            //}
+            ////ticket.TextoIzquierda("");
+            ////ticket.lineasAsteriscos();
+
+            //if (v_domicilio == true)
+            //{
+            //    ticket.TextoIzquierda("MENSAJERO: " + row["Mensajero"].ToString() + " " + row["NMensajero"].ToString());
+            //    ticket.TextoIzquierda("# DOMICILIO: " + row["CodigoDomicilio"].ToString());
+            //    ticket.TextoIzquierda("CELULAR: " + row["Celular"].ToString());
+            //    ticket.TextoIzquierda("TELEFONO FIJO: " + row["Telefono"].ToString());
+            //    ticket.TextoIzquierda("NOMBRES: " + row["NombreC"].ToString());
+            //    ticket.TextoIzquierda("DIRECCION: " + row["Direccion"].ToString());
+            //}
+
+
+            //ticket.lineasAsteriscos();
+
+            //double Subtotal = 0;
+            //double Impuesto = 0;
+            //double Descuento = 0;
+            //double TotalDescuento = 0;
+            //double Recibido = 0;
+            //double Devueltas = 0;
+            //double AritculosVendidos = 0;
+            //double Total = 0;
+            //double ValorDomicilio = 0;
+
+            ////SISTEMA DE SEPARADOS
+            //if (v_sistema_separado == true)
+            //{
+            //    ticket.TextoIzquierda("---------------------------");
+            //    ticket.TextoIzquierda("INFO SISTEMA DE SEPARADO");
+            //    ticket.TextoIzquierda("CLIENTE: " + clientes_1);
+            //    ticket.TextoIzquierda("ABONO INICIAL: " + Abono_inicial_1);
+            //    ticket.TextoIzquierda("# CUOTAS: " + num_cuotas_1);
+            //    ticket.TextoIzquierda("VALOR CUOTAS: " + valor_cuotas_1);
+            //    ticket.TextoIzquierda("VALOR : " + valor_1);
+            //    double saldo = Convert.ToDouble(valor_1) - Convert.ToDouble(Abono_inicial_1);
+            //    ticket.TextoIzquierda("SALDO: " + saldo.ToString("N"));
+            //}
+
+            //foreach (DataRow rows in DTVenta.Rows)
+            //{
+            //    double Cant;
+            //    ticket.TextoIzquierda("--------------------------------------");
+            //    ticket.AgregaArticulo(rows["Item"].ToString(), " ", rows["UM"].ToString() + " ", (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"])));
+            //    ticket.TextoIzquierda(rows["Nombre"].ToString());
+            //    ticket.MuestraCalculoPRecioProducto(rows["Cantidad_Exacta"].ToString(), Convert.ToDouble(rows["PrecioVenta"]));
+            //    Descuento = ((Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"])) * (Convert.ToDouble(rows["Descuento"]) / 100));
+            //    ticket.AgregarTotales("Descuento.........", Descuento);
+            //    //ticket.AgregarTotales("IVA %.........",  Convert.ToDouble(rows["IVA"]));
+            //    // ticket.AgregarTotales("IVA %.........",  0);
+            //    //ticket.AgregarTotales("Valor IVA.........", (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad"])) * (Convert.ToDouble(rows["IVA"])/100));
+            //    //ticket.AgregarTotales("Valor IVA.........", 0);
+            //    double subtotal_inicial = 0;
+            //    subtotal_inicial = (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"])) - Descuento;
+            //    ticket.AgregarTotales("SubTotal.........", subtotal_inicial);
+            //    TotalDescuento += Descuento;
+            //    Subtotal += (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"]));
+            //    //Impuesto += ((Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad"])) * (Convert.ToDouble(rows["IVA"]) / 100));
+            //    Impuesto = 0;
+            //    Recibido = Convert.ToDouble(rows["Efectivo"]) + Convert.ToDouble(rows["Tdebito"]) + Convert.ToDouble(rows["Tcredito"]);
+            //    Devueltas = Convert.ToDouble(rows["Cambio"]);
+            //    AritculosVendidos += Convert.ToDouble(rows["Cantidad_Exacta"]);
+            //    ValorDomicilio = Convert.ToDouble(rows["ValorDomicilio"]);
+            //    Total = (Subtotal - TotalDescuento) + Impuesto;
+            //}
+            //ticket.lineasIgual();
+            ////Resumen de la venta.
+            //ticket.AgregarTotales("SUBTOTAL......$", Subtotal);
+            ////ticket.AgregarTotales("IVA...........$", Impuesto);
+            //ticket.AgregarTotales("DESCUENTO.....$", TotalDescuento);
+
+            //if (v_domicilio == true)
+            //{
+            //    ticket.AgregarTotales("DOMICILIO.....$", ValorDomicilio);
+            //}
+            //ticket.AgregarTotales("TOTAL.........$", Math.Round(Total));
+            ////ticket.TextoIzquierda("--------------------------------------");
+            //if (v_sistema_separado == false && v_domicilio == false)
+            //{
+            //    ticket.AgregarTotales("RECIBIDO......$", Recibido);
+            //    ticket.AgregarTotales("CAMBIO........$", Devueltas);
+            //}
+
+            //Texto final del Ticket.
+            //ticket.TextoIzquierda("");
+            //ticket.TextoIzquierda("ARTICULOS VENDIDOS: " + AritculosVendidos + "");
+            //ticket.TextoIzquierda("");
+            //ticket.TextoIzquierda("");
+            //ticket.TextoCentro("SERVICIO A DOMICILIO");
+            //ticket.TextoCentro(NumerosCelular);
+            ticket.TextoIzquierda("");
+            ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("");
+            ticket.CortaTicket();
+            ticket.ImprimirTicket(NombreImpresora);//Nombre de la impresora ticketera
+        }
+
+
         public Boolean mtd_Editar()
         {
-            v_query = " UPDATE SistemaSeparado SET Estado = '"+ Estado + "' " +
+            v_query = " UPDATE SistemaSeparado SET FechaPago = '"+DateTime.Now+"', Estado = '" + Estado + "' " +
                       " WHERE Codigo = " + Codigo;
 
-            mtd_asignaParametros();
+           // mtd_asignaParametros();
             v_ok = cls_datos.mtd_ejecutar(v_query);
+
+            if (v_ok == true)
+            {
+                //cambiar fecha factura
+                v_query = " update Venta set Fecha = '" + DateTime.Now + "' " +
+                          " WHERE SistemaSeparado = " + Codigo;
+                v_ok = cls_datos.mtd_ejecutar(v_query);
+            }
             return v_ok;
         }
         public Boolean mtd_eliminar()

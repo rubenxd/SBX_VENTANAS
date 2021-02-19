@@ -27,9 +27,39 @@ namespace SBX.MODEL
         public string Buscar { get; set; }
         public string TipoBusqueda { get; set; }
 
+        public string UltimoCierre { get; set; }
+        public string UltimaVenta { get; set; }
+        public string Usuario { get; set; }
+        public string CodigoSeparado { get; set; }
+
         public DataTable mtd_consultar()
         {
             v_query = " SP_GANACIAS_PERDIDAS '" + FechaIni+ "','" + FechaFin + "','" + TipoBusqueda + "','" + Buscar + "'  ";
+            v_dt = cls_datos.mtd_consultar(v_query);
+            return v_dt;
+        }
+
+        public DataTable mtd_consultar_Abonos_separados()
+        {
+            v_query = "select sp.Codigo,ISNULL(SUM(ValorAbono),0)  ValorAbonos from AbonoSistemaSeparado asp " +
+                      "inner join SistemaSeparado sp on sp.Codigo = asp.SistemaSeparado " +
+                      "WHERE(CONVERT(date, asp.Fecha) BETWEEN '" + FechaIni + "' AND  '" + FechaFin + "') " +
+                      " GROUP BY sp.Codigo ";
+
+            //v_query = " select ISNULL(SUM(ValorAbono),0) ValorAbonos from AbonoSistemaSeparado " +
+            //          " WHERE(CONVERT(date,Fecha) BETWEEN '" + FechaIni + "' AND  '" + FechaFin + "') ";
+            v_dt = cls_datos.mtd_consultar(v_query);
+            return v_dt;
+        }
+        public DataTable mtd_consultar_Abonos_separados_pagos()
+        {
+            v_query = "select ISNULL(SUM(ValorAbono),0)  ValorAbonos from AbonoSistemaSeparado asp " +
+                      "inner join SistemaSeparado sp on sp.Codigo = asp.SistemaSeparado " +
+                      "WHERE   sp.Codigo = "+ CodigoSeparado +
+                      " ";
+
+            //v_query = " select ISNULL(SUM(ValorAbono),0) ValorAbonos from AbonoSistemaSeparado " +
+            //          " WHERE(CONVERT(date,Fecha) BETWEEN '" + FechaIni + "' AND  '" + FechaFin + "') ";
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }

@@ -27,6 +27,7 @@ namespace SBX
         int v_fila = 0;
         int v_contador = 0;
         int v_validado = 0;
+        public String usuario { get; set; }
 
         public frm_agregar_abono()
         {
@@ -86,12 +87,17 @@ namespace SBX
                     {
                         cls_Sistema_separado.Codigo = Convert.ToInt32(lbl_num_separado.Text);
                         cls_Sistema_separado.Valor = Convert.ToDouble(txt_abono.Text);
+                        cls_Sistema_separado.Saldo = lbl_saldo.Text;
+                        cls_Sistema_separado.Valortotal = lbl_valor.Text;
+                        cls_Sistema_separado.Cliente_separado = lbl_cliente.Text;
+                       
                         v_ok = cls_Sistema_separado.mtd_registrar_abono();
                         frm_msg frm_Msg = new frm_msg();
                         if (v_ok == true)
                         {
                             frm_Msg.txt_mensaje.Text = "Abono registrado correctamente";
                             frm_Msg.ShowDialog();
+                            //mtd_imprimir(lbl_num_separado.Text, "");
                             Enviainfo((Convert.ToDouble(lbl_pagado.Text) + (Convert.ToDouble(txt_abono.Text))), Convert.ToDouble(lbl_valor.Text), Convert.ToInt32(lbl_num_separado.Text));
                             this.Dispose();
                         }
@@ -103,6 +109,123 @@ namespace SBX
                 }
             }
         }
+
+        //private void mtd_imprimir(string NomSeparado, string NumAbono)
+        //{
+        //    CrearTicket ticket = new CrearTicket();
+        //    cls_empresa Empres = new cls_empresa();
+
+        //    ticket.AbreCajon();//Para abrir el cajon de dinero.
+        //    DataRow row;
+        //    DataTable DTEmpresa;
+        //    DTEmpresa = Empres.mtd_consultar_Empresa();
+        //    row = DTEmpresa.Rows[0];
+        //    string NombreImpresora = row["Impresora"].ToString();
+        //    string NumerosCelular = row["Celular"].ToString();
+        //    //Datos de la cabecera del Ticket.
+        //    ticket.TextoCentro(row["Nombre"].ToString());
+        //    ticket.TextoCentro("NIT:" + row["DNI"]);
+        //    ticket.TextoIzquierda("DIREC: " + row["Direccion"] + "");
+        //    ticket.TextoIzquierda("TELEF: " + row["Telefono"] + "");
+        //    ticket.TextoIzquierda("CELUL: " + row["Celular"] + "");
+        //    ticket.TextoIzquierda("EMAIL: " + row["Email"] + "");
+        //    ticket.TextoIzquierda("WEB: " + row["SitioWeb"] + "");
+        //    ticket.TextoIzquierda("FECHA: " + DateTime.Now.ToShortDateString() + "");
+        //    ticket.TextoIzquierda("HORA: " + DateTime.Now.ToShortTimeString());
+        //    ticket.TextoIzquierda("USUARIO: " + Usuario);
+        //    ///
+        //    DataTable DTVenta;
+        //    cls_Venta.NombreDocumento = NombDoc;
+        //    cls_Venta.ConsecutivoDocumento = ConsecutivoDoc;
+        //    //DTVenta = cls_Venta.mtd_consultar_Ventas_factura();
+        //    cls_Venta.v_buscar = NombDoc + '-' + ConsecutivoDoc;
+        //    DTVenta = cls_Venta.mtd_consultar_dato_impresion();
+        //    row = DTVenta.Rows[0];
+        //    ///
+        //    ticket.TextoIzquierda("FACTURA N. " + row["Factura"].ToString());
+        //    if (v_domicilio == false)
+        //    {
+        //        ticket.TextoIzquierda("CLIENTE: " + row["Cliente"].ToString() + "");
+        //    }
+        //    //ticket.TextoIzquierda("");
+        //    //ticket.lineasAsteriscos();
+
+        //    if (v_domicilio == true)
+        //    {
+        //        ticket.TextoIzquierda("MENSAJERO: " + row["Mensajero"].ToString() + " " + row["NMensajero"].ToString());
+        //        ticket.TextoIzquierda("# DOMICILIO: " + row["CodigoDomicilio"].ToString());
+        //        ticket.TextoIzquierda("CELULAR: " + row["Celular"].ToString());
+        //        ticket.TextoIzquierda("TELEFONO FIJO: " + row["Telefono"].ToString());
+        //        ticket.TextoIzquierda("NOMBRES: " + row["NombreC"].ToString());
+        //        ticket.TextoIzquierda("DIRECCION: " + row["Direccion"].ToString());
+        //    }
+        //    //ticket.lineasAsteriscos();
+
+        //    double Subtotal = 0;
+        //    double Impuesto = 0;
+        //    double Descuento = 0;
+        //    double TotalDescuento = 0;
+        //    double Recibido = 0;
+        //    double Devueltas = 0;
+        //    double AritculosVendidos = 0;
+        //    double Total = 0;
+        //    double ValorDomicilio = 0;
+        //    foreach (DataRow rows in DTVenta.Rows)
+        //    {
+        //        double Cant;
+        //        ticket.TextoIzquierda("--------------------------------------");
+        //        ticket.AgregaArticulo(rows["Item"].ToString(), " ", rows["UM"].ToString() + " ", (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"])));
+        //        ticket.TextoIzquierda(rows["Nombre"].ToString());
+        //        ticket.MuestraCalculoPRecioProducto(rows["Cantidad_Exacta"].ToString(), Convert.ToDouble(rows["PrecioVenta"]));
+        //        Descuento = ((Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"])) * (Convert.ToDouble(rows["Descuento"]) / 100));
+        //        ticket.AgregarTotales("Descuento.........", Descuento);
+        //        //ticket.AgregarTotales("IVA %.........",  Convert.ToDouble(rows["IVA"]));
+        //        // ticket.AgregarTotales("IVA %.........",  0);
+        //        //ticket.AgregarTotales("Valor IVA.........", (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad"])) * (Convert.ToDouble(rows["IVA"])/100));
+        //        //ticket.AgregarTotales("Valor IVA.........", 0);
+        //        double subtotal_inicial = 0;
+        //        subtotal_inicial = (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"])) - Descuento;
+        //        ticket.AgregarTotales("SubTotal.........", subtotal_inicial);
+        //        TotalDescuento += Descuento;
+        //        Subtotal += (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"]));
+        //        //Impuesto += ((Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad"])) * (Convert.ToDouble(rows["IVA"]) / 100));
+        //        Impuesto = 0;
+        //        Recibido = Convert.ToDouble(rows["Efectivo"]) + Convert.ToDouble(rows["Tdebito"]) + Convert.ToDouble(rows["Tcredito"]);
+        //        Devueltas = Convert.ToDouble(rows["Cambio"]);
+        //        AritculosVendidos += Convert.ToDouble(rows["Cantidad_Exacta"]);
+        //        ValorDomicilio = Convert.ToDouble(rows["ValorDomicilio"]);
+        //        Total = (Subtotal - TotalDescuento) + Impuesto;
+        //    }
+        //    ticket.lineasIgual();
+        //    //Resumen de la venta.
+        //    ticket.AgregarTotales("SUBTOTAL......$", Subtotal);
+        //    //ticket.AgregarTotales("IVA...........$", Impuesto);
+        //    ticket.AgregarTotales("DESCUENTO.....$", TotalDescuento);
+
+        //    if (v_domicilio == true)
+        //    {
+        //        ticket.AgregarTotales("DOMICILIO.....$", ValorDomicilio);
+        //    }
+        //    ticket.AgregarTotales("TOTAL.........$", Math.Round(Total));
+        //    //ticket.TextoIzquierda("--------------------------------------");
+        //    ticket.AgregarTotales("RECIBIDO......$", Recibido);
+        //    ticket.AgregarTotales("CAMBIO........$", Devueltas);
+        //    //Texto final del Ticket.
+        //    ticket.TextoIzquierda("");
+        //    ticket.TextoIzquierda("ARTICULOS VENDIDOS: " + AritculosVendidos + "");
+        //    //ticket.TextoIzquierda("");
+        //    //ticket.TextoIzquierda("");
+        //    //ticket.TextoCentro("SERVICIO A DOMICILIO");
+        //    //ticket.TextoCentro(NumerosCelular);
+        //    ticket.TextoIzquierda("");
+        //    ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
+        //    ticket.TextoIzquierda("");
+        //    ticket.TextoIzquierda("");
+        //    ticket.TextoIzquierda("");
+        //    ticket.TextoIzquierda("");
+        //    ticket.CortaTicket();
+        //    ticket.ImprimirTicket(NombreImpresora);//Nombre de la impresora ticketera
+        //}
         private void btn_ver_productos_Click(object sender, EventArgs e)
         {
             if (btn_ver_productos.Text == "Ver productos")

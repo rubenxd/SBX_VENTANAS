@@ -88,6 +88,9 @@ namespace SBX
                         case "domicilio":
                             btn_domicilio.Enabled = true;
                             break;
+                        case "separado":
+                            btn_separado.Enabled = true;
+                            break;
                     }
                 }
             }
@@ -209,7 +212,9 @@ namespace SBX
                                 Costo = Convert.ToDouble(v_row["CostoCalculado"]);
                                 break;
                             case "UND P":
-                                Costo = Convert.ToDouble(v_row["CostoCalculado"]) / Convert.ToDouble(v_row["SubCantidad"]);
+                                //Costo = Convert.ToDouble(v_row["CostoCalculado"]) / Convert.ToDouble(v_row["SubCantidad"]);
+                                Costo = Convert.ToDouble(v_row["CostoCalculado"]) / Convert.ToDouble(v_row["Sobres"]);
+                                Costo = Costo / Convert.ToDouble(v_row["SubCantidad"]);
                                 break;
                             case "UND D":
                                 Costo = Convert.ToDouble(v_row["CostoCalculado"]) / Convert.ToDouble(v_row["SubCantidad"]);
@@ -338,8 +343,10 @@ namespace SBX
                                     Costo = Convert.ToDouble(v_row["CostoCalculado"]);
                                     break;
                                 case "UND P":
-                                    Costo = Convert.ToDouble(v_row["CostoCalculado"]) / Convert.ToDouble(v_row["SubCantidad"]);
-                                    break;
+                                //Costo = Convert.ToDouble(v_row["CostoCalculado"]) / Convert.ToDouble(v_row["SubCantidad"]);
+                                Costo = Convert.ToDouble(v_row["CostoCalculado"]) / Convert.ToDouble(v_row["Sobres"]);
+                                Costo = Costo / Convert.ToDouble(v_row["SubCantidad"]);
+                                break;
                                 case "UND D":
                                     Costo = Convert.ToDouble(v_row["CostoCalculado"]) / Convert.ToDouble(v_row["SubCantidad"]);
                                     break;
@@ -1001,9 +1008,29 @@ namespace SBX
                 mtd_guardar();
             }
         }
+        //variables globales para separados
+        string clientes_1 = "";
+        string valor_1 = "";
+        string Abono_inicial_1 = "";
+        string  periodo_pago_1 = "";
+        string suministrar_1 = "";
+        string num_cuotas_1 = "";
+        string valor_cuotas_1 = "";
+        string f_primer_pago_1 = "";
+        string f_vence_1 = "";
         private void mtd_info_separado(string clientes, string valor, string Abono_inicial,
         string periodo_pago, string suministrar, string num_cuotas, string valor_cuotas, string f_primer_pago, string f_vence)
         {
+             clientes_1 = clientes;
+            valor_1 = valor;
+            Abono_inicial_1 = Abono_inicial;
+            periodo_pago_1 = periodo_pago;
+            suministrar_1 = suministrar;
+            num_cuotas_1 = num_cuotas;
+            valor_cuotas_1 = valor_cuotas;
+            f_primer_pago_1 = f_primer_pago;
+            f_vence_1 = f_vence;
+
             cls_Sistema_separado.Cliente = Convert.ToInt32(clientes);
             cls_Sistema_separado.Valor = Convert.ToDouble(valor);
             cls_Sistema_separado.Abono_inicial = Convert.ToDouble(Abono_inicial);
@@ -1014,6 +1041,7 @@ namespace SBX
             cls_Sistema_separado.Fecha_primer_pago = f_primer_pago;
             cls_Sistema_separado.Fecha_vence = f_vence;
             cls_Sistema_separado.Estado = "Pendiente";
+            cls_Sistema_separado.Modulo = "Venta";
             v_ok = cls_Sistema_separado.mtd_registrar();
             if (v_ok == true)
             {
@@ -1069,7 +1097,7 @@ namespace SBX
             row = DTVenta.Rows[0];
             ///
             ticket.TextoIzquierda("FACTURA N. " + row["Factura"].ToString());
-            if (v_domicilio == false)
+            if (v_domicilio == false && v_sistema_separado == false)
             {
                 ticket.TextoIzquierda("CLIENTE: " + row["Cliente"].ToString() + "");
             }          
@@ -1085,6 +1113,8 @@ namespace SBX
                 ticket.TextoIzquierda("NOMBRES: " + row["NombreC"].ToString());
                 ticket.TextoIzquierda("DIRECCION: " + row["Direccion"].ToString());
             }
+
+
             //ticket.lineasAsteriscos();
 
             double Subtotal = 0;
@@ -1096,6 +1126,21 @@ namespace SBX
             double AritculosVendidos = 0;
             double Total = 0;
             double ValorDomicilio = 0;
+
+            //SISTEMA DE SEPARADOS
+            if (v_sistema_separado == true) 
+            {
+                ticket.TextoIzquierda("---------------------------");
+                ticket.TextoIzquierda("INFO SISTEMA DE SEPARADO");
+                ticket.TextoIzquierda("CLIENTE: " + clientes_1);
+                ticket.TextoIzquierda("ABONO INICIAL: " + Abono_inicial_1);
+                ticket.TextoIzquierda("# CUOTAS: " + num_cuotas_1);
+                ticket.TextoIzquierda("VALOR CUOTAS: " + valor_cuotas_1);
+                ticket.TextoIzquierda("VALOR : " + valor_1);
+                double saldo = Convert.ToDouble(valor_1) - Convert.ToDouble(Abono_inicial_1);
+                ticket.TextoIzquierda("SALDO: " + saldo.ToString("N"));
+            }
+                
             foreach (DataRow rows in DTVenta.Rows)
             {            
                 double Cant;
@@ -1134,8 +1179,12 @@ namespace SBX
             }
             ticket.AgregarTotales("TOTAL.........$", Math.Round(Total));
             //ticket.TextoIzquierda("--------------------------------------");
-            ticket.AgregarTotales("RECIBIDO......$", Recibido);
-            ticket.AgregarTotales("CAMBIO........$", Devueltas);
+            if (v_sistema_separado == false && v_domicilio == false) 
+            {
+                ticket.AgregarTotales("RECIBIDO......$", Recibido);
+                ticket.AgregarTotales("CAMBIO........$", Devueltas);
+            }
+               
             //Texto final del Ticket.
             ticket.TextoIzquierda("");
             ticket.TextoIzquierda("ARTICULOS VENDIDOS: " + AritculosVendidos + "");
@@ -1577,6 +1626,7 @@ namespace SBX
                 frm_separado frm_Separado = new frm_separado();
                 frm_Separado.v_dt_Permi = this.v_dt_Permi;
                 frm_Separado.txt_valor.Text = lbl_total.Text;
+                frm_Separado.Modulo = "Venta";
                 frm_Separado.Enviainfo += new frm_separado.EnviarInfo(mtd_info_separado);
                 frm_Separado.ShowDialog();
             }

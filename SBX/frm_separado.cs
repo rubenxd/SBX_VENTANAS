@@ -30,6 +30,7 @@ namespace SBX
         double periodo = 0;
         double v_valor_cuota = 0;
         double v_num_cuotas = 0;
+        public string Modulo { get; set; }
         public DataTable v_dt_Permi { get; set; }
 
         //Codigo para mover venta

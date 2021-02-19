@@ -70,8 +70,8 @@ namespace SBX
                 cls_Domicilio.v_buscar = txt_buscar.Text;
             }
             cls_Domicilio.v_tipo_busqueda = cbx_tipo_busqueda.Text;
-            cls_Domicilio.Fecha_inicio = dtp_fecha_inicio.Value;
-            cls_Domicilio.Fecha_fin = dtp_fecha_fin.Value;
+            cls_Domicilio.Fecha_inicio = dtp_fecha_inicio.Text;
+            cls_Domicilio.Fecha_fin = dtp_fecha_fin.Text;
             v_dt = cls_Domicilio.mtd_consultar_domicilio();
             dtg_domicilio.Rows.Clear();
             if (v_dt.Rows.Count > 0)
@@ -229,8 +229,8 @@ namespace SBX
                 cls_Domicilio.v_buscar = txt_buscar.Text;
             }
             cls_Domicilio.v_tipo_busqueda = cbx_tipo_busqueda.Text;
-            cls_Domicilio.Fecha_inicio = dtp_fecha_inicio.Value;
-            cls_Domicilio.Fecha_fin = dtp_fecha_fin.Value;
+            cls_Domicilio.Fecha_inicio = dtp_fecha_inicio.Text;
+            cls_Domicilio.Fecha_fin = dtp_fecha_fin.Text;
             v_dt = cls_Domicilio.mtd_consultar_domicilio();
             mtd_exporta_excel();
         }

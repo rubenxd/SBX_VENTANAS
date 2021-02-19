@@ -17,6 +17,7 @@ namespace SBX
         cls_ganancias_perdidas cl_gp = new cls_ganancias_perdidas();
 
         public string Codigo { get; set; }
+        List<int> codigoSeparados;
         public DataTable v_dt_Permi { get; set; }
 
         DataTable v_dt;
@@ -71,16 +72,33 @@ namespace SBX
 
         private void mtd_consultar_datos() 
         {
+            codigoSeparados = new List<int>();
             double Costos = 0;
+            double CostosDomicilio = 0;
+            double CostosSeparado = 0;
             double VentasD = 0;
             double VentasDomicilio = 0;
+            double VentasSeparado = 0;
             double Gastos = 0;
             double TotalVentas = 0;
+            double TotalCostos = 0;
             double Resultado = 0;
             double TotalGastos = 0;
             double TotalIva = 0;
             Contador = 0;
             Filas = 0;
+
+            //limpiar campos
+            txt_costos.Text = "0";
+            txt_costo_dm.Text = "0";
+            txt_costo_sp.Text = "0";
+            txt_gastos.Text = "0";
+            txt_total_ventas.Text = "0";
+            txt_total_costos.Text = "0";
+            txt_resultado.Text = "0";
+            txt_ventas_directas.Text = "0";
+            txt_ventas_domicilio.Text = "0";
+            txt_ventas_separado.Text = "0";
 
             //buscar gastos
             cls_gastos_m cl_gm = new cls_gastos_m();
@@ -105,35 +123,75 @@ namespace SBX
             {
                 txt_gastos.Text = "0";
             }
-
+            //Buscar Abonos de separados
+            cl_gp.FechaIni = dtp_fecha_inicio.Text;
+            cl_gp.FechaFin = dtp_fecha_fin.Text;
+            double valorAbono = 0;
+            double valorAbonoTotal = 0;
+            v_dt = cl_gp.mtd_consultar_Abonos_separados();          
+            if (v_dt.Rows.Count > 0) 
+            {
+                foreach (DataRow rows in v_dt.Rows) 
+                {
+                    valorAbono += Convert.ToDouble(rows["ValorAbonos"].ToString());
+                    codigoSeparados.Add(Convert.ToInt32(rows["Codigo"]));
+                }
+                txt_ventas_separado.Text = valorAbono.ToString("N0");
+            }
+            //VER SEPARADOS PAGADOS
+            foreach (var item in codigoSeparados)
+            {
+                cl_gp.CodigoSeparado = item.ToString();
+                v_dt = cl_gp.mtd_consultar_Abonos_separados_pagos();
+                if (v_dt.Rows.Count > 0)
+                {
+                    foreach (DataRow rows in v_dt.Rows)
+                    {
+                        valorAbonoTotal += Convert.ToDouble(rows["ValorAbonos"].ToString());
+                    }
+                    txt_ventas_sp_total.Text = valorAbonoTotal.ToString("N0");
+                }
+            }
+            
             //
             cl_gp.FechaIni = dtp_fecha_inicio.Text;
             cl_gp.FechaFin = dtp_fecha_fin.Text;
             cl_gp.TipoBusqueda = cbx_tipo_busqueda.Text;
             cl_gp.Buscar = txt_buscar.Text;
+            
             v_dt = cl_gp.mtd_consultar();
             dtg_informe.Rows.Clear();
             if (v_dt.Rows.Count > 0)
             {
                 foreach (DataRow rows in v_dt.Rows)
                 {
-                    if (rows["Domicilio"].ToString() == " -  -  -  -  -  -  - ")
+                    if (rows["Domicilio"].ToString() == " -  -  -  -  -  -  - " && rows["SistemaSeparado"].ToString() == " -  -  - ")
                     {
                         Costos += Convert.ToDouble(rows["Costo"]);
                         VentasD += Convert.ToDouble(rows["PrecioVenta"]) - Convert.ToDouble(rows["ValorDescuento"]);
                     }
-                    else
+                    else if (rows["Estado_Domicilio"].ToString() == "Pago")
                     {
-                        Costos += Convert.ToDouble(rows["Costo"]);
+                        CostosDomicilio += Convert.ToDouble(rows["Costo"]);
                         VentasDomicilio += Convert.ToDouble(rows["PrecioVenta"]) - Convert.ToDouble(rows["ValorDescuento"]);
+                    }else if (rows["Estado_Sistema_Separado"].ToString() == "Pago") 
+                    {
+                        CostosSeparado += Convert.ToDouble(rows["Costo"]);
                     }
                 }
-                TotalVentas = VentasD + VentasDomicilio;
-                Resultado = (TotalVentas - Costos) - Convert.ToDouble(txt_gastos.Text);
+                //VentasSeparado = VentasSeparado + valorAbono;
+                TotalVentas = VentasD + VentasDomicilio + valorAbonoTotal;
+                TotalCostos = (Costos + CostosDomicilio + CostosSeparado);
+                Resultado = (TotalVentas - (Costos + CostosDomicilio + CostosSeparado)) - Convert.ToDouble(txt_gastos.Text);
 
+                txt_total_ventas.Text = TotalVentas.ToString("N");
+                txt_total_costos.Text = TotalCostos.ToString("N");
                 txt_costos.Text = Costos.ToString("N2");
                 txt_ventas_directas.Text = VentasD.ToString("N2");
+                txt_costo_dm.Text = CostosDomicilio.ToString("N2");
                 txt_ventas_domicilio.Text = VentasDomicilio.ToString("N2");
+                txt_costo_sp.Text = CostosSeparado.ToString("N2");            
+                txt_ventas_separado.Text = valorAbono.ToString("N2");
                 txt_resultado.Text = Resultado.ToString("N2");
 
                 if (Resultado < 0)
@@ -151,8 +209,10 @@ namespace SBX
                 dtg_informe.Rows.Add(Filas);
                 foreach (DataRow rows in v_dt.Rows)
                 {
-                    if (rows["Estado_sistema_separado"].ToString() != "Pendiente")
+                    if (rows["Estado_sistema_separado"].ToString() != "Pendiente" &&  rows["Estado_Domicilio"].ToString() != "Pendiente")
                     {
+                        dtg_informe.Rows[Contador].Cells["cl_factura"].Value = rows["Factura"];
+                        dtg_informe.Rows[Contador].Cells["cl_usuario"].Value = rows["NombreUsuario"];
                         dtg_informe.Rows[Contador].Cells["cl_item"].Value = rows["Item"];
                         dtg_informe.Rows[Contador].Cells["cl_codigo_barras"].Value = rows["CodigoBarras"];
                         dtg_informe.Rows[Contador].Cells["cl_referencia"].Value = rows["Referencia"];
@@ -180,11 +240,7 @@ namespace SBX
                         dtg_informe.Rows[Contador].Cells["cl_total"].Value = Total.ToString("N2");
                         double Resultados = Total - costo;
                         dtg_informe.Rows[Contador].Cells["cl_resultado"].Value = Resultados.ToString("N2");
-                        //string Modulo = "V. Directa";
-                        //if (rows["Domicilio"].ToString() != " -  -  -  -  -  -  - ")
-                        //{
-                        //    Modulo = "Domicilio";
-                        //}
+                       
                         dtg_informe.Rows[Contador].Cells["v_modulo"].Value = "V. Directa";
                         dtg_informe.Rows[Contador].Cells["cl_domicilio"].Value = rows["Domicilio"];
                         dtg_informe.Rows[Contador].Cells["cl_separado"].Value = rows["SistemaSeparado"];
@@ -192,13 +248,56 @@ namespace SBX
                     }
                     else 
                     {
-                        dtg_informe.Rows.Add(-1);
+                        //Cuando sea domicio o separado y esten estado pendiente se agrega en blanco
+                        dtg_informe.Rows[Contador].Cells["cl_factura"].Value = "";
+                        dtg_informe.Rows[Contador].Cells["cl_usuario"].Value = "";
+                        dtg_informe.Rows[Contador].Cells["cl_item"].Value = "";
+                        dtg_informe.Rows[Contador].Cells["cl_codigo_barras"].Value = "";
+                        dtg_informe.Rows[Contador].Cells["cl_referencia"].Value = "";
+                        dtg_informe.Rows[Contador].Cells["cl_nombre"].Value = "";
+                        dtg_informe.Rows[Contador].Cells["cl_cantidad"].Value = "";                     
+                        dtg_informe.Rows[Contador].Cells["cl_cantidad_exacta"].Value = "";                     
+                        dtg_informe.Rows[Contador].Cells["cl_um"].Value = "";                     
+                        dtg_informe.Rows[Contador].Cells["cl_costos"].Value = "";                      
+                        dtg_informe.Rows[Contador].Cells["cl_precio_venta"].Value = "";
+                        dtg_informe.Rows[Contador].Cells["cl_Descuentos"].Value = "";
+                        dtg_informe.Rows[Contador].Cells["cl_total"].Value = "";
+                        dtg_informe.Rows[Contador].Cells["cl_resultado"].Value = "";
+                        dtg_informe.Rows[Contador].Cells["v_modulo"].Value = "";
+                        dtg_informe.Rows[Contador].Cells["cl_domicilio"].Value = "";
+                        dtg_informe.Rows[Contador].Cells["cl_separado"].Value = "";
+                        Contador++;
+                        //dtg_informe.Rows.Add(-1);
                     }                
                 }
+                foreach (DataGridViewRow rows in dtg_informe.Rows)
+                {
+                    if (rows.Cells["cl_item"].Value.ToString() == "")
+                    {
+                        //dtg_informe.Rows.RemoveAt(dtg_informe.CurrentRow.Index);
+                        //filasEliminar.Add(rows.Index);
+                        dtg_informe.Rows.RemoveAt(rows.Index);
+                    }
+                }
+                //Repaso de tabla
+                foreach (DataGridViewRow rows in dtg_informe.Rows)
+                {
+                    if (rows.Cells["cl_item"].Value.ToString() == "")
+                    {
+                        //dtg_informe.Rows.RemoveAt(dtg_informe.CurrentRow.Index);
+                        //filasEliminar.Add(rows.Index);
+                        dtg_informe.Rows.RemoveAt(rows.Index);
+                    }
+                }
+
+                //foreach (var item in filasEliminar)
+                //{
+                //    dtg_informe.Rows.RemoveAt(item);
+                //}
             }
             else
             {
-                Resultado = (TotalVentas - Costos) - Convert.ToDouble(txt_gastos.Text);
+                Resultado = ((TotalVentas - Costos) - Convert.ToDouble(txt_gastos.Text)+ VentasSeparado);
 
                 txt_costos.Text = Costos.ToString("N2");
                 txt_ventas_directas.Text = VentasD.ToString("N2");
@@ -364,6 +463,35 @@ namespace SBX
             }
             this.Cursor = Cursors.Default;
 
+        }
+
+        private void frm_Informe_Load(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void btn_ventas_separado_Click(object sender, EventArgs e)
+        {
+            if (txt_ventas_separado.Text != "")
+            {
+
+                frm_separados frm_separados = new frm_separados(codigoSeparados,"Separados");              
+                frm_separados.FormBorderStyle = FormBorderStyle.FixedDialog;
+                frm_separados.v_dt_Permi = v_dt_Permi;
+                frm_separados.ShowDialog();
+            }       
+        }
+
+        private void btn_ventas_separado_total_Click(object sender, EventArgs e)
+        {
+            if (txt_ventas_sp_total.Text != "")
+            {
+
+                frm_separados frm_separados = new frm_separados(codigoSeparados, "Separados");
+                frm_separados.FormBorderStyle = FormBorderStyle.FixedDialog;
+                frm_separados.v_dt_Permi = v_dt_Permi;
+                frm_separados.ShowDialog();
+            }
         }
     }
 }

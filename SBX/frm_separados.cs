@@ -23,30 +23,74 @@ namespace SBX
         bool v_ok;
         int Eliminados;
         int Error;
-
+        string moduloSP = "";
+        public DataTable v_dt_Permi { get; set; }
+        List<int> listaSeparados;
         public frm_separados()
         {
             InitializeComponent();
             cbx_tipo_busqueda.SelectedIndex = 0;
             MensajeInformativoBotones();
         }
+        public frm_separados(List<int> separado, string modulo)
+        {
+            InitializeComponent();
+            listaSeparados = new List<int>();
+            moduloSP = modulo;
+            foreach (var item in separado)
+            {
+                listaSeparados.Add(item);
+            }
+            btn_exportar_excel.Visible = false;
+            btn_eliminar.Visible = false;           
+            label3.Visible = false;
+            dtp_fecha_inicio.Visible = false;
+            label2.Visible = false;
+            dtp_fecha_fin.Visible = false;
+            cbx_tipo_busqueda.Visible = false;
+            txt_buscar.Visible = false;
+            btn_buscar.Visible = false;
+            mtd_cargar_separados();
+        }
 
         //Metodos
         private void mtd_cargar_separados()
         {
-            cls_Sistema_separado.v_tipo_busqueda = cbx_tipo_busqueda.Text;
-            if (txt_buscar.Text == "Num-cliente-producto")
+            v_dt = new DataTable();
+            if (moduloSP == "")
             {
-                cls_Sistema_separado.v_buscar = "";
+                cls_Sistema_separado.v_tipo_busqueda = cbx_tipo_busqueda.Text;
+                if (txt_buscar.Text == "Num-cliente-producto")
+                {
+                    cls_Sistema_separado.v_buscar = "";
+                }
+                else
+                {
+                    cls_Sistema_separado.v_buscar = txt_buscar.Text;
+                }
+                cls_Sistema_separado.v_tipo_busqueda = cbx_tipo_busqueda.Text;
+                cls_Sistema_separado.Fecha_inicio = dtp_fecha_inicio.Text;
+                cls_Sistema_separado.Fecha_fin = dtp_fecha_fin.Text;
+                v_dt = cls_Sistema_separado.mtd_consultar_sistema_separado();
             }
             else
             {
-                cls_Sistema_separado.v_buscar = txt_buscar.Text;
+                if (listaSeparados.Count > 0)
+                {
+                    cls_Sistema_separado.v_tipo_busqueda = cbx_tipo_busqueda.Text;
+                    cls_Sistema_separado.Fecha_inicio = dtp_fecha_inicio.Text;
+                    cls_Sistema_separado.Fecha_fin = dtp_fecha_fin.Text;
+                    string buscar = "";
+                    foreach (var item in listaSeparados)
+                    {
+                        buscar += "" + item + ",";
+                    }
+                    buscar = buscar.Substring(0, buscar.Length - 1);
+                    cls_Sistema_separado.v_buscar = buscar;
+                    v_dt = cls_Sistema_separado.mtd_consultar_sistema_separado_exacto();
+                }         
             }
-            cls_Sistema_separado.v_tipo_busqueda = cbx_tipo_busqueda.Text;
-            cls_Sistema_separado.Fecha_inicio = dtp_fecha_inicio.Value;
-            cls_Sistema_separado.Fecha_fin = dtp_fecha_fin.Value;
-            v_dt = cls_Sistema_separado.mtd_consultar_sistema_separado();
+            
             dtg_sistema_separado.Rows.Clear();
             if (v_dt.Rows.Count > 0)
             {
@@ -59,12 +103,12 @@ namespace SBX
                     dtg_sistema_separado.Rows[v_contador].Cells["cl_estado"].Value = rows["Estado"];
                     dtg_sistema_separado.Rows[v_contador].Cells["cl_fecha"].Value = rows["Fecha"];
                     dtg_sistema_separado.Rows[v_contador].Cells["cl_cliente"].Value = rows["Cliente"];
-                    dtg_sistema_separado.Rows[v_contador].Cells["cl_producto"].Value = rows["Producto"];
-                    dtg_sistema_separado.Rows[v_contador].Cells["cl_cantidad"].Value = rows["Cantidad"];
-                    double Costo = Convert.ToDouble(rows["Costo"]);
-                    dtg_sistema_separado.Rows[v_contador].Cells["cl_costo"].Value = Costo.ToString("N0");
-                    double PrecioVenta = Convert.ToDouble(rows["PrecioVenta"]);
-                    dtg_sistema_separado.Rows[v_contador].Cells["cl_precio_venta"].Value = PrecioVenta.ToString("N0");
+                    //dtg_sistema_separado.Rows[v_contador].Cells["cl_producto"].Value = rows["Producto"];
+                    //dtg_sistema_separado.Rows[v_contador].Cells["cl_cantidad"].Value = rows["Cantidad"];
+                    //double Costo = Convert.ToDouble(rows["Costo"]);
+                    //dtg_sistema_separado.Rows[v_contador].Cells["cl_costo"].Value = Costo.ToString("N0");
+                    //double PrecioVenta = Convert.ToDouble(rows["PrecioVenta"]);
+                    //dtg_sistema_separado.Rows[v_contador].Cells["cl_precio_venta"].Value = PrecioVenta.ToString("N0");
                     double AbonoInicial = Convert.ToDouble(rows["AbonoInicial"]);
                     dtg_sistema_separado.Rows[v_contador].Cells["cl_abono_inicial"].Value = AbonoInicial.ToString("N0");
                     dtg_sistema_separado.Rows[v_contador].Cells["cl_num_cuotas"].Value = rows["NumCuotas"];
@@ -75,9 +119,9 @@ namespace SBX
                     dtg_sistema_separado.Rows[v_contador].Cells["cl_Total"].Value = Valor.ToString("N0");
                     dtg_sistema_separado.Rows[v_contador].Cells["cl_fecha_primer_pago"].Value = rows["FechaPrimerPago"];
                     dtg_sistema_separado.Rows[v_contador].Cells["cl_fecha_vence"].Value = rows["FechaVence"];
-                    double cl_valor_abono = Convert.ToDouble(rows["ValorAbono"]);
-                    dtg_sistema_separado.Rows[v_contador].Cells["cl_valor_abono"].Value = cl_valor_abono.ToString("N0");
-                    dtg_sistema_separado.Rows[v_contador].Cells["cl_fecha_abono"].Value = rows["FechaAbono"];
+                    //double cl_valor_abono = Convert.ToDouble(rows["ValorAbono"]);
+                    //dtg_sistema_separado.Rows[v_contador].Cells["cl_valor_abono"].Value = cl_valor_abono.ToString("N0");
+                    //dtg_sistema_separado.Rows[v_contador].Cells["cl_fecha_abono"].Value = rows["FechaAbono"];
                     dtg_sistema_separado.Rows[v_contador].Cells["cl_factura"].Value = rows["Factura"];
                     
                     v_contador++;
@@ -216,8 +260,8 @@ namespace SBX
                 cls_Sistema_separado.v_buscar = txt_buscar.Text;
             }
             cls_Sistema_separado.v_tipo_busqueda = cbx_tipo_busqueda.Text;
-            cls_Sistema_separado.Fecha_inicio = dtp_fecha_inicio.Value;
-            cls_Sistema_separado.Fecha_fin = dtp_fecha_fin.Value;
+            cls_Sistema_separado.Fecha_inicio = dtp_fecha_inicio.Text;
+            cls_Sistema_separado.Fecha_fin = dtp_fecha_fin.Text;
             v_dt = cls_Sistema_separado.mtd_consultar_sistema_separado();
             mtd_exporta_excel();
         }
@@ -306,6 +350,11 @@ namespace SBX
                     frm_Agregar_abono.ShowDialog();
                 }              
             }
+        }
+
+        private void frm_separados_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

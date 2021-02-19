@@ -47,6 +47,8 @@ namespace SBX
         //metodos
         private void mtd_cargar_ventas()
         {
+            lbl_total_ventas.Text = "0";
+            lbl_cantidad.Text = "0";
             cls_Venta.v_tipo_busqueda = cbx_tipo_busqueda.Text;
             if (txt_buscar.Text == "Producto-Factura")
             {
@@ -131,6 +133,7 @@ namespace SBX
                     dtg_ventas.Rows[v_contador].Cells["cl_cliente"].Value = rows["Cliente"];
                     dtg_ventas.Rows[v_contador].Cells["cl_sucursal"].Value = rows["Sucursal"];
                     dtg_ventas.Rows[v_contador].Cells["cl_domicilio"].Value = rows["Domicilio"];
+                    dtg_ventas.Rows[v_contador].Cells["cl_separado"].Value = rows["separado"];
                     Factura = rows["Factura"].ToString();
                     v_contador++;
                 }
@@ -162,7 +165,9 @@ namespace SBX
                         foreach (DataGridViewRow rows in dtg_ventas.SelectedRows)
                         { 
                             int num = Convert.ToInt32(rows.Cells["cl_codigo"].Value);
+                            int numSeparado = Convert.ToInt32(rows.Cells["cl_separado"].Value);
                             cls_Venta.Codigo = num;
+                            cls_Venta.NumSeparado = numSeparado;
                             v_ok = cls_Venta.mtd_eliminar();
                             if (v_ok)
                             {
@@ -256,8 +261,8 @@ namespace SBX
                 cls_Venta.v_buscar = txt_buscar.Text;
             }
             cls_Venta.v_tipo_busqueda = cbx_tipo_busqueda.Text;
-            cls_Venta.Fecha_inicio = dtp_fecha_inicio.Value.ToString();
-            cls_Venta.Fecha_fin = dtp_fecha_fin.Value.ToString();
+            cls_Venta.Fecha_inicio = dtp_fecha_inicio.Text;
+            cls_Venta.Fecha_fin = dtp_fecha_fin.Text;
             v_dt = cls_Venta.mtd_consultar_Venta();
             mtd_exporta_excel();
         }

@@ -28,6 +28,7 @@ namespace SBX.MODEL
 
         //getter and setter
         public int Codigo { get; set; }
+        public int NumSeparado { get; set; }
         public string Fecha { get; set; }
         public string NombreDocumento { get; set; }
         public string ConsecutivoDocumento { get; set; }
@@ -310,6 +311,19 @@ namespace SBX.MODEL
                v_query = "DELETE FROM Kardex WHERE CodigoVenta = '" + Codigo + "'";
                v_ok = cls_datos.mtd_eliminar(v_query);
             }
+            //Eliminar Abonos
+            if (v_ok == true)
+            {
+                v_query = "DELETE FROM AbonoSistemaSeparado WHERE sistemaSeparado = " + NumSeparado + " ";
+                v_ok = cls_datos.mtd_eliminar(v_query);
+            }
+            //Eliminar sistema separado
+            if (v_ok == true)
+            {
+                v_query = "DELETE FROM SistemaSeparado WHERE Codigo = " + NumSeparado + "";
+                v_ok = cls_datos.mtd_eliminar(v_query);
+            }
+
             return v_ok;
         }
         public DataTable mtd_consultar_dato_impresion()

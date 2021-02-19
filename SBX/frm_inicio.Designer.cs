@@ -333,7 +333,6 @@
             // btn_separado
             // 
             this.btn_separado.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btn_separado.Enabled = false;
             this.btn_separado.FlatAppearance.BorderSize = 0;
             this.btn_separado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
             this.btn_separado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSeaGreen;

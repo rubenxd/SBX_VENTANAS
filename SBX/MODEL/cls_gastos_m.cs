@@ -36,7 +36,7 @@ namespace SBX.MODEL
         //Metodos
         public DataTable mtd_consultar_gastos()
         {
-            v_query = " SELECT gm.codigo,g.Nombre Gasto,gm.FechaRegistro,gm.Valor,gm.proveedor,gm.ValorIva FROM gastosm gm INNER JOIN Gastos g ON g.Codigo = gm.Gasto " +
+            v_query = " SELECT gm.codigo,g.Nombre Gasto,gm.FechaRegistro,gm.Valor,gm.proveedor,ISNULL(gm.ValorIva,0) ValorIva FROM gastosm gm INNER JOIN Gastos g ON g.Codigo = gm.Gasto " +
                 " WHERE g.Nombre LIKE '"+ Buscar + "%' AND CONVERT(date,FechaRegistro) BETWEEN '"+FechaIni+ "' AND '" + Fechafin + "'";
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;

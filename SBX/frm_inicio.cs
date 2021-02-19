@@ -193,7 +193,7 @@ namespace SBX
                         btn_domicilio.Visible = true;
                         break;
                     case "SEPARADO":
-                        //btn_domicilio.Visible = true;
+                        btn_separado.Visible = true;
                         break;
                     case "CAJA":
                         btn_caja.Visible = true;

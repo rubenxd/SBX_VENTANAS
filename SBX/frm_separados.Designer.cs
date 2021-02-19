@@ -146,24 +146,28 @@
             this.cl_producto.HeaderText = "Producto";
             this.cl_producto.Name = "cl_producto";
             this.cl_producto.ReadOnly = true;
+            this.cl_producto.Visible = false;
             // 
             // cl_cantidad
             // 
             this.cl_cantidad.HeaderText = "Cantidad";
             this.cl_cantidad.Name = "cl_cantidad";
             this.cl_cantidad.ReadOnly = true;
+            this.cl_cantidad.Visible = false;
             // 
             // cl_costo
             // 
             this.cl_costo.HeaderText = "Costo";
             this.cl_costo.Name = "cl_costo";
             this.cl_costo.ReadOnly = true;
+            this.cl_costo.Visible = false;
             // 
             // cl_precio_venta
             // 
             this.cl_precio_venta.HeaderText = "Precio venta";
             this.cl_precio_venta.Name = "cl_precio_venta";
             this.cl_precio_venta.ReadOnly = true;
+            this.cl_precio_venta.Visible = false;
             // 
             // cl_abono_inicial
             // 
@@ -212,12 +216,14 @@
             this.cl_valor_abono.HeaderText = "Valor abonos";
             this.cl_valor_abono.Name = "cl_valor_abono";
             this.cl_valor_abono.ReadOnly = true;
+            this.cl_valor_abono.Visible = false;
             // 
             // cl_fecha_abono
             // 
             this.cl_fecha_abono.HeaderText = "Fecha ultimo abono";
             this.cl_fecha_abono.Name = "cl_fecha_abono";
             this.cl_fecha_abono.ReadOnly = true;
+            this.cl_fecha_abono.Visible = false;
             // 
             // cl_factura
             // 
@@ -399,6 +405,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_separados";
             this.Text = "frm_separados";
+            this.Load += new System.EventHandler(this.frm_separados_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtg_sistema_separado)).EndInit();
             this.pnl_arriba.ResumeLayout(false);
             this.pnl_arriba.PerformLayout();
@@ -413,8 +420,6 @@
         private System.Windows.Forms.Button btn_abono;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dtp_fecha_fin;
-        private System.Windows.Forms.DateTimePicker dtp_fecha_inicio;
         private System.Windows.Forms.ComboBox cbx_tipo_busqueda;
         private System.Windows.Forms.Button btn_eliminar;
         private System.Windows.Forms.Button btn_buscar;
@@ -439,5 +444,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_valor_abono;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_fecha_abono;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_factura;
+        public System.Windows.Forms.DateTimePicker dtp_fecha_fin;
+        public System.Windows.Forms.DateTimePicker dtp_fecha_inicio;
     }
 }

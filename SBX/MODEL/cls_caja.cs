@@ -32,7 +32,8 @@ namespace SBX.MODEL
         public string ModoBusqueda { get; set; }
         public string FechaInicio { get; set; }
         public string FechaFin { get; set; }
-       
+        public string Codigo_cierre { get; set; }
+
 
         //Metodos
         public DataTable mtd_consultar_caja()
@@ -76,6 +77,13 @@ namespace SBX.MODEL
         public DataTable mtd_conteo_domicilios_pendientes()
         {
             v_query = "SELECT COUNT(*) Conteo FROM Domicilio WHERE Estado = 'Pendiente'";
+            v_dt = cls_datos.mtd_consultar(v_query);
+            return v_dt;
+        }
+
+        public DataTable mtd_consultar_caja_para_reporte()
+        {
+            v_query = "select * from Caja where codigo = "+ Codigo_cierre;
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }
