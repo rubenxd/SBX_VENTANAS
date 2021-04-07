@@ -99,6 +99,7 @@ namespace SBX
             txt_ventas_directas.Text = "0";
             txt_ventas_domicilio.Text = "0";
             txt_ventas_separado.Text = "0";
+            txt_ventas_sp_total.Text = "0";
 
             //buscar gastos
             cls_gastos_m cl_gm = new cls_gastos_m();

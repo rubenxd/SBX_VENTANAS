@@ -45,6 +45,7 @@ namespace SBX.MODEL
         public string Valortotal { get; set; }
         public string Modulo { get; set; }
 
+        public string usuario { get; set; }
         //Metodos
         public DataTable mtd_consultar_sistema_separado()
         {
@@ -170,7 +171,7 @@ namespace SBX.MODEL
         }
         private void mtd_asignaParametros_abonar()
         {
-            Parametros = new SqlParameter[3];
+            Parametros = new SqlParameter[4];
 
             Parametros[0] = new SqlParameter();
             Parametros[0].ParameterName = "@Fecha";
@@ -187,6 +188,11 @@ namespace SBX.MODEL
             Parametros[2].SqlDbType = SqlDbType.Int;
             Parametros[2].SqlValue = Codigo;
 
+            Parametros[3] = new SqlParameter();
+            Parametros[3].ParameterName = "@usuario";
+            Parametros[3].SqlDbType = SqlDbType.Int;
+            Parametros[3].SqlValue = usuario;
+
         }
         public Boolean mtd_registrar()
         {
@@ -201,8 +207,8 @@ namespace SBX.MODEL
         }
         public Boolean mtd_registrar_abono()
         {
-            v_query = " INSERT INTO AbonoSistemaSeparado (Fecha,ValorAbono,SistemaSeparado)" +
-                      " VALUES (@Fecha,@ValorAbono,@SistemaSeparado)";
+            v_query = " INSERT INTO AbonoSistemaSeparado (Fecha,ValorAbono,SistemaSeparado,usuario)" +
+                      " VALUES (@Fecha,@ValorAbono,@SistemaSeparado,@usuario)";
 
             mtd_asignaParametros_abonar();
             v_ok = cls_datos.mtd_registrar(Parametros, v_query);
@@ -382,7 +388,8 @@ namespace SBX.MODEL
 
         public Boolean mtd_Editar()
         {
-            v_query = " UPDATE SistemaSeparado SET FechaPago = '"+DateTime.Now+"', Estado = '" + Estado + "' " +
+            string fecha = DateTime.Now.ToString();
+            v_query = " UPDATE SistemaSeparado SET FechaPago = '"+ fecha + "', Estado = '" + Estado + "' " +
                       " WHERE Codigo = " + Codigo;
 
            // mtd_asignaParametros();
@@ -391,7 +398,8 @@ namespace SBX.MODEL
             if (v_ok == true)
             {
                 //cambiar fecha factura
-                v_query = " update Venta set Fecha = '" + DateTime.Now + "' " +
+                fecha = DateTime.Now.ToString();
+                v_query = " update Venta set Fecha = '" + fecha + "' " +
                           " WHERE SistemaSeparado = " + Codigo;
                 v_ok = cls_datos.mtd_ejecutar(v_query);
             }

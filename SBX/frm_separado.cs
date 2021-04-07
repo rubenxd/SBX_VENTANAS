@@ -32,6 +32,7 @@ namespace SBX
         double v_num_cuotas = 0;
         public string Modulo { get; set; }
         public DataTable v_dt_Permi { get; set; }
+        public string Usuario { get; set; }
 
         //Codigo para mover venta
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]

@@ -26,6 +26,7 @@ namespace SBX
         string moduloSP = "";
         public DataTable v_dt_Permi { get; set; }
         List<int> listaSeparados;
+        public string Usuario { get; set; }
         public frm_separados()
         {
             InitializeComponent();
@@ -272,26 +273,68 @@ namespace SBX
         }
         private void btn_abono_Click(object sender, EventArgs e)
         {
-            frm_agregar_abono frm_Agregar_abono = new frm_agregar_abono();
-            if (dtg_sistema_separado.Rows.Count > 0)
+            VerificarCaja();
+            if (v_confirmacion == true)
             {
-                if (dtg_sistema_separado.SelectedRows.Count > 0)
-                { 
-                    foreach (DataGridViewRow rows in dtg_sistema_separado.SelectedRows)
+                frm_agregar_abono frm_Agregar_abono = new frm_agregar_abono();
+                if (dtg_sistema_separado.Rows.Count > 0)
+                {
+                    if (dtg_sistema_separado.SelectedRows.Count > 0)
                     {
-                        frm_Agregar_abono.lbl_num_separado.Text = rows.Cells["cl_num"].Value.ToString();
-                        frm_Agregar_abono.lbl_cliente.Text = rows.Cells["cl_cliente"].Value.ToString();
-                        frm_Agregar_abono.lbl_valor.Text = rows.Cells["cl_Total"].Value.ToString();
-                        frm_Agregar_abono.lbl_num_cuotas.Text = rows.Cells["cl_num_cuotas"].Value.ToString();
-                        frm_Agregar_abono.lbl_valor_cuota.Text = rows.Cells["cl_valor_cuota"].Value.ToString();
-                        frm_Agregar_abono.lbl_saldo.Text = "0";
-                        frm_Agregar_abono.lbl_cuota_num.Text = "0";
-                        frm_Agregar_abono.lbl_fecha_inicio.Text = rows.Cells["cl_fecha_primer_pago"].Value.ToString();
-                        frm_Agregar_abono.lbl_fecha_fin.Text = rows.Cells["cl_fecha_vence"].Value.ToString();
-                        frm_Agregar_abono.lbl_estado.Text = rows.Cells["cl_estado"].Value.ToString();
+                        foreach (DataGridViewRow rows in dtg_sistema_separado.SelectedRows)
+                        {
+                            frm_Agregar_abono.lbl_num_separado.Text = rows.Cells["cl_num"].Value.ToString();
+                            frm_Agregar_abono.lbl_cliente.Text = rows.Cells["cl_cliente"].Value.ToString();
+                            frm_Agregar_abono.lbl_valor.Text = rows.Cells["cl_Total"].Value.ToString();
+                            frm_Agregar_abono.lbl_num_cuotas.Text = rows.Cells["cl_num_cuotas"].Value.ToString();
+                            frm_Agregar_abono.lbl_valor_cuota.Text = rows.Cells["cl_valor_cuota"].Value.ToString();
+                            frm_Agregar_abono.lbl_saldo.Text = "0";
+                            frm_Agregar_abono.lbl_cuota_num.Text = "0";
+                            frm_Agregar_abono.lbl_fecha_inicio.Text = rows.Cells["cl_fecha_primer_pago"].Value.ToString();
+                            frm_Agregar_abono.lbl_fecha_fin.Text = rows.Cells["cl_fecha_vence"].Value.ToString();
+                            frm_Agregar_abono.lbl_estado.Text = rows.Cells["cl_estado"].Value.ToString();
+                            frm_Agregar_abono.usuario = this.Usuario;
+                        }
+                        frm_Agregar_abono.Enviainfo += new frm_agregar_abono.EnviarInfo(mtd_valor_pagado);
+                        frm_Agregar_abono.ShowDialog();
                     }
-                    frm_Agregar_abono.Enviainfo += new frm_agregar_abono.EnviarInfo(mtd_valor_pagado);
-                    frm_Agregar_abono.ShowDialog();
+                }
+            }      
+        }
+        private void VerificarCaja()
+        {
+            v_confirmacion = true;
+            DataRow rows;
+            frm_confirmacion frm_Confirmacion = new frm_confirmacion();
+            cls_caja cls_Caja = new cls_caja();
+            cls_Caja.Usuario = Usuario;
+            v_dt = cls_Caja.mtd_consultar_caja();
+            if (v_dt.Rows.Count > 0)
+            {
+                rows = v_dt.Rows[0];
+                if (rows["TipoOperacion"].ToString() == "CIERRE")
+                {
+                    frm_Confirmacion.Confirma += new frm_confirmacion.Confirmacion(mtd_confirmacion);
+                    frm_Confirmacion.txt_mensaje.Text = "Debe realizar Apertura de caja para ventas, ¿Desea realizar apertura de caja?";
+                    frm_Confirmacion.ShowDialog();
+                    if (v_confirmacion == true)
+                    {
+                        frm_apertura_caja frm_Apertura_caja = new frm_apertura_caja();
+                        frm_Apertura_caja.Usuario = Usuario;
+                        frm_Apertura_caja.ShowDialog();
+                    }
+                }
+            }
+            else
+            {
+                frm_Confirmacion.Confirma += new frm_confirmacion.Confirmacion(mtd_confirmacion);
+                frm_Confirmacion.txt_mensaje.Text = "Debe realizar Apertura de caja para ventas, ¿Desea realizar apertura de caja?";
+                frm_Confirmacion.ShowDialog();
+                if (v_confirmacion == true)
+                {
+                    frm_apertura_caja frm_Apertura_caja = new frm_apertura_caja();
+                    frm_Apertura_caja.Usuario = Usuario;
+                    frm_Apertura_caja.ShowDialog();
                 }
             }
         }

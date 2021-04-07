@@ -381,6 +381,7 @@ namespace SBX
             formul.Dispose();
             frm_separados frm_Separados = new frm_separados();
             ColoresBotones("btn_separado");
+            frm_Separados.Usuario = Codigo;
             AbrirFormularioEnPanel(frm_Separados);
             btn_separado.BackColor = Color.DarkSeaGreen;
         }

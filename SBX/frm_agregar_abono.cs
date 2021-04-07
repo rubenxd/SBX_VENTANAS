@@ -90,8 +90,8 @@ namespace SBX
                         cls_Sistema_separado.Saldo = lbl_saldo.Text;
                         cls_Sistema_separado.Valortotal = lbl_valor.Text;
                         cls_Sistema_separado.Cliente_separado = lbl_cliente.Text;
-                       
-                        v_ok = cls_Sistema_separado.mtd_registrar_abono();
+                        cls_Sistema_separado.usuario = this.usuario;
+                         v_ok = cls_Sistema_separado.mtd_registrar_abono();
                         frm_msg frm_Msg = new frm_msg();
                         if (v_ok == true)
                         {

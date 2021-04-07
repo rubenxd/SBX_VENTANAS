@@ -1042,6 +1042,7 @@ namespace SBX
             cls_Sistema_separado.Fecha_vence = f_vence;
             cls_Sistema_separado.Estado = "Pendiente";
             cls_Sistema_separado.Modulo = "Venta";
+            cls_Sistema_separado.usuario = this.Usuario;
             v_ok = cls_Sistema_separado.mtd_registrar();
             if (v_ok == true)
             {
@@ -1056,6 +1057,7 @@ namespace SBX
                 //Registrar abono inicial 
                 cls_Sistema_separado.Valor = Convert.ToDouble(Abono_inicial);
                 cls_Sistema_separado.Codigo = num_sistema_separado;
+                cls_Sistema_separado.usuario = this.Usuario;
                 cls_Sistema_separado.mtd_registrar_abono();
 
                 //registro venta
@@ -1627,6 +1629,7 @@ namespace SBX
                 frm_Separado.v_dt_Permi = this.v_dt_Permi;
                 frm_Separado.txt_valor.Text = lbl_total.Text;
                 frm_Separado.Modulo = "Venta";
+                frm_Separado.Usuario = Usuario;
                 frm_Separado.Enviainfo += new frm_separado.EnviarInfo(mtd_info_separado);
                 frm_Separado.ShowDialog();
             }
