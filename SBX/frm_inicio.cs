@@ -114,6 +114,10 @@ namespace SBX
             {
                 btn_reportes.BackColor = Color.Gray;
             }
+            if (Boton != "btn_credito")
+            {
+                btn_reportes.BackColor = Color.Gray;
+            } 
         }
         public void AbrirFormularioEnPanel(object FormularioHijo)
         {
@@ -492,6 +496,16 @@ namespace SBX
                 frm_Login.Show();
                 this.Hide();
             }
+        }
+
+        private void frm_credito_Click(object sender, EventArgs e)
+        {
+            formul.Dispose();
+            frm_Creditos frm_Credito = new frm_Creditos();
+            ColoresBotones("btn_credito");
+            frm_Credito.Usuario = Codigo;
+            AbrirFormularioEnPanel(frm_Credito);
+            btn_credito.BackColor = Color.DarkSeaGreen;
         }
     }
 }

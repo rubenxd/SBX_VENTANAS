@@ -75,6 +75,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnl_arriba = new System.Windows.Forms.Panel();
+            this.btn_credito = new System.Windows.Forms.Button();
             this.btn_separado = new System.Windows.Forms.Button();
             this.btn_domicilio = new System.Windows.Forms.Button();
             this.btn_descuento = new System.Windows.Forms.Button();
@@ -560,6 +561,7 @@
             // pnl_arriba
             // 
             this.pnl_arriba.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_arriba.Controls.Add(this.btn_credito);
             this.pnl_arriba.Controls.Add(this.btn_separado);
             this.pnl_arriba.Controls.Add(this.btn_domicilio);
             this.pnl_arriba.Controls.Add(this.btn_descuento);
@@ -577,6 +579,23 @@
             this.pnl_arriba.Name = "pnl_arriba";
             this.pnl_arriba.Size = new System.Drawing.Size(896, 45);
             this.pnl_arriba.TabIndex = 0;
+            // 
+            // btn_credito
+            // 
+            this.btn_credito.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_credito.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_credito.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_credito.FlatAppearance.BorderSize = 0;
+            this.btn_credito.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_credito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_credito.Image = ((System.Drawing.Image)(resources.GetObject("btn_credito.Image")));
+            this.btn_credito.Location = new System.Drawing.Point(566, 9);
+            this.btn_credito.Name = "btn_credito";
+            this.btn_credito.Size = new System.Drawing.Size(26, 26);
+            this.btn_credito.TabIndex = 11;
+            this.btn_credito.UseVisualStyleBackColor = false;
+            this.btn_credito.Visible = false;
+            this.btn_credito.Click += new System.EventHandler(this.btn_credito_Click);
             // 
             // btn_separado
             // 
@@ -850,6 +869,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_desc_proveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_subCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_sobre;
+        private System.Windows.Forms.Button btn_credito;
     }
 }
 

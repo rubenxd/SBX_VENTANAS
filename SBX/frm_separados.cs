@@ -277,6 +277,7 @@ namespace SBX
             if (v_confirmacion == true)
             {
                 frm_agregar_abono frm_Agregar_abono = new frm_agregar_abono();
+                frm_Agregar_abono.credito = 0;
                 if (dtg_sistema_separado.Rows.Count > 0)
                 {
                     if (dtg_sistema_separado.SelectedRows.Count > 0)
@@ -354,6 +355,7 @@ namespace SBX
                             frm_Historial_separados.lbl_num_separado.Text = rows.Cells["cl_num"].Value.ToString();
                             frm_Historial_separados.lbl_cliente.Text = rows.Cells["cl_cliente"].Value.ToString();
                         }
+                        frm_Historial_separados.credito = 0;
                         frm_Historial_separados.Show();
                     }
                     else

@@ -384,7 +384,6 @@
             this.btn_producto_mas_vendido.Size = new System.Drawing.Size(26, 26);
             this.btn_producto_mas_vendido.TabIndex = 17;
             this.btn_producto_mas_vendido.UseVisualStyleBackColor = false;
-            this.btn_producto_mas_vendido.Visible = false;
             this.btn_producto_mas_vendido.Click += new System.EventHandler(this.btn_producto_mas_vendido_Click);
             // 
             // cbx_tipo_busqueda

@@ -305,6 +305,12 @@
     <Compile Include="frm_msg.Designer.cs">
       <DependentUpon>frm_msg.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_pago_credito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_pago_credito.Designer.cs">
+      <DependentUpon>frm_pago_credito.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_producto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -359,6 +365,12 @@
     <Compile Include="frm_separado.Designer.cs">
       <DependentUpon>frm_separado.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_Creditos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Creditos.Designer.cs">
+      <DependentUpon>frm_Creditos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_separados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -409,6 +421,7 @@
     <Compile Include="MODEL\cls_rol.cs" />
     <Compile Include="MODEL\cls_rol_modulo_permiso.cs" />
     <Compile Include="MODEL\cls_salida_para.cs" />
+    <Compile Include="MODEL\cls_credito.cs" />
     <Compile Include="MODEL\cls_sistema_separado.cs" />
     <Compile Include="MODEL\cls_sucursal.cs" />
     <Compile Include="MODEL\cls_ubicacion.cs" />
@@ -529,6 +542,9 @@
     <EmbeddedResource Include="frm_msg.resx">
       <DependentUpon>frm_msg.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_pago_credito.resx">
+      <DependentUpon>frm_pago_credito.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_producto.resx">
       <DependentUpon>frm_producto.cs</DependentUpon>
     </EmbeddedResource>
@@ -555,6 +571,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_separado.resx">
       <DependentUpon>frm_separado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Creditos.resx">
+      <DependentUpon>frm_Creditos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_separados.resx">
       <DependentUpon>frm_separados.cs</DependentUpon>

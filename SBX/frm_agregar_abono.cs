@@ -18,6 +18,7 @@ namespace SBX
         public event EnviarInfo Enviainfo;
 
         cls_sistema_separado cls_Sistema_separado = new cls_sistema_separado();
+        cls_credito cls_credito = new cls_credito();
         cls_global cls_Global = new cls_global();
 
         //Variables
@@ -27,6 +28,7 @@ namespace SBX
         int v_fila = 0;
         int v_contador = 0;
         int v_validado = 0;
+        public int credito { get; set; }
         public String usuario { get; set; }
 
         public frm_agregar_abono()
@@ -44,17 +46,34 @@ namespace SBX
         //Metodos
         private void mtd_calculos()
         {
-            cls_Sistema_separado.Codigo = Convert.ToInt32(lbl_num_separado.Text);
-            v_dt = cls_Sistema_separado.mtd_consultar_abono_sistema();
-            if (v_dt.Rows.Count > 0)
+            if (credito == 1)
             {
-                v_rows = v_dt.Rows[0];
-                double pago = Convert.ToDouble(v_rows["Pago"]);
-                lbl_pagado.Text = pago.ToString("N0");
-                lbl_cuota_num.Text = v_rows["Cuotas"].ToString();
-                double Saldo = Convert.ToDouble(lbl_valor.Text) - pago;
-                lbl_saldo.Text = Saldo.ToString("N0"); 
+                cls_credito.Codigo = Convert.ToInt32(lbl_num_separado.Text);
+                v_dt = cls_credito.mtd_consultar_abono_sistema();
+                if (v_dt.Rows.Count > 0)
+                {
+                    v_rows = v_dt.Rows[0];
+                    double pago = Convert.ToDouble(v_rows["Pago"]);
+                    lbl_pagado.Text = pago.ToString("N0");
+                    lbl_cuota_num.Text = v_rows["Cuotas"].ToString();
+                    double Saldo = Convert.ToDouble(lbl_valor.Text) - pago;
+                    lbl_saldo.Text = Saldo.ToString("N0");
+                }
             }
+            else 
+            {
+                cls_Sistema_separado.Codigo = Convert.ToInt32(lbl_num_separado.Text);
+                v_dt = cls_Sistema_separado.mtd_consultar_abono_sistema();
+                if (v_dt.Rows.Count > 0)
+                {
+                    v_rows = v_dt.Rows[0];
+                    double pago = Convert.ToDouble(v_rows["Pago"]);
+                    lbl_pagado.Text = pago.ToString("N0");
+                    lbl_cuota_num.Text = v_rows["Cuotas"].ToString();
+                    double Saldo = Convert.ToDouble(lbl_valor.Text) - pago;
+                    lbl_saldo.Text = Saldo.ToString("N0");
+                }
+            }       
         }
 
         //Eventos
@@ -74,38 +93,77 @@ namespace SBX
                 v_validado++;
                 errorProvider.SetError(txt_abono,"Ingrese valores numericos");
             }
-
-            if (v_validado == 0)
+            if (credito == 1)
             {
-                if (Convert.ToDouble(txt_abono.Text) > 0)
+                if (v_validado == 0)
                 {
-                    if ((Convert.ToDouble(lbl_pagado.Text) + (Convert.ToDouble(txt_abono.Text))) > Convert.ToDouble(lbl_valor.Text))
+                    if (Convert.ToDouble(txt_abono.Text) > 0)
                     {
-                        errorProvider.SetError(txt_abono, "La cuota mas lo pagado supera el valor separado");
+                        if ((Convert.ToDouble(lbl_pagado.Text) + (Convert.ToDouble(txt_abono.Text))) > Convert.ToDouble(lbl_valor.Text))
+                        {
+                            errorProvider.SetError(txt_abono, "La cuota mas lo pagado supera el valor separado");
+                        }
+                        else
+                        {
+                            cls_credito.Codigo = Convert.ToInt32(lbl_num_separado.Text);
+                            cls_credito.Valor = Convert.ToDouble(txt_abono.Text);
+                            cls_credito.Saldo = lbl_saldo.Text;
+                            cls_credito.Valortotal = lbl_valor.Text;
+                            cls_credito.Cliente_separado = lbl_cliente.Text;
+                            cls_credito.usuario = this.usuario;
+                            v_ok = cls_credito.mtd_registrar_abono();
+                            frm_msg frm_Msg = new frm_msg();
+                            if (v_ok == true)
+                            {
+                                frm_Msg.txt_mensaje.Text = "Abono registrado correctamente";
+                                frm_Msg.ShowDialog();
+                                //mtd_imprimir(lbl_num_separado.Text, "");
+                                Enviainfo((Convert.ToDouble(lbl_pagado.Text) + (Convert.ToDouble(txt_abono.Text))), Convert.ToDouble(lbl_valor.Text), Convert.ToInt32(lbl_num_separado.Text));
+                                this.Dispose();
+                            }
+                        }
                     }
                     else
                     {
-                        cls_Sistema_separado.Codigo = Convert.ToInt32(lbl_num_separado.Text);
-                        cls_Sistema_separado.Valor = Convert.ToDouble(txt_abono.Text);
-                        cls_Sistema_separado.Saldo = lbl_saldo.Text;
-                        cls_Sistema_separado.Valortotal = lbl_valor.Text;
-                        cls_Sistema_separado.Cliente_separado = lbl_cliente.Text;
-                        cls_Sistema_separado.usuario = this.usuario;
-                         v_ok = cls_Sistema_separado.mtd_registrar_abono();
-                        frm_msg frm_Msg = new frm_msg();
-                        if (v_ok == true)
-                        {
-                            frm_Msg.txt_mensaje.Text = "Abono registrado correctamente";
-                            frm_Msg.ShowDialog();
-                            //mtd_imprimir(lbl_num_separado.Text, "");
-                            Enviainfo((Convert.ToDouble(lbl_pagado.Text) + (Convert.ToDouble(txt_abono.Text))), Convert.ToDouble(lbl_valor.Text), Convert.ToInt32(lbl_num_separado.Text));
-                            this.Dispose();
-                        }
+                        errorProvider.SetError(txt_abono, "Abono debe ser mayor a cero (0)");
                     }
                 }
-                else
+            }
+            else 
+            {
+
+                if (v_validado == 0)
                 {
-                    errorProvider.SetError(txt_abono, "Abono debe ser mayor a cero (0)");
+                    if (Convert.ToDouble(txt_abono.Text) > 0)
+                    {
+                        if ((Convert.ToDouble(lbl_pagado.Text) + (Convert.ToDouble(txt_abono.Text))) > Convert.ToDouble(lbl_valor.Text))
+                        {
+                            errorProvider.SetError(txt_abono, "La cuota mas lo pagado supera el valor separado");
+                        }
+                        else
+                        {
+                            cls_Sistema_separado.Codigo = Convert.ToInt32(lbl_num_separado.Text);
+                            cls_Sistema_separado.Valor = Convert.ToDouble(txt_abono.Text);
+                            cls_Sistema_separado.Saldo = lbl_saldo.Text;
+                            cls_Sistema_separado.Valortotal = lbl_valor.Text;
+                            cls_Sistema_separado.Cliente_separado = lbl_cliente.Text;
+                            cls_Sistema_separado.usuario = this.usuario;
+                            v_ok = cls_Sistema_separado.mtd_registrar_abono();
+                            frm_msg frm_Msg = new frm_msg();
+                            if (v_ok == true)
+                            {
+                                frm_Msg.txt_mensaje.Text = "Abono registrado correctamente";
+                                frm_Msg.ShowDialog();
+                                //mtd_imprimir(lbl_num_separado.Text, "");
+                                Enviainfo((Convert.ToDouble(lbl_pagado.Text) + (Convert.ToDouble(txt_abono.Text))), Convert.ToDouble(lbl_valor.Text), Convert.ToInt32(lbl_num_separado.Text));
+                                this.Dispose();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        errorProvider.SetError(txt_abono, "Abono debe ser mayor a cero (0)");
+                    }
                 }
             }
         }
@@ -235,8 +293,17 @@ namespace SBX
                 pnl_info.Height = 365;
                 btn_ver_productos.Text = "Ocultar Productos";
 
-                cls_Sistema_separado.Codigo = Convert.ToInt32(lbl_num_separado.Text);
-                v_dt = cls_Sistema_separado.mtd_consultar_productos();
+                if (credito == 1)
+                {
+                    cls_credito.Codigo = Convert.ToInt32(lbl_num_separado.Text);
+                    v_dt = cls_credito.mtd_consultar_productos();
+                }
+                else 
+                {
+                    cls_Sistema_separado.Codigo = Convert.ToInt32(lbl_num_separado.Text);
+                    v_dt = cls_Sistema_separado.mtd_consultar_productos();
+                }
+              
                 dtg_productos.Rows.Clear();
                 if (v_dt.Rows.Count > 0)
                 {

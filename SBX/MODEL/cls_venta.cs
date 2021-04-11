@@ -50,6 +50,7 @@ namespace SBX.MODEL
         public int Cliente { get; set; }
         public int Domicilio { get; set; }
         public int SistemaSeparado { get; set; }
+        public int Credito { get; set; }
         public float IVA { get; set; }
         public string Usuario { get; set; }
         public string DescuentoProveedor { get; set; }
@@ -88,7 +89,7 @@ namespace SBX.MODEL
         }
         private void mtd_asignaParametros()
         {
-            Parametros = new SqlParameter[27];
+            Parametros = new SqlParameter[28];
 
             Parametros[0] = new SqlParameter();
             Parametros[0].ParameterName = "@Codigo";
@@ -224,6 +225,11 @@ namespace SBX.MODEL
             Parametros[26].ParameterName = "@Sucursal";
             Parametros[26].SqlDbType = SqlDbType.VarChar;
             Parametros[26].SqlValue = sucursal;
+
+            Parametros[27] = new SqlParameter();
+            Parametros[27].ParameterName = "@Credito";
+            Parametros[27].SqlDbType = SqlDbType.Int;
+            Parametros[27].SqlValue = Credito;
         }
         public Boolean mtd_registrar()
         {
@@ -280,6 +286,22 @@ namespace SBX.MODEL
                                   " descuento,Efectivo,Tdebito,Tcredito,NumBaucherDebito,NumBaucherCredito,Cambio,Total,Proveedor,Cliente,SistemaSeparado,IVA,Usuario,DescuentoProveedor,Nota,sucursal)" +
                                   " VALUES (@Fecha,@NombreDocumento,@ConsecutivoDocumento,@Producto,@ModoVenta,@UM,@Cantidad,@Costo,@PrecioVenta," +
                                   " @descuento,@Efectivo,@Tdebito,@Tcredito,@NumBaucherDebito,@NumBaucherCredito,@Cambio,@Total,@Proveedor,@Cliente,@SistemaSeparado,@IVA,@Usuario,@DescuentoProveedor,@Nota,@sucursal)";
+                    }
+                    break;
+                case "Credito":
+                    if (sucursal == "")
+                    {
+                        v_query = " INSERT INTO Venta (Fecha,NombreDocumento,ConsecutivoDocumento,Producto,ModoVenta,UM,Cantidad,Costo,PrecioVenta," +
+                                         " descuento,Efectivo,Tdebito,Tcredito,NumBaucherDebito,NumBaucherCredito,Cambio,Total,Proveedor,Cliente,IVA,Usuario,DescuentoProveedor,Nota,Credito)" +
+                                         " VALUES (@Fecha,@NombreDocumento,@ConsecutivoDocumento,@Producto,@ModoVenta,@UM,@Cantidad,@Costo,@PrecioVenta," +
+                                         " @descuento,@Efectivo,@Tdebito,@Tcredito,@NumBaucherDebito,@NumBaucherCredito,@Cambio,@Total,@Proveedor,@Cliente,@IVA,@Usuario,@DescuentoProveedor,@Nota,@Credito)";
+                    }
+                    else
+                    {
+                        v_query = " INSERT INTO Venta (Fecha,NombreDocumento,ConsecutivoDocumento,Producto,ModoVenta,UM,Cantidad,Costo,PrecioVenta," +
+                                  " descuento,Efectivo,Tdebito,Tcredito,NumBaucherDebito,NumBaucherCredito,Cambio,Total,Proveedor,Cliente,IVA,Usuario,DescuentoProveedor,Nota,Credito)" +
+                                  " VALUES (@Fecha,@NombreDocumento,@ConsecutivoDocumento,@Producto,@ModoVenta,@UM,@Cantidad,@Costo,@PrecioVenta," +
+                                  " @descuento,@Efectivo,@Tdebito,@Tcredito,@NumBaucherDebito,@NumBaucherCredito,@Cambio,@Total,@Proveedor,@Cliente,@IVA,@Usuario,@DescuentoProveedor,@Nota,@Credito)";
                     }
                     break;
             }

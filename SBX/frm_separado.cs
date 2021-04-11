@@ -30,6 +30,7 @@ namespace SBX
         double periodo = 0;
         double v_valor_cuota = 0;
         double v_num_cuotas = 0;
+        public int Credito { get; set; }
         public string Modulo { get; set; }
         public DataTable v_dt_Permi { get; set; }
         public string Usuario { get; set; }
@@ -44,7 +45,7 @@ namespace SBX
         {
             InitializeComponent();
         }
-
+      
         private void frm_separado_Load(object sender, EventArgs e)
         {
             cbx_periodo_pago.SelectedIndex = 0;

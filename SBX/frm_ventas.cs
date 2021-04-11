@@ -134,6 +134,7 @@ namespace SBX
                     dtg_ventas.Rows[v_contador].Cells["cl_sucursal"].Value = rows["Sucursal"];
                     dtg_ventas.Rows[v_contador].Cells["cl_domicilio"].Value = rows["Domicilio"];
                     dtg_ventas.Rows[v_contador].Cells["cl_separado"].Value = rows["separado"];
+                    dtg_ventas.Rows[v_contador].Cells["cl_credito"].Value = rows["credito"];
                     Factura = rows["Factura"].ToString();
                     v_contador++;
                 }

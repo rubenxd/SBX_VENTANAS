@@ -18,6 +18,7 @@ namespace SBX
         cls_cliente cls_Cliente = new cls_cliente();
         cls_domicilio cls_Domicilio = new cls_domicilio();
         cls_sistema_separado cls_Sistema_separado = new cls_sistema_separado();
+        cls_credito cls_Credito = new cls_credito();
         cls_empresa cls_Empresa = new cls_empresa();
         cls_venta cls_Venta = new cls_venta();
 
@@ -33,6 +34,7 @@ namespace SBX
         bool v_ok;
         int num_domicilio;
         int num_sistema_separado;
+        int num_Credito;
         int Vendidos = 0;
         int Error = 0;
         int Codigo_cliente;
@@ -51,6 +53,7 @@ namespace SBX
         public string valor_domicilio { get; set; }
         public bool v_domicilio { get; set; }
         public bool v_sistema_separado { get; set; }
+        public bool v_credito { get; set; }
         public DataTable v_dt_Permi { get; set; }
 
         public frm_venta()
@@ -781,6 +784,142 @@ namespace SBX
                     txt_nota.Text = "";
                 }
             }
+            else if (v_credito == true)
+            {
+                ConsDocumento = 0;
+                Documento = "";
+                v_dt = cls_Empresa.mtd_consultar_Empresa();
+                if (v_dt.Rows.Count > 0)
+                {
+                    v_row = v_dt.Rows[0];
+                    ConsDocumento = Convert.ToDouble(v_row["ConsecutivoActual"]);
+                    ConsDocumento++;
+                    Documento = v_row["NomDoc"].ToString();
+                    cls_Venta.Registro = "Credito";
+
+                    foreach (DataGridViewRow rows in dtg_venta.Rows)
+                    {
+                        cls_Venta.Fecha = DateTime.Now.ToString();
+                        cls_Venta.NombreDocumento = Documento;
+                        cls_Venta.ConsecutivoDocumento = ConsDocumento.ToString();
+                        cls_Venta.Producto = Convert.ToInt32(rows.Cells["cl_item"].Value);
+                        cls_Venta.ModoVenta = rows.Cells["cl_modo_venta"].Value.ToString();
+                        cls_Venta.UM = rows.Cells["cl_UM"].Value.ToString();
+                        float Cantidad = 0;
+                        float Base = 0;
+                        float Division = 0;
+                        switch (rows.Cells["cl_modo_venta"].Value.ToString())
+                        {
+                            case "Unidad":
+                                Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                                break;
+                            case "Multi":
+                                if (rows.Cells["cl_UM"].Value.ToString() == "UND P")
+                                {
+                                    Base = (float.Parse(rows.Cells["cl_subCantidad"].Value.ToString()) * float.Parse(rows.Cells["cl_sobre"].Value.ToString()));
+                                    Division = 1 / Base;
+                                    Cantidad = (Division * float.Parse(rows.Cells["cl_cantidad"].Value.ToString()));
+                                }
+                                if (rows.Cells["cl_UM"].Value.ToString() == "Sobre")
+                                {
+                                    Cantidad = (1 / float.Parse(rows.Cells["cl_sobre"].Value.ToString())) * float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                                }
+                                if (rows.Cells["cl_UM"].Value.ToString() == "Caja")
+                                {
+                                    Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                                }
+                                break;
+                            case "Pesaje":
+                                if (rows.Cells["cl_UM"].Value.ToString() != "Bulto")
+                                {
+                                    Base = (float.Parse(rows.Cells["cl_subCantidad"].Value.ToString()));
+                                    Division = 1 / Base;
+                                    Cantidad = (Division * float.Parse(rows.Cells["cl_cantidad"].Value.ToString()));
+                                }
+                                else
+                                {
+                                    Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                                }
+
+                                break;
+                            case "Desechable":
+                                if (rows.Cells["cl_UM"].Value.ToString() != "Bolsa")
+                                {
+                                    Base = (float.Parse(rows.Cells["cl_subCantidad"].Value.ToString()));
+                                    Division = 1 / Base;
+                                    Cantidad = (Division * float.Parse(rows.Cells["cl_cantidad"].Value.ToString()));
+                                }
+                                else
+                                {
+                                    Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                                }
+                                break;
+                            case "Queso":
+                                Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                                break;
+                        }
+
+                        cls_Venta.Cantidad = Cantidad;
+                        cls_Venta.Costo = Convert.ToDouble(rows.Cells["cl_costo"].Value);
+                        cls_Venta.PrecioVenta = Convert.ToDouble(rows.Cells["cl_precio"].Value);
+                        cls_Venta.Descuento = float.Parse(rows.Cells["cl_descuento"].Value.ToString());
+                        cls_Venta.Efectivo = 0;
+                        cls_Venta.Tdebito = 0;
+                        cls_Venta.Tcredito = 0;
+                        cls_Venta.NumBaucherDebito = "";
+                        cls_Venta.NumBaucherCredito = "";
+                        cls_Venta.Cambio = 0;
+                        cls_Venta.Total = Convert.ToDouble(lbl_total.Text);
+                        cls_Venta.Proveedor = rows.Cells["cl_proveedor"].Value.ToString();
+                        cls_Venta.IVA = Convert.ToInt32(rows.Cells["cl_iva"].Value);
+                        cls_Venta.DescuentoProveedor = rows.Cells["cl_desc_proveedor"].Value.ToString();
+                        cls_Venta.Nota = txt_nota.Text;
+                        cls_Venta.sucursal = codigoSucursal;
+                        if (txt_cliente.Text == "")
+                        {
+                            cls_Venta.Cliente = 1;
+                        }
+                        else
+                        {
+                            cls_Venta.Cliente = Codigo_cliente;
+                        }
+                        cls_Venta.Credito = num_Credito;
+
+                        v_ok = cls_Venta.mtd_registrar();
+                        if (v_ok)
+                        {
+                            Vendidos++;
+                        }
+                        else
+                        {
+                            Error++;
+                        }
+                    }
+                    frm_msg frm_Msg = new frm_msg();
+                    frm_Msg.pnl_centro.BackColor = Color.White;
+                    if (Error > 0)
+                    {
+                        frm_Msg.lbl_titulo.Text = "ERROR";
+                        frm_Msg.pnl_arriba.BackColor = Color.OrangeRed;
+                    }
+                    frm_Msg.txt_mensaje.Text = "Productos vendidos: " + Vendidos + ", Errores: " + Error;
+                    frm_Msg.ShowDialog();
+                    txt_producto.Focus();
+                    dtg_venta.Rows.Clear();
+                    txt_efectivo.Text = "";
+                    txt_debito.Text = "0";
+                    txt_credito.Text = "0";
+                    txt_num_baucher_debit.Text = "Numero baucher";
+                    txt_num_baucher_debit.ForeColor = Color.Gray;
+                    txt_num_baucher_credito.Text = "Numero baucher";
+                    txt_num_baucher_credito.ForeColor = Color.Gray;
+                    lbl_cambio.Text = "0";
+                    lbl_total.Text = "0";
+                    txt_cliente.Text = "";
+                    lbl_nombre_cliente.Text = "--";
+                    txt_nota.Text = "";
+                }
+            }
             else
             {
                 mtd_validar();
@@ -1063,6 +1202,55 @@ namespace SBX
                 //registro venta
                 v_domicilio = false;
                 v_sistema_separado = true;
+                mtd_guardar();
+            }
+        }
+
+        private void mtd_info_Credito(string clientes, string valor, string Abono_inicial,
+       string periodo_pago, string suministrar, string num_cuotas, string valor_cuotas, string f_primer_pago, string f_vence)
+        {
+            clientes_1 = clientes;
+            valor_1 = valor;
+            Abono_inicial_1 = Abono_inicial;
+            periodo_pago_1 = periodo_pago;
+            suministrar_1 = suministrar;
+            num_cuotas_1 = num_cuotas;
+            valor_cuotas_1 = valor_cuotas;
+            f_primer_pago_1 = f_primer_pago;
+            f_vence_1 = f_vence;
+
+            cls_Credito.Cliente = Convert.ToInt32(clientes);
+            cls_Credito.Valor = Convert.ToDouble(valor);
+            cls_Credito.Abono_inicial = Convert.ToDouble(Abono_inicial);
+            cls_Credito.Periodo_pago = periodo_pago;
+            cls_Credito.Suministrar = suministrar;
+            cls_Credito.Num_cuotas = Convert.ToInt32(num_cuotas);
+            cls_Credito.Valor_cuota = Convert.ToDouble(valor_cuotas);
+            cls_Credito.Fecha_primer_pago = f_primer_pago;
+            cls_Credito.Fecha_vence = f_vence;
+            cls_Credito.Estado = "Pendiente";
+            cls_Credito.Modulo = "Venta";
+            cls_Credito.usuario = this.Usuario;
+            v_ok = cls_Credito.mtd_registrar();
+            if (v_ok == true)
+            {
+                //Consultar credito
+                cls_Credito.v_tipo_busqueda = "max codigo";
+                v_dt = cls_Credito.mtd_consultar_credito();
+                if (v_dt.Rows.Count > 0)
+                {
+                    v_row = v_dt.Rows[0];
+                    num_Credito = Convert.ToInt32(v_row["Codigo"]);
+                }
+                //Registrar abono inicial 
+                cls_Credito.Valor = Convert.ToDouble(Abono_inicial);
+                cls_Credito.Codigo = num_Credito;
+                cls_Credito.usuario = this.Usuario;
+                cls_Credito.mtd_registrar_abono();
+
+                //registro venta
+                v_domicilio = false;
+                v_credito = true;
                 mtd_guardar();
             }
         }
@@ -1630,6 +1818,7 @@ namespace SBX
                 frm_Separado.txt_valor.Text = lbl_total.Text;
                 frm_Separado.Modulo = "Venta";
                 frm_Separado.Usuario = Usuario;
+                frm_Separado.Credito = 0;
                 frm_Separado.Enviainfo += new frm_separado.EnviarInfo(mtd_info_separado);
                 frm_Separado.ShowDialog();
             }
@@ -1671,6 +1860,28 @@ namespace SBX
                 txt_nota.Text = "";
                 txt_nota.ForeColor = Color.Black;
             }
+        }
+
+        private void btn_credito_Click(object sender, EventArgs e)
+        {
+            if (dtg_venta.Rows.Count > 0) 
+            {
+                if (dtg_venta.Rows.Count > 0)
+                {
+                    frm_separado frm_Separado = new frm_separado();
+                    frm_Separado.v_dt_Permi = this.v_dt_Permi;
+                    frm_Separado.txt_valor.Text = lbl_total.Text;
+                    frm_Separado.Modulo = "Venta";
+                    frm_Separado.Usuario = Usuario;
+                    frm_Separado.Credito = 1;
+                    frm_Separado.Enviainfo += new frm_separado.EnviarInfo(mtd_info_Credito);
+                    frm_Separado.ShowDialog();
+                }
+            }    
+        }
+        private void mtd_info_credito(string Confirmacion) 
+        {
+        
         }
     }
 }

@@ -78,6 +78,7 @@
             this.cl_sucursal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_separado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_credito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnl_arriba.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_ventas)).BeginInit();
@@ -182,6 +183,7 @@
             this.cl_sucursal,
             this.cl_domicilio,
             this.cl_separado,
+            this.cl_credito,
             this.cl_Usuario});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -573,6 +575,13 @@
             this.cl_separado.Name = "cl_separado";
             this.cl_separado.ReadOnly = true;
             // 
+            // cl_credito
+            // 
+            this.cl_credito.HeaderText = "Credito";
+            this.cl_credito.Name = "cl_credito";
+            this.cl_credito.ReadOnly = true;
+            this.cl_credito.Visible = false;
+            // 
             // cl_Usuario
             // 
             this.cl_Usuario.HeaderText = "Usuario";
@@ -655,6 +664,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_sucursal;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_domicilio;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_separado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_credito;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_Usuario;
     }
 }

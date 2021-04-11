@@ -42,6 +42,7 @@
             this.btn_Maximizar = new System.Windows.Forms.PictureBox();
             this.btn_Restaurar = new System.Windows.Forms.PictureBox();
             this.pnl_menu = new System.Windows.Forms.Panel();
+            this.btn_credito = new System.Windows.Forms.Button();
             this.btn_config = new System.Windows.Forms.Button();
             this.btn_reportes = new System.Windows.Forms.Button();
             this.btn_gastos = new System.Windows.Forms.Button();
@@ -83,7 +84,7 @@
             this.pnl_arriba.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_arriba.Location = new System.Drawing.Point(0, 0);
             this.pnl_arriba.Name = "pnl_arriba";
-            this.pnl_arriba.Size = new System.Drawing.Size(900, 30);
+            this.pnl_arriba.Size = new System.Drawing.Size(947, 30);
             this.pnl_arriba.TabIndex = 0;
             this.pnl_arriba.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnl_arriba_MouseDown);
             // 
@@ -121,7 +122,7 @@
             this.lbl_usuario.AutoSize = true;
             this.lbl_usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_usuario.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbl_usuario.Location = new System.Drawing.Point(239, 5);
+            this.lbl_usuario.Location = new System.Drawing.Point(286, 5);
             this.lbl_usuario.Name = "lbl_usuario";
             this.lbl_usuario.Size = new System.Drawing.Size(57, 15);
             this.lbl_usuario.TabIndex = 13;
@@ -133,7 +134,7 @@
             this.lbl_fecha_hora.AutoSize = true;
             this.lbl_fecha_hora.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_fecha_hora.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbl_fecha_hora.Location = new System.Drawing.Point(565, 5);
+            this.lbl_fecha_hora.Location = new System.Drawing.Point(612, 5);
             this.lbl_fecha_hora.Name = "lbl_fecha_hora";
             this.lbl_fecha_hora.Size = new System.Drawing.Size(89, 15);
             this.lbl_fecha_hora.TabIndex = 12;
@@ -169,7 +170,7 @@
             this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(818, 2);
+            this.btnMinimizar.Location = new System.Drawing.Point(865, 2);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(20, 20);
             this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -183,7 +184,7 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(870, 2);
+            this.btnCerrar.Location = new System.Drawing.Point(917, 2);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(20, 20);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -197,7 +198,7 @@
             this.btn_Maximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Maximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Maximizar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Maximizar.Image")));
-            this.btn_Maximizar.Location = new System.Drawing.Point(844, 2);
+            this.btn_Maximizar.Location = new System.Drawing.Point(891, 2);
             this.btn_Maximizar.Name = "btn_Maximizar";
             this.btn_Maximizar.Size = new System.Drawing.Size(20, 20);
             this.btn_Maximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -211,7 +212,7 @@
             this.btn_Restaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Restaurar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Restaurar.Image = ((System.Drawing.Image)(resources.GetObject("btn_Restaurar.Image")));
-            this.btn_Restaurar.Location = new System.Drawing.Point(844, 2);
+            this.btn_Restaurar.Location = new System.Drawing.Point(891, 2);
             this.btn_Restaurar.Name = "btn_Restaurar";
             this.btn_Restaurar.Size = new System.Drawing.Size(20, 20);
             this.btn_Restaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -224,6 +225,7 @@
             // 
             this.pnl_menu.BackColor = System.Drawing.Color.Gray;
             this.pnl_menu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnl_menu.Controls.Add(this.btn_credito);
             this.pnl_menu.Controls.Add(this.btn_config);
             this.pnl_menu.Controls.Add(this.btn_reportes);
             this.pnl_menu.Controls.Add(this.btn_gastos);
@@ -239,8 +241,30 @@
             this.pnl_menu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_menu.Location = new System.Drawing.Point(0, 30);
             this.pnl_menu.Name = "pnl_menu";
-            this.pnl_menu.Size = new System.Drawing.Size(900, 61);
+            this.pnl_menu.Size = new System.Drawing.Size(947, 61);
             this.pnl_menu.TabIndex = 1;
+            // 
+            // btn_credito
+            // 
+            this.btn_credito.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_credito.FlatAppearance.BorderSize = 0;
+            this.btn_credito.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
+            this.btn_credito.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btn_credito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_credito.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btn_credito.ForeColor = System.Drawing.SystemColors.Window;
+            this.btn_credito.Image = ((System.Drawing.Image)(resources.GetObject("btn_credito.Image")));
+            this.btn_credito.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_credito.Location = new System.Drawing.Point(864, 0);
+            this.btn_credito.Name = "btn_credito";
+            this.btn_credito.Size = new System.Drawing.Size(72, 57);
+            this.btn_credito.TabIndex = 69;
+            this.btn_credito.Text = "Credito";
+            this.btn_credito.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_credito.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_credito.UseVisualStyleBackColor = true;
+            this.btn_credito.Visible = false;
+            this.btn_credito.Click += new System.EventHandler(this.frm_credito_Click);
             // 
             // btn_config
             // 
@@ -514,7 +538,7 @@
             this.pnl_centro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_centro.Location = new System.Drawing.Point(0, 91);
             this.pnl_centro.Name = "pnl_centro";
-            this.pnl_centro.Size = new System.Drawing.Size(900, 509);
+            this.pnl_centro.Size = new System.Drawing.Size(947, 509);
             this.pnl_centro.TabIndex = 2;
             // 
             // timer
@@ -532,7 +556,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(900, 600);
+            this.ClientSize = new System.Drawing.Size(947, 600);
             this.Controls.Add(this.pnl_centro);
             this.Controls.Add(this.pnl_menu);
             this.Controls.Add(this.pnl_arriba);
@@ -584,5 +608,6 @@
         private System.Windows.Forms.Button btn_alarma;
         private System.Windows.Forms.Label lbl_noti;
         private System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.Button btn_credito;
     }
 }
