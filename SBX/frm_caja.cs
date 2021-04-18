@@ -55,6 +55,7 @@ namespace SBX
                 dtg_caja.Rows.Add(Fila);
                 foreach (DataRow rows in v_dt.Rows)
                 {
+                    dtg_caja.Rows[Contador].Cells["cl_codigo_Caja"].Value = rows["CodigoCaja"];
                     dtg_caja.Rows[Contador].Cells["cl_usuario"].Value = rows["NombreUsuario"];
                     dtg_caja.Rows[Contador].Cells["cl_fecha"].Value = rows["FechaRegistro"];
                     dtg_caja.Rows[Contador].Cells["cl_operacion"].Value = rows["TipoOperacion"];

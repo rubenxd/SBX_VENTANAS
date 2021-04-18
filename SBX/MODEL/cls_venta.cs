@@ -29,6 +29,7 @@ namespace SBX.MODEL
         //getter and setter
         public int Codigo { get; set; }
         public int NumSeparado { get; set; }
+        public int NumCredito { get; set; }
         public string Fecha { get; set; }
         public string NombreDocumento { get; set; }
         public string ConsecutivoDocumento { get; set; }
@@ -343,6 +344,24 @@ namespace SBX.MODEL
             if (v_ok == true)
             {
                 v_query = "DELETE FROM SistemaSeparado WHERE Codigo = " + NumSeparado + "";
+                v_ok = cls_datos.mtd_eliminar(v_query);
+            }
+            //Eliminar Abonos credito
+            if (v_ok == true)
+            {
+                v_query = "DELETE FROM AbonoCredito WHERE Credito = " + NumCredito + " ";
+                v_ok = cls_datos.mtd_eliminar(v_query);
+            }
+            //Eliminar Creditos
+            if (v_ok == true)
+            {
+                v_query = "DELETE FROM Credito WHERE Codigo = " + NumCredito + "";
+                v_ok = cls_datos.mtd_eliminar(v_query);
+            }
+            //Eliminar domicilios
+            if (v_ok == true)
+            {
+                v_query = "DELETE FROM Domicilio WHERE Codigo = " + Domicilio + "";
                 v_ok = cls_datos.mtd_eliminar(v_query);
             }
 

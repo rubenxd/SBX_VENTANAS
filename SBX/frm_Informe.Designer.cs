@@ -62,6 +62,8 @@
             this.cl_domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_separado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnl_contenido = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txt_costo_total_sp = new System.Windows.Forms.TextBox();
             this.btn_ventas_separado_total = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.txt_ventas_sp_total = new System.Windows.Forms.TextBox();
@@ -88,6 +90,8 @@
             this.txt_ventas_domicilio = new System.Windows.Forms.TextBox();
             this.txt_costos = new System.Windows.Forms.TextBox();
             this.txt_ventas_directas = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txt_gn_sp = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.pnl_centro.SuspendLayout();
             this.pnl_abajo.SuspendLayout();
@@ -235,16 +239,16 @@
             this.pnl_centro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_centro.Location = new System.Drawing.Point(0, 42);
             this.pnl_centro.Name = "pnl_centro";
-            this.pnl_centro.Size = new System.Drawing.Size(909, 465);
+            this.pnl_centro.Size = new System.Drawing.Size(909, 534);
             this.pnl_centro.TabIndex = 10;
             // 
             // pnl_abajo
             // 
             this.pnl_abajo.Controls.Add(this.dtg_informe);
             this.pnl_abajo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_abajo.Location = new System.Drawing.Point(0, 345);
+            this.pnl_abajo.Location = new System.Drawing.Point(0, 350);
             this.pnl_abajo.Name = "pnl_abajo";
-            this.pnl_abajo.Size = new System.Drawing.Size(907, 118);
+            this.pnl_abajo.Size = new System.Drawing.Size(907, 182);
             this.pnl_abajo.TabIndex = 12;
             // 
             // dtg_informe
@@ -293,7 +297,7 @@
             this.dtg_informe.Location = new System.Drawing.Point(0, 0);
             this.dtg_informe.Name = "dtg_informe";
             this.dtg_informe.ReadOnly = true;
-            this.dtg_informe.Size = new System.Drawing.Size(907, 118);
+            this.dtg_informe.Size = new System.Drawing.Size(907, 182);
             this.dtg_informe.TabIndex = 10;
             // 
             // cl_factura
@@ -416,6 +420,10 @@
             // 
             // pnl_contenido
             // 
+            this.pnl_contenido.Controls.Add(this.label14);
+            this.pnl_contenido.Controls.Add(this.txt_gn_sp);
+            this.pnl_contenido.Controls.Add(this.label15);
+            this.pnl_contenido.Controls.Add(this.txt_costo_total_sp);
             this.pnl_contenido.Controls.Add(this.btn_ventas_separado_total);
             this.pnl_contenido.Controls.Add(this.label13);
             this.pnl_contenido.Controls.Add(this.txt_ventas_sp_total);
@@ -445,8 +453,29 @@
             this.pnl_contenido.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_contenido.Location = new System.Drawing.Point(0, 0);
             this.pnl_contenido.Name = "pnl_contenido";
-            this.pnl_contenido.Size = new System.Drawing.Size(907, 345);
+            this.pnl_contenido.Size = new System.Drawing.Size(907, 350);
             this.pnl_contenido.TabIndex = 11;
+            // 
+            // label15
+            // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(17, 152);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(122, 20);
+            this.label15.TabIndex = 104;
+            this.label15.Text = "Total Costos Sp";
+            // 
+            // txt_costo_total_sp
+            // 
+            this.txt_costo_total_sp.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txt_costo_total_sp.Enabled = false;
+            this.txt_costo_total_sp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_costo_total_sp.Location = new System.Drawing.Point(147, 149);
+            this.txt_costo_total_sp.Name = "txt_costo_total_sp";
+            this.txt_costo_total_sp.Size = new System.Drawing.Size(260, 26);
+            this.txt_costo_total_sp.TabIndex = 105;
             // 
             // btn_ventas_separado_total
             // 
@@ -506,7 +535,7 @@
             this.txt_total_ventas.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_total_ventas.Enabled = false;
             this.txt_total_ventas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_total_ventas.Location = new System.Drawing.Point(120, 241);
+            this.txt_total_ventas.Location = new System.Drawing.Point(120, 213);
             this.txt_total_ventas.Name = "txt_total_ventas";
             this.txt_total_ventas.Size = new System.Drawing.Size(752, 26);
             this.txt_total_ventas.TabIndex = 96;
@@ -516,7 +545,7 @@
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(17, 244);
+            this.label12.Location = new System.Drawing.Point(17, 216);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(99, 20);
             this.label12.TabIndex = 95;
@@ -527,7 +556,7 @@
             this.txt_total_costos.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_total_costos.Enabled = false;
             this.txt_total_costos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_total_costos.Location = new System.Drawing.Point(120, 273);
+            this.txt_total_costos.Location = new System.Drawing.Point(120, 245);
             this.txt_total_costos.Name = "txt_total_costos";
             this.txt_total_costos.Size = new System.Drawing.Size(752, 26);
             this.txt_total_costos.TabIndex = 94;
@@ -537,7 +566,7 @@
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(17, 276);
+            this.label11.Location = new System.Drawing.Point(17, 248);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(98, 20);
             this.label11.TabIndex = 93;
@@ -580,7 +609,7 @@
             this.txt_costo_sp.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_costo_sp.Enabled = false;
             this.txt_costo_sp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_costo_sp.Location = new System.Drawing.Point(118, 118);
+            this.txt_costo_sp.Location = new System.Drawing.Point(147, 118);
             this.txt_costo_sp.Name = "txt_costo_sp";
             this.txt_costo_sp.Size = new System.Drawing.Size(260, 26);
             this.txt_costo_sp.TabIndex = 90;
@@ -601,7 +630,7 @@
             this.txt_costo_dm.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_costo_dm.Enabled = false;
             this.txt_costo_dm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_costo_dm.Location = new System.Drawing.Point(118, 86);
+            this.txt_costo_dm.Location = new System.Drawing.Point(147, 86);
             this.txt_costo_dm.Name = "txt_costo_dm";
             this.txt_costo_dm.Size = new System.Drawing.Size(260, 26);
             this.txt_costo_dm.TabIndex = 88;
@@ -615,7 +644,7 @@
             this.btn_ver_gastos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btn_ver_gastos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ver_gastos.Image = ((System.Drawing.Image)(resources.GetObject("btn_ver_gastos.Image")));
-            this.btn_ver_gastos.Location = new System.Drawing.Point(381, 150);
+            this.btn_ver_gastos.Location = new System.Drawing.Point(427, 178);
             this.btn_ver_gastos.Name = "btn_ver_gastos";
             this.btn_ver_gastos.Size = new System.Drawing.Size(26, 26);
             this.btn_ver_gastos.TabIndex = 86;
@@ -627,7 +656,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(17, 153);
+            this.label7.Location = new System.Drawing.Point(17, 184);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(61, 20);
             this.label7.TabIndex = 9;
@@ -638,7 +667,7 @@
             this.txt_gastos.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_gastos.Enabled = false;
             this.txt_gastos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_gastos.Location = new System.Drawing.Point(118, 150);
+            this.txt_gastos.Location = new System.Drawing.Point(147, 181);
             this.txt_gastos.Name = "txt_gastos";
             this.txt_gastos.Size = new System.Drawing.Size(260, 26);
             this.txt_gastos.TabIndex = 10;
@@ -670,7 +699,7 @@
             this.txt_resultado.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_resultado.Enabled = false;
             this.txt_resultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_resultado.Location = new System.Drawing.Point(120, 305);
+            this.txt_resultado.Location = new System.Drawing.Point(120, 277);
             this.txt_resultado.Name = "txt_resultado";
             this.txt_resultado.Size = new System.Drawing.Size(752, 26);
             this.txt_resultado.TabIndex = 8;
@@ -691,7 +720,7 @@
             this.lbl_resultado.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_resultado.AutoSize = true;
             this.lbl_resultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_resultado.Location = new System.Drawing.Point(17, 308);
+            this.lbl_resultado.Location = new System.Drawing.Point(17, 280);
             this.lbl_resultado.Name = "lbl_resultado";
             this.lbl_resultado.Size = new System.Drawing.Size(82, 20);
             this.lbl_resultado.TabIndex = 7;
@@ -723,7 +752,7 @@
             this.txt_costos.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_costos.Enabled = false;
             this.txt_costos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_costos.Location = new System.Drawing.Point(118, 54);
+            this.txt_costos.Location = new System.Drawing.Point(147, 54);
             this.txt_costos.Name = "txt_costos";
             this.txt_costos.Size = new System.Drawing.Size(260, 26);
             this.txt_costos.TabIndex = 4;
@@ -738,11 +767,32 @@
             this.txt_ventas_directas.Size = new System.Drawing.Size(282, 26);
             this.txt_ventas_directas.TabIndex = 5;
             // 
+            // label14
+            // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(17, 312);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(64, 20);
+            this.label14.TabIndex = 106;
+            this.label14.Text = "Gan Sp";
+            // 
+            // txt_gn_sp
+            // 
+            this.txt_gn_sp.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txt_gn_sp.Enabled = false;
+            this.txt_gn_sp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_gn_sp.Location = new System.Drawing.Point(120, 309);
+            this.txt_gn_sp.Name = "txt_gn_sp";
+            this.txt_gn_sp.Size = new System.Drawing.Size(260, 26);
+            this.txt_gn_sp.TabIndex = 107;
+            // 
             // frm_Informe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(909, 507);
+            this.ClientSize = new System.Drawing.Size(909, 576);
             this.Controls.Add(this.pnl_centro);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -821,5 +871,9 @@
         private System.Windows.Forms.Button btn_ventas_separado_total;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txt_ventas_sp_total;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txt_costo_total_sp;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txt_gn_sp;
     }
 }

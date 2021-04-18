@@ -104,6 +104,12 @@ namespace SBX.MODEL
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }
+        public DataTable mtd_consultar_sum_abonos()
+        {
+            v_query = " select isnull(sum(Valorabono),0) ValorAbonos from AbonoCredito  where Credito = "+ Codigo;
+            v_dt = cls_datos.mtd_consultar(v_query);
+            return v_dt;
+        }
 
         private void mtd_asignaParametros()
         {

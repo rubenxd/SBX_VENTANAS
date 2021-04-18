@@ -41,8 +41,46 @@ namespace SBX.MODEL
 
         public DataTable mtd_consultar_Abonos_separados()
         {
-            v_query = "select sp.Codigo,ISNULL(SUM(ValorAbono),0)  ValorAbonos from AbonoSistemaSeparado asp " +
-                      "inner join SistemaSeparado sp on sp.Codigo = asp.SistemaSeparado " +
+            //v_query = "select sp.Codigo,ISNULL(SUM(ValorAbono),0)  ValorAbonos from AbonoSistemaSeparado asp " +
+            //          "inner join SistemaSeparado sp on sp.Codigo = asp.SistemaSeparado " +
+            //          "WHERE(CONVERT(date, asp.Fecha) BETWEEN '" + FechaIni + "' AND  '" + FechaFin + "') " +
+            //          " GROUP BY sp.Codigo ";
+
+            v_query = "select sp.Codigo,ISNULL(SUM(ValorAbono),0)  ValorAbonos, " +
+                        "(select costo from Venta where SistemaSeparado = asp.SistemaSeparado) Costo, " +
+                        "((select costo from Venta where SistemaSeparado = asp.SistemaSeparado)-ISNULL(SUM(ValorAbono), 0)) " +
+                        "Resta " +
+                        "from AbonoSistemaSeparado asp " +
+                        "inner join SistemaSeparado sp on sp.Codigo = asp.SistemaSeparado " +
+                        "WHERE(CONVERT(date, asp.Fecha) =   '" + FechaFin + "') " +
+                        "GROUP BY sp.Codigo, asp.SistemaSeparado ";
+
+            v_dt = cls_datos.mtd_consultar(v_query);
+            return v_dt;
+        }
+        public DataTable mtd_consultar_Abonos_separados_Total()
+        {
+            //v_query = "select sp.Codigo,ISNULL(SUM(ValorAbono),0)  ValorAbonos from AbonoSistemaSeparado asp " +
+            //          "inner join SistemaSeparado sp on sp.Codigo = asp.SistemaSeparado " +
+            //          "WHERE(CONVERT(date, asp.Fecha) BETWEEN '" + FechaIni + "' AND  '" + FechaFin + "') " +
+            //          " GROUP BY sp.Codigo ";
+
+            v_query = "select sp.Codigo,ISNULL(SUM(ValorAbono),0)  ValorAbonos, " +
+                        "(select costo from Venta where SistemaSeparado = asp.SistemaSeparado) Costo, " +
+                        "((select costo from Venta where SistemaSeparado = asp.SistemaSeparado)-ISNULL(SUM(ValorAbono), 0)) " +
+                        "Resta " +
+                        "from AbonoSistemaSeparado asp " +
+                        "inner join SistemaSeparado sp on sp.Codigo = asp.SistemaSeparado " +
+                        "WHERE(CONVERT(date, asp.Fecha)  BETWEEN '20131123' AND  '" + FechaFin + "') " +
+                        "GROUP BY sp.Codigo, asp.SistemaSeparado ";
+
+            v_dt = cls_datos.mtd_consultar(v_query);
+            return v_dt;
+        }
+        public DataTable mtd_consultar_Abonos_credito()
+        {
+            v_query = "select sp.Codigo,ISNULL(SUM(ValorAbono),0)  ValorAbonos from AbonoCredito asp " +
+                      "inner join Credito sp on sp.Codigo = asp.Credito " +
                       "WHERE(CONVERT(date, asp.Fecha) BETWEEN '" + FechaIni + "' AND  '" + FechaFin + "') " +
                       " GROUP BY sp.Codigo ";
 
@@ -53,11 +91,11 @@ namespace SBX.MODEL
         }
         public DataTable mtd_consultar_Abonos_separados_pagos()
         {
+
             v_query = "select ISNULL(SUM(ValorAbono),0)  ValorAbonos from AbonoSistemaSeparado asp " +
                       "inner join SistemaSeparado sp on sp.Codigo = asp.SistemaSeparado " +
                       "WHERE   sp.Codigo = "+ CodigoSeparado +
                       " ";
-
             //v_query = " select ISNULL(SUM(ValorAbono),0) ValorAbonos from AbonoSistemaSeparado " +
             //          " WHERE(CONVERT(date,Fecha) BETWEEN '" + FechaIni + "' AND  '" + FechaFin + "') ";
             v_dt = cls_datos.mtd_consultar(v_query);

@@ -43,6 +43,7 @@
             this.btn_buscar = new System.Windows.Forms.Button();
             this.txt_buscar = new System.Windows.Forms.TextBox();
             this.dtg_caja = new System.Windows.Forms.DataGridView();
+            this.cl_codigo_Caja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_codigo_operacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -215,6 +216,7 @@
             this.dtg_caja.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_caja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_caja.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cl_codigo_Caja,
             this.cl_codigo_operacion,
             this.cl_usuario,
             this.cl_fecha,
@@ -235,6 +237,12 @@
             this.dtg_caja.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtg_caja.Size = new System.Drawing.Size(884, 379);
             this.dtg_caja.TabIndex = 6;
+            // 
+            // cl_codigo_Caja
+            // 
+            this.cl_codigo_Caja.HeaderText = "CodigoCaja";
+            this.cl_codigo_Caja.Name = "cl_codigo_Caja";
+            this.cl_codigo_Caja.ReadOnly = true;
             // 
             // cl_codigo_operacion
             // 
@@ -301,6 +309,7 @@
         private System.Windows.Forms.Button btn_apertura_caja;
         private System.Windows.Forms.Button btn_cierre_caja;
         private System.Windows.Forms.Button btn_imprimir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_codigo_Caja;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_codigo_operacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_fecha;

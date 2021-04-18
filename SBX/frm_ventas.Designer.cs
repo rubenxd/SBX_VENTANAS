@@ -79,6 +79,8 @@
             this.cl_domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_separado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_credito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_abonos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_debe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnl_arriba.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_ventas)).BeginInit();
@@ -184,6 +186,8 @@
             this.cl_domicilio,
             this.cl_separado,
             this.cl_credito,
+            this.cl_abonos,
+            this.cl_debe,
             this.cl_Usuario});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -582,6 +586,18 @@
             this.cl_credito.ReadOnly = true;
             this.cl_credito.Visible = false;
             // 
+            // cl_abonos
+            // 
+            this.cl_abonos.HeaderText = "Abonos";
+            this.cl_abonos.Name = "cl_abonos";
+            this.cl_abonos.ReadOnly = true;
+            // 
+            // cl_debe
+            // 
+            this.cl_debe.HeaderText = "Debe";
+            this.cl_debe.Name = "cl_debe";
+            this.cl_debe.ReadOnly = true;
+            // 
             // cl_Usuario
             // 
             this.cl_Usuario.HeaderText = "Usuario";
@@ -665,6 +681,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_domicilio;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_separado;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_credito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_abonos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_debe;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_Usuario;
     }
 }

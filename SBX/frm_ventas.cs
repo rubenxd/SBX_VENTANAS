@@ -16,7 +16,9 @@ namespace SBX
     public partial class frm_ventas : Form
     {
         cls_venta cls_Venta = new cls_venta();
-
+        cls_credito cls_Credito = new cls_credito();
+        cls_sistema_separado cls_Sistema_Separado = new cls_sistema_separado();
+        cls_domicilio cls_Domicilio = new cls_domicilio();
         //Variables
         DataTable v_dt;
         int v_fila = 0;
@@ -64,6 +66,7 @@ namespace SBX
             cls_Venta.Fecha_fin = dtp_fecha_fin.Text;
             v_dt = cls_Venta.mtd_consultar_Venta();
             dtg_ventas.Rows.Clear();
+
             if (v_dt.Rows.Count > 0)
             {
                 v_fila = v_dt.Rows.Count;
@@ -78,7 +81,7 @@ namespace SBX
                 float cantidad = 0;
                 float precioVentas = 0;
                 double totalVentas = 0;
-                
+                string FacturaTemp = "";
                 foreach (DataRow rows in v_dt.Rows)
                 {
                     dtg_ventas.Rows[v_contador].Cells["cl_codigo"].Value = rows["Codigo"];
@@ -95,9 +98,60 @@ namespace SBX
                     dtg_ventas.Rows[v_contador].Cells["cl_cantidad"].Value = rows["Cantidad_exacta"].ToString();                  
                     double costo = Convert.ToDouble(rows["Costo2"]);
                     dtg_ventas.Rows[v_contador].Cells["cl_costo"].Value = costo.ToString("N2");
-                    double PrecioVenta = Convert.ToDouble(rows["PrecioVenta2"]) ;
+                    double PrecioVenta = 0;
+                    PrecioVenta = Convert.ToDouble(rows["PrecioVenta2"]);
                     dtg_ventas.Rows[v_contador].Cells["cl_precio_venta"].Value = PrecioVenta.ToString("N2");
+                    double Total_2 = Convert.ToDouble(rows["Total"]);
+                    double Abonos = 0;
+                    double Debe = 0;
+                    double ValorDescuento_1 = Convert.ToDouble(rows["ValorDescuento"]);
+                    Debe = Total_2;
+                    string EstadoDomicilio = "";
+                    
+                    if (rows["credito"].ToString() != "0")
+                    {
+                        cls_Credito.Codigo = Convert.ToInt32(rows["credito"]);
+                        v_dt = cls_Credito.mtd_consultar_sum_abonos();
+                        DataRow rowCredt = v_dt.Rows[0];
+
+                        Abonos = Convert.ToDouble(rowCredt["ValorAbonos"]);
+                        PrecioVenta = 0;
+                    }
+                   
+                    if (rows["separado"].ToString() != "0")
+                    {
+                        cls_Sistema_Separado.Codigo = Convert.ToInt32(rows["separado"]);
+                        v_dt = cls_Sistema_Separado.mtd_consultar_sum_abonos();
+                        DataRow rowCredt = v_dt.Rows[0];
+                        Abonos = Convert.ToDouble(rowCredt["ValorAbonos"]);
+                        PrecioVenta = 0;
+                    }
+
+                    if (rows["Domicilio"].ToString() != "0")
+                    {
+                        cls_Domicilio.Codigo = Convert.ToInt32(rows["Domicilio"]);
+                        v_dt = cls_Domicilio.mtd_consultar_domicilio_Estado();
+                        DataRow rowCredt = v_dt.Rows[0];
+                        EstadoDomicilio = rowCredt["Estado"].ToString();
+                        if (EstadoDomicilio != "Pago" && EstadoDomicilio != "Procesado")
+                        {
+                            PrecioVenta = 0;
+                        }                       
+                    }
+
+                    if (rows["separado"].ToString() != "0" || rows["credito"].ToString() != "0")
+                    {
+                        Debe = (Debe - Abonos) - ValorDescuento_1;
+                    }
+                    else
+                    {
+                        Debe = 0;
+                    }
+                   
+                    dtg_ventas.Rows[v_contador].Cells["cl_debe"].Value = Debe.ToString("N2");
                     VentasTotales += PrecioVenta;
+                    dtg_ventas.Rows[v_contador].Cells["cl_abonos"].Value = Abonos.ToString("N2");
+                    VentasTotales += Abonos;
                     dtg_ventas.Rows[v_contador].Cells["descuento"].Value = rows["descuento"];
                     double ValorDescuento = Convert.ToDouble(rows["ValorDescuento"]);
                     DescuentosTotales += ValorDescuento;
@@ -167,8 +221,12 @@ namespace SBX
                         { 
                             int num = Convert.ToInt32(rows.Cells["cl_codigo"].Value);
                             int numSeparado = Convert.ToInt32(rows.Cells["cl_separado"].Value);
+                            int numCredito = Convert.ToInt32(rows.Cells["cl_credito"].Value);
+                            int numDomicilio = Convert.ToInt32(rows.Cells["cl_domicilio"].Value);
                             cls_Venta.Codigo = num;
                             cls_Venta.NumSeparado = numSeparado;
+                            cls_Venta.NumCredito = numCredito;
+                            cls_Venta.Domicilio = numDomicilio;
                             v_ok = cls_Venta.mtd_eliminar();
                             if (v_ok)
                             {

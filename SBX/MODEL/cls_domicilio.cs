@@ -46,6 +46,12 @@ namespace SBX.MODEL
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }
+        public DataTable mtd_consultar_domicilio_Estado()
+        {
+            v_query = " select Estado from Domicilio where Codigo =  "+Codigo;
+            v_dt = cls_datos.mtd_consultar(v_query);
+            return v_dt;
+        }
         private void mtd_asignaParametros()
         {
             Parametros = new SqlParameter[11];
