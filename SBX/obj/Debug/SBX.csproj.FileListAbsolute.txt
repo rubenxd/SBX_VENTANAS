@@ -552,4 +552,3 @@ C:\Users\Home\Documents\Documentos\Ruben\SBX_VENTANAS\SBX\obj\Debug\SBX.exe
 C:\Users\Home\Documents\Documentos\Ruben\SBX_VENTANAS\SBX\obj\Debug\SBX.pdb
 C:\Users\Home\Documents\Documentos\Ruben\SBX_VENTANAS\SBX\obj\Debug\SBX.frm_pago_credito.resources
 C:\Users\Home\Documents\Documentos\Ruben\SBX_VENTANAS\SBX\obj\Debug\SBX.frm_Creditos.resources
-C:\Users\Home\Documents\Documentos\Ruben\SBX_VENTANAS\SBX\obj\Debug\SBX.csprojAssemblyReference.cache

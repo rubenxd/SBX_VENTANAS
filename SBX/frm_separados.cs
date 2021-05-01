@@ -390,6 +390,7 @@ namespace SBX
                         frm_Agregar_abono.lbl_fecha_inicio.Text = rows.Cells["cl_fecha_primer_pago"].Value.ToString();
                         frm_Agregar_abono.lbl_fecha_fin.Text = rows.Cells["cl_fecha_vence"].Value.ToString();
                         frm_Agregar_abono.lbl_estado.Text = rows.Cells["cl_estado"].Value.ToString();
+                        frm_Agregar_abono.usuario = this.Usuario;
                     }
                     frm_Agregar_abono.Enviainfo += new frm_agregar_abono.EnviarInfo(mtd_valor_pagado);
                     frm_Agregar_abono.ShowDialog();

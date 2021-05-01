@@ -158,6 +158,7 @@ namespace SBX
                     Resta = Convert.ToDouble(rows["Resta"].ToString());
                     codigoSeparados.Add(Convert.ToInt32(rows["Codigo"]));
                 }
+
                 if (valorAbono < costosp)
                 {
                     txt_costo_sp.Text = valorAbono.ToString("N0");
@@ -165,12 +166,18 @@ namespace SBX
                 }
                 else
                 {
-                    Resta = Resta * -1;
-                    txt_costo_sp.Text = Resta.ToString("N0");
-                    CostoTotalSumandoSeparados += Resta;
-                }
-
-                
+                    if (Resta < 1)
+                    {
+                        txt_costo_sp.Text = costosp.ToString("N0");
+                        CostoTotalSumandoSeparados += costosp;
+                    }
+                    else
+                    {
+                        Resta = Resta * -1;
+                        txt_costo_sp.Text = Resta.ToString("N0");
+                        CostoTotalSumandoSeparados += Resta;
+                    }           
+                }       
                 txt_ventas_separado.Text = valorAbono.ToString("N0");
             }
             //Abonos separados total

@@ -594,6 +594,7 @@
             this.btn_credito.Size = new System.Drawing.Size(26, 26);
             this.btn_credito.TabIndex = 11;
             this.btn_credito.UseVisualStyleBackColor = false;
+            this.btn_credito.Visible = false;
             this.btn_credito.Click += new System.EventHandler(this.btn_credito_Click);
             // 
             // btn_separado

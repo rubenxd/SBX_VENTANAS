@@ -92,6 +92,13 @@ namespace SBX.MODEL
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }
+        public DataTable mtd_consultar_abono_sistema_Documento_Factura()
+        {
+            v_query = "select top(1) NombreDocumento, ConsecutivoDocumento from Venta " +
+                      " where SistemaSeparado = " + Codigo;
+            v_dt = cls_datos.mtd_consultar(v_query);
+            return v_dt;
+        }
         public DataTable mtd_consultar_pagos()
         {
             v_query = "SELECT SistemaSeparado,Fecha,ValorAbono FROM AbonoSistemaSeparado WHERE SistemaSeparado = " + Codigo;
@@ -274,17 +281,28 @@ namespace SBX.MODEL
                 //double Saldo = Convert.ToDouble(lbl_valor.Text) - pago; 
                 //lbl_saldo.Text = Saldo.ToString("N0");
             }
+            v_dt = mtd_consultar_abono_sistema_Documento_Factura();
+            DataRow v_rows2;
+            string NombDoc = "";
+            string ConsecutivoDoc = "";
+            if (v_dt.Rows.Count > 0)
+            {
+                v_rows2 = v_dt.Rows[0];
+                NombDoc = v_rows2["NombreDocumento"].ToString();
+                ConsecutivoDoc = v_rows2["ConsecutivoDocumento"].ToString();
+            }
             //ticket.TextoIzquierda("USUARIO: " + Usuario);
             ///
-            //DataTable DTVenta;
-            //cls_Venta.NombreDocumento = NombDoc;
-            //cls_Venta.ConsecutivoDocumento = ConsecutivoDoc;
-            ////DTVenta = cls_Venta.mtd_consultar_Ventas_factura();
-            //cls_Venta.v_buscar = NombDoc + '-' + ConsecutivoDoc;
-            //DTVenta = cls_Venta.mtd_consultar_dato_impresion();
-            //row = DTVenta.Rows[0];
+            cls_venta cls_Venta = new cls_venta();
+            DataTable DTVenta;
+            cls_Venta.NombreDocumento = NombDoc;
+            cls_Venta.ConsecutivoDocumento = ConsecutivoDoc;
+            //DTVenta = cls_Venta.mtd_consultar_Ventas_factura();
+            cls_Venta.v_buscar = NombDoc + '-' + ConsecutivoDoc;
+            DTVenta = cls_Venta.mtd_consultar_dato_impresion();
+            row = DTVenta.Rows[0];
             /////
-            //ticket.TextoIzquierda("FACTURA N. " + row["Factura"].ToString());
+            ticket.TextoIzquierda("FACTURA N. " + row["Factura"].ToString());
             //if (v_domicilio == false && v_sistema_separado == false)
             //{
             //    ticket.TextoIzquierda("CLIENTE: " + row["Cliente"].ToString() + "");
@@ -303,17 +321,17 @@ namespace SBX.MODEL
             //}
 
 
-            //ticket.lineasAsteriscos();
+            ticket.lineasAsteriscos();
 
-            //double Subtotal = 0;
-            //double Impuesto = 0;
-            //double Descuento = 0;
-            //double TotalDescuento = 0;
-            //double Recibido = 0;
-            //double Devueltas = 0;
-            //double AritculosVendidos = 0;
-            //double Total = 0;
-            //double ValorDomicilio = 0;
+            double Subtotal = 0;
+            double Impuesto = 0;
+            double Descuento = 0;
+            double TotalDescuento = 0;
+            double Recibido = 0;
+            double Devueltas = 0;
+            double AritculosVendidos = 0;
+            double Total = 0;
+            double ValorDomicilio = 0;
 
             ////SISTEMA DE SEPARADOS
             //if (v_sistema_separado == true)
@@ -329,43 +347,43 @@ namespace SBX.MODEL
             //    ticket.TextoIzquierda("SALDO: " + saldo.ToString("N"));
             //}
 
-            //foreach (DataRow rows in DTVenta.Rows)
-            //{
-            //    double Cant;
-            //    ticket.TextoIzquierda("--------------------------------------");
-            //    ticket.AgregaArticulo(rows["Item"].ToString(), " ", rows["UM"].ToString() + " ", (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"])));
-            //    ticket.TextoIzquierda(rows["Nombre"].ToString());
-            //    ticket.MuestraCalculoPRecioProducto(rows["Cantidad_Exacta"].ToString(), Convert.ToDouble(rows["PrecioVenta"]));
-            //    Descuento = ((Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"])) * (Convert.ToDouble(rows["Descuento"]) / 100));
-            //    ticket.AgregarTotales("Descuento.........", Descuento);
-            //    //ticket.AgregarTotales("IVA %.........",  Convert.ToDouble(rows["IVA"]));
-            //    // ticket.AgregarTotales("IVA %.........",  0);
-            //    //ticket.AgregarTotales("Valor IVA.........", (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad"])) * (Convert.ToDouble(rows["IVA"])/100));
-            //    //ticket.AgregarTotales("Valor IVA.........", 0);
-            //    double subtotal_inicial = 0;
-            //    subtotal_inicial = (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"])) - Descuento;
-            //    ticket.AgregarTotales("SubTotal.........", subtotal_inicial);
-            //    TotalDescuento += Descuento;
-            //    Subtotal += (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"]));
-            //    //Impuesto += ((Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad"])) * (Convert.ToDouble(rows["IVA"]) / 100));
-            //    Impuesto = 0;
-            //    Recibido = Convert.ToDouble(rows["Efectivo"]) + Convert.ToDouble(rows["Tdebito"]) + Convert.ToDouble(rows["Tcredito"]);
-            //    Devueltas = Convert.ToDouble(rows["Cambio"]);
-            //    AritculosVendidos += Convert.ToDouble(rows["Cantidad_Exacta"]);
-            //    ValorDomicilio = Convert.ToDouble(rows["ValorDomicilio"]);
-            //    Total = (Subtotal - TotalDescuento) + Impuesto;
-            //}
-            //ticket.lineasIgual();
-            ////Resumen de la venta.
-            //ticket.AgregarTotales("SUBTOTAL......$", Subtotal);
-            ////ticket.AgregarTotales("IVA...........$", Impuesto);
-            //ticket.AgregarTotales("DESCUENTO.....$", TotalDescuento);
+            foreach (DataRow rows in DTVenta.Rows)
+            {
+                double Cant;
+                ticket.TextoIzquierda("--------------------------------------");
+                ticket.AgregaArticulo(rows["Item"].ToString(), " ", rows["UM"].ToString() + " ", (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"])));
+                ticket.TextoIzquierda(rows["Nombre"].ToString());
+                ticket.MuestraCalculoPRecioProducto(rows["Cantidad_Exacta"].ToString(), Convert.ToDouble(rows["PrecioVenta"]));
+                Descuento = ((Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"])) * (Convert.ToDouble(rows["Descuento"]) / 100));
+                ticket.AgregarTotales("Descuento.........", Descuento);
+                //ticket.AgregarTotales("IVA %.........",  Convert.ToDouble(rows["IVA"]));
+                // ticket.AgregarTotales("IVA %.........",  0);
+                //ticket.AgregarTotales("Valor IVA.........", (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad"])) * (Convert.ToDouble(rows["IVA"])/100));
+                //ticket.AgregarTotales("Valor IVA.........", 0);
+                double subtotal_inicial = 0;
+                subtotal_inicial = (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"])) - Descuento;
+                ticket.AgregarTotales("SubTotal.........", subtotal_inicial);
+                TotalDescuento += Descuento;
+                Subtotal += (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"]));
+                //Impuesto += ((Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad"])) * (Convert.ToDouble(rows["IVA"]) / 100));
+                Impuesto = 0;
+                Recibido = Convert.ToDouble(rows["Efectivo"]) + Convert.ToDouble(rows["Tdebito"]) + Convert.ToDouble(rows["Tcredito"]);
+                Devueltas = Convert.ToDouble(rows["Cambio"]);
+                AritculosVendidos += Convert.ToDouble(rows["Cantidad_Exacta"]);
+                ValorDomicilio = Convert.ToDouble(rows["ValorDomicilio"]);
+                Total = (Subtotal - TotalDescuento) + Impuesto;
+            }
+            ticket.lineasIgual();
+            //Resumen de la venta.
+            ticket.AgregarTotales("SUBTOTAL......$", Subtotal);
+            //ticket.AgregarTotales("IVA...........$", Impuesto);
+            ticket.AgregarTotales("DESCUENTO.....$", TotalDescuento);
 
             //if (v_domicilio == true)
             //{
             //    ticket.AgregarTotales("DOMICILIO.....$", ValorDomicilio);
             //}
-            //ticket.AgregarTotales("TOTAL.........$", Math.Round(Total));
+            ticket.AgregarTotales("TOTAL.........$", Math.Round(Total));
             ////ticket.TextoIzquierda("--------------------------------------");
             //if (v_sistema_separado == false && v_domicilio == false)
             //{
@@ -374,8 +392,8 @@ namespace SBX.MODEL
             //}
 
             //Texto final del Ticket.
-            //ticket.TextoIzquierda("");
-            //ticket.TextoIzquierda("ARTICULOS VENDIDOS: " + AritculosVendidos + "");
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("ARTICULOS: " + AritculosVendidos + "");
             //ticket.TextoIzquierda("");
             //ticket.TextoIzquierda("");
             //ticket.TextoCentro("SERVICIO A DOMICILIO");

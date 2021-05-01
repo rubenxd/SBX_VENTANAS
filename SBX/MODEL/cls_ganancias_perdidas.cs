@@ -47,8 +47,8 @@ namespace SBX.MODEL
             //          " GROUP BY sp.Codigo ";
 
             v_query = "select sp.Codigo,ISNULL(SUM(ValorAbono),0)  ValorAbonos, " +
-                        "(select costo from Venta where SistemaSeparado = asp.SistemaSeparado) Costo, " +
-                        "((select costo from Venta where SistemaSeparado = asp.SistemaSeparado)-ISNULL(SUM(ValorAbono), 0)) " +
+                        "(select SUM(costo) from Venta where SistemaSeparado = asp.SistemaSeparado) Costo, " +
+                        "((select SUM(costo) from Venta where SistemaSeparado = asp.SistemaSeparado)-ISNULL(SUM(ValorAbono), 0)) " +
                         "Resta " +
                         "from AbonoSistemaSeparado asp " +
                         "inner join SistemaSeparado sp on sp.Codigo = asp.SistemaSeparado " +
@@ -66,8 +66,8 @@ namespace SBX.MODEL
             //          " GROUP BY sp.Codigo ";
 
             v_query = "select sp.Codigo,ISNULL(SUM(ValorAbono),0)  ValorAbonos, " +
-                        "(select costo from Venta where SistemaSeparado = asp.SistemaSeparado) Costo, " +
-                        "((select costo from Venta where SistemaSeparado = asp.SistemaSeparado)-ISNULL(SUM(ValorAbono), 0)) " +
+                        "(select sum(costo) from Venta where SistemaSeparado = asp.SistemaSeparado) Costo, " +
+                        "((select sum(costo) from Venta where SistemaSeparado = asp.SistemaSeparado)-ISNULL(SUM(ValorAbono), 0)) " +
                         "Resta " +
                         "from AbonoSistemaSeparado asp " +
                         "inner join SistemaSeparado sp on sp.Codigo = asp.SistemaSeparado " +
