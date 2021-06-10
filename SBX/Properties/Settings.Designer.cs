@@ -26,7 +26,7 @@ namespace SBX.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-C34OMFU;Initial Catalog=DB_SBX;User ID=sa;Password=admin2021")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-R516TKP;Initial Catalog=DB_SBX;User ID=sa;Password=admin2021")]
         public string DB_SBXConnectionString {
             get {
                 return ((string)(this["DB_SBXConnectionString"]));

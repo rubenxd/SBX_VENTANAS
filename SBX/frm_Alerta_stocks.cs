@@ -19,6 +19,7 @@ namespace SBX
             InitializeComponent();
             cbx_tipo_busqueda.SelectedIndex = 0;
             cbx_dato_busqueda.SelectedIndex = 0;
+            cbx_filtro_estado.SelectedIndex = 0;
         }
 
         private void btn_buscar_Click(object sender, EventArgs e)
@@ -34,31 +35,6 @@ namespace SBX
             cls_Producto.v_data_busqueda = cbx_dato_busqueda.Text;
             v_dt = cls_Producto.mtd_consultar_producto_kardex();
             dtg_productos.DataSource = v_dt;
-            if (dtg_productos.Rows.Count > 0)
-            {
-                foreach (DataGridViewRow item in dtg_productos.Rows)
-                {
-                    if (float.Parse(item.Cells["Stock"].Value.ToString()) <= float.Parse(item.Cells["Stock_minimo"].Value.ToString()))
-                    {
-                        item.Cells["cls_estado"].Value = "Stock minimo";
-                        item.Cells["cls_estado"].Style.BackColor = Color.Gold;
-                    }
-                    if (float.Parse(item.Cells["Stock"].Value.ToString()) >= float.Parse(item.Cells["Stock_maximo"].Value.ToString()))
-                    {
-                        item.Cells["cls_estado"].Value = "Stock maximo";
-                        item.Cells["cls_estado"].Style.BackColor = Color.LightBlue;
-                    }
-                    if (float.Parse(item.Cells["Stock"].Value.ToString()) <= 0)
-                    {
-                        item.Cells["cls_estado"].Value = "Agotado";
-                        item.Cells["cls_estado"].Style.BackColor = Color.OrangeRed;
-                    }
-                }
-
-                dtg_productos.Columns[6].Visible = false;
-                dtg_productos.Columns[7].Visible = false;
-                dtg_productos.Columns[8].Visible = false;
-            }
             this.Cursor = Cursors.Default;
         }
 

@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Alerta_stocks));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_arriba = new System.Windows.Forms.Panel();
+            this.cbx_dato_busqueda = new System.Windows.Forms.ComboBox();
             this.cbx_tipo_busqueda = new System.Windows.Forms.ComboBox();
             this.btn_buscar = new System.Windows.Forms.Button();
             this.txt_buscar = new System.Windows.Forms.TextBox();
             this.btn_exportar_excel = new System.Windows.Forms.Button();
             this.dtg_productos = new System.Windows.Forms.DataGridView();
             this.cls_Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbx_dato_busqueda = new System.Windows.Forms.ComboBox();
+            this.cbx_filtro_estado = new System.Windows.Forms.ComboBox();
             this.pnl_arriba.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_productos)).BeginInit();
             this.SuspendLayout();
@@ -46,6 +47,7 @@
             // pnl_arriba
             // 
             this.pnl_arriba.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnl_arriba.Controls.Add(this.cbx_filtro_estado);
             this.pnl_arriba.Controls.Add(this.cbx_dato_busqueda);
             this.pnl_arriba.Controls.Add(this.cbx_tipo_busqueda);
             this.pnl_arriba.Controls.Add(this.btn_buscar);
@@ -56,6 +58,20 @@
             this.pnl_arriba.Name = "pnl_arriba";
             this.pnl_arriba.Size = new System.Drawing.Size(849, 42);
             this.pnl_arriba.TabIndex = 5;
+            // 
+            // cbx_dato_busqueda
+            // 
+            this.cbx_dato_busqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_dato_busqueda.FormattingEnabled = true;
+            this.cbx_dato_busqueda.Items.AddRange(new object[] {
+            "Nombre",
+            "Item",
+            "Referencia",
+            "Codigo Barras"});
+            this.cbx_dato_busqueda.Location = new System.Drawing.Point(397, 9);
+            this.cbx_dato_busqueda.Name = "cbx_dato_busqueda";
+            this.cbx_dato_busqueda.Size = new System.Drawing.Size(168, 21);
+            this.cbx_dato_busqueda.TabIndex = 21;
             // 
             // cbx_tipo_busqueda
             // 
@@ -119,25 +135,25 @@
             this.dtg_productos.AllowUserToOrderColumns = true;
             this.dtg_productos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg_productos.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dtg_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_productos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cls_Estado});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_productos.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_productos.DefaultCellStyle = dataGridViewCellStyle12;
             this.dtg_productos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtg_productos.Location = new System.Drawing.Point(0, 42);
             this.dtg_productos.Name = "dtg_productos";
@@ -151,19 +167,21 @@
             this.cls_Estado.Name = "cls_Estado";
             this.cls_Estado.ReadOnly = true;
             // 
-            // cbx_dato_busqueda
+            // cbx_filtro_estado
             // 
-            this.cbx_dato_busqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbx_dato_busqueda.FormattingEnabled = true;
-            this.cbx_dato_busqueda.Items.AddRange(new object[] {
-            "Nombre",
-            "Item",
-            "Referencia",
-            "Codigo Barras"});
-            this.cbx_dato_busqueda.Location = new System.Drawing.Point(397, 9);
-            this.cbx_dato_busqueda.Name = "cbx_dato_busqueda";
-            this.cbx_dato_busqueda.Size = new System.Drawing.Size(168, 21);
-            this.cbx_dato_busqueda.TabIndex = 21;
+            this.cbx_filtro_estado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbx_filtro_estado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_filtro_estado.FormattingEnabled = true;
+            this.cbx_filtro_estado.Items.AddRange(new object[] {
+            "Todos",
+            "Stock minimo",
+            "Stock maximo",
+            "Agotado"});
+            this.cbx_filtro_estado.Location = new System.Drawing.Point(139, 9);
+            this.cbx_filtro_estado.Name = "cbx_filtro_estado";
+            this.cbx_filtro_estado.Size = new System.Drawing.Size(123, 21);
+            this.cbx_filtro_estado.TabIndex = 22;
+            this.cbx_filtro_estado.Visible = false;
             // 
             // frm_Alerta_stocks
             // 
@@ -195,5 +213,6 @@
         private System.Windows.Forms.DataGridView dtg_productos;
         private System.Windows.Forms.DataGridViewTextBoxColumn cls_Estado;
         private System.Windows.Forms.ComboBox cbx_dato_busqueda;
+        private System.Windows.Forms.ComboBox cbx_filtro_estado;
     }
 }
