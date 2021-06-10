@@ -62,6 +62,9 @@
             this.cl_domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_separado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnl_contenido = new System.Windows.Forms.Panel();
+            this.btn_maximizar = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txt_gn_sp = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txt_costo_total_sp = new System.Windows.Forms.TextBox();
             this.btn_ventas_separado_total = new System.Windows.Forms.Button();
@@ -90,8 +93,6 @@
             this.txt_ventas_domicilio = new System.Windows.Forms.TextBox();
             this.txt_costos = new System.Windows.Forms.TextBox();
             this.txt_ventas_directas = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txt_gn_sp = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.pnl_centro.SuspendLayout();
             this.pnl_abajo.SuspendLayout();
@@ -420,6 +421,7 @@
             // 
             // pnl_contenido
             // 
+            this.pnl_contenido.Controls.Add(this.btn_maximizar);
             this.pnl_contenido.Controls.Add(this.label14);
             this.pnl_contenido.Controls.Add(this.txt_gn_sp);
             this.pnl_contenido.Controls.Add(this.label15);
@@ -455,6 +457,43 @@
             this.pnl_contenido.Name = "pnl_contenido";
             this.pnl_contenido.Size = new System.Drawing.Size(907, 350);
             this.pnl_contenido.TabIndex = 11;
+            // 
+            // btn_maximizar
+            // 
+            this.btn_maximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_maximizar.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_maximizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_maximizar.FlatAppearance.BorderSize = 0;
+            this.btn_maximizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_maximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_maximizar.Image = ((System.Drawing.Image)(resources.GetObject("btn_maximizar.Image")));
+            this.btn_maximizar.Location = new System.Drawing.Point(874, 318);
+            this.btn_maximizar.Name = "btn_maximizar";
+            this.btn_maximizar.Size = new System.Drawing.Size(26, 26);
+            this.btn_maximizar.TabIndex = 108;
+            this.btn_maximizar.UseVisualStyleBackColor = false;
+            this.btn_maximizar.Click += new System.EventHandler(this.btn_maximizar_Click);
+            // 
+            // label14
+            // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(17, 312);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(64, 20);
+            this.label14.TabIndex = 106;
+            this.label14.Text = "Gan Sp";
+            // 
+            // txt_gn_sp
+            // 
+            this.txt_gn_sp.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txt_gn_sp.Enabled = false;
+            this.txt_gn_sp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_gn_sp.Location = new System.Drawing.Point(120, 309);
+            this.txt_gn_sp.Name = "txt_gn_sp";
+            this.txt_gn_sp.Size = new System.Drawing.Size(260, 26);
+            this.txt_gn_sp.TabIndex = 107;
             // 
             // label15
             // 
@@ -767,27 +806,6 @@
             this.txt_ventas_directas.Size = new System.Drawing.Size(282, 26);
             this.txt_ventas_directas.TabIndex = 5;
             // 
-            // label14
-            // 
-            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(17, 312);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(64, 20);
-            this.label14.TabIndex = 106;
-            this.label14.Text = "Gan Sp";
-            // 
-            // txt_gn_sp
-            // 
-            this.txt_gn_sp.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_gn_sp.Enabled = false;
-            this.txt_gn_sp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_gn_sp.Location = new System.Drawing.Point(120, 309);
-            this.txt_gn_sp.Name = "txt_gn_sp";
-            this.txt_gn_sp.Size = new System.Drawing.Size(260, 26);
-            this.txt_gn_sp.TabIndex = 107;
-            // 
             // frm_Informe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -875,5 +893,6 @@
         private System.Windows.Forms.TextBox txt_costo_total_sp;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txt_gn_sp;
+        private System.Windows.Forms.Button btn_maximizar;
     }
 }

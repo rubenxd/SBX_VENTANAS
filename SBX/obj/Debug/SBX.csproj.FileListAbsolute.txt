@@ -542,3 +542,4 @@ C:\SBX_VENTANAS\SBX\obj\Debug\SBX.frm_pago_credito.resources
 C:\SBX_VENTANAS\SBX\obj\Debug\SBX.frm_prueba_consultas.resources
 C:\SBX_VENTANAS\SBX\obj\Debug\SBX.frm_saldos.resources
 C:\SBX_VENTANAS\SBX\obj\Debug\SBX.frm_Creditos.resources
+C:\SBX_VENTANAS\SBX\obj\Debug\SBX.frm_detalle_informe_ventas.resources

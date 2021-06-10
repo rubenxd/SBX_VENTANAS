@@ -707,5 +707,14 @@ namespace SBX
                 frm_separados.ShowDialog();
             }
         }
+        private void btn_maximizar_Click(object sender, EventArgs e)
+        {
+            if (dtg_informe.Rows.Count > 0)
+            {
+                frm_detalle_informe_ventas frm_Detalle_Informe_Ventas = new frm_detalle_informe_ventas();
+                frm_Detalle_Informe_Ventas.v_dt_detalle = this.v_dt_detalle;
+                frm_Detalle_Informe_Ventas.ShowDialog();
+            }        
+        }
     }
 }

@@ -209,6 +209,12 @@
     <Compile Include="frm_descuento.Designer.cs">
       <DependentUpon>frm_descuento.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_detalle_informe_ventas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_detalle_informe_ventas.Designer.cs">
+      <DependentUpon>frm_detalle_informe_ventas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_domicilios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -493,6 +499,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_descuento.resx">
       <DependentUpon>frm_descuento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_detalle_informe_ventas.resx">
+      <DependentUpon>frm_detalle_informe_ventas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_domicilios.resx">
       <DependentUpon>frm_domicilios.cs</DependentUpon>
