@@ -31,6 +31,7 @@ namespace SBX
         int BuscaAutomatica = 0;
         int BuscaPaginado = 0;
         public DataTable v_dt_Permi { get; set; }
+        public string usuarios { get; set; }
 
         //Codigo para mover venta
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -388,33 +389,7 @@ namespace SBX
                 }
             }
         }
-        private void btn_rp_factura_Click(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.WaitCursor;
-            if (dtg_ventas.SelectedRows.Count > 0)
-            {
-                frm_reporte frm_Reporte = new frm_reporte();
-                Factura factura = new Factura();
-                //instancias                                  
-                ParameterField parameterField = new ParameterField();
-                ParameterFields parameterFields = new ParameterFields();
-                ParameterDiscreteValue parameterDiscreteValue = new ParameterDiscreteValue();
-                foreach (DataGridViewRow rows in dtg_ventas.SelectedRows)
-                {                  
-                    parameterField.Name = "@Factura";
-                    string Fac = rows.Cells["cl_factura"].Value.ToString();
-                    parameterDiscreteValue.Value = Fac;
-                    parameterField.CurrentValues.Add(parameterDiscreteValue);
-                    parameterFields.Add(parameterField);
-                    frm_Reporte.crystalReportViewer1.ParameterFieldInfo = parameterFields;
-                    factura.Load(@"C:\Users\RUBEN\Documents\Ruben\SBX\SBX_VENTANAS\SBX\Factura.rpt");
-                    frm_Reporte.crystalReportViewer1.ReportSource = factura;           
-                }
-                frm_Reporte.Show();
-                //factura.ExportToDisk(ExportFormatType.PortableDocFormat, @"C:\Users\RUBEN\Documents\Ruben\SBX\FacturasPDF\fact.pdf");
-            }
-            this.Cursor = Cursors.Default;
-        }
+        
         private void txt_buscar_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
@@ -566,6 +541,97 @@ namespace SBX
             ticket.TextoIzquierda("");
             ticket.CortaTicket();
             ticket.ImprimirTicket(NombreImpresora);//Nombre de la impresora ticketera
+        }
+        private void btn_cotizaciones_Click(object sender, EventArgs e)
+        {
+            frm_cotizaciones frm_Cotizaciones = new frm_cotizaciones();
+            frm_Cotizaciones.v_dt_Permi = v_dt_Permi;
+            frm_Cotizaciones.usuario = usuarios;
+            frm_Cotizaciones.Show();
+        }
+        private void btn_impresion_Click(object sender, EventArgs e)
+        {
+            //Imprimir factura PDF
+            if (MessageBox.Show("¿Desea imprimir Factura?", "Imprimir factura", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                DataTable DT_FACT = new DataTable();
+                List<cls_venta> lrFact = new List<cls_venta>();
+                foreach (DataGridViewRow item in dtg_ventas.SelectedRows)
+                {
+                    cls_Venta.v_buscar = item.Cells["cl_factura"].Value.ToString();
+                }               
+                DT_FACT = cls_Venta.mtd_consultar_dato_impresion();
+                foreach (DataRow rows in DT_FACT.Rows)
+                {
+                    cls_venta cls_Venta_2 = new cls_venta();
+                    cls_Venta_2.fact_Codigo = rows["Codigo"].ToString();
+                    DateTime Fecha = Convert.ToDateTime(rows["Fecha"].ToString());
+                    cls_Venta_2.fact_Fecha = Fecha.ToString("yyyy-MM-dd");
+                    cls_Venta_2.fact_Factura = rows["Factura"].ToString();
+                    cls_Venta_2.fact_Item = rows["Item"].ToString();
+                    cls_Venta_2.fact_Nombre = rows["Nombre"].ToString();
+                    cls_Venta_2.fact_Referencia = rows["Referencia"].ToString();
+                    cls_Venta_2.fact_CodigoBarras = rows["CodigoBarras"].ToString();
+                    cls_Venta_2.fact_ModoVenta = rows["ModoVenta"].ToString();
+                    cls_Venta_2.fact_UM = rows["UM"].ToString();
+                    cls_Venta_2.fact_Cantidad = rows["Cantidad"].ToString();
+                    cls_Venta_2.fact_Cantidad_Exacta = rows["Cantidad_Exacta"].ToString();
+                    cls_Venta_2.fact_Costo = rows["Costo"].ToString();
+                    cls_Venta_2.fact_Costo2 = rows["Costo2"].ToString();
+                    double fact_PrecioVenta2 = Convert.ToDouble(rows["PrecioVenta2"]);
+                    cls_Venta_2.fact_PrecioVenta2 = fact_PrecioVenta2.ToString("N");
+                    double fact_PrecioVenta = Convert.ToDouble(rows["PrecioVenta"]);
+                    cls_Venta_2.fact_PrecioVenta = fact_PrecioVenta.ToString("N");
+                    cls_Venta_2.fact_descuento = rows["descuento"].ToString();
+                    double fact_ValorDescuento = ((Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"])) * (Convert.ToDouble(rows["Descuento"]) / 100));
+                    cls_Venta_2.fact_ValorDescuento = fact_ValorDescuento.ToString("N");
+                    double subtotal = 0;
+                    subtotal = (Convert.ToDouble(rows["PrecioVenta"]) * Convert.ToDouble(rows["Cantidad_Exacta"]));
+                    cls_Venta_2.fact_Tdebito = rows["Tdebito"].ToString();
+                    cls_Venta_2.fact_NumBaucherDebito = rows["NumBaucherDebito"].ToString();
+                    cls_Venta_2.fact_Tcredito = rows["Tcredito"].ToString();
+                    cls_Venta_2.fact_NumBaucherCredito = rows["NumBaucherCredito"].ToString();
+                    double total = subtotal - fact_ValorDescuento;
+                    cls_Venta_2.fact_Total = total.ToString("N");
+                    cls_Venta_2.fact_Efectivo = rows["Efectivo"].ToString();
+                    cls_Venta_2.fact_Cambio = rows["Cambio"].ToString();
+                    cls_Venta_2.fact_Cliente = rows["Cliente"].ToString();
+                    cls_Venta_2.fact_Sucursal = rows["Sucursal"].ToString();
+                    cls_Venta_2.fact_Domicilio = rows["Domicilio"].ToString();
+                    cls_Venta_2.fact_Usuario = rows["Usuario"].ToString();
+                    cls_Venta_2.fact_CodigoDomicilio = rows["CodigoDomicilio"].ToString();
+                    cls_Venta_2.fact_Mensajero = rows["Mensajero"].ToString();
+                    cls_Venta_2.fact_Celular = rows["Celular"].ToString();
+                    cls_Venta_2.fact_Telefono = rows["Telefono"].ToString();
+                    cls_Venta_2.fact_NombreC = rows["NombreC"].ToString();
+                    cls_Venta_2.fact_Direccion = rows["Direccion"].ToString();
+                    cls_Venta_2.fact_NMensajero = rows["NMensajero"].ToString();
+                    cls_Venta_2.fact_ValorDomicilio = rows["ValorDomicilio"].ToString();
+                    cls_Venta_2.fact_DNI_emp = rows["DNI_emp"].ToString();
+                    cls_Venta_2.fact_Nombre_emp = rows["Nombre_emp"].ToString();
+                    cls_Venta_2.fact_Telefono_emp = rows["Telefono_emp"].ToString();
+                    cls_Venta_2.fact_Celular_emp = rows["Celular_emp"].ToString();
+                    cls_Venta_2.fact_Direccion_emp = rows["Direccion_emp"].ToString();
+                    cls_Venta_2.fact_Email_emp = rows["Email_emp"].ToString();
+                    cls_Venta_2.fact_SitioWeb_emp = rows["SitioWeb_emp"].ToString();
+                    cls_Venta_2.fact_Foto_emp = (byte[])rows["Foto_emp"];
+                    cls_Venta_2.fact_Ciudad_emp = rows["Ciudad_emp"].ToString();
+                    cls_Venta_2.fact_dni_cli = rows["dni_cli"].ToString();
+                    cls_Venta_2.fact_nombre_cli = rows["nombre_cli"].ToString();
+                    cls_Venta_2.fact_ciudad_cli = rows["ciudad_cli"].ToString();
+                    cls_Venta_2.fact_telefono_cli = rows["telefono_cli"].ToString();
+                    cls_Venta_2.fact_celular_cli = rows["celular_cli"].ToString();
+                    cls_Venta_2.fact_direccion_cli = rows["direccion_cli"].ToString();
+                    cls_Venta_2.fact_email_cli = rows["email_cli"].ToString();
+                    cls_Venta_2.fact_sitioweb_cli = rows["sitioweb_cli"].ToString();
+
+                    lrFact.Add(cls_Venta_2);
+                }
+                frm_cotizacion frm_Cotizacion = new frm_cotizacion();
+                frm_Cotizacion.Reporte = "Factura";
+                frm_Cotizacion.lrFact = lrFact;
+                frm_Cotizacion.Show();
+            }
         }
     }
 }

@@ -36,23 +36,6 @@
             this.lbl_minimixar = new System.Windows.Forms.Label();
             this.lbl_cerrar = new System.Windows.Forms.Label();
             this.dtg_ventas = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_impresion_ticket = new System.Windows.Forms.Button();
-            this.btn_rp_factura = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtp_fecha_fin = new System.Windows.Forms.DateTimePicker();
-            this.dtp_fecha_inicio = new System.Windows.Forms.DateTimePicker();
-            this.cbx_tipo_busqueda = new System.Windows.Forms.ComboBox();
-            this.btn_eliminar = new System.Windows.Forms.Button();
-            this.btn_buscar = new System.Windows.Forms.Button();
-            this.txt_buscar = new System.Windows.Forms.TextBox();
-            this.btn_exportar_excel = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lbl_cantidad = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lbl_total_ventas = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.cl_codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_factura = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,6 +65,24 @@
             this.cl_abonos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_debe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_impresion_ticket = new System.Windows.Forms.Button();
+            this.btn_cotizaciones = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtp_fecha_fin = new System.Windows.Forms.DateTimePicker();
+            this.dtp_fecha_inicio = new System.Windows.Forms.DateTimePicker();
+            this.cbx_tipo_busqueda = new System.Windows.Forms.ComboBox();
+            this.btn_eliminar = new System.Windows.Forms.Button();
+            this.btn_buscar = new System.Windows.Forms.Button();
+            this.txt_buscar = new System.Windows.Forms.TextBox();
+            this.btn_exportar_excel = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_cantidad = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lbl_total_ventas = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btn_impresion = new System.Windows.Forms.Button();
             this.pnl_arriba.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_ventas)).BeginInit();
             this.panel1.SuspendLayout();
@@ -203,228 +204,6 @@
             this.dtg_ventas.ReadOnly = true;
             this.dtg_ventas.Size = new System.Drawing.Size(945, 388);
             this.dtg_ventas.TabIndex = 10;
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.btn_impresion_ticket);
-            this.panel1.Controls.Add(this.btn_rp_factura);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.dtp_fecha_fin);
-            this.panel1.Controls.Add(this.dtp_fecha_inicio);
-            this.panel1.Controls.Add(this.cbx_tipo_busqueda);
-            this.panel1.Controls.Add(this.btn_eliminar);
-            this.panel1.Controls.Add(this.btn_buscar);
-            this.panel1.Controls.Add(this.txt_buscar);
-            this.panel1.Controls.Add(this.btn_exportar_excel);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 28);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(945, 42);
-            this.panel1.TabIndex = 8;
-            // 
-            // btn_impresion_ticket
-            // 
-            this.btn_impresion_ticket.BackColor = System.Drawing.SystemColors.Window;
-            this.btn_impresion_ticket.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_impresion_ticket.FlatAppearance.BorderSize = 0;
-            this.btn_impresion_ticket.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btn_impresion_ticket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_impresion_ticket.Image = ((System.Drawing.Image)(resources.GetObject("btn_impresion_ticket.Image")));
-            this.btn_impresion_ticket.Location = new System.Drawing.Point(74, 6);
-            this.btn_impresion_ticket.Name = "btn_impresion_ticket";
-            this.btn_impresion_ticket.Size = new System.Drawing.Size(26, 26);
-            this.btn_impresion_ticket.TabIndex = 82;
-            this.btn_impresion_ticket.UseVisualStyleBackColor = false;
-            this.btn_impresion_ticket.Click += new System.EventHandler(this.btn_impresion_ticket_Click);
-            // 
-            // btn_rp_factura
-            // 
-            this.btn_rp_factura.BackColor = System.Drawing.SystemColors.Window;
-            this.btn_rp_factura.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_rp_factura.FlatAppearance.BorderSize = 0;
-            this.btn_rp_factura.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btn_rp_factura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_rp_factura.Image = ((System.Drawing.Image)(resources.GetObject("btn_rp_factura.Image")));
-            this.btn_rp_factura.Location = new System.Drawing.Point(157, 6);
-            this.btn_rp_factura.Name = "btn_rp_factura";
-            this.btn_rp_factura.Size = new System.Drawing.Size(26, 26);
-            this.btn_rp_factura.TabIndex = 81;
-            this.btn_rp_factura.UseVisualStyleBackColor = false;
-            this.btn_rp_factura.Visible = false;
-            this.btn_rp_factura.Click += new System.EventHandler(this.btn_rp_factura_Click);
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(233, 12);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 15);
-            this.label3.TabIndex = 80;
-            this.label3.Text = "F. Inicio:";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(416, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 15);
-            this.label2.TabIndex = 79;
-            this.label2.Text = "F. Fin:";
-            // 
-            // dtp_fecha_fin
-            // 
-            this.dtp_fecha_fin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtp_fecha_fin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_fecha_fin.Location = new System.Drawing.Point(460, 10);
-            this.dtp_fecha_fin.Name = "dtp_fecha_fin";
-            this.dtp_fecha_fin.Size = new System.Drawing.Size(110, 20);
-            this.dtp_fecha_fin.TabIndex = 78;
-            // 
-            // dtp_fecha_inicio
-            // 
-            this.dtp_fecha_inicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtp_fecha_inicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_fecha_inicio.Location = new System.Drawing.Point(289, 10);
-            this.dtp_fecha_inicio.Name = "dtp_fecha_inicio";
-            this.dtp_fecha_inicio.Size = new System.Drawing.Size(110, 20);
-            this.dtp_fecha_inicio.TabIndex = 77;
-            // 
-            // cbx_tipo_busqueda
-            // 
-            this.cbx_tipo_busqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbx_tipo_busqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbx_tipo_busqueda.FormattingEnabled = true;
-            this.cbx_tipo_busqueda.Items.AddRange(new object[] {
-            "Contiene",
-            "Exactamente"});
-            this.cbx_tipo_busqueda.Location = new System.Drawing.Point(576, 10);
-            this.cbx_tipo_busqueda.Name = "cbx_tipo_busqueda";
-            this.cbx_tipo_busqueda.Size = new System.Drawing.Size(85, 21);
-            this.cbx_tipo_busqueda.TabIndex = 76;
-            // 
-            // btn_eliminar
-            // 
-            this.btn_eliminar.BackColor = System.Drawing.SystemColors.Window;
-            this.btn_eliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_eliminar.FlatAppearance.BorderSize = 0;
-            this.btn_eliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btn_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_eliminar.Image = ((System.Drawing.Image)(resources.GetObject("btn_eliminar.Image")));
-            this.btn_eliminar.Location = new System.Drawing.Point(42, 6);
-            this.btn_eliminar.Name = "btn_eliminar";
-            this.btn_eliminar.Size = new System.Drawing.Size(26, 26);
-            this.btn_eliminar.TabIndex = 9;
-            this.btn_eliminar.UseVisualStyleBackColor = false;
-            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
-            // 
-            // btn_buscar
-            // 
-            this.btn_buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_buscar.BackColor = System.Drawing.SystemColors.Window;
-            this.btn_buscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_buscar.FlatAppearance.BorderSize = 0;
-            this.btn_buscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_buscar.Image = ((System.Drawing.Image)(resources.GetObject("btn_buscar.Image")));
-            this.btn_buscar.Location = new System.Drawing.Point(912, 8);
-            this.btn_buscar.Name = "btn_buscar";
-            this.btn_buscar.Size = new System.Drawing.Size(22, 22);
-            this.btn_buscar.TabIndex = 8;
-            this.btn_buscar.UseVisualStyleBackColor = false;
-            this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
-            // 
-            // txt_buscar
-            // 
-            this.txt_buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_buscar.ForeColor = System.Drawing.Color.Gray;
-            this.txt_buscar.Location = new System.Drawing.Point(667, 10);
-            this.txt_buscar.Name = "txt_buscar";
-            this.txt_buscar.Size = new System.Drawing.Size(239, 20);
-            this.txt_buscar.TabIndex = 7;
-            this.txt_buscar.Text = "Producto-Factura";
-            this.txt_buscar.Enter += new System.EventHandler(this.txt_buscar_Enter);
-            this.txt_buscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_buscar_KeyPress);
-            this.txt_buscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_buscar_KeyUp);
-            this.txt_buscar.Leave += new System.EventHandler(this.txt_buscar_Leave);
-            // 
-            // btn_exportar_excel
-            // 
-            this.btn_exportar_excel.BackColor = System.Drawing.SystemColors.Window;
-            this.btn_exportar_excel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_exportar_excel.FlatAppearance.BorderSize = 0;
-            this.btn_exportar_excel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btn_exportar_excel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_exportar_excel.Image = ((System.Drawing.Image)(resources.GetObject("btn_exportar_excel.Image")));
-            this.btn_exportar_excel.Location = new System.Drawing.Point(9, 6);
-            this.btn_exportar_excel.Name = "btn_exportar_excel";
-            this.btn_exportar_excel.Size = new System.Drawing.Size(26, 26);
-            this.btn_exportar_excel.TabIndex = 2;
-            this.btn_exportar_excel.UseVisualStyleBackColor = false;
-            this.btn_exportar_excel.Click += new System.EventHandler(this.btn_exportar_excel_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Silver;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.lbl_cantidad);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.lbl_total_ventas);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 458);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(945, 95);
-            this.panel2.TabIndex = 9;
-            // 
-            // lbl_cantidad
-            // 
-            this.lbl_cantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_cantidad.AutoSize = true;
-            this.lbl_cantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_cantidad.Location = new System.Drawing.Point(138, 55);
-            this.lbl_cantidad.Name = "lbl_cantidad";
-            this.lbl_cantidad.Size = new System.Drawing.Size(23, 25);
-            this.lbl_cantidad.TabIndex = 84;
-            this.lbl_cantidad.Text = "0";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(11, 55);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 25);
-            this.label6.TabIndex = 83;
-            this.label6.Text = "Cantidad:";
-            // 
-            // lbl_total_ventas
-            // 
-            this.lbl_total_ventas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_total_ventas.AutoSize = true;
-            this.lbl_total_ventas.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total_ventas.Location = new System.Drawing.Point(140, 19);
-            this.lbl_total_ventas.Name = "lbl_total_ventas";
-            this.lbl_total_ventas.Size = new System.Drawing.Size(23, 25);
-            this.lbl_total_ventas.TabIndex = 82;
-            this.lbl_total_ventas.Text = "0";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(11, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 25);
-            this.label4.TabIndex = 81;
-            this.label4.Text = "Total Venta:";
             // 
             // cl_codigo
             // 
@@ -604,6 +383,243 @@
             this.cl_Usuario.Name = "cl_Usuario";
             this.cl_Usuario.ReadOnly = true;
             // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.btn_impresion);
+            this.panel1.Controls.Add(this.btn_impresion_ticket);
+            this.panel1.Controls.Add(this.btn_cotizaciones);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.dtp_fecha_fin);
+            this.panel1.Controls.Add(this.dtp_fecha_inicio);
+            this.panel1.Controls.Add(this.cbx_tipo_busqueda);
+            this.panel1.Controls.Add(this.btn_eliminar);
+            this.panel1.Controls.Add(this.btn_buscar);
+            this.panel1.Controls.Add(this.txt_buscar);
+            this.panel1.Controls.Add(this.btn_exportar_excel);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 28);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(945, 42);
+            this.panel1.TabIndex = 8;
+            // 
+            // btn_impresion_ticket
+            // 
+            this.btn_impresion_ticket.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_impresion_ticket.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_impresion_ticket.FlatAppearance.BorderSize = 0;
+            this.btn_impresion_ticket.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_impresion_ticket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_impresion_ticket.Image = ((System.Drawing.Image)(resources.GetObject("btn_impresion_ticket.Image")));
+            this.btn_impresion_ticket.Location = new System.Drawing.Point(74, 6);
+            this.btn_impresion_ticket.Name = "btn_impresion_ticket";
+            this.btn_impresion_ticket.Size = new System.Drawing.Size(26, 26);
+            this.btn_impresion_ticket.TabIndex = 82;
+            this.btn_impresion_ticket.UseVisualStyleBackColor = false;
+            this.btn_impresion_ticket.Click += new System.EventHandler(this.btn_impresion_ticket_Click);
+            // 
+            // btn_cotizaciones
+            // 
+            this.btn_cotizaciones.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_cotizaciones.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_cotizaciones.FlatAppearance.BorderSize = 0;
+            this.btn_cotizaciones.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_cotizaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cotizaciones.Image = ((System.Drawing.Image)(resources.GetObject("btn_cotizaciones.Image")));
+            this.btn_cotizaciones.Location = new System.Drawing.Point(106, 6);
+            this.btn_cotizaciones.Name = "btn_cotizaciones";
+            this.btn_cotizaciones.Size = new System.Drawing.Size(26, 26);
+            this.btn_cotizaciones.TabIndex = 81;
+            this.btn_cotizaciones.UseVisualStyleBackColor = false;
+            this.btn_cotizaciones.Click += new System.EventHandler(this.btn_cotizaciones_Click);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(233, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 15);
+            this.label3.TabIndex = 80;
+            this.label3.Text = "F. Inicio:";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(416, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 15);
+            this.label2.TabIndex = 79;
+            this.label2.Text = "F. Fin:";
+            // 
+            // dtp_fecha_fin
+            // 
+            this.dtp_fecha_fin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtp_fecha_fin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_fecha_fin.Location = new System.Drawing.Point(460, 10);
+            this.dtp_fecha_fin.Name = "dtp_fecha_fin";
+            this.dtp_fecha_fin.Size = new System.Drawing.Size(110, 20);
+            this.dtp_fecha_fin.TabIndex = 78;
+            // 
+            // dtp_fecha_inicio
+            // 
+            this.dtp_fecha_inicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtp_fecha_inicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_fecha_inicio.Location = new System.Drawing.Point(289, 10);
+            this.dtp_fecha_inicio.Name = "dtp_fecha_inicio";
+            this.dtp_fecha_inicio.Size = new System.Drawing.Size(110, 20);
+            this.dtp_fecha_inicio.TabIndex = 77;
+            // 
+            // cbx_tipo_busqueda
+            // 
+            this.cbx_tipo_busqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbx_tipo_busqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_tipo_busqueda.FormattingEnabled = true;
+            this.cbx_tipo_busqueda.Items.AddRange(new object[] {
+            "Contiene",
+            "Exactamente"});
+            this.cbx_tipo_busqueda.Location = new System.Drawing.Point(576, 10);
+            this.cbx_tipo_busqueda.Name = "cbx_tipo_busqueda";
+            this.cbx_tipo_busqueda.Size = new System.Drawing.Size(85, 21);
+            this.cbx_tipo_busqueda.TabIndex = 76;
+            // 
+            // btn_eliminar
+            // 
+            this.btn_eliminar.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_eliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_eliminar.FlatAppearance.BorderSize = 0;
+            this.btn_eliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_eliminar.Image = ((System.Drawing.Image)(resources.GetObject("btn_eliminar.Image")));
+            this.btn_eliminar.Location = new System.Drawing.Point(42, 6);
+            this.btn_eliminar.Name = "btn_eliminar";
+            this.btn_eliminar.Size = new System.Drawing.Size(26, 26);
+            this.btn_eliminar.TabIndex = 9;
+            this.btn_eliminar.UseVisualStyleBackColor = false;
+            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
+            // 
+            // btn_buscar
+            // 
+            this.btn_buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_buscar.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_buscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_buscar.FlatAppearance.BorderSize = 0;
+            this.btn_buscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_buscar.Image = ((System.Drawing.Image)(resources.GetObject("btn_buscar.Image")));
+            this.btn_buscar.Location = new System.Drawing.Point(912, 8);
+            this.btn_buscar.Name = "btn_buscar";
+            this.btn_buscar.Size = new System.Drawing.Size(22, 22);
+            this.btn_buscar.TabIndex = 8;
+            this.btn_buscar.UseVisualStyleBackColor = false;
+            this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
+            // 
+            // txt_buscar
+            // 
+            this.txt_buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_buscar.ForeColor = System.Drawing.Color.Gray;
+            this.txt_buscar.Location = new System.Drawing.Point(667, 10);
+            this.txt_buscar.Name = "txt_buscar";
+            this.txt_buscar.Size = new System.Drawing.Size(239, 20);
+            this.txt_buscar.TabIndex = 7;
+            this.txt_buscar.Text = "Producto-Factura";
+            this.txt_buscar.Enter += new System.EventHandler(this.txt_buscar_Enter);
+            this.txt_buscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_buscar_KeyPress);
+            this.txt_buscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_buscar_KeyUp);
+            this.txt_buscar.Leave += new System.EventHandler(this.txt_buscar_Leave);
+            // 
+            // btn_exportar_excel
+            // 
+            this.btn_exportar_excel.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_exportar_excel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_exportar_excel.FlatAppearance.BorderSize = 0;
+            this.btn_exportar_excel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_exportar_excel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_exportar_excel.Image = ((System.Drawing.Image)(resources.GetObject("btn_exportar_excel.Image")));
+            this.btn_exportar_excel.Location = new System.Drawing.Point(9, 6);
+            this.btn_exportar_excel.Name = "btn_exportar_excel";
+            this.btn_exportar_excel.Size = new System.Drawing.Size(26, 26);
+            this.btn_exportar_excel.TabIndex = 2;
+            this.btn_exportar_excel.UseVisualStyleBackColor = false;
+            this.btn_exportar_excel.Click += new System.EventHandler(this.btn_exportar_excel_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Silver;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.lbl_cantidad);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.lbl_total_ventas);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 458);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(945, 95);
+            this.panel2.TabIndex = 9;
+            // 
+            // lbl_cantidad
+            // 
+            this.lbl_cantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_cantidad.AutoSize = true;
+            this.lbl_cantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_cantidad.Location = new System.Drawing.Point(138, 55);
+            this.lbl_cantidad.Name = "lbl_cantidad";
+            this.lbl_cantidad.Size = new System.Drawing.Size(23, 25);
+            this.lbl_cantidad.TabIndex = 84;
+            this.lbl_cantidad.Text = "0";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(11, 55);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(97, 25);
+            this.label6.TabIndex = 83;
+            this.label6.Text = "Cantidad:";
+            // 
+            // lbl_total_ventas
+            // 
+            this.lbl_total_ventas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_total_ventas.AutoSize = true;
+            this.lbl_total_ventas.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_total_ventas.Location = new System.Drawing.Point(140, 19);
+            this.lbl_total_ventas.Name = "lbl_total_ventas";
+            this.lbl_total_ventas.Size = new System.Drawing.Size(23, 25);
+            this.lbl_total_ventas.TabIndex = 82;
+            this.lbl_total_ventas.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(11, 19);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(119, 25);
+            this.label4.TabIndex = 81;
+            this.label4.Text = "Total Venta:";
+            // 
+            // btn_impresion
+            // 
+            this.btn_impresion.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_impresion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_impresion.FlatAppearance.BorderSize = 0;
+            this.btn_impresion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_impresion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_impresion.Image = ((System.Drawing.Image)(resources.GetObject("btn_impresion.Image")));
+            this.btn_impresion.Location = new System.Drawing.Point(138, 6);
+            this.btn_impresion.Name = "btn_impresion";
+            this.btn_impresion.Size = new System.Drawing.Size(26, 26);
+            this.btn_impresion.TabIndex = 83;
+            this.btn_impresion.UseVisualStyleBackColor = false;
+            this.btn_impresion.Click += new System.EventHandler(this.btn_impresion_Click);
+            // 
             // frm_ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -653,7 +669,7 @@
         private System.Windows.Forms.Label lbl_total_ventas;
         private System.Windows.Forms.Label lbl_cantidad;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btn_rp_factura;
+        private System.Windows.Forms.Button btn_cotizaciones;
         private System.Windows.Forms.Button btn_impresion_ticket;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_fecha;
@@ -684,5 +700,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_abonos;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_debe;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_Usuario;
+        private System.Windows.Forms.Button btn_impresion;
     }
 }

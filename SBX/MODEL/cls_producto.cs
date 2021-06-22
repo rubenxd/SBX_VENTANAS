@@ -60,6 +60,7 @@ namespace SBX.MODEL
 
         public double Costo_productoCalculado { get; set; }
         public string Nota { get; set; }
+        public string Cotizacion { get; set; }
 
         //Metodos
         public DataTable mtd_consultar_caracteristicas_producto()

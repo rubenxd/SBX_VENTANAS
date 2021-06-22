@@ -228,7 +228,6 @@
             this.btn_imprimir_reporte.Size = new System.Drawing.Size(26, 26);
             this.btn_imprimir_reporte.TabIndex = 2;
             this.btn_imprimir_reporte.UseVisualStyleBackColor = false;
-            this.btn_imprimir_reporte.Visible = false;
             this.btn_imprimir_reporte.Click += new System.EventHandler(this.btn_imprimir_reporte_Click);
             // 
             // pnl_centro
@@ -484,6 +483,7 @@
             this.label14.Size = new System.Drawing.Size(64, 20);
             this.label14.TabIndex = 106;
             this.label14.Text = "Gan Sp";
+            this.label14.Visible = false;
             // 
             // txt_gn_sp
             // 
@@ -494,6 +494,7 @@
             this.txt_gn_sp.Name = "txt_gn_sp";
             this.txt_gn_sp.Size = new System.Drawing.Size(260, 26);
             this.txt_gn_sp.TabIndex = 107;
+            this.txt_gn_sp.Visible = false;
             // 
             // label15
             // 
@@ -505,6 +506,7 @@
             this.label15.Size = new System.Drawing.Size(122, 20);
             this.label15.TabIndex = 104;
             this.label15.Text = "Total Costos Sp";
+            this.label15.Visible = false;
             // 
             // txt_costo_total_sp
             // 
@@ -515,6 +517,7 @@
             this.txt_costo_total_sp.Name = "txt_costo_total_sp";
             this.txt_costo_total_sp.Size = new System.Drawing.Size(260, 26);
             this.txt_costo_total_sp.TabIndex = 105;
+            this.txt_costo_total_sp.Visible = false;
             // 
             // btn_ventas_separado_total
             // 
@@ -530,6 +533,7 @@
             this.btn_ventas_separado_total.Size = new System.Drawing.Size(26, 26);
             this.btn_ventas_separado_total.TabIndex = 100;
             this.btn_ventas_separado_total.UseVisualStyleBackColor = false;
+            this.btn_ventas_separado_total.Visible = false;
             this.btn_ventas_separado_total.Click += new System.EventHandler(this.btn_ventas_separado_total_Click);
             // 
             // label13
@@ -542,6 +546,7 @@
             this.label13.Size = new System.Drawing.Size(126, 20);
             this.label13.TabIndex = 98;
             this.label13.Text = "Total Separados";
+            this.label13.Visible = false;
             // 
             // txt_ventas_sp_total
             // 
@@ -552,6 +557,7 @@
             this.txt_ventas_sp_total.Name = "txt_ventas_sp_total";
             this.txt_ventas_sp_total.Size = new System.Drawing.Size(282, 26);
             this.txt_ventas_sp_total.TabIndex = 99;
+            this.txt_ventas_sp_total.Visible = false;
             // 
             // btn_ventas_separado
             // 
@@ -706,9 +712,9 @@
             this.txt_gastos.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_gastos.Enabled = false;
             this.txt_gastos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_gastos.Location = new System.Drawing.Point(147, 181);
+            this.txt_gastos.Location = new System.Drawing.Point(120, 181);
             this.txt_gastos.Name = "txt_gastos";
-            this.txt_gastos.Size = new System.Drawing.Size(260, 26);
+            this.txt_gastos.Size = new System.Drawing.Size(287, 26);
             this.txt_gastos.TabIndex = 10;
             // 
             // label2

@@ -58,6 +58,59 @@ namespace SBX.MODEL
         public string Nota { get; set; }
         public string sucursal { get; set; }
 
+        public string fact_Codigo { get; set; }
+        public string fact_Fecha { get; set; }
+        public string fact_Factura { get; set; }
+        public string fact_Item { get; set; }
+        public string fact_Nombre { get; set; }
+        public string fact_Referencia { get; set; }
+        public string fact_CodigoBarras { get; set; }
+        public string fact_ModoVenta { get; set; }
+        public string fact_UM { get; set; }
+        public string fact_Cantidad { get; set; }
+        public string fact_Cantidad_Exacta { get; set; }
+        public string fact_Costo { get; set; }
+        public string fact_Costo2 { get; set; }
+        public string fact_PrecioVenta2 { get; set; }
+        public string fact_PrecioVenta { get; set; }
+        public string fact_descuento { get; set; }
+        public string fact_ValorDescuento { get; set; }
+        public string fact_Tdebito { get; set; }
+        public string fact_NumBaucherDebito { get; set; }
+        public string fact_Tcredito { get; set; }
+        public string fact_NumBaucherCredito { get; set; }
+        public string fact_Total { get; set; }
+        public string fact_Efectivo { get; set; }
+        public string fact_Cambio { get; set; }
+        public string fact_Cliente { get; set; }
+        public string fact_Sucursal { get; set; }
+        public string fact_Domicilio { get; set; }
+        public string fact_Usuario { get; set; }
+        public string fact_CodigoDomicilio { get; set; }
+        public string fact_Mensajero { get; set; }
+        public string fact_Celular { get; set; }
+        public string fact_Telefono { get; set; }
+        public string fact_NombreC { get; set; }
+        public string fact_Direccion { get; set; }
+        public string fact_NMensajero { get; set; }
+        public string fact_ValorDomicilio { get; set; }
+        public string fact_DNI_emp { get; set; }
+        public string fact_Nombre_emp { get; set; }
+        public string fact_Telefono_emp { get; set; }
+        public string fact_Celular_emp { get; set; }
+        public string fact_Direccion_emp { get; set; }
+        public string fact_Email_emp { get; set; }
+        public string fact_SitioWeb_emp { get; set; }
+        public byte[] fact_Foto_emp { get; set; }
+        public string fact_Ciudad_emp { get; set; }
+        public string fact_dni_cli { get; set; }
+        public string fact_nombre_cli { get; set; }
+        public string fact_ciudad_cli { get; set; }
+        public string fact_telefono_cli { get; set; }
+        public string fact_celular_cli { get; set; }
+        public string fact_direccion_cli { get; set; }
+        public string fact_email_cli { get; set; }
+        public string fact_sitioweb_cli { get; set; }
         //Metodos
         public DataTable mtd_consultar_Venta()
         {
@@ -85,6 +138,23 @@ namespace SBX.MODEL
                         "INNER JOIN Producto p ON p.Item = v.Producto " +
                         "LEFT JOIN Mensajero m ON m.DNI = d.Mensajero  "+
                         "WHERE NombreDocumento = '" +NombreDocumento+"' AND ConsecutivoDocumento = '"+ConsecutivoDocumento+"'  ";
+            v_dt = cls_datos.mtd_consultar(v_query);
+            return v_dt;
+        }
+        public DataTable mtd_consultar_Ventas_factura_pdf()
+        {
+            v_query = " SELECT " +
+                        "v.Fecha,v.NombreDocumento,v.ConsecutivoDocumento,CONCAT(c.DNI, ' - ', c.Nombre) ClienteVenta,d.Codigo CodigoDomicilio, " +
+                        "d.Cliente ClienteDomicilio, d.Celular,d.Nombre NombreC, d.Direccion,d.Telefono,d.Mensajero,ISNULL(d.ValorDomicilio,0) ValorDomicilio, " +
+                        "p.Item, p.Nombre,v.UM,v.PrecioVenta,v.Cantidad,v.descuento,V.IVA,V.Efectivo,V.Tdebito,V.Tcredito,V.Cambio,v.Total, " +
+                        "m.Codigo Mensajero, m.Nombre NMensajero,p.SubCantidad,p.Sobres,v.ModoVenta,v.Nota " +
+                        "FROM " +
+                        "Venta v " +
+                        "LEFT JOIN Domicilio d ON v.Domicilio = d.Codigo " +
+                        "INNER JOIN Cliente c ON c.Codigo = v.Cliente " +
+                        "INNER JOIN Producto p ON p.Item = v.Producto " +
+                        "LEFT JOIN Mensajero m ON m.DNI = d.Mensajero  " +
+                        "WHERE NombreDocumento = '" + NombreDocumento + "' AND ConsecutivoDocumento = '" + ConsecutivoDocumento + "'  ";
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }

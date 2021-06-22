@@ -250,14 +250,6 @@ namespace SBX
                 frm_Venta.WindowState = FormWindowState.Normal;
             }
             this.Cursor = Cursors.Default;
-            //formul.Dispose();
-            //frm_venta frm_Venta = new frm_venta();
-            //frm_Venta.Usuario = Codigo;
-            //frm_Venta.v_dt_Permi = v_dt_permisos;
-            //frm_Venta.Show();
-            //ColoresBotones("btn_venta");
-            //AbrirFormularioEnPanel(frm_Venta);
-            //btn_venta.BackColor = Color.DarkSeaGreen;
         }
         private void btn_producto_Click(object sender, EventArgs e)
         {
