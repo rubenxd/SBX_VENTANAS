@@ -49,7 +49,7 @@ namespace SBX
             this.Controls.Add(this.reportViewer1);
             this.Name = "frm_cotizacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frm_cotizacion";
+            this.Text = "Reporte";
             this.Load += new System.EventHandler(this.frm_cotizacion_Load);
             this.ResumeLayout(false);
 

@@ -332,6 +332,12 @@
     <Compile Include="frm_msg.Designer.cs">
       <DependentUpon>frm_msg.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_orden_servicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_orden_servicio.Designer.cs">
+      <DependentUpon>frm_orden_servicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_pago_credito.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -442,6 +448,7 @@
     <Compile Include="MODEL\cls_login.cs" />
     <Compile Include="MODEL\cls_marca.cs" />
     <Compile Include="MODEL\cls_mensajero.cs" />
+    <Compile Include="MODEL\cls_orden_servicio.cs" />
     <Compile Include="MODEL\cls_parametros.cs" />
     <Compile Include="MODEL\cls_producto.cs" />
     <Compile Include="MODEL\cls_proveedor.cs" />
@@ -579,6 +586,9 @@
     <EmbeddedResource Include="frm_msg.resx">
       <DependentUpon>frm_msg.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_orden_servicio.resx">
+      <DependentUpon>frm_orden_servicio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_pago_credito.resx">
       <DependentUpon>frm_pago_credito.cs</DependentUpon>
     </EmbeddedResource>
@@ -640,6 +650,7 @@
     </Compile>
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="Report2.rdlc" />
+    <EmbeddedResource Include="Report3.rdlc" />
     <None Include="DB_SBXDataSet.xsc">
       <DependentUpon>DB_SBXDataSet.xsd</DependentUpon>
     </None>
@@ -666,6 +677,7 @@
     <None Include="Properties\DataSources\cls_cliente.datasource" />
     <None Include="Properties\DataSources\frm_empresa.datasource" />
     <None Include="Properties\DataSources\SBX.MODEL.cls_empresa.datasource" />
+    <None Include="Properties\DataSources\SBX.MODEL.cls_orden_servicio.datasource" />
     <None Include="Properties\DataSources\SBX.MODEL.cls_producto.datasource" />
     <None Include="Properties\DataSources\SBX.MODEL.cls_reporte_cotizacion.datasource" />
     <None Include="Properties\DataSources\SBX.MODEL.cls_venta.datasource" />

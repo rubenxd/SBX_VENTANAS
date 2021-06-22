@@ -146,6 +146,11 @@ namespace SBX
                 errorProvider.SetError(txt_Nom_Doc_ctz, "Ingrese Nombre documento Cotizacion");
                 v_validado++;
             }
+            if (txt_Nom_Doc_ords.Text == "")
+            {
+                errorProvider.SetError(txt_Nom_Doc_ords, "Ingrese Nombre documento Orden servicio");
+                v_validado++;
+            }
         }
         public string CalcularDigitoVerificacion(string Nit)
         {
@@ -218,8 +223,10 @@ namespace SBX
                     txt_alerta.Text = rows["Alerta"].ToString();
                     txt_consecutivo_actual.Text = rows["ConsecutivoActual"].ToString();
                     txt_cons_Actual_ctz.Text = rows["ConsecutivoActualCTZ"].ToString();
+                    txt_cons_Actual_ords.Text = rows["ConsecutivoActualOrds"].ToString();
                     txt_nom_doc.Text = rows["NomDoc"].ToString();
                     txt_Nom_Doc_ctz.Text = rows["NomDocCtz"].ToString();
+                    txt_Nom_Doc_ords.Text = rows["NomDocOrds"].ToString();
                     if (!string.IsNullOrEmpty(rows["Foto"].ToString()))
                     {
                         if (rows["Foto"].ToString() != "System.Byte[]")
@@ -284,6 +291,7 @@ namespace SBX
                 cls_Empresa.NomDoc = txt_nom_doc.Text;
                 cls_Empresa.tamano_papel = txt_tamano_papel.Text;
                 cls_Empresa.NomDocCtz = txt_Nom_Doc_ctz.Text;
+                cls_Empresa.NomDocOrds = txt_Nom_Doc_ords.Text;
                 v_ok = cls_Empresa.mtd_registrar();
 
                 frm_msg frm_Msg = new frm_msg();
@@ -331,6 +339,7 @@ namespace SBX
             cls_Empresa.NomDoc = txt_nom_doc.Text;
             cls_Empresa.NomDocCtz = txt_Nom_Doc_ctz.Text;
             cls_Empresa.tamano_papel = txt_tamano_papel.Text;
+            cls_Empresa.NomDocOrds = txt_Nom_Doc_ords.Text;
             v_ok = cls_Empresa.mtd_Editar();
                
                 frm_msg frm_Msg = new frm_msg();

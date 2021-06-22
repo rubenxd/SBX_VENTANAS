@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_empresa));
             this.pnl_centro = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txt_Nom_Doc_ctz = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txt_cons_Actual_ctz = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.txt_tamano_papel = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -77,10 +81,10 @@
             this.lbl_minimixar = new System.Windows.Forms.Label();
             this.lbl_cerrar = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label19 = new System.Windows.Forms.Label();
-            this.txt_Nom_Doc_ctz = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.txt_cons_Actual_ctz = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txt_Nom_Doc_ords = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txt_cons_Actual_ords = new System.Windows.Forms.TextBox();
             this.pnl_centro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_foto)).BeginInit();
             this.pnl_botones.SuspendLayout();
@@ -91,6 +95,10 @@
             // pnl_centro
             // 
             this.pnl_centro.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnl_centro.Controls.Add(this.label21);
+            this.pnl_centro.Controls.Add(this.txt_Nom_Doc_ords);
+            this.pnl_centro.Controls.Add(this.label22);
+            this.pnl_centro.Controls.Add(this.txt_cons_Actual_ords);
             this.pnl_centro.Controls.Add(this.label19);
             this.pnl_centro.Controls.Add(this.txt_Nom_Doc_ctz);
             this.pnl_centro.Controls.Add(this.label20);
@@ -141,6 +149,47 @@
             this.pnl_centro.Size = new System.Drawing.Size(900, 500);
             this.pnl_centro.TabIndex = 0;
             // 
+            // label19
+            // 
+            this.label19.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(382, 337);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(87, 15);
+            this.label19.TabIndex = 93;
+            this.label19.Text = "Nom. Doc Ctz*";
+            // 
+            // txt_Nom_Doc_ctz
+            // 
+            this.txt_Nom_Doc_ctz.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txt_Nom_Doc_ctz.Location = new System.Drawing.Point(475, 334);
+            this.txt_Nom_Doc_ctz.MaxLength = 100;
+            this.txt_Nom_Doc_ctz.Name = "txt_Nom_Doc_ctz";
+            this.txt_Nom_Doc_ctz.Size = new System.Drawing.Size(197, 20);
+            this.txt_Nom_Doc_ctz.TabIndex = 92;
+            // 
+            // label20
+            // 
+            this.label20.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(68, 336);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(68, 15);
+            this.label20.TabIndex = 91;
+            this.label20.Text = "Con. Actual";
+            // 
+            // txt_cons_Actual_ctz
+            // 
+            this.txt_cons_Actual_ctz.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txt_cons_Actual_ctz.Enabled = false;
+            this.txt_cons_Actual_ctz.Location = new System.Drawing.Point(149, 334);
+            this.txt_cons_Actual_ctz.MaxLength = 100;
+            this.txt_cons_Actual_ctz.Name = "txt_cons_Actual_ctz";
+            this.txt_cons_Actual_ctz.Size = new System.Drawing.Size(211, 20);
+            this.txt_cons_Actual_ctz.TabIndex = 90;
+            // 
             // label18
             // 
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -166,7 +215,7 @@
             this.label17.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(382, 307);
+            this.label17.Location = new System.Drawing.Point(382, 311);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(70, 15);
             this.label17.TabIndex = 87;
@@ -175,7 +224,7 @@
             // txt_nom_doc
             // 
             this.txt_nom_doc.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_nom_doc.Location = new System.Drawing.Point(475, 304);
+            this.txt_nom_doc.Location = new System.Drawing.Point(475, 308);
             this.txt_nom_doc.MaxLength = 100;
             this.txt_nom_doc.Name = "txt_nom_doc";
             this.txt_nom_doc.Size = new System.Drawing.Size(197, 20);
@@ -643,46 +692,46 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // label19
+            // label21
             // 
-            this.label19.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(382, 333);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(87, 15);
-            this.label19.TabIndex = 93;
-            this.label19.Text = "Nom. Doc Ctz*";
+            this.label21.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(382, 363);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(87, 15);
+            this.label21.TabIndex = 97;
+            this.label21.Text = "Nom. Doc OS*";
             // 
-            // txt_Nom_Doc_ctz
+            // txt_Nom_Doc_ords
             // 
-            this.txt_Nom_Doc_ctz.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_Nom_Doc_ctz.Location = new System.Drawing.Point(475, 330);
-            this.txt_Nom_Doc_ctz.MaxLength = 100;
-            this.txt_Nom_Doc_ctz.Name = "txt_Nom_Doc_ctz";
-            this.txt_Nom_Doc_ctz.Size = new System.Drawing.Size(197, 20);
-            this.txt_Nom_Doc_ctz.TabIndex = 92;
+            this.txt_Nom_Doc_ords.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txt_Nom_Doc_ords.Location = new System.Drawing.Point(475, 360);
+            this.txt_Nom_Doc_ords.MaxLength = 100;
+            this.txt_Nom_Doc_ords.Name = "txt_Nom_Doc_ords";
+            this.txt_Nom_Doc_ords.Size = new System.Drawing.Size(197, 20);
+            this.txt_Nom_Doc_ords.TabIndex = 96;
             // 
-            // label20
+            // label22
             // 
-            this.label20.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(68, 336);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(68, 15);
-            this.label20.TabIndex = 91;
-            this.label20.Text = "Con. Actual";
+            this.label22.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(68, 362);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(68, 15);
+            this.label22.TabIndex = 95;
+            this.label22.Text = "Con. Actual";
             // 
-            // txt_cons_Actual_ctz
+            // txt_cons_Actual_ords
             // 
-            this.txt_cons_Actual_ctz.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_cons_Actual_ctz.Enabled = false;
-            this.txt_cons_Actual_ctz.Location = new System.Drawing.Point(149, 334);
-            this.txt_cons_Actual_ctz.MaxLength = 100;
-            this.txt_cons_Actual_ctz.Name = "txt_cons_Actual_ctz";
-            this.txt_cons_Actual_ctz.Size = new System.Drawing.Size(211, 20);
-            this.txt_cons_Actual_ctz.TabIndex = 90;
+            this.txt_cons_Actual_ords.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txt_cons_Actual_ords.Enabled = false;
+            this.txt_cons_Actual_ords.Location = new System.Drawing.Point(149, 360);
+            this.txt_cons_Actual_ords.MaxLength = 100;
+            this.txt_cons_Actual_ords.Name = "txt_cons_Actual_ords";
+            this.txt_cons_Actual_ords.Size = new System.Drawing.Size(211, 20);
+            this.txt_cons_Actual_ords.TabIndex = 94;
             // 
             // frm_empresa
             // 
@@ -760,5 +809,9 @@
         private System.Windows.Forms.TextBox txt_Nom_Doc_ctz;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox txt_cons_Actual_ctz;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txt_Nom_Doc_ords;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox txt_cons_Actual_ords;
     }
 }

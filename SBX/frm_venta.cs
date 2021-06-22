@@ -22,6 +22,7 @@ namespace SBX
         cls_empresa cls_Empresa = new cls_empresa();
         cls_venta cls_Venta = new cls_venta();
         cls_reporte_cotizacion cls_Reporte_Cotizacion = new cls_reporte_cotizacion();
+        cls_orden_servicio cls_Orden_servicio = new cls_orden_servicio();
 
         DataTable v_dt;
         DataTable v_dt_2;
@@ -2275,9 +2276,294 @@ namespace SBX
                         txt_cliente.Text = "";
                         lbl_nombre_cliente.Text = "--";
                         txt_nota.Text = "";
-                    }    
-           // mtd_imprimir(Documento, ConsDocumento.ToString()); // Impresion por Impresora Termica
+                    }
+            // mtd_imprimir(Documento, ConsDocumento.ToString()); // Impresion por Impresora Termica
+            // imprimir cotizacion pdf
+            if (MessageBox.Show("¿Desea imprimir Cotizacion?", "Imprimir Cotizacion", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                List<cls_reporte_cotizacion> lrctz = new List<cls_reporte_cotizacion>();
+                cls_reporte_cotizacion cls_Reporte_Cotizacion1 = new cls_reporte_cotizacion();
+                DateTime FechaHoy = DateTime.Now;
+                DataTable DataTable2 = new DataTable();
+                cls_Reporte_Cotizacion1.Fecha_inicio = FechaHoy.ToString("yyyyMMdd");
+                cls_Reporte_Cotizacion1.Fecha_fin = FechaHoy.ToString("yyyyMMdd");
+                cls_Reporte_Cotizacion1.v_buscar = ConsDocumento.ToString();
+                DataTable2 = cls_Reporte_Cotizacion1.mtd_consultar();
 
+                    foreach (DataRow rows in DataTable2.Rows)
+                    {
+                        cls_reporte_cotizacion cls_Reporte_Cotizacion = new cls_reporte_cotizacion();
+                        DateTime Fecha = Convert.ToDateTime(rows["Fecha"].ToString());
+                        cls_Reporte_Cotizacion.rpt_Fecha = Fecha.ToString("yyyy-MM-dd");
+                        cls_Reporte_Cotizacion.rpt_Doc = rows["Doc"].ToString();
+                        cls_Reporte_Cotizacion.rpt_Conse = rows["Conse"].ToString();
+                        cls_Reporte_Cotizacion.rpt_Item = rows["Item"].ToString();
+                        cls_Reporte_Cotizacion.rpt_Nombre = rows["Nombre"].ToString();
+                        cls_Reporte_Cotizacion.rpt_Cantidad = rows["cantidad"].ToString();
+                        double PrecioVenta = Convert.ToDouble(rows["PrecioVenta"].ToString());
+                        cls_Reporte_Cotizacion.rpt_precioVenta = PrecioVenta.ToString("N");
+                        double Descuento = Convert.ToDouble(rows["Descuento"].ToString());
+                        cls_Reporte_Cotizacion.rpt_Descuento = Descuento.ToString("N");
+                        cls_Reporte_Cotizacion.rpt_Total = rows["Total"].ToString();
+                        cls_Reporte_Cotizacion.rpt_dni = rows["DNI"].ToString();
+                        cls_Reporte_Cotizacion.rpt_Cliente = rows["Cliente"].ToString();
+                        cls_Reporte_Cotizacion.rpt_Direccion = rows["Direccion"].ToString();
+                        cls_Reporte_Cotizacion.rpt_Email = rows["Email"].ToString();
+                        cls_Reporte_Cotizacion.rpt_Telefono = rows["Telefono"].ToString();
+                        cls_Reporte_Cotizacion.rpt_Celular = rows["Celular"].ToString();
+                        cls_Reporte_Cotizacion.rpt_Usuario = rows["Usuario"].ToString();
+                        cls_Reporte_Cotizacion.rpt_NombreUsuario = rows["NombreUsuario"].ToString();
+                        cls_Reporte_Cotizacion.rpt_Dni_empresa = rows["DNI_Empresa"].ToString();
+                        cls_Reporte_Cotizacion.rpt_nombre_empresa = rows["Nombre_Empresa"].ToString();
+                        cls_Reporte_Cotizacion.rpt_telefono_emp = rows["Telefono_emp"].ToString();
+                        cls_Reporte_Cotizacion.rpt_celular_emp = rows["Celular_emp"].ToString();
+                        cls_Reporte_Cotizacion.rpt_direccion_emp = rows["Direccion_emp"].ToString();
+                        double Total2 = Convert.ToDouble(rows["Total2"].ToString());
+                        cls_Reporte_Cotizacion.rpt_Total2 = Total2.ToString("N");
+                        cls_Reporte_Cotizacion.Foto = (byte[])rows["Foto"];
+
+                        lrctz.Add(cls_Reporte_Cotizacion);
+                    }
+                
+                frm_cotizacion frm_Cotizacion = new frm_cotizacion();
+                frm_Cotizacion.Reporte = "Cotizacion";
+                frm_Cotizacion.lrctz = lrctz;
+                frm_Cotizacion.Show();
+            }
+        }
+        private void btn_orden_servicio_Click(object sender, EventArgs e)
+        {
+            if (dtg_venta.Rows.Count > 0)
+            {
+                if (lbl_nombre_cliente.Text != "--")
+                {
+                    mtd_carga_cliente(txt_cliente.Text, codigoSucursal, NombreSucursal);
+                    mtd_calculo_pago();
+
+                    v_domicilio = false;
+                    v_sistema_separado = false;
+                    if (dtg_venta.Rows.Count > 0)
+                    {
+                        mtd_guardar_Orden_Servicio();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione Cliente");
+                }
+            }
+        }
+
+        private void mtd_guardar_Orden_Servicio()
+        {
+            ///////////////////////////////////////////////////////////////////
+            Vendidos = 0;
+            Error = 0;
+            double ConsDocumento = 0;
+            string Documento = "";
+            cls_Orden_servicio.Usuario = Usuario;
+
+            ConsDocumento = 0;
+            Documento = "";
+            v_dt = cls_Empresa.mtd_consultar_Empresa();
+            if (v_dt.Rows.Count > 0)
+            {
+                v_row = v_dt.Rows[0];
+                ConsDocumento = Convert.ToDouble(v_row["ConsecutivoActualOrds"]);
+                ConsDocumento++;
+                Documento = v_row["NomDocOrds"].ToString();
+                cls_Orden_servicio.Registro = "";
+
+                foreach (DataGridViewRow rows in dtg_venta.Rows)
+                {
+                    cls_Orden_servicio.Fecha = DateTime.Now.ToString();
+                    cls_Orden_servicio.NombreDocumento = Documento;
+                    cls_Orden_servicio.ConsecutivoDocumento = ConsDocumento.ToString();
+                    cls_Orden_servicio.Producto = Convert.ToInt32(rows.Cells["cl_item"].Value);
+                    cls_Orden_servicio.ModoVenta = rows.Cells["cl_modo_venta"].Value.ToString();
+                    cls_Orden_servicio.UM = rows.Cells["cl_UM"].Value.ToString();
+                    float Cantidad = 0;
+                    float Base = 0;
+                    float Division = 0;
+                    switch (rows.Cells["cl_modo_venta"].Value.ToString())
+                    {
+                        case "Unidad":
+                            Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                            break;
+                        case "Multi":
+                            if (rows.Cells["cl_UM"].Value.ToString() == "UND P")
+                            {
+                                Base = (float.Parse(rows.Cells["cl_subCantidad"].Value.ToString()) * float.Parse(rows.Cells["cl_sobre"].Value.ToString()));
+                                Division = 1 / Base;
+                                Cantidad = (Division * float.Parse(rows.Cells["cl_cantidad"].Value.ToString()));
+                            }
+                            if (rows.Cells["cl_UM"].Value.ToString() == "Sobre")
+                            {
+                                Cantidad = (1 / float.Parse(rows.Cells["cl_sobre"].Value.ToString())) * float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                            }
+                            if (rows.Cells["cl_UM"].Value.ToString() == "Caja")
+                            {
+                                Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                            }
+                            break;
+                        case "Pesaje":
+                            if (rows.Cells["cl_UM"].Value.ToString() != "Bulto")
+                            {
+                                Base = (float.Parse(rows.Cells["cl_subCantidad"].Value.ToString()));
+                                Division = 1 / Base;
+                                Cantidad = (Division * float.Parse(rows.Cells["cl_cantidad"].Value.ToString()));
+                            }
+                            else
+                            {
+                                Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                            }
+
+                            break;
+                        case "Desechable":
+                            if (rows.Cells["cl_UM"].Value.ToString() != "Bolsa")
+                            {
+                                Base = (float.Parse(rows.Cells["cl_subCantidad"].Value.ToString()));
+                                Division = 1 / Base;
+                                Cantidad = (Division * float.Parse(rows.Cells["cl_cantidad"].Value.ToString()));
+                            }
+                            else
+                            {
+                                Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                            }
+                            break;
+                        case "Queso":
+                            Cantidad = float.Parse(rows.Cells["cl_cantidad"].Value.ToString());
+                            break;
+                    }
+
+                    cls_Orden_servicio.Cantidad = Cantidad;
+                    cls_Orden_servicio.Costo = Convert.ToDouble(rows.Cells["cl_costo"].Value);
+                    cls_Orden_servicio.PrecioVenta = Convert.ToDouble(rows.Cells["cl_precio"].Value);
+                    cls_Orden_servicio.Descuento = float.Parse(rows.Cells["cl_descuento"].Value.ToString());
+                    cls_Orden_servicio.Efectivo = 0;
+                    cls_Orden_servicio.Tdebito = Convert.ToDouble(txt_debito.Text);
+                    cls_Orden_servicio.Tcredito = Convert.ToDouble(txt_credito.Text);
+                    if (txt_num_baucher_debit.Text == "Numero baucher")
+                    {
+                        cls_Orden_servicio.NumBaucherDebito = "";
+                    }
+                    else
+                    {
+                        cls_Orden_servicio.NumBaucherDebito = txt_num_baucher_debit.Text;
+                    }
+                    if (txt_num_baucher_credito.Text == "Numero baucher")
+                    {
+                        cls_Orden_servicio.NumBaucherCredito = "";
+                    }
+                    else
+                    {
+                        cls_Orden_servicio.NumBaucherCredito = txt_num_baucher_credito.Text;
+                    }
+                    cls_Orden_servicio.Cambio = Convert.ToDouble(lbl_cambio.Text);
+                    cls_Orden_servicio.Total = Convert.ToDouble(lbl_total.Text);
+                    cls_Orden_servicio.Proveedor = rows.Cells["cl_proveedor"].Value.ToString();
+                    cls_Orden_servicio.IVA = Convert.ToInt32(rows.Cells["cl_iva"].Value);
+                    cls_Orden_servicio.DescuentoProveedor = rows.Cells["cl_desc_proveedor"].Value.ToString();
+                    cls_Orden_servicio.Nota = txt_nota.Text;
+                    cls_Orden_servicio.sucursal = codigoSucursal;
+                    if (txt_cliente.Text == "")
+                    {
+                        cls_Orden_servicio.Cliente = 1;
+                    }
+                    else
+                    {
+                        cls_Orden_servicio.Cliente = Codigo_cliente;
+                    }
+
+                    v_ok = cls_Orden_servicio.mtd_registrar();
+                    if (v_ok)
+                    {
+                        Vendidos++;
+                    }
+                    else
+                    {
+                        Error++;
+                    }
+                }
+                frm_msg frm_Msg = new frm_msg();
+                frm_Msg.pnl_centro.BackColor = Color.White;
+                if (Error > 0)
+                {
+                    frm_Msg.lbl_titulo.Text = "ERROR";
+                    frm_Msg.pnl_arriba.BackColor = Color.OrangeRed;
+                }
+                frm_Msg.txt_mensaje.Text = "Productos Orden servicio: " + Vendidos + ", Errores: " + Error;
+                frm_Msg.ShowDialog();
+                txt_producto.Focus();
+                dtg_venta.Rows.Clear();
+                txt_efectivo.Text = "";
+                txt_debito.Text = "0";
+                txt_credito.Text = "0";
+                txt_num_baucher_debit.Text = "Numero baucher";
+                txt_num_baucher_debit.ForeColor = Color.Gray;
+                txt_num_baucher_credito.Text = "Numero baucher";
+                txt_num_baucher_credito.ForeColor = Color.Gray;
+                lbl_cambio.Text = "0";
+                lbl_total.Text = "0";
+                txt_cliente.Text = "";
+                lbl_nombre_cliente.Text = "--";
+                txt_nota.Text = "";
+            }
+            // mtd_imprimir(Documento, ConsDocumento.ToString()); // Impresion por Impresora Termica
+            if (MessageBox.Show("¿Desea imprimir Orden de servicio?", "Imprimir Orden de Servicio", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                //Imprimir Cotizacion PDF
+                cls_orden_servicio cls_Orden_Servicio = new cls_orden_servicio();
+                List<cls_orden_servicio> lrords = new List<cls_orden_servicio>();
+                DataTable DataTable2 = new DataTable();
+                DateTime FechaHoy = DateTime.Now;
+                cls_Orden_Servicio.Fecha_inicio = FechaHoy.ToString("yyyyMMdd");
+                cls_Orden_Servicio.Fecha_fin = FechaHoy.ToString("yyyyMMdd");
+                cls_Orden_Servicio.v_buscar = ConsDocumento.ToString();
+                DataTable2 = cls_Orden_Servicio.mtd_consultar();
+
+                foreach (DataRow rows in DataTable2.Rows)
+                {
+                    cls_orden_servicio cls_Orden_Servicio2 = new cls_orden_servicio();
+                    DateTime Fecha = Convert.ToDateTime(rows["Fecha"].ToString());
+                    cls_Orden_Servicio2.rpt_Fecha = Fecha.ToString("yyyy-MM-dd");
+                    cls_Orden_Servicio2.rpt_Doc = rows["Doc"].ToString();
+                    cls_Orden_Servicio2.rpt_Conse = rows["Conse"].ToString();
+                    cls_Orden_Servicio2.rpt_Item = rows["Item"].ToString();
+                    cls_Orden_Servicio2.rpt_Nombre = rows["Nombre"].ToString();
+                    cls_Orden_Servicio2.rpt_Cantidad = rows["cantidad"].ToString();
+                    double PrecioVenta = Convert.ToDouble(rows["PrecioVenta"].ToString());
+                    cls_Orden_Servicio2.rpt_precioVenta = PrecioVenta.ToString("N");
+                    double Descuento = Convert.ToDouble(rows["Descuento"].ToString());
+                    cls_Orden_Servicio2.rpt_Descuento = Descuento.ToString("N");
+                    cls_Orden_Servicio2.rpt_Total = rows["Total"].ToString();
+                    cls_Orden_Servicio2.rpt_dni = rows["DNI"].ToString();
+                    cls_Orden_Servicio2.rpt_Cliente = rows["Cliente"].ToString();
+                    cls_Orden_Servicio2.rpt_Direccion = rows["Direccion"].ToString();
+                    cls_Orden_Servicio2.rpt_Email = rows["Email"].ToString();
+                    cls_Orden_Servicio2.rpt_Telefono = rows["Telefono"].ToString();
+                    cls_Orden_Servicio2.rpt_Celular = rows["Celular"].ToString();
+                    cls_Orden_Servicio2.rpt_Usuario = rows["Usuario"].ToString();
+                    cls_Orden_Servicio2.rpt_NombreUsuario = rows["NombreUsuario"].ToString();
+                    cls_Orden_Servicio2.rpt_Dni_empresa = rows["DNI_Empresa"].ToString();
+                    cls_Orden_Servicio2.rpt_nombre_empresa = rows["Nombre_Empresa"].ToString();
+                    cls_Orden_Servicio2.rpt_telefono_emp = rows["Telefono_emp"].ToString();
+                    cls_Orden_Servicio2.rpt_celular_emp = rows["Celular_emp"].ToString();
+                    cls_Orden_Servicio2.rpt_direccion_emp = rows["Direccion_emp"].ToString();
+                    double Total2 = Convert.ToDouble(rows["Total2"].ToString());
+                    cls_Orden_Servicio2.rpt_Total2 = Total2.ToString("N");
+                    cls_Orden_Servicio2.Foto = (byte[])rows["Foto"];
+                    cls_Orden_Servicio2.Nota = rows["nota"].ToString();
+                    cls_Orden_Servicio2.rpt_email_emp = rows["Email_emp"].ToString();
+                    lrords.Add(cls_Orden_Servicio2);
+                }
+
+                frm_cotizacion frm_Cotizacion = new frm_cotizacion();
+                frm_Cotizacion.Reporte = "OrdenServicio";
+                frm_Cotizacion.lrords = lrords;
+                frm_Cotizacion.Show();
+
+            }
         }
     }
 }

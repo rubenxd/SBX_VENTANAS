@@ -633,5 +633,13 @@ namespace SBX
                 frm_Cotizacion.Show();
             }
         }
+
+        private void btn_orden_servicio_Click(object sender, EventArgs e)
+        {
+            frm_orden_servicio frm_Orden_Servicio = new frm_orden_servicio();
+            frm_Orden_Servicio.v_dt_Permi = v_dt_Permi;
+            frm_Orden_Servicio.usuario = usuarios;
+            frm_Orden_Servicio.Show();
+        }
     }
 }

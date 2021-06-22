@@ -66,6 +66,8 @@
             this.cl_debe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_orden_servicio = new System.Windows.Forms.Button();
+            this.btn_impresion = new System.Windows.Forms.Button();
             this.btn_impresion_ticket = new System.Windows.Forms.Button();
             this.btn_cotizaciones = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -82,7 +84,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lbl_total_ventas = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btn_impresion = new System.Windows.Forms.Button();
             this.pnl_arriba.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_ventas)).BeginInit();
             this.panel1.SuspendLayout();
@@ -386,6 +387,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.btn_orden_servicio);
             this.panel1.Controls.Add(this.btn_impresion);
             this.panel1.Controls.Add(this.btn_impresion_ticket);
             this.panel1.Controls.Add(this.btn_cotizaciones);
@@ -403,6 +405,36 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(945, 42);
             this.panel1.TabIndex = 8;
+            // 
+            // btn_orden_servicio
+            // 
+            this.btn_orden_servicio.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_orden_servicio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_orden_servicio.FlatAppearance.BorderSize = 0;
+            this.btn_orden_servicio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_orden_servicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_orden_servicio.Image = ((System.Drawing.Image)(resources.GetObject("btn_orden_servicio.Image")));
+            this.btn_orden_servicio.Location = new System.Drawing.Point(170, 6);
+            this.btn_orden_servicio.Name = "btn_orden_servicio";
+            this.btn_orden_servicio.Size = new System.Drawing.Size(26, 26);
+            this.btn_orden_servicio.TabIndex = 84;
+            this.btn_orden_servicio.UseVisualStyleBackColor = false;
+            this.btn_orden_servicio.Click += new System.EventHandler(this.btn_orden_servicio_Click);
+            // 
+            // btn_impresion
+            // 
+            this.btn_impresion.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_impresion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_impresion.FlatAppearance.BorderSize = 0;
+            this.btn_impresion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_impresion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_impresion.Image = ((System.Drawing.Image)(resources.GetObject("btn_impresion.Image")));
+            this.btn_impresion.Location = new System.Drawing.Point(138, 6);
+            this.btn_impresion.Name = "btn_impresion";
+            this.btn_impresion.Size = new System.Drawing.Size(26, 26);
+            this.btn_impresion.TabIndex = 83;
+            this.btn_impresion.UseVisualStyleBackColor = false;
+            this.btn_impresion.Click += new System.EventHandler(this.btn_impresion_Click);
             // 
             // btn_impresion_ticket
             // 
@@ -605,21 +637,6 @@
             this.label4.TabIndex = 81;
             this.label4.Text = "Total Venta:";
             // 
-            // btn_impresion
-            // 
-            this.btn_impresion.BackColor = System.Drawing.SystemColors.Window;
-            this.btn_impresion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_impresion.FlatAppearance.BorderSize = 0;
-            this.btn_impresion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btn_impresion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_impresion.Image = ((System.Drawing.Image)(resources.GetObject("btn_impresion.Image")));
-            this.btn_impresion.Location = new System.Drawing.Point(138, 6);
-            this.btn_impresion.Name = "btn_impresion";
-            this.btn_impresion.Size = new System.Drawing.Size(26, 26);
-            this.btn_impresion.TabIndex = 83;
-            this.btn_impresion.UseVisualStyleBackColor = false;
-            this.btn_impresion.Click += new System.EventHandler(this.btn_impresion_Click);
-            // 
             // frm_ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -701,5 +718,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_debe;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_Usuario;
         private System.Windows.Forms.Button btn_impresion;
+        private System.Windows.Forms.Button btn_orden_servicio;
     }
 }

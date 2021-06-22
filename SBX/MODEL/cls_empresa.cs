@@ -42,6 +42,7 @@ namespace SBX.MODEL
         public string NomDoc { get; set; }
         public string tamano_papel { get; set; }
         public string NomDocCtz { get; set; }
+        public string NomDocOrds { get; set; }
 
         //Metodos
         public DataTable mtd_consultar_Empresa()
@@ -58,7 +59,7 @@ namespace SBX.MODEL
         }
         private void mtd_asignaParametros()
         {
-            Parametros = new SqlParameter[19];
+            Parametros = new SqlParameter[20];
 
             Parametros[0] = new SqlParameter();
             Parametros[0].ParameterName = "@Codigo";
@@ -161,13 +162,18 @@ namespace SBX.MODEL
             Parametros[18].ParameterName = "@NomDocCtz";
             Parametros[18].SqlDbType = SqlDbType.VarChar;
             Parametros[18].SqlValue = NomDocCtz;
+
+            Parametros[19] = new SqlParameter();
+            Parametros[19].ParameterName = "@NomDocOrds";
+            Parametros[19].SqlDbType = SqlDbType.VarChar;
+            Parametros[19].SqlValue = NomDocOrds;
         }
         public Boolean mtd_registrar()
         {
             v_query = " INSERT INTO Empresa (DNI,Nombre,Ciudad,Direccion,Telefono,Celular,Email,SitioWeb,licencia,"+
-                      " Impresora,Foto,ConsecutivoInicial,ConsecutivoFinal,Detalle,Alerta,NomDoc,tamano_papel,NomDocCtz)" +
+                      " Impresora,Foto,ConsecutivoInicial,ConsecutivoFinal,Detalle,Alerta,NomDoc,tamano_papel,NomDocCtz,NomDocOrds)" +
                       " VALUES (@DNI,@Nombre,@Ciudad,@Direccion,@Telefono,@Celular,@Email,@SitioWeb,@licencia " +
-                      " @Impresora,@Foto,@ConInicial,@ConFinal,@Detalle,@Alerta,@NomDoc,@Tamano_papel,@NomDocCtz)";
+                      " @Impresora,@Foto,@ConInicial,@ConFinal,@Detalle,@Alerta,@NomDoc,@Tamano_papel,@NomDocCtz,@NomDocOrds)";
 
             mtd_asignaParametros();
             v_ok = cls_datos.mtd_registrar(Parametros, v_query);
@@ -178,7 +184,8 @@ namespace SBX.MODEL
             v_query = " UPDATE Empresa SET DNI = @DNI,Nombre = @Nombre,Ciudad = @Ciudad,Direccion = @Direccion,  " +
                       " Telefono = @Telefono,Celular = @Celular,Email = @Email,SitioWeb = @SitioWeb,Licencia = @Licencia, " +
                       " Impresora = @Impresora,Foto = @Foto,ConsecutivoInicial = @ConInicial, " +
-                      " ConsecutivoFinal = @ConFinal,Detalle = @Detalle,Alerta = @Alerta,NomDoc = @NomDoc, tamano_papel = @Tamano_papel, NomDocCtz = @NomDocCtz " +
+                      " ConsecutivoFinal = @ConFinal,Detalle = @Detalle,Alerta = @Alerta,NomDoc = @NomDoc," +
+                      " tamano_papel = @Tamano_papel, NomDocCtz = @NomDocCtz, NomDocOrds = @NomDocOrds " +
                       " WHERE Codigo = " + Codigo;
 
             mtd_asignaParametros();

@@ -19,8 +19,9 @@ namespace SBX
         DataTable DataTable = new DataTable();
         public List<cls_reporte_cotizacion> lrctz { get; set; }
         public List<cls_venta> lrFact { get; set; }
+        public List<cls_orden_servicio> lrords  { get; set; }
 
-        public string Reporte { get; set; }
+    public string Reporte { get; set; }
         public frm_cotizacion()
         {
             InitializeComponent();
@@ -42,6 +43,13 @@ namespace SBX
                     this.reportViewer1.LocalReport.ReportEmbeddedResource = "SBX.Report1.rdlc";
                     this.reportViewer1.LocalReport.DataSources.Clear();
                     this.reportViewer1.LocalReport.DataSources.Add(rds_fac);
+                    this.reportViewer1.RefreshReport();
+                    break;
+                case "OrdenServicio":
+                    ReportDataSource rds_ords = new ReportDataSource("reporte_orden_servicio", lrords);
+                    this.reportViewer1.LocalReport.ReportEmbeddedResource = "SBX.Report3.rdlc";
+                    this.reportViewer1.LocalReport.DataSources.Clear();
+                    this.reportViewer1.LocalReport.DataSources.Add(rds_ords);
                     this.reportViewer1.RefreshReport();
                     break;
                 default:
