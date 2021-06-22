@@ -45,9 +45,23 @@ namespace SBX
             cbx_tipo_busqueda.SelectedIndex = 0;
             lbl_total_ventas.Text = "0";
             lbl_cantidad.Text = "0";
+            MensajeInformativoBotones();
         }
 
         //metodos
+
+        public void MensajeInformativoBotones()
+        {
+            ToolTip Botones = new ToolTip();
+
+            Botones.SetToolTip(btn_buscar, "Buscar");
+            Botones.SetToolTip(btn_exportar_excel, "Exportar a Excel");
+            Botones.SetToolTip(btn_eliminar, "Eliminar");
+            Botones.SetToolTip(btn_impresion_ticket, "Impresion Tikect");
+            Botones.SetToolTip(btn_cotizaciones, "Cotizaciones");
+            Botones.SetToolTip(btn_impresion, "Impresion PDF");
+            Botones.SetToolTip(btn_orden_servicio, "Orden de servicio");  
+        }
         private void mtd_cargar_ventas()
         {
             lbl_total_ventas.Text = "0";

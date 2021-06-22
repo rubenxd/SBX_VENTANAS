@@ -199,6 +199,7 @@ namespace SBX
             this.Name = "frm_orden_servicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Orden servicio";
+            this.Load += new System.EventHandler(this.frm_orden_servicio_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_ventas)).EndInit();

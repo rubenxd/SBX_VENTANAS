@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_empresa));
             this.pnl_centro = new System.Windows.Forms.Panel();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txt_Nom_Doc_ords = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txt_cons_Actual_ords = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.txt_Nom_Doc_ctz = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -81,10 +85,6 @@
             this.lbl_minimixar = new System.Windows.Forms.Label();
             this.lbl_cerrar = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label21 = new System.Windows.Forms.Label();
-            this.txt_Nom_Doc_ords = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.txt_cons_Actual_ords = new System.Windows.Forms.TextBox();
             this.pnl_centro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_foto)).BeginInit();
             this.pnl_botones.SuspendLayout();
@@ -148,6 +148,47 @@
             this.pnl_centro.Name = "pnl_centro";
             this.pnl_centro.Size = new System.Drawing.Size(900, 500);
             this.pnl_centro.TabIndex = 0;
+            // 
+            // label21
+            // 
+            this.label21.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(382, 363);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(87, 15);
+            this.label21.TabIndex = 97;
+            this.label21.Text = "Nom. Doc OS*";
+            // 
+            // txt_Nom_Doc_ords
+            // 
+            this.txt_Nom_Doc_ords.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txt_Nom_Doc_ords.Location = new System.Drawing.Point(475, 360);
+            this.txt_Nom_Doc_ords.MaxLength = 100;
+            this.txt_Nom_Doc_ords.Name = "txt_Nom_Doc_ords";
+            this.txt_Nom_Doc_ords.Size = new System.Drawing.Size(197, 20);
+            this.txt_Nom_Doc_ords.TabIndex = 96;
+            // 
+            // label22
+            // 
+            this.label22.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(68, 362);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(68, 15);
+            this.label22.TabIndex = 95;
+            this.label22.Text = "Con. Actual";
+            // 
+            // txt_cons_Actual_ords
+            // 
+            this.txt_cons_Actual_ords.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txt_cons_Actual_ords.Enabled = false;
+            this.txt_cons_Actual_ords.Location = new System.Drawing.Point(149, 360);
+            this.txt_cons_Actual_ords.MaxLength = 100;
+            this.txt_cons_Actual_ords.Name = "txt_cons_Actual_ords";
+            this.txt_cons_Actual_ords.Size = new System.Drawing.Size(211, 20);
+            this.txt_cons_Actual_ords.TabIndex = 94;
             // 
             // label19
             // 
@@ -274,7 +315,6 @@
             this.pbx_foto.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pbx_foto.BackColor = System.Drawing.SystemColors.Window;
             this.pbx_foto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbx_foto.Image = ((System.Drawing.Image)(resources.GetObject("pbx_foto.Image")));
             this.pbx_foto.Location = new System.Drawing.Point(700, 93);
             this.pbx_foto.Name = "pbx_foto";
             this.pbx_foto.Size = new System.Drawing.Size(100, 100);
@@ -691,47 +731,6 @@
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
-            // 
-            // label21
-            // 
-            this.label21.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(382, 363);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(87, 15);
-            this.label21.TabIndex = 97;
-            this.label21.Text = "Nom. Doc OS*";
-            // 
-            // txt_Nom_Doc_ords
-            // 
-            this.txt_Nom_Doc_ords.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_Nom_Doc_ords.Location = new System.Drawing.Point(475, 360);
-            this.txt_Nom_Doc_ords.MaxLength = 100;
-            this.txt_Nom_Doc_ords.Name = "txt_Nom_Doc_ords";
-            this.txt_Nom_Doc_ords.Size = new System.Drawing.Size(197, 20);
-            this.txt_Nom_Doc_ords.TabIndex = 96;
-            // 
-            // label22
-            // 
-            this.label22.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(68, 362);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(68, 15);
-            this.label22.TabIndex = 95;
-            this.label22.Text = "Con. Actual";
-            // 
-            // txt_cons_Actual_ords
-            // 
-            this.txt_cons_Actual_ords.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txt_cons_Actual_ords.Enabled = false;
-            this.txt_cons_Actual_ords.Location = new System.Drawing.Point(149, 360);
-            this.txt_cons_Actual_ords.MaxLength = 100;
-            this.txt_cons_Actual_ords.Name = "txt_cons_Actual_ords";
-            this.txt_cons_Actual_ords.Size = new System.Drawing.Size(211, 20);
-            this.txt_cons_Actual_ords.TabIndex = 94;
             // 
             // frm_empresa
             // 

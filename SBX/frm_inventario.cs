@@ -1015,11 +1015,13 @@ namespace SBX
                         txt_stock_maximo.Text = item["Stock_maximo"].ToString();
                         txt_cantidad.Text = "0";
                         string ft = item["Foto"].ToString();
-                        if (ft != "System.Byte[]")
-                        {
-                            byte[] imagen = (byte[])v_row["Foto"];
-                            pbx_foto.Image = byteArrayToImage(imagen);
-                        }
+                        //if (ft != "System.Byte[]")
+                        //{
+                        //    byte[] imagen = (byte[])v_row["Foto"];
+                        //    pbx_foto.Image = byteArrayToImage(imagen);
+                        //}
+                        byte[] imagen = (byte[])item["Foto"];
+                        pbx_foto.Image = byteArrayToImage(imagen);
                         txt_nom_proveedor.Text = item["Nom_proveedor"].ToString();
                         txt_desc.Text = item["DescuentoProveedor"].ToString();
                         txt_fecha_vence.Text = item["FechaVencimiento"].ToString();

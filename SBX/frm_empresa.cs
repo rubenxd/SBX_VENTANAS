@@ -229,11 +229,13 @@ namespace SBX
                     txt_Nom_Doc_ords.Text = rows["NomDocOrds"].ToString();
                     if (!string.IsNullOrEmpty(rows["Foto"].ToString()))
                     {
-                        if (rows["Foto"].ToString() != "System.Byte[]")
-                        {
-                            byte[] imagen = (byte[])rows["Foto"];
-                            pbx_foto.Image = byteArrayToImage(imagen);
-                        }  
+                        //if (rows["Foto"].ToString() != "System.Byte[]")
+                        //{
+                        //    byte[] imagen = (byte[])rows["Foto"];
+                        //    pbx_foto.Image = byteArrayToImage(imagen);
+                        //}
+                        byte[] imagen = (byte[])rows["Foto"];
+                        pbx_foto.Image = byteArrayToImage(imagen);
                     }
                    txt_tamano_papel.Text = rows["tamano_papel"].ToString(); 
                     v_contador++;

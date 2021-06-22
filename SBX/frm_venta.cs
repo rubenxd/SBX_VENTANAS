@@ -132,6 +132,7 @@ namespace SBX
             Botones.SetToolTip(btn_domicilio, "Domicilio");
             Botones.SetToolTip(btn_separado, "Separado");
             Botones.SetToolTip(btn_cotizacion, "Cotizacion");
+            Botones.SetToolTip(btn_orden_servicio, "Orden de servicio");
         }
         private void mtd_agregar_um(string UM)
         {

@@ -199,6 +199,7 @@ namespace SBX
             this.Name = "frm_cotizaciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cotizaciones";
+            this.Load += new System.EventHandler(this.frm_cotizaciones_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_ventas)).EndInit();

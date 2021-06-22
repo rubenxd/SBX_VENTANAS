@@ -105,5 +105,17 @@ namespace SBX
                 frm_Venta.ShowDialog();
             }
         }
+        public void MensajeInformativoBotones()
+        {
+            ToolTip Botones = new ToolTip();
+
+            Botones.SetToolTip(btn_buscar, "Buscar");
+            Botones.SetToolTip(btn_facturar, "Facturar");
+            Botones.SetToolTip(btn_Imprimir, "Imprimir PDF");
+        }
+        private void frm_orden_servicio_Load(object sender, EventArgs e)
+        {
+            MensajeInformativoBotones();
+        }
     }
 }
