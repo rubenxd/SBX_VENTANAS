@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_venta));
             this.pnl_centro = new System.Windows.Forms.Panel();
             this.dtg_venta = new System.Windows.Forms.DataGridView();
@@ -53,6 +53,8 @@
             this.cl_subCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_sobre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnl_abajo = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dtp_fecha_factura = new System.Windows.Forms.DateTimePicker();
             this.btn_credito = new System.Windows.Forms.Button();
             this.txt_nota = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -76,6 +78,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnl_arriba = new System.Windows.Forms.Panel();
+            this.btn_orden_servicio = new System.Windows.Forms.Button();
             this.btn_cotizacion = new System.Windows.Forms.Button();
             this.btn_separado = new System.Windows.Forms.Button();
             this.btn_domicilio = new System.Windows.Forms.Button();
@@ -90,7 +93,6 @@
             this.txt_producto = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btn_orden_servicio = new System.Windows.Forms.Button();
             this.pnl_centro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_venta)).BeginInit();
             this.pnl_abajo.SuspendLayout();
@@ -137,19 +139,19 @@
             this.cl_desc_proveedor,
             this.cl_subCantidad,
             this.cl_sobre});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_venta.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_venta.DefaultCellStyle = dataGridViewCellStyle15;
             this.dtg_venta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtg_venta.Location = new System.Drawing.Point(0, 45);
             this.dtg_venta.Name = "dtg_venta";
             this.dtg_venta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtg_venta.Size = new System.Drawing.Size(896, 269);
+            this.dtg_venta.Size = new System.Drawing.Size(896, 229);
             this.dtg_venta.TabIndex = 27;
             this.dtg_venta.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dtg_venta_CellValidating);
             this.dtg_venta.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dtg_venta_EditingControlShowing);
@@ -157,8 +159,8 @@
             // 
             // cl_item
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomLeft;
-            this.cl_item.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomLeft;
+            this.cl_item.DefaultCellStyle = dataGridViewCellStyle13;
             this.cl_item.FillWeight = 70.91371F;
             this.cl_item.HeaderText = "Item";
             this.cl_item.Name = "cl_item";
@@ -187,8 +189,8 @@
             // 
             // cl_cantidad
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomLeft;
-            this.cl_cantidad.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomLeft;
+            this.cl_cantidad.DefaultCellStyle = dataGridViewCellStyle14;
             this.cl_cantidad.FillWeight = 70.91371F;
             this.cl_cantidad.HeaderText = "Cantidad";
             this.cl_cantidad.Name = "cl_cantidad";
@@ -271,6 +273,8 @@
             // 
             // pnl_abajo
             // 
+            this.pnl_abajo.Controls.Add(this.label9);
+            this.pnl_abajo.Controls.Add(this.dtp_fecha_factura);
             this.pnl_abajo.Controls.Add(this.btn_credito);
             this.pnl_abajo.Controls.Add(this.txt_nota);
             this.pnl_abajo.Controls.Add(this.panel1);
@@ -293,10 +297,31 @@
             this.pnl_abajo.Controls.Add(this.label3);
             this.pnl_abajo.Controls.Add(this.label2);
             this.pnl_abajo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnl_abajo.Location = new System.Drawing.Point(0, 314);
+            this.pnl_abajo.Location = new System.Drawing.Point(0, 274);
             this.pnl_abajo.Name = "pnl_abajo";
-            this.pnl_abajo.Size = new System.Drawing.Size(896, 228);
+            this.pnl_abajo.Size = new System.Drawing.Size(896, 268);
             this.pnl_abajo.TabIndex = 26;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(10, 6);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(126, 21);
+            this.label9.TabIndex = 30;
+            this.label9.Text = "Fecha Factura";
+            // 
+            // dtp_fecha_factura
+            // 
+            this.dtp_fecha_factura.CalendarFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp_fecha_factura.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp_fecha_factura.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_fecha_factura.Location = new System.Drawing.Point(142, 5);
+            this.dtp_fecha_factura.Name = "dtp_fecha_factura";
+            this.dtp_fecha_factura.Size = new System.Drawing.Size(152, 27);
+            this.dtp_fecha_factura.TabIndex = 29;
             // 
             // btn_credito
             // 
@@ -307,7 +332,7 @@
             this.btn_credito.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btn_credito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_credito.Image = ((System.Drawing.Image)(resources.GetObject("btn_credito.Image")));
-            this.btn_credito.Location = new System.Drawing.Point(10, 59);
+            this.btn_credito.Location = new System.Drawing.Point(10, 206);
             this.btn_credito.Name = "btn_credito";
             this.btn_credito.Size = new System.Drawing.Size(26, 26);
             this.btn_credito.TabIndex = 11;
@@ -320,7 +345,7 @@
             this.txt_nota.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_nota.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_nota.ForeColor = System.Drawing.Color.Gray;
-            this.txt_nota.Location = new System.Drawing.Point(10, 6);
+            this.txt_nota.Location = new System.Drawing.Point(10, 38);
             this.txt_nota.Multiline = true;
             this.txt_nota.Name = "txt_nota";
             this.txt_nota.Size = new System.Drawing.Size(876, 47);
@@ -334,7 +359,7 @@
             this.panel1.BackColor = System.Drawing.Color.Gray;
             this.panel1.Controls.Add(this.lbl_fecha_hora);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 202);
+            this.panel1.Location = new System.Drawing.Point(0, 242);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(896, 26);
             this.panel1.TabIndex = 27;
@@ -356,7 +381,7 @@
             this.lbl_cambio.AutoSize = true;
             this.lbl_cambio.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_cambio.ForeColor = System.Drawing.Color.SeaGreen;
-            this.lbl_cambio.Location = new System.Drawing.Point(329, 174);
+            this.lbl_cambio.Location = new System.Drawing.Point(329, 209);
             this.lbl_cambio.Name = "lbl_cambio";
             this.lbl_cambio.Size = new System.Drawing.Size(21, 24);
             this.lbl_cambio.TabIndex = 25;
@@ -367,7 +392,7 @@
             this.txt_cliente.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_cliente.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_cliente.ForeColor = System.Drawing.Color.Black;
-            this.txt_cliente.Location = new System.Drawing.Point(332, 67);
+            this.txt_cliente.Location = new System.Drawing.Point(332, 102);
             this.txt_cliente.Name = "txt_cliente";
             this.txt_cliente.Size = new System.Drawing.Size(216, 26);
             this.txt_cliente.TabIndex = 22;
@@ -379,7 +404,7 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(228, 173);
+            this.label8.Location = new System.Drawing.Point(228, 208);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(88, 24);
             this.label8.TabIndex = 20;
@@ -390,7 +415,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(228, 67);
+            this.label5.Location = new System.Drawing.Point(228, 102);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(66, 21);
             this.label5.TabIndex = 25;
@@ -414,7 +439,7 @@
             this.lbl_nombre_cliente.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_nombre_cliente.AutoSize = true;
             this.lbl_nombre_cliente.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_nombre_cliente.Location = new System.Drawing.Point(599, 73);
+            this.lbl_nombre_cliente.Location = new System.Drawing.Point(599, 108);
             this.lbl_nombre_cliente.Name = "lbl_nombre_cliente";
             this.lbl_nombre_cliente.Size = new System.Drawing.Size(15, 15);
             this.lbl_nombre_cliente.TabIndex = 24;
@@ -442,7 +467,7 @@
             this.btn_buscar_cliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btn_buscar_cliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_buscar_cliente.Image = ((System.Drawing.Image)(resources.GetObject("btn_buscar_cliente.Image")));
-            this.btn_buscar_cliente.Location = new System.Drawing.Point(569, 72);
+            this.btn_buscar_cliente.Location = new System.Drawing.Point(569, 107);
             this.btn_buscar_cliente.Name = "btn_buscar_cliente";
             this.btn_buscar_cliente.Size = new System.Drawing.Size(22, 15);
             this.btn_buscar_cliente.TabIndex = 23;
@@ -499,7 +524,7 @@
             // 
             this.txt_efectivo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_efectivo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_efectivo.Location = new System.Drawing.Point(332, 101);
+            this.txt_efectivo.Location = new System.Drawing.Point(332, 136);
             this.txt_efectivo.Name = "txt_efectivo";
             this.txt_efectivo.Size = new System.Drawing.Size(216, 26);
             this.txt_efectivo.TabIndex = 8;
@@ -524,7 +549,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(228, 140);
+            this.label1.Location = new System.Drawing.Point(228, 175);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 24);
             this.label1.TabIndex = 5;
@@ -549,7 +574,7 @@
             this.lbl_total.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_total.AutoSize = true;
             this.lbl_total.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total.Location = new System.Drawing.Point(329, 140);
+            this.lbl_total.Location = new System.Drawing.Point(329, 175);
             this.lbl_total.Name = "lbl_total";
             this.lbl_total.Size = new System.Drawing.Size(21, 24);
             this.lbl_total.TabIndex = 6;
@@ -573,7 +598,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(228, 103);
+            this.label2.Location = new System.Drawing.Point(228, 138);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 21);
             this.label2.TabIndex = 7;
@@ -601,6 +626,22 @@
             this.pnl_arriba.Name = "pnl_arriba";
             this.pnl_arriba.Size = new System.Drawing.Size(896, 45);
             this.pnl_arriba.TabIndex = 0;
+            // 
+            // btn_orden_servicio
+            // 
+            this.btn_orden_servicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_orden_servicio.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_orden_servicio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_orden_servicio.FlatAppearance.BorderSize = 0;
+            this.btn_orden_servicio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_orden_servicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_orden_servicio.Image = ((System.Drawing.Image)(resources.GetObject("btn_orden_servicio.Image")));
+            this.btn_orden_servicio.Location = new System.Drawing.Point(534, 9);
+            this.btn_orden_servicio.Name = "btn_orden_servicio";
+            this.btn_orden_servicio.Size = new System.Drawing.Size(26, 26);
+            this.btn_orden_servicio.TabIndex = 13;
+            this.btn_orden_servicio.UseVisualStyleBackColor = false;
+            this.btn_orden_servicio.Click += new System.EventHandler(this.btn_orden_servicio_Click);
             // 
             // btn_cotizacion
             // 
@@ -806,22 +847,6 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // btn_orden_servicio
-            // 
-            this.btn_orden_servicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_orden_servicio.BackColor = System.Drawing.SystemColors.Window;
-            this.btn_orden_servicio.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_orden_servicio.FlatAppearance.BorderSize = 0;
-            this.btn_orden_servicio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btn_orden_servicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_orden_servicio.Image = ((System.Drawing.Image)(resources.GetObject("btn_orden_servicio.Image")));
-            this.btn_orden_servicio.Location = new System.Drawing.Point(534, 9);
-            this.btn_orden_servicio.Name = "btn_orden_servicio";
-            this.btn_orden_servicio.Size = new System.Drawing.Size(26, 26);
-            this.btn_orden_servicio.TabIndex = 13;
-            this.btn_orden_servicio.UseVisualStyleBackColor = false;
-            this.btn_orden_servicio.Click += new System.EventHandler(this.btn_orden_servicio_Click);
-            // 
             // frm_venta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -909,6 +934,8 @@
         private System.Windows.Forms.Button btn_cotizacion;
         public System.Windows.Forms.TextBox txt_cliente;
         private System.Windows.Forms.Button btn_orden_servicio;
+        private System.Windows.Forms.DateTimePicker dtp_fecha_factura;
+        private System.Windows.Forms.Label label9;
     }
 }
 

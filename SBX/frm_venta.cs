@@ -667,7 +667,10 @@ namespace SBX
 
                     foreach (DataGridViewRow rows in dtg_venta.Rows)
                     {
-                        cls_Venta.Fecha = DateTime.Now.ToString();
+                        // fecha asignada por el cliente
+                        DateTime FechaFactura = dtp_fecha_factura.Value;
+                        //cls_Venta.Fecha = DateTime.Now.ToString();
+                        cls_Venta.Fecha = FechaFactura.ToString();
                         cls_Venta.NombreDocumento = Documento;
                         cls_Venta.ConsecutivoDocumento = ConsDocumento.ToString();
                         cls_Venta.Producto = Convert.ToInt32(rows.Cells["cl_item"].Value);
@@ -804,7 +807,10 @@ namespace SBX
 
                     foreach (DataGridViewRow rows in dtg_venta.Rows)
                     {
-                        cls_Venta.Fecha = DateTime.Now.ToString();
+                        // fecha asignada por el cliente
+                        DateTime FechaFactura = dtp_fecha_factura.Value;
+                        //cls_Venta.Fecha = DateTime.Now.ToString();
+                        cls_Venta.Fecha = FechaFactura.ToString();
                         cls_Venta.NombreDocumento = Documento;
                         cls_Venta.ConsecutivoDocumento = ConsDocumento.ToString();
                         cls_Venta.Producto = Convert.ToInt32(rows.Cells["cl_item"].Value);
@@ -940,7 +946,10 @@ namespace SBX
 
                     foreach (DataGridViewRow rows in dtg_venta.Rows)
                     {
-                        cls_Venta.Fecha = DateTime.Now.ToString();
+                        // fecha asignada por el cliente
+                        DateTime FechaFactura = dtp_fecha_factura.Value;
+                        //cls_Venta.Fecha = DateTime.Now.ToString();
+                        cls_Venta.Fecha = FechaFactura.ToString();
                         cls_Venta.NombreDocumento = Documento;
                         cls_Venta.ConsecutivoDocumento = ConsDocumento.ToString();
                         cls_Venta.Producto = Convert.ToInt32(rows.Cells["cl_item"].Value);
@@ -1079,8 +1088,11 @@ namespace SBX
 
                         foreach (DataGridViewRow rows in dtg_venta.Rows)
                         {
-                            
-                            cls_Venta.Fecha = DateTime.Now.ToString();
+
+                            // fecha asignada por el cliente
+                            DateTime FechaFactura = dtp_fecha_factura.Value;
+                            //cls_Venta.Fecha = DateTime.Now.ToString();
+                            cls_Venta.Fecha = FechaFactura.ToString();
                             cls_Venta.NombreDocumento = Documento;
                             cls_Venta.ConsecutivoDocumento = ConsDocumento.ToString();
                             cls_Venta.Producto = Convert.ToInt32(rows.Cells["cl_item"].Value);

@@ -386,7 +386,7 @@
             this.pnl_nombres.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnl_nombres.Controls.Add(this.dtg_busca_nombre);
             this.pnl_nombres.Controls.Add(this.pnl_titulo);
-            this.pnl_nombres.Location = new System.Drawing.Point(323, 79);
+            this.pnl_nombres.Location = new System.Drawing.Point(3, 138);
             this.pnl_nombres.Name = "pnl_nombres";
             this.pnl_nombres.Size = new System.Drawing.Size(367, 150);
             this.pnl_nombres.TabIndex = 62;

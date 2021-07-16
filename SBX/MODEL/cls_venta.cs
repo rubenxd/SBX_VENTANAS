@@ -170,7 +170,7 @@ namespace SBX.MODEL
             Parametros[1] = new SqlParameter();
             Parametros[1].ParameterName = "@Fecha";
             Parametros[1].SqlDbType = SqlDbType.DateTime;
-            Parametros[1].SqlValue = DateTime.Now;
+            Parametros[1].SqlValue = Fecha;
 
             Parametros[2] = new SqlParameter();
             Parametros[2].ParameterName = "@NombreDocumento";
