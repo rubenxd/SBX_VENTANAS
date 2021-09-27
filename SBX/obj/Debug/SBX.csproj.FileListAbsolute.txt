@@ -610,5 +610,5 @@ C:\SBX_VENTANAS\SBX\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 C:\SBX_VENTANAS\SBX\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\SBX_VENTANAS\SBX\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\SBX_VENTANAS\SBX\obj\Debug\SBX.frm_cotizaciones.resources
-C:\SBX_VENTANAS\SBX\obj\Debug\SBX.csprojAssemblyReference.cache
 C:\SBX_VENTANAS\SBX\obj\Debug\SBX.frm_orden_servicio.resources
+C:\SBX_VENTANAS\SBX\obj\Debug\SBX.csprojAssemblyReference.cache

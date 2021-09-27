@@ -1712,7 +1712,7 @@ namespace SBX
         }
         private void Txt_iva_KeyUp(object sender, KeyEventArgs e)
         {
-            mtd_calculo_costo();
+            //mtd_calculo_costo();
         }
         private void Txt_costo_KeyUp(object sender, KeyEventArgs e)
         {

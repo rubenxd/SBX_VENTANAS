@@ -295,6 +295,17 @@
         qflvwJiYwCEF4Kh7Bcz4ANUlUQ4BG03HAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="btn_guardar_parametros.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJ
+        TUUH4wEXFAIckbKwewAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADFSURBVEhL
+        7dU9DgFRGIXhUYgEiejswxpUFmAnYglaG9Bag3oWoaLQo0Ph7z0yV65xTeabEAlO8hRueGcaMxGLcfac
+        sDY6YosO7paOr2DdHPrtHl0duFnjDUwSAx0wF3+4gDXegvvuVAfMj8vtAu+Ii7o/FNeqicr1kyG+w9Bo
+        A78hwfirfFFcz4h2QSNkxg86KLg+csVrWMI99RYoI2u541odzZQSns105zPoz+HrYYzQTHdu3T8e3Gfj
+        4r/VLfT29zpRfAEMtCgd3eTk5QAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="errorProvider.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -2192,17 +2203,6 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
-</value>
-  </data>
-  <data name="btn_guardar_parametros.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJ
-        TUUH4wEXFAIckbKwewAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADFSURBVEhL
-        7dU9DgFRGIXhUYgEiejswxpUFmAnYglaG9Bag3oWoaLQo0Ph7z0yV65xTeabEAlO8hRueGcaMxGLcfac
-        sDY6YosO7paOr2DdHPrtHl0duFnjDUwSAx0wF3+4gDXegvvuVAfMj8vtAu+Ii7o/FNeqicr1kyG+w9Bo
-        A78hwfirfFFcz4h2QSNkxg86KLg+csVrWMI99RYoI2u541odzZQSns105zPoz+HrYYzQTHdu3T8e3Gfj
-        4r/VLfT29zpRfAEMtCgd3eTk5QAAAABJRU5ErkJggg==
 </value>
   </data>
 </root>

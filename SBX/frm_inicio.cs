@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -224,9 +225,31 @@ namespace SBX
             frm_Confirmacion.ShowDialog();
             if (v_confirmacion == true)
             {
-                frm_login frm_Login = new frm_login();
-                frm_Login.Show();
-                this.Hide();
+                //Realizar copia de seguridad
+                this.Cursor = Cursors.WaitCursor;
+                string NombreCopiaSeguridad = DateTime.Now.ToString() + "DB_SBX.bak";
+                string ComandoConsulta = "BACKUP DATABASE [db_sbx] TO  DISK = N'C:\\COPIA_DE_SEGURIDAD_SBX\\"+NombreCopiaSeguridad+"' WITH NOFORMAT, NOINIT,  NAME = N'db_sbx-Completa Base de datos Copia de seguridad', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+                SBX.DB.cls_conexion cls_Conexion = new DB.cls_conexion();
+                if (cls_Conexion.Cadenacn.State == ConnectionState.Open)
+                {
+                    cls_Conexion.Cadenacn.Close();
+                }
+                SqlCommand cmd = new SqlCommand(ComandoConsulta, cls_Conexion.Cadenacn);
+                try
+                {
+                    cls_Conexion.Cadenacn.Open();
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Se genero copia de seguidad Correctamente","Correcto",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    this.Cursor = Cursors.Default;
+                    //Iniciar Formulario de login
+                    frm_login frm_Login = new frm_login();
+                    frm_Login.Show();
+                    this.Hide();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al intentar generar copia de seguidad", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }      
             }
         }
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -276,6 +299,7 @@ namespace SBX
             {
                 frm_Producto = new frm_producto();               
                 frm_Producto.v_dt_Permi = v_dt_permisos;
+                frm_Producto.Usuario = this.Codigo;
                 frm_Producto.BuscaAutomaticamente = BuscaAutomatica;
                 frm_Producto.BuscaPaginados = BuscaPaginado;
                 frm_Producto.Show();
@@ -285,13 +309,7 @@ namespace SBX
                 frm_Producto.BringToFront();
                 frm_Producto.WindowState = FormWindowState.Normal;
             }
-            this.Cursor = Cursors.Default;
-            //formul.Dispose();
-            //frm_producto frm_Producto = new frm_producto();
-            //frm_Producto.v_dt_Permi = v_dt_permisos;
-            //ColoresBotones("btn_producto");
-            //AbrirFormularioEnPanel(frm_Producto);
-            //btn_producto.BackColor = Color.DarkSeaGreen;
+            this.Cursor = Cursors.Default;           
         }
         private void btn_inventario_Click(object sender, EventArgs e)
         {
@@ -484,6 +502,39 @@ namespace SBX
             frm_Confirmacion.ShowDialog();
             if (v_confirmacion == true)
             {
+                //Realizar copia de seguridad
+
+                this.Cursor = Cursors.WaitCursor;
+
+                //consultar ruta a guardar
+                cls_parametros cls_Parametros = new cls_parametros();
+                v_dt = cls_Parametros.mtd_consultar_parametros();
+                string ruta = "";
+                foreach (DataRow item in v_dt.Rows)
+                {
+                    ruta = item["rutaBackupDB"].ToString();
+                }
+                string NombreCopiaSeguridad = DateTime.Today.Year.ToString() +"-"+ DateTime.Today.Month.ToString() + "-" + DateTime.Today.Day.ToString() + "-" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" + DateTime.Now.Second + " DB_SBX.bak";
+                string ComandoConsulta = "BACKUP DATABASE [db_sbx] TO  DISK = N'"+ ruta + ""+ NombreCopiaSeguridad + "' WITH NOFORMAT, NOINIT,  NAME = N'db_sbx-Completa Base de datos Copia de seguridad', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+                SBX.DB.cls_conexion cls_Conexion = new DB.cls_conexion();
+                if (cls_Conexion.Cadenacn.State == ConnectionState.Open)
+                {
+                    cls_Conexion.Cadenacn.Close();
+                }
+                SqlCommand cmd = new SqlCommand(ComandoConsulta, cls_Conexion.Cadenacn);
+                try
+                {
+                    cls_Conexion.Cadenacn.Open();
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Se genero copia de seguidad Correctamente", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Cursor = Cursors.Default;
+                   
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al intentar generar copia de seguidad: "+ex.Message.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                //Iniciar Formulario de login
                 frm_login frm_Login = new frm_login();
                 frm_Login.Show();
                 this.Hide();

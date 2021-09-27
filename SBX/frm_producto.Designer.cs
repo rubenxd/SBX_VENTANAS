@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_producto));
             this.pnl_centro = new System.Windows.Forms.Panel();
             this.dtg_productos = new System.Windows.Forms.DataGridView();
@@ -63,6 +63,7 @@
             this.lbl_minimizar = new System.Windows.Forms.Label();
             this.lbl_cerrar = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_nuevo = new System.Windows.Forms.Button();
             this.pnl_centro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_productos)).BeginInit();
             this.panel1.SuspendLayout();
@@ -91,23 +92,23 @@
             this.dtg_productos.AllowUserToOrderColumns = true;
             this.dtg_productos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtg_productos.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dtg_productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_productos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_productos.DefaultCellStyle = dataGridViewCellStyle16;
             this.dtg_productos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtg_productos.Location = new System.Drawing.Point(0, 42);
             this.dtg_productos.Name = "dtg_productos";
@@ -310,6 +311,7 @@
             // pnl_arriba
             // 
             this.pnl_arriba.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnl_arriba.Controls.Add(this.btn_nuevo);
             this.pnl_arriba.Controls.Add(this.cbx_dato_busqueda);
             this.pnl_arriba.Controls.Add(this.btn_fecha_vencimiento);
             this.pnl_arriba.Controls.Add(this.btn_estado_stock);
@@ -379,7 +381,7 @@
             this.btn_producto_mas_vendido.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btn_producto_mas_vendido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_producto_mas_vendido.Image = ((System.Drawing.Image)(resources.GetObject("btn_producto_mas_vendido.Image")));
-            this.btn_producto_mas_vendido.Location = new System.Drawing.Point(177, 6);
+            this.btn_producto_mas_vendido.Location = new System.Drawing.Point(170, 6);
             this.btn_producto_mas_vendido.Name = "btn_producto_mas_vendido";
             this.btn_producto_mas_vendido.Size = new System.Drawing.Size(26, 26);
             this.btn_producto_mas_vendido.TabIndex = 17;
@@ -394,7 +396,7 @@
             this.cbx_tipo_busqueda.Items.AddRange(new object[] {
             "Contiene",
             "Exactamente"});
-            this.cbx_tipo_busqueda.Location = new System.Drawing.Point(368, 8);
+            this.cbx_tipo_busqueda.Location = new System.Drawing.Point(376, 8);
             this.cbx_tipo_busqueda.Name = "cbx_tipo_busqueda";
             this.cbx_tipo_busqueda.Size = new System.Drawing.Size(123, 21);
             this.cbx_tipo_busqueda.TabIndex = 16;
@@ -441,7 +443,7 @@
             this.btn_buscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_buscar.Image = ((System.Drawing.Image)(resources.GetObject("btn_buscar.Image")));
-            this.btn_buscar.Location = new System.Drawing.Point(921, 8);
+            this.btn_buscar.Location = new System.Drawing.Point(921, 5);
             this.btn_buscar.Name = "btn_buscar";
             this.btn_buscar.Size = new System.Drawing.Size(22, 22);
             this.btn_buscar.TabIndex = 8;
@@ -452,7 +454,7 @@
             // 
             this.txt_buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_buscar.ForeColor = System.Drawing.Color.Gray;
-            this.txt_buscar.Location = new System.Drawing.Point(676, 10);
+            this.txt_buscar.Location = new System.Drawing.Point(676, 8);
             this.txt_buscar.Name = "txt_buscar";
             this.txt_buscar.Size = new System.Drawing.Size(239, 20);
             this.txt_buscar.TabIndex = 7;
@@ -530,6 +532,21 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Productos";
             // 
+            // btn_nuevo
+            // 
+            this.btn_nuevo.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_nuevo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_nuevo.FlatAppearance.BorderSize = 0;
+            this.btn_nuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_nuevo.Image = ((System.Drawing.Image)(resources.GetObject("btn_nuevo.Image")));
+            this.btn_nuevo.Location = new System.Drawing.Point(202, 6);
+            this.btn_nuevo.Name = "btn_nuevo";
+            this.btn_nuevo.Size = new System.Drawing.Size(26, 26);
+            this.btn_nuevo.TabIndex = 21;
+            this.btn_nuevo.UseVisualStyleBackColor = false;
+            this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
+            // 
             // frm_producto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -589,5 +606,6 @@
         private System.Windows.Forms.Button btn_fecha_vencimiento;
         private System.Windows.Forms.ComboBox cbx_dato_busqueda;
         private System.Windows.Forms.DataGridView dtg_productos;
+        private System.Windows.Forms.Button btn_nuevo;
     }
 }

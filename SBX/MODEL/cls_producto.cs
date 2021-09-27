@@ -94,7 +94,7 @@ namespace SBX.MODEL
         }          
         public DataTable mtd_consultar_producto_kardex()
         {
-            v_query = " EXECUTE SP_CONSULTA_ESTADO_PRODUCTOS '" + v_buscar + "','" + v_tipo_busqueda + "','"+v_data_busqueda+"' ";
+            v_query = " EXECUTE SP_CONSULTA_ESTADO_PRODUCTOS_ESTADO_STOCKS '" + v_buscar + "','" + v_tipo_busqueda + "','"+v_data_busqueda+"' ";
             v_dt = cls_Datos.mtd_consultar(v_query);
             return v_dt;
         }
@@ -225,6 +225,13 @@ namespace SBX.MODEL
                 }       
             }
                 
+            return v_dt;
+        }
+
+        public DataTable mtd_consultar_producto_mas_vendido_sp(string FechaInicio, string FechaFin) 
+        {
+            v_query = " EXECUTE sp_calcular_producto_mas_vendido '" + FechaInicio + "','" + FechaFin + "','" + v_tipo_busqueda + "','" + v_buscar + "' ";
+            v_dt = cls_Datos.mtd_consultar(v_query);
             return v_dt;
         }
         public DataTable mtd_consultar_fechas_vecimiento()

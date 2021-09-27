@@ -27,6 +27,7 @@ namespace SBX
         public DataTable v_dt_Permi { get; set; }
         public int BuscaAutomaticamente { get; set; }
         public int BuscaPaginados { get; set; }
+        public string Usuario { get; set; }
 
         //Inicio de formulario
         public frm_producto()
@@ -82,6 +83,7 @@ namespace SBX
             Botones.SetToolTip(btn_producto_mas_vendido, "Producto mas vendido");
             Botones.SetToolTip(btn_estado_stock, "Estado Stocks");
             Botones.SetToolTip(btn_fecha_vencimiento, "Estado Fecha vencimiento");
+            Botones.SetToolTip(btn_nuevo, "Agregar Producto");
         }
         string v_buscar = "";
         string v_tipo_busqueda = "";
@@ -204,6 +206,10 @@ namespace SBX
                     }
                 }
             }
+            else
+            {
+                MessageBox.Show("No hay datos para eliminar", "Sin datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         //private void mtd_calculo_totales()
         //{
@@ -272,20 +278,27 @@ namespace SBX
         }
         private void btn_exportar_excel_Click(object sender, EventArgs e)
         {
-            cls_Producto.v_tipo_busqueda = "Buscar_data_producto";
-            cls_Producto.Item = "";
-            cls_Producto.Referencia = "";
-            cls_Producto.CodigoBarras = "";
-            if (txt_buscar.Text == "Item-Nombre-Referencia-Codigo barras")
+            if (dtg_productos.Rows.Count > 0)
             {
-                cls_Producto.v_buscar = "";
+                cls_Producto.v_tipo_busqueda = "Buscar_data_producto";
+                cls_Producto.Item = "";
+                cls_Producto.Referencia = "";
+                cls_Producto.CodigoBarras = "";
+                if (txt_buscar.Text == "Item-Nombre-Referencia-Codigo barras")
+                {
+                    cls_Producto.v_buscar = "";
+                }
+                else
+                {
+                    cls_Producto.v_buscar = txt_buscar.Text;
+                }
+                v_dt = cls_Producto.mtd_consultar_producto();
+                mtd_exporta_excel();
             }
-            else
+            else 
             {
-                cls_Producto.v_buscar = txt_buscar.Text;
-            }
-            v_dt = cls_Producto.mtd_consultar_producto();
-            mtd_exporta_excel();
+                MessageBox.Show("No hay datos para exportar a excel","Sin datos",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }         
         }
         private void btn_editar_Click(object sender, EventArgs e)
         {
@@ -301,6 +314,10 @@ namespace SBX
                     frm_Inventario.v_dt_Permi = v_dt_Permi;
                     frm_Inventario.Show();
                 }
+            }
+            else
+            {
+                MessageBox.Show("No hay datos para Editar", "Sin datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void dtg_productos_DoubleClick(object sender, EventArgs e)
@@ -389,6 +406,13 @@ namespace SBX
             {            
                 mtd_cargar_productos();
             }
+        }
+        private void btn_nuevo_Click(object sender, EventArgs e)
+        {
+            frm_inventario frm_Inventario = new frm_inventario();
+            frm_Inventario.Usuario = this.Usuario;
+            frm_Inventario.v_dt_Permi = this.v_dt_Permi;
+            frm_Inventario.Show();
         }
     }
 }

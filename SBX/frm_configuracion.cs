@@ -412,6 +412,7 @@ namespace SBX
             cls_parametros cls_Parametros = new cls_parametros();
             cls_Parametros.Buscar_automaticamente = buscaAuto;
             cls_Parametros.Datos_paginados = paginado;
+            cls_Parametros.Ruta_backup_db = txt_ruta_backup_db.Text;
             v_ok = cls_Parametros.mtd_Editar();
           
             if (v_ok == true)
@@ -445,6 +446,8 @@ namespace SBX
                 {
                     chk_dp.Checked = true;
                 }
+
+                txt_ruta_backup_db.Text = item["rutaBackupDB"].ToString();
             }
         }
     }

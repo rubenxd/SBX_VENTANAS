@@ -66,8 +66,8 @@ namespace SBX.MODEL
             //          " GROUP BY sp.Codigo ";
 
             v_query = "select sp.Codigo,ISNULL(SUM(ValorAbono),0)  ValorAbonos, " +
-                        "(select sum(costo) from Venta where SistemaSeparado = asp.SistemaSeparado) Costo, " +
-                        "((select sum(costo) from Venta where SistemaSeparado = asp.SistemaSeparado)-ISNULL(SUM(ValorAbono), 0)) " +
+                        "(select isnull(sum(costo),0) from Venta where SistemaSeparado = asp.SistemaSeparado) Costo, " +
+                        "isnull(((select sum(costo) from Venta where SistemaSeparado = asp.SistemaSeparado)-ISNULL(SUM(ValorAbono), 0)),0) " +
                         "Resta " +
                         "from AbonoSistemaSeparado asp " +
                         "inner join SistemaSeparado sp on sp.Codigo = asp.SistemaSeparado " +

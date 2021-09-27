@@ -24,7 +24,8 @@ namespace SBX.MODEL
         //getter and setter
         public string Buscar_automaticamente { get; set; }
         public string Datos_paginados { get; set; }
-    
+        public string Ruta_backup_db { get; set; }
+
         public DataTable mtd_consultar_parametros()
         {
             v_query = " SELECT * FROM Parametros ";
@@ -33,7 +34,7 @@ namespace SBX.MODEL
         }
         private void mtd_asignaParametros()
         {
-            Parametros = new SqlParameter[2];
+            Parametros = new SqlParameter[3];
 
             Parametros[0] = new SqlParameter();
             Parametros[0].ParameterName = "@Buscar_automaticamente";
@@ -44,11 +45,16 @@ namespace SBX.MODEL
             Parametros[1].ParameterName = "@Datos_paginados";
             Parametros[1].SqlDbType = SqlDbType.VarChar;
             Parametros[1].SqlValue = Datos_paginados;
+
+            Parametros[2] = new SqlParameter();
+            Parametros[2].ParameterName = "@rutaBackupDB";
+            Parametros[2].SqlDbType = SqlDbType.VarChar;
+            Parametros[2].SqlValue = Ruta_backup_db;
         }
         public Boolean mtd_registrar()
         {
-            v_query = " INSERT INTO Parametros (Buscar_automaticamente,Datos_paginados)" +
-                      " VALUES (@Buscar_automaticamente,@Datos_paginados)";
+            v_query = " INSERT INTO Parametros (Buscar_automaticamente,Datos_paginados,rutaBackupDB)" +
+                      " VALUES (@Buscar_automaticamente,@Datos_paginados,@rutaBackupDB)";
 
             mtd_asignaParametros();
             v_ok = cls_datos.mtd_registrar(Parametros, v_query);
@@ -56,7 +62,7 @@ namespace SBX.MODEL
         }
         public Boolean mtd_Editar()
         {
-            v_query = " UPDATE Parametros SET Buscar_automaticamente = @Buscar_automaticamente,Datos_paginados = @Datos_paginados ";
+            v_query = " UPDATE Parametros SET Buscar_automaticamente = @Buscar_automaticamente,Datos_paginados = @Datos_paginados, rutaBackupDB = @rutaBackupDB ";
 
             mtd_asignaParametros();
             v_ok = cls_datos.mtd_editar(Parametros, v_query);

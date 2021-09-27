@@ -231,30 +231,30 @@ namespace SBX
                         switch (v_UM)
                         {
                             case "UND":
-                                Costo = Convert.ToDouble(v_row["CostoCalculado"]);
+                                Costo = Convert.ToDouble(v_row["Costo"]);
                                 break;
                             case "UND P":
-                                //Costo = Convert.ToDouble(v_row["CostoCalculado"]) / Convert.ToDouble(v_row["SubCantidad"]);
-                                Costo = Convert.ToDouble(v_row["CostoCalculado"]) / Convert.ToDouble(v_row["Sobres"]);
+                                //Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["SubCantidad"]);
+                                Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["Sobres"]);
                                 Costo = Costo / Convert.ToDouble(v_row["SubCantidad"]);
                                 break;
                             case "UND D":
-                                Costo = Convert.ToDouble(v_row["CostoCalculado"]) / Convert.ToDouble(v_row["SubCantidad"]);
+                                Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["SubCantidad"]);
                                 break;
                             case "Sobre":
-                                Costo = Convert.ToDouble(v_row["CostoCalculado"]) / Convert.ToDouble(v_row["Sobres"]);
+                                Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["Sobres"]);
                                 break;
                             case "Caja":
-                                Costo = Convert.ToDouble(v_row["CostoCalculado"]);
+                                Costo = Convert.ToDouble(v_row["Costo"]);
                                 break;
                             case "Bulto":
-                                Costo = Convert.ToDouble(v_row["CostoCalculado"]);
+                                Costo = Convert.ToDouble(v_row["Costo"]);
                                 break;
                             case "Bolsa":
-                                Costo = Convert.ToDouble(v_row["CostoCalculado"]);
+                                Costo = Convert.ToDouble(v_row["Costo"]);
                                 break;
                             default:
-                                Costo = Convert.ToDouble(v_row["CostoCalculado"]) / Convert.ToDouble(v_row["SubCantidad"]);
+                                Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["SubCantidad"]);
                                 break;
                         }
                         dtg_venta.Rows[v_contador - 1].Cells["cl_costo"].Value = Costo.ToString("N0");
@@ -362,30 +362,30 @@ namespace SBX
                             switch (v_UM)
                             {
                                 case "UND":
-                                    Costo = Convert.ToDouble(v_row["CostoCalculado"]);
+                                    Costo = Convert.ToDouble(v_row["Costo"]);
                                     break;
                                 case "UND P":
-                                //Costo = Convert.ToDouble(v_row["CostoCalculado"]) / Convert.ToDouble(v_row["SubCantidad"]);
-                                Costo = Convert.ToDouble(v_row["CostoCalculado"]) / Convert.ToDouble(v_row["Sobres"]);
+                                //Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["SubCantidad"]);
+                                Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["Sobres"]);
                                 Costo = Costo / Convert.ToDouble(v_row["SubCantidad"]);
                                 break;
                                 case "UND D":
-                                    Costo = Convert.ToDouble(v_row["CostoCalculado"]) / Convert.ToDouble(v_row["SubCantidad"]);
+                                    Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["SubCantidad"]);
                                     break;
                                 case "Sobre":
-                                    Costo = Convert.ToDouble(v_row["CostoCalculado"]) / Convert.ToDouble(v_row["Sobres"]);
+                                    Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["Sobres"]);
                                     break;
                                 case "Caja":
-                                    Costo = Convert.ToDouble(v_row["CostoCalculado"]);
+                                    Costo = Convert.ToDouble(v_row["Costo"]);
                                     break;
                                 case "Bulto":
-                                    Costo = Convert.ToDouble(v_row["CostoCalculado"]);
+                                    Costo = Convert.ToDouble(v_row["Costo"]);
                                     break;
                                 case "Bolsa":
-                                    Costo = Convert.ToDouble(v_row["CostoCalculado"]);
+                                    Costo = Convert.ToDouble(v_row["Costo"]);
                                     break;
                                 default:
-                                    Costo = Convert.ToDouble(v_row["CostoCalculado"]) / Convert.ToDouble(v_row["SubCantidad"]);
+                                    Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["SubCantidad"]);
                                     break;
                             }
                             dtg_venta.Rows[v_contador - 1].Cells["cl_costo"].Value = Costo.ToString("N0");
@@ -483,30 +483,30 @@ namespace SBX
                             switch (v_UM)
                             {
                                 case "UND":
-                                    Costo = Convert.ToDouble(v_row["CostoCalculado"]);
+                                    Costo = Convert.ToDouble(v_row["Costo"]);
                                     break;
                                 case "UND P":
-                                    //Costo = Convert.ToDouble(v_row["CostoCalculado"]) / Convert.ToDouble(v_row["SubCantidad"]);
-                                    Costo = Convert.ToDouble(v_row["CostoCalculado"]) / Convert.ToDouble(v_row["Sobres"]);
+                                    //Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["SubCantidad"]);
+                                    Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["Sobres"]);
                                     Costo = Costo / Convert.ToDouble(v_row["SubCantidad"]);
                                     break;
                                 case "UND D":
-                                    Costo = Convert.ToDouble(v_row["CostoCalculado"]) / Convert.ToDouble(v_row["SubCantidad"]);
+                                    Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["SubCantidad"]);
                                     break;
                                 case "Sobre":
-                                    Costo = Convert.ToDouble(v_row["CostoCalculado"]) / Convert.ToDouble(v_row["Sobres"]);
+                                    Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["Sobres"]);
                                     break;
                                 case "Caja":
-                                    Costo = Convert.ToDouble(v_row["CostoCalculado"]);
+                                    Costo = Convert.ToDouble(v_row["Costo"]);
                                     break;
                                 case "Bulto":
-                                    Costo = Convert.ToDouble(v_row["CostoCalculado"]);
+                                    Costo = Convert.ToDouble(v_row["Costo"]);
                                     break;
                                 case "Bolsa":
-                                    Costo = Convert.ToDouble(v_row["CostoCalculado"]);
+                                    Costo = Convert.ToDouble(v_row["Costo"]);
                                     break;
                                 default:
-                                    Costo = Convert.ToDouble(v_row["CostoCalculado"]) / Convert.ToDouble(v_row["SubCantidad"]);
+                                    Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["SubCantidad"]);
                                     break;
                             }
                             dtg_venta.Rows[v_contador - 1].Cells["cl_costo"].Value = Costo.ToString("N0");

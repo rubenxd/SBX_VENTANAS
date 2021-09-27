@@ -89,9 +89,9 @@
             this.pnl_paginacion.Controls.Add(this.lbl_registros);
             this.pnl_paginacion.Controls.Add(this.label2);
             this.pnl_paginacion.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnl_paginacion.Location = new System.Drawing.Point(0, 3);
+            this.pnl_paginacion.Location = new System.Drawing.Point(0, 0);
             this.pnl_paginacion.Name = "pnl_paginacion";
-            this.pnl_paginacion.Size = new System.Drawing.Size(992, 42);
+            this.pnl_paginacion.Size = new System.Drawing.Size(992, 45);
             this.pnl_paginacion.TabIndex = 11;
             // 
             // btn_actualizar
@@ -364,10 +364,10 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtg_saldos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_saldos.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dtg_saldos.Location = new System.Drawing.Point(0, 381);
+            this.dtg_saldos.Location = new System.Drawing.Point(0, 286);
             this.dtg_saldos.Name = "dtg_saldos";
             this.dtg_saldos.ReadOnly = true;
-            this.dtg_saldos.Size = new System.Drawing.Size(992, 63);
+            this.dtg_saldos.Size = new System.Drawing.Size(992, 158);
             this.dtg_saldos.TabIndex = 13;
             // 
             // dtg_productos
@@ -398,7 +398,7 @@
             this.dtg_productos.Location = new System.Drawing.Point(0, 42);
             this.dtg_productos.Name = "dtg_productos";
             this.dtg_productos.ReadOnly = true;
-            this.dtg_productos.Size = new System.Drawing.Size(992, 339);
+            this.dtg_productos.Size = new System.Drawing.Size(992, 244);
             this.dtg_productos.TabIndex = 14;
             // 
             // frm_saldos

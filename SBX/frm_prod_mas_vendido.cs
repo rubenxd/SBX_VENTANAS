@@ -39,7 +39,8 @@ namespace SBX
             cls_Produc.v_buscar = txt_buscar.Text;
             cls_Produc.v_tipo_busqueda = cbx_tipo_busqueda.Text;
 
-            DT = cls_Produc.mtd_consultar_pro_mas_vendido(Convert.ToDateTime(dtp_fecha_inicio.Text), Convert.ToDateTime(dtp_fecha_fin.Text));
+            ////DT = cls_Produc.mtd_consultar_pro_mas_vendido(Convert.ToDateTime(dtp_fecha_inicio.Text), Convert.ToDateTime(dtp_fecha_fin.Text));
+            DT = cls_Produc.mtd_consultar_producto_mas_vendido_sp(dtp_fecha_inicio.Text,dtp_fecha_fin.Text);
             dtg_informe.Rows.Clear();
             if (DT.Rows.Count > 0)
             {
@@ -50,12 +51,13 @@ namespace SBX
                 {
                     dtg_informe.Rows[Contador].Cells["cl_item"].Value = rows["Item"];
                     dtg_informe.Rows[Contador].Cells["cl_nombre"].Value = rows["Nombre"];
+                    dtg_informe.Rows[Contador].Cells["cl_referencia"].Value = rows["Referencia"];
                     double PrecioVenta = Convert.ToDouble(rows["PrecioVenta"]);
                     dtg_informe.Rows[Contador].Cells["cl_precio_Venta"].Value = PrecioVenta.ToString("N0");
-                    dtg_informe.Rows[Contador].Cells["cl_modo_v"].Value = rows["ModoVenta"];
+                    dtg_informe.Rows[Contador].Cells["cl_modo_v"].Value = rows["Modo venta"];
                     dtg_informe.Rows[Contador].Cells["cl_um"].Value = rows["UM"];
-                    dtg_informe.Rows[Contador].Cells["cl_cantidad"].Value = rows["Cantidad_global"];
-                    dtg_informe.Rows[Contador].Cells["cl_und_um"].Value = rows["UND_UM"];
+                    dtg_informe.Rows[Contador].Cells["cl_cantidad"].Value = rows["Cantidad"];
+                    dtg_informe.Rows[Contador].Cells["cl_und_um"].Value = rows["UM Venta"];
                     Contador++;
                 }
             }
