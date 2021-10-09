@@ -22,6 +22,7 @@ namespace SBX
         int v_validado = 0;
         bool v_ok;
         int Codigo = 0;
+        public string usuario { get; set; }
 
         public frm_agregar_gasto()
         {
@@ -71,6 +72,7 @@ namespace SBX
                             cls_Gm.Gasto = Codigo;
                             cls_Gm.Valor = Convert.ToDouble(txt_valor.Text);
                             cls_Gm.Valor_iva = txt_valor_iva.Text;
+                            cls_Gm.usuario = this.usuario;
                             v_ok = cls_Gm.mtd_registrar();
                             if (v_ok == true)
                             {

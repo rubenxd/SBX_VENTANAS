@@ -86,6 +86,7 @@ namespace SBX
             cl_gp.FechaFin = dtp_fecha_fin.Text;
             cl_gp.TipoBusqueda = cbx_tipo_busqueda.Text;
             cl_gp.Buscar = txt_buscar.Text;
+            cl_gp.Usuario = this.Codigo;
             v_dt = cl_gp.mtd_consultar();
             v_dt_detalle = v_dt;
             dtg_informe.Rows.Clear();
@@ -113,6 +114,7 @@ namespace SBX
             //SISTEMA DE SEPARADOS
             cl_gp.FechaIni = dtp_fecha_inicio.Text;
             cl_gp.FechaFin = dtp_fecha_fin.Text;
+            cl_gp.Usuario = this.Codigo;
             double valorAbono = 0;
             double valorAbonoTotal = 0;
             double costosp = 0;
@@ -154,6 +156,7 @@ namespace SBX
                 txt_ventas_separado.Text = valorAbono.ToString("N0");
             }
             //Abonos separados total
+            cl_gp.Usuario = this.Codigo;
             v_dt = cl_gp.mtd_consultar_Abonos_separados_Total();
             if (v_dt.Rows.Count > 0)
             {
@@ -179,6 +182,7 @@ namespace SBX
             cls_gastos_m cl_gm = new cls_gastos_m();
             cl_gm.FechaIni = dtp_fecha_inicio.Text;
             cl_gm.Fechafin = dtp_fecha_fin.Text;
+            cl_gm.usuario = this.Codigo;
             v_dt = cl_gm.mtd_consultar_gastos();
             TotalGastos = 0;
             TotalIva = 0;

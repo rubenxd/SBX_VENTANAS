@@ -34,7 +34,7 @@ namespace SBX.MODEL
 
         public DataTable mtd_consultar()
         {
-            v_query = " SP_GANACIAS_PERDIDAS '" + FechaIni+ "','" + FechaFin + "','" + TipoBusqueda + "','" + Buscar + "'  ";
+            v_query = " SP_GANACIAS_PERDIDAS '" + FechaIni+ "','" + FechaFin + "','" + TipoBusqueda + "','" + Buscar + "','"+Usuario+"'  ";
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }
@@ -52,7 +52,7 @@ namespace SBX.MODEL
                         "Resta " +
                         "from AbonoSistemaSeparado asp " +
                         "inner join SistemaSeparado sp on sp.Codigo = asp.SistemaSeparado " +
-                        "WHERE(CONVERT(date, asp.Fecha) =   '" + FechaFin + "') " +
+                        "WHERE(CONVERT(date, asp.Fecha) =   '" + FechaFin + "') and asp.usuario = "+Usuario+"" +
                         "GROUP BY sp.Codigo, asp.SistemaSeparado ";
 
             v_dt = cls_datos.mtd_consultar(v_query);
@@ -71,7 +71,7 @@ namespace SBX.MODEL
                         "Resta " +
                         "from AbonoSistemaSeparado asp " +
                         "inner join SistemaSeparado sp on sp.Codigo = asp.SistemaSeparado " +
-                        "WHERE(CONVERT(date, asp.Fecha)  BETWEEN '20131123' AND  '" + FechaFin + "') " +
+                        "WHERE(CONVERT(date, asp.Fecha)  BETWEEN '20131123' AND  '" + FechaFin + "') and asp.usuario = " + Usuario + " " +
                         "GROUP BY sp.Codigo, asp.SistemaSeparado ";
 
             v_dt = cls_datos.mtd_consultar(v_query);

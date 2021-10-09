@@ -146,6 +146,7 @@ namespace SBX
             cl_gm.Buscar = txt_buscar.Text;
             cl_gm.FechaIni = dtp_fecha_inicio.Text;
             cl_gm.Fechafin = dtp_fecha_fin.Text;
+            cl_gm.usuario = this.Codigo;
             v_dt = cl_gm.mtd_consultar_gastos();
             TotalGastos = 0;
             TotalIva = 0;
@@ -188,6 +189,7 @@ namespace SBX
             if (v_confirmacion == true)
             {
                 frm_agregar_gasto Frm_Agregar_gasto = new frm_agregar_gasto();
+                Frm_Agregar_gasto.usuario = this.Codigo;
                 Frm_Agregar_gasto.ShowDialog();
                 mtd_consultar();
             }     

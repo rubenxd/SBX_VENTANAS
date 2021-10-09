@@ -32,18 +32,19 @@ namespace SBX.MODEL
         public string Fechafin { get; set; }
         public string proveedor { get; set; }
         public string Valor_iva { get; set; }
+        public string usuario { get; set; }
 
         //Metodos
         public DataTable mtd_consultar_gastos()
         {
             v_query = " SELECT gm.codigo,g.Nombre Gasto,gm.FechaRegistro,gm.Valor,gm.proveedor,ISNULL(gm.ValorIva,0) ValorIva FROM gastosm gm INNER JOIN Gastos g ON g.Codigo = gm.Gasto " +
-                " WHERE g.Nombre LIKE '"+ Buscar + "%' AND CONVERT(date,FechaRegistro) BETWEEN '"+FechaIni+ "' AND '" + Fechafin + "'";
+                " WHERE g.Nombre LIKE '"+ Buscar + "%' AND CONVERT(date,FechaRegistro) BETWEEN '"+FechaIni+ "' AND '" + Fechafin + "' AND gm.usuario = '"+usuario+"' ";
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }
         private void mtd_asignaParametros()
         {
-            Parametros = new SqlParameter[5];
+            Parametros = new SqlParameter[6];
 
             Parametros[0] = new SqlParameter();
             Parametros[0].ParameterName = "@Fecha";
@@ -69,10 +70,15 @@ namespace SBX.MODEL
             Parametros[4].ParameterName = "@proveedor";
             Parametros[4].SqlDbType = SqlDbType.Money;
             Parametros[4].SqlValue = proveedor;
+
+            Parametros[5] = new SqlParameter();
+            Parametros[5].ParameterName = "@usuario";
+            Parametros[5].SqlDbType = SqlDbType.VarChar;
+            Parametros[5].SqlValue = usuario;
         }
         public bool mtd_registrar()
         {
-            v_query = " INSERT INTO gastosm VALUES(@Fecha,@Gasto,@Valor,@proveedor,@Valor_iva) ";
+            v_query = " INSERT INTO gastosm VALUES(@Fecha,@Gasto,@Valor,@proveedor,@Valor_iva,@usuario) ";
             mtd_asignaParametros();
             v_ok = cls_datos.mtd_registrar(Parametros, v_query);
             return v_ok;

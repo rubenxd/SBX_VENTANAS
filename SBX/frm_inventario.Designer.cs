@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_inventario));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_arriba = new System.Windows.Forms.Panel();
             this.lbl_minimizar = new System.Windows.Forms.Label();
             this.lbl_cerrar = new System.Windows.Forms.Label();
@@ -401,14 +401,14 @@
             this.dtg_busca_nombre.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtg_busca_nombre.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cl_Nombre});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_busca_nombre.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_busca_nombre.DefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_busca_nombre.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtg_busca_nombre.Location = new System.Drawing.Point(0, 21);
             this.dtg_busca_nombre.Name = "dtg_busca_nombre";
@@ -862,7 +862,7 @@
             this.txt_precio_venta.Location = new System.Drawing.Point(457, 131);
             this.txt_precio_venta.Name = "txt_precio_venta";
             this.txt_precio_venta.Size = new System.Drawing.Size(197, 20);
-            this.txt_precio_venta.TabIndex = 24;
+            this.txt_precio_venta.TabIndex = 21;
             this.txt_precio_venta.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Txt_precio_venta_KeyUp);
             this.txt_precio_venta.Leave += new System.EventHandler(this.txt_precio_venta_Leave);
             // 
