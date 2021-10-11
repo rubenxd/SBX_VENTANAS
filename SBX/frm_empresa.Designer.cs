@@ -315,6 +315,7 @@
             this.pbx_foto.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pbx_foto.BackColor = System.Drawing.SystemColors.Window;
             this.pbx_foto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbx_foto.Image = ((System.Drawing.Image)(resources.GetObject("pbx_foto.Image")));
             this.pbx_foto.Location = new System.Drawing.Point(700, 93);
             this.pbx_foto.Name = "pbx_foto";
             this.pbx_foto.Size = new System.Drawing.Size(100, 100);
