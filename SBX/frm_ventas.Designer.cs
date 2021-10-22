@@ -36,6 +36,25 @@
             this.lbl_minimixar = new System.Windows.Forms.Label();
             this.lbl_cerrar = new System.Windows.Forms.Label();
             this.dtg_ventas = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_orden_servicio = new System.Windows.Forms.Button();
+            this.btn_impresion = new System.Windows.Forms.Button();
+            this.btn_impresion_ticket = new System.Windows.Forms.Button();
+            this.btn_cotizaciones = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtp_fecha_fin = new System.Windows.Forms.DateTimePicker();
+            this.dtp_fecha_inicio = new System.Windows.Forms.DateTimePicker();
+            this.cbx_tipo_busqueda = new System.Windows.Forms.ComboBox();
+            this.btn_eliminar = new System.Windows.Forms.Button();
+            this.btn_buscar = new System.Windows.Forms.Button();
+            this.txt_buscar = new System.Windows.Forms.TextBox();
+            this.btn_exportar_excel = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_cantidad = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lbl_total_ventas = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.cl_codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_factura = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,25 +84,6 @@
             this.cl_abonos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_debe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cl_Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_orden_servicio = new System.Windows.Forms.Button();
-            this.btn_impresion = new System.Windows.Forms.Button();
-            this.btn_impresion_ticket = new System.Windows.Forms.Button();
-            this.btn_cotizaciones = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtp_fecha_fin = new System.Windows.Forms.DateTimePicker();
-            this.dtp_fecha_inicio = new System.Windows.Forms.DateTimePicker();
-            this.cbx_tipo_busqueda = new System.Windows.Forms.ComboBox();
-            this.btn_eliminar = new System.Windows.Forms.Button();
-            this.btn_buscar = new System.Windows.Forms.Button();
-            this.txt_buscar = new System.Windows.Forms.TextBox();
-            this.btn_exportar_excel = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lbl_cantidad = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lbl_total_ventas = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.pnl_arriba.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_ventas)).BeginInit();
             this.panel1.SuspendLayout();
@@ -206,184 +206,6 @@
             this.dtg_ventas.Size = new System.Drawing.Size(945, 388);
             this.dtg_ventas.TabIndex = 10;
             // 
-            // cl_codigo
-            // 
-            this.cl_codigo.HeaderText = "Codigo";
-            this.cl_codigo.Name = "cl_codigo";
-            this.cl_codigo.ReadOnly = true;
-            this.cl_codigo.Visible = false;
-            // 
-            // cl_fecha
-            // 
-            this.cl_fecha.HeaderText = "Fecha";
-            this.cl_fecha.Name = "cl_fecha";
-            this.cl_fecha.ReadOnly = true;
-            // 
-            // cl_factura
-            // 
-            this.cl_factura.HeaderText = "Factura";
-            this.cl_factura.Name = "cl_factura";
-            this.cl_factura.ReadOnly = true;
-            // 
-            // cl_item
-            // 
-            this.cl_item.HeaderText = "Item";
-            this.cl_item.Name = "cl_item";
-            this.cl_item.ReadOnly = true;
-            // 
-            // cl_nombre
-            // 
-            this.cl_nombre.HeaderText = "Nombre";
-            this.cl_nombre.Name = "cl_nombre";
-            this.cl_nombre.ReadOnly = true;
-            this.cl_nombre.Width = 200;
-            // 
-            // cl_referencia
-            // 
-            this.cl_referencia.HeaderText = "Referencia";
-            this.cl_referencia.Name = "cl_referencia";
-            this.cl_referencia.ReadOnly = true;
-            // 
-            // cl_codigo_baras
-            // 
-            this.cl_codigo_baras.HeaderText = "Codigo barras";
-            this.cl_codigo_baras.Name = "cl_codigo_baras";
-            this.cl_codigo_baras.ReadOnly = true;
-            this.cl_codigo_baras.Width = 150;
-            // 
-            // cl_modo_venta
-            // 
-            this.cl_modo_venta.HeaderText = "Modo venta";
-            this.cl_modo_venta.Name = "cl_modo_venta";
-            this.cl_modo_venta.ReadOnly = true;
-            // 
-            // cl_um
-            // 
-            this.cl_um.HeaderText = "UM";
-            this.cl_um.Name = "cl_um";
-            this.cl_um.ReadOnly = true;
-            // 
-            // cl_cantidad
-            // 
-            this.cl_cantidad.HeaderText = "Cantidad";
-            this.cl_cantidad.Name = "cl_cantidad";
-            this.cl_cantidad.ReadOnly = true;
-            // 
-            // cl_costo
-            // 
-            this.cl_costo.HeaderText = "Costo";
-            this.cl_costo.Name = "cl_costo";
-            this.cl_costo.ReadOnly = true;
-            // 
-            // cl_precio_venta
-            // 
-            this.cl_precio_venta.HeaderText = "Precio venta";
-            this.cl_precio_venta.Name = "cl_precio_venta";
-            this.cl_precio_venta.ReadOnly = true;
-            // 
-            // descuento
-            // 
-            this.descuento.HeaderText = "% Desc";
-            this.descuento.Name = "descuento";
-            this.descuento.ReadOnly = true;
-            // 
-            // cl_valor_descuento
-            // 
-            this.cl_valor_descuento.HeaderText = "Valor descuento";
-            this.cl_valor_descuento.Name = "cl_valor_descuento";
-            this.cl_valor_descuento.ReadOnly = true;
-            // 
-            // cl_t_debito
-            // 
-            this.cl_t_debito.HeaderText = "TDebito";
-            this.cl_t_debito.Name = "cl_t_debito";
-            this.cl_t_debito.ReadOnly = true;
-            // 
-            // cl_num_baucher_d
-            // 
-            this.cl_num_baucher_d.HeaderText = "Num baucher debito";
-            this.cl_num_baucher_d.Name = "cl_num_baucher_d";
-            this.cl_num_baucher_d.ReadOnly = true;
-            // 
-            // cl_t_credito
-            // 
-            this.cl_t_credito.HeaderText = "TCredito";
-            this.cl_t_credito.Name = "cl_t_credito";
-            this.cl_t_credito.ReadOnly = true;
-            // 
-            // cl_num_baucher_c
-            // 
-            this.cl_num_baucher_c.HeaderText = "Num baucher Credito";
-            this.cl_num_baucher_c.Name = "cl_num_baucher_c";
-            this.cl_num_baucher_c.ReadOnly = true;
-            // 
-            // cl_Total
-            // 
-            this.cl_Total.HeaderText = "Total";
-            this.cl_Total.Name = "cl_Total";
-            this.cl_Total.ReadOnly = true;
-            // 
-            // cl_efectivo
-            // 
-            this.cl_efectivo.HeaderText = "Efectivo";
-            this.cl_efectivo.Name = "cl_efectivo";
-            this.cl_efectivo.ReadOnly = true;
-            // 
-            // cl_cambio
-            // 
-            this.cl_cambio.HeaderText = "Cambio";
-            this.cl_cambio.Name = "cl_cambio";
-            this.cl_cambio.ReadOnly = true;
-            // 
-            // cl_cliente
-            // 
-            this.cl_cliente.HeaderText = "Cliente";
-            this.cl_cliente.Name = "cl_cliente";
-            this.cl_cliente.ReadOnly = true;
-            // 
-            // cl_sucursal
-            // 
-            this.cl_sucursal.HeaderText = "Sucursal";
-            this.cl_sucursal.Name = "cl_sucursal";
-            this.cl_sucursal.ReadOnly = true;
-            // 
-            // cl_domicilio
-            // 
-            this.cl_domicilio.HeaderText = "Domicilio";
-            this.cl_domicilio.Name = "cl_domicilio";
-            this.cl_domicilio.ReadOnly = true;
-            // 
-            // cl_separado
-            // 
-            this.cl_separado.HeaderText = "Separado";
-            this.cl_separado.Name = "cl_separado";
-            this.cl_separado.ReadOnly = true;
-            // 
-            // cl_credito
-            // 
-            this.cl_credito.HeaderText = "Credito";
-            this.cl_credito.Name = "cl_credito";
-            this.cl_credito.ReadOnly = true;
-            this.cl_credito.Visible = false;
-            // 
-            // cl_abonos
-            // 
-            this.cl_abonos.HeaderText = "Abonos";
-            this.cl_abonos.Name = "cl_abonos";
-            this.cl_abonos.ReadOnly = true;
-            // 
-            // cl_debe
-            // 
-            this.cl_debe.HeaderText = "Debe";
-            this.cl_debe.Name = "cl_debe";
-            this.cl_debe.ReadOnly = true;
-            // 
-            // cl_Usuario
-            // 
-            this.cl_Usuario.HeaderText = "Usuario";
-            this.cl_Usuario.Name = "cl_Usuario";
-            this.cl_Usuario.ReadOnly = true;
-            // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -419,6 +241,7 @@
             this.btn_orden_servicio.Size = new System.Drawing.Size(26, 26);
             this.btn_orden_servicio.TabIndex = 84;
             this.btn_orden_servicio.UseVisualStyleBackColor = false;
+            this.btn_orden_servicio.Visible = false;
             this.btn_orden_servicio.Click += new System.EventHandler(this.btn_orden_servicio_Click);
             // 
             // btn_impresion
@@ -637,6 +460,183 @@
             this.label4.TabIndex = 81;
             this.label4.Text = "Total Venta:";
             // 
+            // cl_codigo
+            // 
+            this.cl_codigo.HeaderText = "Codigo";
+            this.cl_codigo.Name = "cl_codigo";
+            this.cl_codigo.ReadOnly = true;
+            this.cl_codigo.Visible = false;
+            // 
+            // cl_fecha
+            // 
+            this.cl_fecha.HeaderText = "Fecha";
+            this.cl_fecha.Name = "cl_fecha";
+            this.cl_fecha.ReadOnly = true;
+            // 
+            // cl_factura
+            // 
+            this.cl_factura.HeaderText = "Factura";
+            this.cl_factura.Name = "cl_factura";
+            this.cl_factura.ReadOnly = true;
+            // 
+            // cl_item
+            // 
+            this.cl_item.HeaderText = "Item";
+            this.cl_item.Name = "cl_item";
+            this.cl_item.ReadOnly = true;
+            // 
+            // cl_nombre
+            // 
+            this.cl_nombre.HeaderText = "Nombre";
+            this.cl_nombre.Name = "cl_nombre";
+            this.cl_nombre.ReadOnly = true;
+            this.cl_nombre.Width = 200;
+            // 
+            // cl_referencia
+            // 
+            this.cl_referencia.HeaderText = "Referencia";
+            this.cl_referencia.Name = "cl_referencia";
+            this.cl_referencia.ReadOnly = true;
+            // 
+            // cl_codigo_baras
+            // 
+            this.cl_codigo_baras.HeaderText = "Codigo barras";
+            this.cl_codigo_baras.Name = "cl_codigo_baras";
+            this.cl_codigo_baras.ReadOnly = true;
+            this.cl_codigo_baras.Width = 150;
+            // 
+            // cl_modo_venta
+            // 
+            this.cl_modo_venta.HeaderText = "Modo venta";
+            this.cl_modo_venta.Name = "cl_modo_venta";
+            this.cl_modo_venta.ReadOnly = true;
+            // 
+            // cl_um
+            // 
+            this.cl_um.HeaderText = "UM";
+            this.cl_um.Name = "cl_um";
+            this.cl_um.ReadOnly = true;
+            // 
+            // cl_cantidad
+            // 
+            this.cl_cantidad.HeaderText = "Cantidad";
+            this.cl_cantidad.Name = "cl_cantidad";
+            this.cl_cantidad.ReadOnly = true;
+            // 
+            // cl_costo
+            // 
+            this.cl_costo.HeaderText = "Costo";
+            this.cl_costo.Name = "cl_costo";
+            this.cl_costo.ReadOnly = true;
+            // 
+            // cl_precio_venta
+            // 
+            this.cl_precio_venta.HeaderText = "Precio venta";
+            this.cl_precio_venta.Name = "cl_precio_venta";
+            this.cl_precio_venta.ReadOnly = true;
+            // 
+            // descuento
+            // 
+            this.descuento.HeaderText = "% Desc";
+            this.descuento.Name = "descuento";
+            this.descuento.ReadOnly = true;
+            // 
+            // cl_valor_descuento
+            // 
+            this.cl_valor_descuento.HeaderText = "Valor descuento";
+            this.cl_valor_descuento.Name = "cl_valor_descuento";
+            this.cl_valor_descuento.ReadOnly = true;
+            // 
+            // cl_t_debito
+            // 
+            this.cl_t_debito.HeaderText = "TDebito";
+            this.cl_t_debito.Name = "cl_t_debito";
+            this.cl_t_debito.ReadOnly = true;
+            // 
+            // cl_num_baucher_d
+            // 
+            this.cl_num_baucher_d.HeaderText = "Num baucher debito";
+            this.cl_num_baucher_d.Name = "cl_num_baucher_d";
+            this.cl_num_baucher_d.ReadOnly = true;
+            // 
+            // cl_t_credito
+            // 
+            this.cl_t_credito.HeaderText = "TCredito";
+            this.cl_t_credito.Name = "cl_t_credito";
+            this.cl_t_credito.ReadOnly = true;
+            // 
+            // cl_num_baucher_c
+            // 
+            this.cl_num_baucher_c.HeaderText = "Num baucher Credito";
+            this.cl_num_baucher_c.Name = "cl_num_baucher_c";
+            this.cl_num_baucher_c.ReadOnly = true;
+            // 
+            // cl_Total
+            // 
+            this.cl_Total.HeaderText = "Total";
+            this.cl_Total.Name = "cl_Total";
+            this.cl_Total.ReadOnly = true;
+            // 
+            // cl_efectivo
+            // 
+            this.cl_efectivo.HeaderText = "Efectivo";
+            this.cl_efectivo.Name = "cl_efectivo";
+            this.cl_efectivo.ReadOnly = true;
+            // 
+            // cl_cambio
+            // 
+            this.cl_cambio.HeaderText = "Cambio";
+            this.cl_cambio.Name = "cl_cambio";
+            this.cl_cambio.ReadOnly = true;
+            // 
+            // cl_cliente
+            // 
+            this.cl_cliente.HeaderText = "Cliente";
+            this.cl_cliente.Name = "cl_cliente";
+            this.cl_cliente.ReadOnly = true;
+            // 
+            // cl_sucursal
+            // 
+            this.cl_sucursal.HeaderText = "Sucursal";
+            this.cl_sucursal.Name = "cl_sucursal";
+            this.cl_sucursal.ReadOnly = true;
+            // 
+            // cl_domicilio
+            // 
+            this.cl_domicilio.HeaderText = "Domicilio";
+            this.cl_domicilio.Name = "cl_domicilio";
+            this.cl_domicilio.ReadOnly = true;
+            // 
+            // cl_separado
+            // 
+            this.cl_separado.HeaderText = "Separado";
+            this.cl_separado.Name = "cl_separado";
+            this.cl_separado.ReadOnly = true;
+            // 
+            // cl_credito
+            // 
+            this.cl_credito.HeaderText = "Credito";
+            this.cl_credito.Name = "cl_credito";
+            this.cl_credito.ReadOnly = true;
+            // 
+            // cl_abonos
+            // 
+            this.cl_abonos.HeaderText = "Abonos";
+            this.cl_abonos.Name = "cl_abonos";
+            this.cl_abonos.ReadOnly = true;
+            // 
+            // cl_debe
+            // 
+            this.cl_debe.HeaderText = "Debe";
+            this.cl_debe.Name = "cl_debe";
+            this.cl_debe.ReadOnly = true;
+            // 
+            // cl_Usuario
+            // 
+            this.cl_Usuario.HeaderText = "Usuario";
+            this.cl_Usuario.Name = "cl_Usuario";
+            this.cl_Usuario.ReadOnly = true;
+            // 
             // frm_ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -688,6 +688,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btn_cotizaciones;
         private System.Windows.Forms.Button btn_impresion_ticket;
+        private System.Windows.Forms.Button btn_impresion;
+        private System.Windows.Forms.Button btn_orden_servicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_factura;
@@ -717,7 +719,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_abonos;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_debe;
         private System.Windows.Forms.DataGridViewTextBoxColumn cl_Usuario;
-        private System.Windows.Forms.Button btn_impresion;
-        private System.Windows.Forms.Button btn_orden_servicio;
     }
 }

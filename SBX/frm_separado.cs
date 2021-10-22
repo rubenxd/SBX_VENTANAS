@@ -104,6 +104,16 @@ namespace SBX
 
             if (v_validado == 0)
             {
+                if (Convert.ToDouble(txt_abono_unicial.Text) <= 0)
+                {
+                    errorProvider.SetError(txt_abono_unicial, "Abono inicial debe ser mayor a Cero");
+                    v_validado++;
+                }
+            }
+
+
+            if (v_validado == 0)
+            {
                 //total
                 v_total = Convert.ToDouble(txt_valor.Text) - Convert.ToDouble(txt_abono_unicial.Text);
                 txt_total.Text = v_total.ToString("N0");

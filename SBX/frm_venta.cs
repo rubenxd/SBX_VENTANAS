@@ -2579,5 +2579,10 @@ namespace SBX
 
             }
         }
+
+        private void btn_creditos_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

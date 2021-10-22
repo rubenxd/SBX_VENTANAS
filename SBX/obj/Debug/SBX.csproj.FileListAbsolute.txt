@@ -743,6 +743,5 @@ C:\SBX\SBX_VENTANAS\SBX\obj\Debug\SBX.frm_ventas.resources
 C:\SBX\SBX_VENTANAS\SBX\obj\Debug\SBX.Properties.Resources.resources
 C:\SBX\SBX_VENTANAS\SBX\obj\Debug\SBX.csproj.GenerateResource.cache
 C:\SBX\SBX_VENTANAS\SBX\obj\Debug\SBX.csproj.CoreCompileInputs.cache
-C:\SBX\SBX_VENTANAS\SBX\obj\Debug\SBX.csproj.CopyComplete
 C:\SBX\SBX_VENTANAS\SBX\obj\Debug\SBX.exe
 C:\SBX\SBX_VENTANAS\SBX\obj\Debug\SBX.pdb
