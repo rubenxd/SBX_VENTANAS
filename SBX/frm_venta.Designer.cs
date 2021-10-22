@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_venta));
             this.pnl_centro = new System.Windows.Forms.Panel();
             this.dtg_venta = new System.Windows.Forms.DataGridView();
@@ -55,7 +55,6 @@
             this.pnl_abajo = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.dtp_fecha_factura = new System.Windows.Forms.DateTimePicker();
-            this.btn_credito = new System.Windows.Forms.Button();
             this.txt_nota = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_fecha_hora = new System.Windows.Forms.Label();
@@ -80,6 +79,7 @@
             this.pnl_arriba = new System.Windows.Forms.Panel();
             this.btn_orden_servicio = new System.Windows.Forms.Button();
             this.btn_cotizacion = new System.Windows.Forms.Button();
+            this.btn_credito = new System.Windows.Forms.Button();
             this.btn_separado = new System.Windows.Forms.Button();
             this.btn_domicilio = new System.Windows.Forms.Button();
             this.btn_descuento = new System.Windows.Forms.Button();
@@ -139,14 +139,14 @@
             this.cl_desc_proveedor,
             this.cl_subCantidad,
             this.cl_sobre});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_venta.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_venta.DefaultCellStyle = dataGridViewCellStyle6;
             this.dtg_venta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtg_venta.Location = new System.Drawing.Point(0, 45);
             this.dtg_venta.Name = "dtg_venta";
@@ -159,8 +159,8 @@
             // 
             // cl_item
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomLeft;
-            this.cl_item.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomLeft;
+            this.cl_item.DefaultCellStyle = dataGridViewCellStyle4;
             this.cl_item.FillWeight = 70.91371F;
             this.cl_item.HeaderText = "Item";
             this.cl_item.Name = "cl_item";
@@ -189,8 +189,8 @@
             // 
             // cl_cantidad
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomLeft;
-            this.cl_cantidad.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomLeft;
+            this.cl_cantidad.DefaultCellStyle = dataGridViewCellStyle5;
             this.cl_cantidad.FillWeight = 70.91371F;
             this.cl_cantidad.HeaderText = "Cantidad";
             this.cl_cantidad.Name = "cl_cantidad";
@@ -316,28 +316,13 @@
             // 
             this.dtp_fecha_factura.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dtp_fecha_factura.CalendarFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp_fecha_factura.Enabled = false;
             this.dtp_fecha_factura.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_fecha_factura.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_fecha_factura.Location = new System.Drawing.Point(142, 5);
             this.dtp_fecha_factura.Name = "dtp_fecha_factura";
             this.dtp_fecha_factura.Size = new System.Drawing.Size(152, 27);
             this.dtp_fecha_factura.TabIndex = 29;
-            // 
-            // btn_credito
-            // 
-            this.btn_credito.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_credito.BackColor = System.Drawing.SystemColors.Window;
-            this.btn_credito.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_credito.FlatAppearance.BorderSize = 0;
-            this.btn_credito.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
-            this.btn_credito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_credito.Image = ((System.Drawing.Image)(resources.GetObject("btn_credito.Image")));
-            this.btn_credito.Location = new System.Drawing.Point(534, 9);
-            this.btn_credito.Name = "btn_credito";
-            this.btn_credito.Size = new System.Drawing.Size(26, 26);
-            this.btn_credito.TabIndex = 11;
-            this.btn_credito.UseVisualStyleBackColor = false;
-            this.btn_credito.Click += new System.EventHandler(this.btn_credito_Click);
             // 
             // txt_nota
             // 
@@ -649,6 +634,7 @@
             this.btn_cotizacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_cotizacion.BackColor = System.Drawing.SystemColors.Window;
             this.btn_cotizacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_cotizacion.Enabled = false;
             this.btn_cotizacion.FlatAppearance.BorderSize = 0;
             this.btn_cotizacion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btn_cotizacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -659,6 +645,23 @@
             this.btn_cotizacion.TabIndex = 12;
             this.btn_cotizacion.UseVisualStyleBackColor = false;
             this.btn_cotizacion.Click += new System.EventHandler(this.btn_cotizacion_Click);
+            // 
+            // btn_credito
+            // 
+            this.btn_credito.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_credito.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_credito.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_credito.Enabled = false;
+            this.btn_credito.FlatAppearance.BorderSize = 0;
+            this.btn_credito.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.btn_credito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_credito.Image = ((System.Drawing.Image)(resources.GetObject("btn_credito.Image")));
+            this.btn_credito.Location = new System.Drawing.Point(534, 9);
+            this.btn_credito.Name = "btn_credito";
+            this.btn_credito.Size = new System.Drawing.Size(26, 26);
+            this.btn_credito.TabIndex = 11;
+            this.btn_credito.UseVisualStyleBackColor = false;
+            this.btn_credito.Click += new System.EventHandler(this.btn_credito_Click);
             // 
             // btn_separado
             // 

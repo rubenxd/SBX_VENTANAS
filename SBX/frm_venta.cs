@@ -101,6 +101,15 @@ namespace SBX
                         case "separado":
                             btn_separado.Enabled = true;
                             break;
+                        case "Cotizacion":
+                            btn_cotizacion.Enabled = true;
+                            break;
+                        case "Credito":
+                            btn_credito.Enabled = true;
+                            break;
+                        case "FechaFactura":
+                            dtp_fecha_factura.Enabled = true;
+                            break;
                     }
                 }
             }
