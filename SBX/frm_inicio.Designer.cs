@@ -13,11 +13,11 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
+            //if (disposing && (components != null))
+            //{
+            //    components.Dispose();
+            //}
+            //base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
@@ -263,6 +263,7 @@
             this.btn_credito.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_credito.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btn_credito.UseVisualStyleBackColor = true;
+            this.btn_credito.Visible = false;
             this.btn_credito.Click += new System.EventHandler(this.frm_credito_Click);
             // 
             // btn_config

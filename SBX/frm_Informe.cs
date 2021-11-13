@@ -365,7 +365,19 @@ namespace SBX
 
         private void frm_Informe_Load(object sender, EventArgs e)
         {
-          
+            ////Consulta cierres de caja
+            //cls_caja cls_Caja = new cls_caja();
+            //cls_Caja.FechaInicio = dtp_fecha_inicio.Text;
+            //cls_Caja.FechaFin = dtp_fecha_fin.Text;
+            //v_dt = cls_Caja.mtd_consultar_Cierres();
+            //if (v_dt.Rows.Count > 0)
+            //{
+            //    foreach (DataRow item in v_dt.Rows)
+            //    {
+            //        cbx_cierres.Items.Add(item["CodigoCaja"]);
+            //    }
+            //    cbx_cierres.SelectedIndex = cbx_cierres.Items.Count - 1;
+            //}
         }
 
         private void btn_ventas_separado_Click(object sender, EventArgs e)

@@ -224,5 +224,13 @@ namespace SBX.MODEL
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }
+
+        public DataTable mtd_consultar_Cierres()
+        {
+            v_query = "select CodigoCaja from Caja " +
+" where CONVERT(varchar, FechaRegistro,103) between '"+FechaInicio+"' AND '"+FechaFin+ "' group by CodigoCaja ";
+            v_dt = cls_datos.mtd_consultar(v_query);
+            return v_dt;
+        }
     }
 }

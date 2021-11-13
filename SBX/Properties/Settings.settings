@@ -5,10 +5,10 @@
     <Setting Name="DB_SBXConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=DESKTOP-R516TKP;Initial Catalog=DB_SBX;User ID=sa;Password=admin2021&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=DESKTOP-LLL8BCR;Initial Catalog=DB_SBX;User ID=sa;Password=admin2021&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=DESKTOP-R516TKP;Initial Catalog=DB_SBX;User ID=sa;Password=admin2021</Value>
+      <Value Profile="(Default)">Data Source=DESKTOP-LLL8BCR;Initial Catalog=DB_SBX;User ID=sa;Password=admin2021</Value>
     </Setting>
   </Settings>
 </SettingsFile>

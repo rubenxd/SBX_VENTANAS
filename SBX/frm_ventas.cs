@@ -375,12 +375,24 @@ namespace SBX
         {
             foreach (DataRow rows in v_dt_Permi.Rows)
             {
-                if (rows["Modulo"].ToString() == "VENTA")
+                if (rows["Modulo"].ToString() == "VENTAS")
                 {
                     switch (rows["Permiso"].ToString())
                     {
                         case "eliminar":
                             btn_eliminar.Enabled = true;
+                            break;
+                        case "exportar_excel":
+                            btn_exportar_excel.Enabled = true;
+                            break;
+                        case "ImprimirTicket":
+                            btn_impresion_ticket.Enabled = true;
+                            break;
+                        case "ImprimirPDF":
+                            btn_impresion.Enabled = true;
+                            break;
+                        case "Cotizacion":
+                            btn_cotizaciones.Enabled = true;
                             break;
                     }
                 }

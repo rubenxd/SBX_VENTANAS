@@ -212,6 +212,9 @@ namespace SBX
                     case "AJUSTES":
                         btn_config.Visible = true;
                         break;
+                    case "CREDITO":
+                        btn_credito.Visible = true;
+                        break;
                 }
             }
         }
@@ -249,7 +252,12 @@ namespace SBX
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error al intentar generar copia de seguidad", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }      
+                }
+            }
+            else
+            {
+                this.BringToFront();
+                this.WindowState = FormWindowState.Normal;
             }
         }
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -538,6 +546,11 @@ namespace SBX
                 frm_login frm_Login = new frm_login();
                 frm_Login.Show();
                 this.Hide();
+            }
+            else
+            {
+                //this.BringToFront();
+                //this.WindowState = FormWindowState.Normal;
             }
         }
 

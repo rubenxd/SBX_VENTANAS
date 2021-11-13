@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Informe));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_saldos = new System.Windows.Forms.Button();
             this.cbx_tipo_busqueda = new System.Windows.Forms.ComboBox();
@@ -117,7 +117,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(909, 42);
+            this.panel1.Size = new System.Drawing.Size(909, 44);
             this.panel1.TabIndex = 9;
             // 
             // btn_saldos
@@ -152,7 +152,7 @@
             // 
             this.txt_buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_buscar.ForeColor = System.Drawing.Color.Gray;
-            this.txt_buscar.Location = new System.Drawing.Point(682, 9);
+            this.txt_buscar.Location = new System.Drawing.Point(679, 9);
             this.txt_buscar.Name = "txt_buscar";
             this.txt_buscar.Size = new System.Drawing.Size(181, 20);
             this.txt_buscar.TabIndex = 86;
@@ -180,7 +180,7 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(200, 11);
+            this.label4.Location = new System.Drawing.Point(88, 11);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 15);
             this.label4.TabIndex = 84;
@@ -191,7 +191,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(383, 11);
+            this.label5.Location = new System.Drawing.Point(271, 11);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 15);
             this.label5.TabIndex = 83;
@@ -201,7 +201,7 @@
             // 
             this.dtp_fecha_fin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtp_fecha_fin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_fecha_fin.Location = new System.Drawing.Point(427, 9);
+            this.dtp_fecha_fin.Location = new System.Drawing.Point(315, 9);
             this.dtp_fecha_fin.Name = "dtp_fecha_fin";
             this.dtp_fecha_fin.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dtp_fecha_fin.Size = new System.Drawing.Size(110, 20);
@@ -211,7 +211,7 @@
             // 
             this.dtp_fecha_inicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dtp_fecha_inicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_fecha_inicio.Location = new System.Drawing.Point(256, 9);
+            this.dtp_fecha_inicio.Location = new System.Drawing.Point(144, 9);
             this.dtp_fecha_inicio.Name = "dtp_fecha_inicio";
             this.dtp_fecha_inicio.Size = new System.Drawing.Size(110, 20);
             this.dtp_fecha_inicio.TabIndex = 81;
@@ -239,9 +239,9 @@
             this.pnl_centro.Controls.Add(this.pnl_abajo);
             this.pnl_centro.Controls.Add(this.pnl_contenido);
             this.pnl_centro.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_centro.Location = new System.Drawing.Point(0, 42);
+            this.pnl_centro.Location = new System.Drawing.Point(0, 44);
             this.pnl_centro.Name = "pnl_centro";
-            this.pnl_centro.Size = new System.Drawing.Size(909, 534);
+            this.pnl_centro.Size = new System.Drawing.Size(909, 532);
             this.pnl_centro.TabIndex = 10;
             // 
             // pnl_abajo
@@ -250,7 +250,7 @@
             this.pnl_abajo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_abajo.Location = new System.Drawing.Point(0, 411);
             this.pnl_abajo.Name = "pnl_abajo";
-            this.pnl_abajo.Size = new System.Drawing.Size(907, 121);
+            this.pnl_abajo.Size = new System.Drawing.Size(907, 119);
             this.pnl_abajo.TabIndex = 12;
             // 
             // dtg_informe
@@ -260,14 +260,14 @@
             this.dtg_informe.AllowUserToOrderColumns = true;
             this.dtg_informe.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dtg_informe.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtg_informe.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtg_informe.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtg_informe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dtg_informe.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cl_factura,
@@ -288,19 +288,19 @@
             this.cl_domicilio,
             this.cl_separado,
             this.cl_creditos});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_informe.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_informe.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtg_informe.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtg_informe.Location = new System.Drawing.Point(0, 0);
             this.dtg_informe.Name = "dtg_informe";
             this.dtg_informe.ReadOnly = true;
-            this.dtg_informe.Size = new System.Drawing.Size(907, 121);
+            this.dtg_informe.Size = new System.Drawing.Size(907, 119);
             this.dtg_informe.TabIndex = 10;
             // 
             // cl_factura
