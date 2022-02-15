@@ -22,8 +22,8 @@ namespace SBX.MODEL
         bool v_ok;
         public string v_buscar { get; set; }
         public string v_tipo_busqueda { get; set; }
-        public string Fecha_inicio { get; set; }
-        public string Fecha_fin { get; set; }
+        public DateTime Fecha_inicio { get; set; }
+        public DateTime Fecha_fin { get; set; }
         public List<int> Lst_sepaerados { get; set; }
 
         //getter and setter
@@ -46,10 +46,14 @@ namespace SBX.MODEL
         public string Modulo { get; set; }
 
         public string usuario { get; set; }
+
+        public DateTime FechaIniForm { get; set; }
+        public DateTime FechaFinForm { get; set; }
+
         //Metodos
         public DataTable mtd_consultar_credito()
         {
-            v_query = " EXECUTE sp_consultar_credito '" + v_buscar + "','" + v_tipo_busqueda + "','" + Fecha_inicio + "','" + Fecha_fin + "' ";
+            v_query = " EXECUTE sp_consultar_credito '" + v_buscar + "','" + v_tipo_busqueda + "','" + Fecha_inicio.ToString("yyyyMMdd") + "','" + Fecha_fin.ToString("yyyyMMdd") + "' ";
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }
@@ -100,7 +104,7 @@ namespace SBX.MODEL
         }
         public DataTable mtd_consultar_Abonos()
         {
-            v_query = "SELECT ISNULL(SUM(ValorAbono),0) VlrAbono FROM AbonoCredito WHERE Fecha BETWEEN '" + Fecha_inicio + "' AND '" + Fecha_fin + "' ";
+            v_query = "SELECT ISNULL(SUM(ValorAbono),0) VlrAbono FROM AbonoCredito WHERE Fecha BETWEEN '" + Fecha_inicio.ToString("yyyyMMdd") + "' AND '" + Fecha_fin.ToString("yyyyMMdd") + "' ";
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }
@@ -394,8 +398,8 @@ namespace SBX.MODEL
 
         public Boolean mtd_Editar()
         {
-            string fecha = DateTime.Now.ToString();
-            v_query = " UPDATE Credito SET FechaPago = '"+ fecha + "', Estado = '" + Estado + "' " +
+            DateTime fecha = DateTime.Now;
+            v_query = " UPDATE Credito SET FechaPago = '"+ fecha.ToString("yyyyMMdd") + "', Estado = '" + Estado + "' " +
                       " WHERE Codigo = " + Codigo;
 
            // mtd_asignaParametros();
@@ -404,8 +408,8 @@ namespace SBX.MODEL
             if (v_ok == true)
             {
                 //cambiar fecha factura
-                fecha = DateTime.Now.ToString();
-                v_query = " update Venta set Fecha = '" + fecha + "' " +
+                fecha = DateTime.Now;
+                v_query = " update Venta set Fecha = '" + fecha.ToString("yyyyMMdd") + "' " +
                           " WHERE Credito = " + Codigo;
                 v_ok = cls_datos.mtd_ejecutar(v_query);
             }

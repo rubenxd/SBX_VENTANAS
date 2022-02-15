@@ -22,8 +22,8 @@ namespace SBX.MODEL
         bool v_ok;
         public string v_buscar { get; set; }
         public string v_tipo_busqueda { get; set; }
-        public string Fecha_inicio { get; set; }
-        public string Fecha_fin { get; set; }
+        public DateTime Fecha_inicio { get; set; }
+        public DateTime Fecha_fin { get; set; }
 
         //getter and setter
         public int Codigo { get; set; }
@@ -42,7 +42,7 @@ namespace SBX.MODEL
         //Metodos
         public DataTable mtd_consultar_domicilio()
         {
-            v_query = " EXECUTE sp_consultar_domicilio  '" + v_buscar + "','" + v_tipo_busqueda + "','" + Fecha_inicio + "','" + Fecha_fin + "' ";
+            v_query = " EXECUTE sp_consultar_domicilio  '" + v_buscar + "','" + v_tipo_busqueda + "','" + Fecha_inicio.ToString("yyyyMMdd") + "','" + Fecha_fin.ToString("yyyyMMdd") + "' ";
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }

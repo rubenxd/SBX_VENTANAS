@@ -70,8 +70,8 @@ namespace SBX
                     cls_credito.v_buscar = txt_buscar.Text;
                 }
                 cls_credito.v_tipo_busqueda = cbx_tipo_busqueda.Text;
-                cls_credito.Fecha_inicio = dtp_fecha_inicio.Text;
-                cls_credito.Fecha_fin = dtp_fecha_fin.Text;
+                cls_credito.Fecha_inicio = dtp_fecha_inicio.Value;
+                cls_credito.Fecha_fin = dtp_fecha_fin.Value;
                 v_dt = cls_credito.mtd_consultar_credito();
             }
             else
@@ -79,8 +79,8 @@ namespace SBX
                 if (listaSeparados.Count > 0)
                 {
                     cls_credito.v_tipo_busqueda = cbx_tipo_busqueda.Text;
-                    cls_credito.Fecha_inicio = dtp_fecha_inicio.Text;
-                    cls_credito.Fecha_fin = dtp_fecha_fin.Text;
+                    cls_credito.Fecha_inicio = dtp_fecha_inicio.Value;
+                    cls_credito.Fecha_fin = dtp_fecha_fin.Value;
                     string buscar = "";
                     foreach (var item in listaSeparados)
                     {
@@ -261,8 +261,8 @@ namespace SBX
                 cls_credito.v_buscar = txt_buscar.Text;
             }
             cls_credito.v_tipo_busqueda = cbx_tipo_busqueda.Text;
-            cls_credito.Fecha_inicio = dtp_fecha_inicio.Text;
-            cls_credito.Fecha_fin = dtp_fecha_fin.Text;
+            cls_credito.Fecha_inicio = dtp_fecha_inicio.Value;
+            cls_credito.Fecha_fin = dtp_fecha_fin.Value;
             v_dt = cls_credito.mtd_consultar_credito();
             mtd_exporta_excel();
         }

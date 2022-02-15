@@ -117,7 +117,7 @@ namespace SBX
             }
             if (Boton != "btn_credito")
             {
-                btn_reportes.BackColor = Color.Gray;
+                btn_credito.BackColor = Color.Gray;
             } 
         }
         public void AbrirFormularioEnPanel(object FormularioHijo)
@@ -263,8 +263,7 @@ namespace SBX
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-       
+        }   
         private void btn_venta_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
@@ -501,7 +500,6 @@ namespace SBX
                 lbl_noti.Visible = true;
             }
         }
-
         private void frm_inicio_FormClosing(object sender, FormClosingEventArgs e)
         {
             frm_confirmacion frm_Confirmacion = new frm_confirmacion();
@@ -553,7 +551,6 @@ namespace SBX
                 //this.WindowState = FormWindowState.Normal;
             }
         }
-
         private void frm_credito_Click(object sender, EventArgs e)
         {
             formul.Dispose();

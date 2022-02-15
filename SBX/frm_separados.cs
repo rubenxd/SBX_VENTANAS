@@ -70,8 +70,8 @@ namespace SBX
                     cls_Sistema_separado.v_buscar = txt_buscar.Text;
                 }
                 cls_Sistema_separado.v_tipo_busqueda = cbx_tipo_busqueda.Text;
-                cls_Sistema_separado.Fecha_inicio = dtp_fecha_inicio.Text;
-                cls_Sistema_separado.Fecha_fin = dtp_fecha_fin.Text;
+                cls_Sistema_separado.Fecha_inicio = dtp_fecha_inicio.Value;
+                cls_Sistema_separado.Fecha_fin = dtp_fecha_fin.Value;
                 v_dt = cls_Sistema_separado.mtd_consultar_sistema_separado();
             }
             else
@@ -79,8 +79,8 @@ namespace SBX
                 if (listaSeparados.Count > 0)
                 {
                     cls_Sistema_separado.v_tipo_busqueda = cbx_tipo_busqueda.Text;
-                    cls_Sistema_separado.Fecha_inicio = dtp_fecha_inicio.Text;
-                    cls_Sistema_separado.Fecha_fin = dtp_fecha_fin.Text;
+                    cls_Sistema_separado.Fecha_inicio = dtp_fecha_inicio.Value;
+                    cls_Sistema_separado.Fecha_fin = dtp_fecha_fin.Value;
                     string buscar = "";
                     foreach (var item in listaSeparados)
                     {
@@ -261,8 +261,8 @@ namespace SBX
                 cls_Sistema_separado.v_buscar = txt_buscar.Text;
             }
             cls_Sistema_separado.v_tipo_busqueda = cbx_tipo_busqueda.Text;
-            cls_Sistema_separado.Fecha_inicio = dtp_fecha_inicio.Text;
-            cls_Sistema_separado.Fecha_fin = dtp_fecha_fin.Text;
+            cls_Sistema_separado.Fecha_inicio = dtp_fecha_inicio.Value;
+            cls_Sistema_separado.Fecha_fin = dtp_fecha_fin.Value;
             v_dt = cls_Sistema_separado.mtd_consultar_sistema_separado();
             mtd_exporta_excel();
         }

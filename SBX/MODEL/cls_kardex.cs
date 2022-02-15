@@ -26,7 +26,7 @@ namespace SBX.MODEL
 
         public DataTable mtd_consultar_movimientos()
         {
-            v_query = " EXECUTE sp_consulta_kardex '" + v_buscar + "','" + Fecha_inicio.Date + "','" + Fecha_fin.Date + "','"+Tipo_busqueda+"' ";
+            v_query = " EXECUTE sp_consulta_kardex '" + v_buscar + "','" + Fecha_inicio.ToString("yyyy-MM-dd") + "','" + Fecha_fin.ToString("yyyy-MM-dd") + "','"+Tipo_busqueda+"' ";
             v_dt = cls_Datos.mtd_consultar(v_query);
             return v_dt;
         }

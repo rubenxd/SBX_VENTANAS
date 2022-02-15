@@ -28,8 +28,8 @@ namespace SBX.MODEL
         public DateTime FechaRegistro { get; set; }
         public double Valor { get; set; }
         public int Gasto { get; set; }
-        public string FechaIni { get; set; }
-        public string Fechafin { get; set; }
+        public DateTime FechaIni { get; set; }
+        public DateTime Fechafin { get; set; }
         public string proveedor { get; set; }
         public string Valor_iva { get; set; }
         public string usuario { get; set; }
@@ -38,7 +38,7 @@ namespace SBX.MODEL
         public DataTable mtd_consultar_gastos()
         {
             v_query = " SELECT gm.codigo,g.Nombre Gasto,gm.FechaRegistro,gm.Valor,gm.proveedor,ISNULL(gm.ValorIva,0) ValorIva FROM gastosm gm INNER JOIN Gastos g ON g.Codigo = gm.Gasto " +
-                " WHERE g.Nombre LIKE '"+ Buscar + "%' AND CONVERT(date,FechaRegistro) BETWEEN '"+FechaIni+ "' AND '" + Fechafin + "' AND gm.usuario = '"+usuario+"' ";
+                " WHERE g.Nombre LIKE '"+ Buscar + "%' AND CONVERT(date,FechaRegistro) BETWEEN '"+FechaIni.ToString("yyyyMMdd") + "' AND '" + Fechafin.ToString("yyyyMMdd") + "' AND gm.usuario = '"+usuario+"' ";
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_venta));
             this.pnl_centro = new System.Windows.Forms.Panel();
             this.dtg_venta = new System.Windows.Forms.DataGridView();
@@ -139,14 +139,14 @@
             this.cl_desc_proveedor,
             this.cl_subCantidad,
             this.cl_sobre});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg_venta.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSeaGreen;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtg_venta.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtg_venta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtg_venta.Location = new System.Drawing.Point(0, 45);
             this.dtg_venta.Name = "dtg_venta";
@@ -159,8 +159,8 @@
             // 
             // cl_item
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomLeft;
-            this.cl_item.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomLeft;
+            this.cl_item.DefaultCellStyle = dataGridViewCellStyle1;
             this.cl_item.FillWeight = 70.91371F;
             this.cl_item.HeaderText = "Item";
             this.cl_item.Name = "cl_item";
@@ -189,8 +189,8 @@
             // 
             // cl_cantidad
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomLeft;
-            this.cl_cantidad.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomLeft;
+            this.cl_cantidad.DefaultCellStyle = dataGridViewCellStyle2;
             this.cl_cantidad.FillWeight = 70.91371F;
             this.cl_cantidad.HeaderText = "Cantidad";
             this.cl_cantidad.Name = "cl_cantidad";
@@ -656,7 +656,7 @@
             this.btn_credito.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btn_credito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_credito.Image = ((System.Drawing.Image)(resources.GetObject("btn_credito.Image")));
-            this.btn_credito.Location = new System.Drawing.Point(534, 9);
+            this.btn_credito.Location = new System.Drawing.Point(534, 7);
             this.btn_credito.Name = "btn_credito";
             this.btn_credito.Size = new System.Drawing.Size(26, 26);
             this.btn_credito.TabIndex = 11;

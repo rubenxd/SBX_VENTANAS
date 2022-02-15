@@ -30,8 +30,8 @@ namespace SBX.MODEL
         public string Codigo_Ultimo_Cierre { get; set; }
         public string Codigo_Ultima_venta { get; set; }
         public string ModoBusqueda { get; set; }
-        public string FechaInicio { get; set; }
-        public string FechaFin { get; set; }
+        public DateTime FechaInicio { get; set; }
+        public DateTime FechaFin { get; set; }
         public string Codigo_cierre { get; set; }
 
 
@@ -54,14 +54,14 @@ namespace SBX.MODEL
             {
                 v_query = "SELECT c.*,u.NombreUsuario FROM Caja c " +
                     "INNER JOIN Usuario u ON u.Codigo = c.Usuario " +
-                    "WHERE u.NombreUsuario LIKE '" + Usuario + "%' AND CONVERT(DATE,c.FechaRegistro) BETWEEN '" + FechaInicio + "' AND '" + FechaFin + "' " +
+                    "WHERE u.NombreUsuario LIKE '" + Usuario + "%' AND CONVERT(DATE,c.FechaRegistro) BETWEEN '" + FechaInicio.ToString("yyyy-MM-dd") + "' AND '" + FechaFin.ToString("yyyy-MM-dd") + "' " +
                     "ORDER BY c.FechaRegistro DESC ";
             }
             else
             {
                 v_query = "SELECT c.*,u.NombreUsuario FROM Caja c " +
                     "INNER JOIN Usuario u ON u.Codigo = c.Usuario " +
-                    "WHERE u.NombreUsuario = '" + Usuario + "' AND  CONVERT(DATE,c.FechaRegistro) BETWEEN '" + FechaInicio + "' AND '" + FechaFin + "' " +
+                    "WHERE u.NombreUsuario = '" + Usuario + "' AND  CONVERT(DATE,c.FechaRegistro) BETWEEN '" + FechaInicio.ToString("yyyy-MM-dd") + "' AND '" + FechaFin.ToString("yyyy-MM-dd") + "' " +
                     "ORDER BY c.FechaRegistro DESC ";
             }
           
@@ -228,7 +228,7 @@ namespace SBX.MODEL
         public DataTable mtd_consultar_Cierres()
         {
             v_query = "select CodigoCaja from Caja " +
-" where CONVERT(varchar, FechaRegistro,103) between '"+FechaInicio+"' AND '"+FechaFin+ "' group by CodigoCaja ";
+" where CONVERT(varchar, FechaRegistro,103) between '"+FechaInicio.ToString("yyyy-MM-dd") + "' AND '"+FechaFin.ToString("yyyy-MM-dd") + "' group by CodigoCaja ";
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }

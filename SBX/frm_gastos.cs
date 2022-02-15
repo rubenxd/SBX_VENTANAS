@@ -144,8 +144,8 @@ namespace SBX
         private void mtd_consultar()
         {
             cl_gm.Buscar = txt_buscar.Text;
-            cl_gm.FechaIni = dtp_fecha_inicio.Text;
-            cl_gm.Fechafin = dtp_fecha_fin.Text;
+            cl_gm.FechaIni = dtp_fecha_inicio.Value;
+            cl_gm.Fechafin = dtp_fecha_fin.Value;
             cl_gm.usuario = this.Codigo;
             v_dt = cl_gm.mtd_consultar_gastos();
             TotalGastos = 0;
@@ -253,8 +253,8 @@ namespace SBX
         private void btn_exportar_excel_Click(object sender, EventArgs e)
         {
             cl_gm.Buscar = txt_buscar.Text;
-            cl_gm.FechaIni = dtp_fecha_inicio.Text;
-            cl_gm.Fechafin = dtp_fecha_fin.Text;
+            cl_gm.FechaIni = dtp_fecha_inicio.Value;
+            cl_gm.Fechafin = dtp_fecha_fin.Value;
             v_dt = cl_gm.mtd_consultar_gastos();
             mtd_exporta_excel();
         }

@@ -104,9 +104,14 @@ namespace SBX
 
             if (v_validado == 0)
             {
-                if (Convert.ToDouble(txt_abono_unicial.Text) <= 0)
+                //if (Convert.ToDouble(txt_abono_unicial.Text) <= 0)
+                //{
+                //    errorProvider.SetError(txt_abono_unicial, "Abono inicial debe ser mayor a Cero");
+                //    v_validado++;
+                //}
+                if (Convert.ToDouble(txt_abono_unicial.Text) < 0)
                 {
-                    errorProvider.SetError(txt_abono_unicial, "Abono inicial debe ser mayor a Cero");
+                    errorProvider.SetError(txt_abono_unicial, "Ingrese Abono inicial");
                     v_validado++;
                 }
             }

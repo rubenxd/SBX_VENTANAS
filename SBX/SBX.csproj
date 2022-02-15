@@ -43,9 +43,8 @@
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>..\..\Microsoft.Office.Interop.Excel.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -271,6 +270,12 @@
     </Compile>
     <Compile Include="frm_fondo_inicio.Designer.cs">
       <DependentUpon>frm_fondo_inicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ganancias_y_perdidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ganancias_y_perdidas.Designer.cs">
+      <DependentUpon>frm_ganancias_y_perdidas.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_gastos.cs">
       <SubType>Form</SubType>
@@ -555,6 +560,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_fondo_inicio.resx">
       <DependentUpon>frm_fondo_inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ganancias_y_perdidas.resx">
+      <DependentUpon>frm_ganancias_y_perdidas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_gastos.resx">
       <DependentUpon>frm_gastos.cs</DependentUpon>

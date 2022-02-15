@@ -21,9 +21,11 @@ namespace SBX.MODEL
         SqlParameter[] Parametros;
         bool v_ok;
 
-        public string FechaIni { get; set; }
-        public string FechaFin { get; set; }
+        //public string FechaIni { get; set; }
+        //public string FechaFin { get; set; }
 
+        public DateTime FechaIni { get; set; }
+        public DateTime FechaFin { get; set; }
         public string Buscar { get; set; }
         public string TipoBusqueda { get; set; }
 
@@ -34,7 +36,16 @@ namespace SBX.MODEL
 
         public DataTable mtd_consultar()
         {
-            v_query = " SP_GANACIAS_PERDIDAS '" + FechaIni+ "','" + FechaFin + "','" + TipoBusqueda + "','" + Buscar + "','"+Usuario+"'  ";
+
+            v_query = " SP_GANACIAS_PERDIDAS '" + FechaIni.ToString("yyyyMMdd")+ "','" + FechaFin.ToString("yyyyMMdd") + "','" + TipoBusqueda + "','" + Buscar + "','"+Usuario+"'  ";
+            v_dt = cls_datos.mtd_consultar(v_query);
+            return v_dt;
+        }
+
+        public DataTable mtd_consultar_ganancias_y_perdidas()
+        {
+
+            v_query = " sp_consulta_ganancias_y_perdidas '" + FechaIni.ToString("yyyyMMdd") + "','" + FechaFin.ToString("yyyyMMdd") + "','" + Buscar + "'  ";
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }
@@ -49,11 +60,11 @@ namespace SBX.MODEL
                         "from AbonoSistemaSeparado asp "+
                         "inner "+
                         "join SistemaSeparado sp on sp.Codigo = asp.SistemaSeparado "+
-                        "WHERE(CONVERT(date, asp.Fecha) <= '" + FechaFin + "') and asp.usuario = " + Usuario + " " +
+                        "WHERE(CONVERT(date, asp.Fecha) <= '" + FechaFin.ToString("yyyyMMdd") + "') and asp.usuario = " + Usuario + " " +
                         ") AbonoTotalSegunfecha, sp.Estado " +
                         "from AbonoSistemaSeparado asp " +
                         "inner join SistemaSeparado sp on sp.Codigo = asp.SistemaSeparado " +
-                        "WHERE(CONVERT(date, asp.Fecha) BETWEEN '" + FechaIni + "' AND  '" + FechaFin + "') and asp.usuario = " + Usuario + "" +
+                        "WHERE(CONVERT(date, asp.Fecha) BETWEEN '" + FechaIni.ToString("yyyyMMdd") + "' AND  '" + FechaFin.ToString("yyyyMMdd") + "') and asp.usuario = " + Usuario + "" +
                         "GROUP BY sp.Codigo, asp.SistemaSeparado, sp.Estado ";
 
             v_dt = cls_datos.mtd_consultar(v_query);
@@ -72,7 +83,7 @@ namespace SBX.MODEL
                         "Resta " +
                         "from AbonoSistemaSeparado asp " +
                         "inner join SistemaSeparado sp on sp.Codigo = asp.SistemaSeparado " +
-                        "WHERE(CONVERT(date, asp.Fecha)  BETWEEN '20131123' AND  '" + FechaFin + "') and asp.usuario = " + Usuario + " " +
+                        "WHERE(CONVERT(date, asp.Fecha)  BETWEEN '20131123' AND  '" + FechaFin.ToString("yyyyMMdd") + "') and asp.usuario = " + Usuario + " " +
                         "GROUP BY sp.Codigo, asp.SistemaSeparado ";
 
             v_dt = cls_datos.mtd_consultar(v_query);
@@ -82,7 +93,7 @@ namespace SBX.MODEL
         {
             v_query = "select sp.Codigo,ISNULL(SUM(ValorAbono),0)  ValorAbonos from AbonoCredito asp " +
                       "inner join Credito sp on sp.Codigo = asp.Credito " +
-                      "WHERE(CONVERT(date, asp.Fecha) BETWEEN '" + FechaIni + "' AND  '" + FechaFin + "') " +
+                      "WHERE(CONVERT(date, asp.Fecha) BETWEEN '" + FechaIni.ToString("yyyyMMdd") + "' AND  '" + FechaFin.ToString("yyyyMMdd") + "') " +
                       " GROUP BY sp.Codigo ";
 
             //v_query = " select ISNULL(SUM(ValorAbono),0) ValorAbonos from AbonoSistemaSeparado " +

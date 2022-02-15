@@ -77,8 +77,8 @@ namespace SBX
             }
             cls_Venta.v_tipo_busqueda = cbx_tipo_busqueda.Text;
            
-            cls_Venta.Fecha_inicio = dtp_fecha_inicio.Text;
-            cls_Venta.Fecha_fin = dtp_fecha_fin.Text;
+            cls_Venta.Fecha_inicio = dtp_fecha_inicio.Value;
+            cls_Venta.Fecha_fin = dtp_fecha_fin.Value;
             v_dt = cls_Venta.mtd_consultar_Venta();
             dtg_ventas.Rows.Clear();
 
@@ -335,8 +335,8 @@ namespace SBX
                 cls_Venta.v_buscar = txt_buscar.Text;
             }
             cls_Venta.v_tipo_busqueda = cbx_tipo_busqueda.Text;
-            cls_Venta.Fecha_inicio = dtp_fecha_inicio.Text;
-            cls_Venta.Fecha_fin = dtp_fecha_fin.Text;
+            cls_Venta.Fecha_inicio = dtp_fecha_inicio.Value;
+            cls_Venta.Fecha_fin = dtp_fecha_fin.Value;
             v_dt = cls_Venta.mtd_consultar_Venta();
             mtd_exporta_excel();
         }

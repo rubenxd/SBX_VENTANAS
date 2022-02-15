@@ -142,6 +142,7 @@ namespace SBX
             Botones.SetToolTip(btn_separado, "Separado");
             Botones.SetToolTip(btn_cotizacion, "Cotizacion");
             Botones.SetToolTip(btn_orden_servicio, "Orden de servicio");
+            Botones.SetToolTip(btn_credito, "Credito");            
         }
         private void mtd_agregar_um(string UM)
         {
@@ -1390,6 +1391,8 @@ namespace SBX
                 }
                 //registro venta
                 v_domicilio = true;
+                v_sistema_separado = false;
+                v_credito = false;
                 mtd_guardar();
             }
         }
@@ -1448,6 +1451,7 @@ namespace SBX
                 //registro venta
                 v_domicilio = false;
                 v_sistema_separado = true;
+                v_credito = false;
                 mtd_guardar();
             }
         }
@@ -1496,6 +1500,7 @@ namespace SBX
 
                 //registro venta
                 v_domicilio = false;
+                v_sistema_separado = false;
                 v_credito = true;
                 mtd_guardar();
             }
@@ -1933,6 +1938,7 @@ namespace SBX
                         {
                             v_domicilio = false;
                             v_sistema_separado = false;
+                            v_credito = false;
                             if (dtg_venta.Rows.Count > 0)
                             {
                                 mtd_guardar();
@@ -1978,6 +1984,7 @@ namespace SBX
                     {
                         v_domicilio = false;
                         v_sistema_separado = false;
+                        v_credito = false;
                         if (dtg_venta.Rows.Count > 0)
                         {
                             mtd_guardar();

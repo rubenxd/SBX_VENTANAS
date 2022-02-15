@@ -35,8 +35,8 @@ namespace SBX
 
         private void btn_imprimir_reporte_Click(object sender, EventArgs e)
         {
-            frm_cotizacion frm_Cotizacion = new frm_cotizacion();
-            frm_Cotizacion.Show();
+            frm_ganancias_y_perdidas frm_Ganancias_Y_Perdidas = new frm_ganancias_y_perdidas();
+            frm_Ganancias_Y_Perdidas.Show();
         }
 
         private void btn_consultar_Click(object sender, EventArgs e)
@@ -80,10 +80,11 @@ namespace SBX
             txt_ventas_domicilio.Text = "0";
             txt_ventas_separado.Text = "0";
             txt_ventas_sp_total.Text = "0";
+            txt_credito.Text = "0";
 
             //VENTAS DIRECTAS Y DOMICILIOS
-            cl_gp.FechaIni = dtp_fecha_inicio.Text;
-            cl_gp.FechaFin = dtp_fecha_fin.Text;
+            cl_gp.FechaIni = dtp_fecha_inicio.Value;
+            cl_gp.FechaFin = dtp_fecha_fin.Value;
             cl_gp.TipoBusqueda = cbx_tipo_busqueda.Text;
             cl_gp.Buscar = txt_buscar.Text;
             cl_gp.Usuario = this.Codigo;
@@ -112,8 +113,8 @@ namespace SBX
             txt_ventas_domicilio.Text = VentasDomicilio.ToString("N2");
 
             //SISTEMA DE SEPARADOS
-            cl_gp.FechaIni = dtp_fecha_inicio.Text;
-            cl_gp.FechaFin = dtp_fecha_fin.Text;
+            cl_gp.FechaIni = dtp_fecha_inicio.Value;
+            cl_gp.FechaFin = dtp_fecha_fin.Value;
             cl_gp.Usuario = this.Codigo;
             double valorAbono = 0;
             double valorAbonoTotal = 0;
@@ -136,45 +137,35 @@ namespace SBX
                     Abonototal = Convert.ToDouble(rows["AbonoTotalSegunfecha"]);
                     Resta = Convert.ToDouble(rows["Resta"]);
                 }
-                if (Abonototal >= costosp)
-                {
-                    txt_costo_sp.Text = costosp.ToString("N0");
-                }
-                else
-                {
-                    txt_costo_sp.Text = Resta.ToString("N0");
-                }
+                //if (Abonototal >= costosp)
+                //{
+                //    txt_costo_sp.Text = costosp.ToString("N0");
+                //}
+                //else
+                //{
+                //    txt_costo_sp.Text = Resta.ToString("N0");
+                //}
                 
                 txt_ventas_separado.Text = valorAbono.ToString("N0");
                 txt_ventas_sp_total.Text = Abonototal.ToString("N0");
             }
-            ////Abonos separados total
-            //cl_gp.Usuario = this.Codigo;
-            //v_dt = cl_gp.mtd_consultar_Abonos_separados_Total();
-            //if (v_dt.Rows.Count > 0)
-            //{
-            //    foreach (DataRow rows in v_dt.Rows)
-            //    {
-            //        valorAbonoTotal += Convert.ToDouble(rows["ValorAbonos"].ToString());
-            //        costospTotal += Convert.ToDouble(rows["Costo"].ToString());
-            //        codigoSeparados.Add(Convert.ToInt32(rows["Codigo"]));
-            //    }
-            //    if (valorAbonoTotal < costospTotal)
-            //    {
-            //        txt_costo_total_sp.Text = valorAbonoTotal.ToString("N0");
-            //        CostoTotalSumandoSeparadosTotal += valorAbonoTotal;
-            //    }
-            //    else
-            //    {
-            //        txt_costo_total_sp.Text = costospTotal.ToString("N0");
-            //        CostoTotalSumandoSeparadosTotal += costospTotal;
-            //    }
-            //    txt_ventas_sp_total.Text = valorAbonoTotal.ToString("N0");
-            //}
+
+            //Abonos credito
+            v_dt = cl_gp.mtd_consultar_Abonos_credito();
+            valorAbono = 0;
+            if (v_dt.Rows.Count > 0)
+            {
+                foreach (DataRow rows in v_dt.Rows)
+                {
+                    valorAbono += Convert.ToDouble(rows["ValorAbonos"].ToString());                 
+                }
+                txt_credito.Text = valorAbono.ToString("N0");
+            }
+
             //buscar gastos
             cls_gastos_m cl_gm = new cls_gastos_m();
-            cl_gm.FechaIni = dtp_fecha_inicio.Text;
-            cl_gm.Fechafin = dtp_fecha_fin.Text;
+            cl_gm.FechaIni = dtp_fecha_inicio.Value;
+            cl_gm.Fechafin = dtp_fecha_fin.Value;
             cl_gm.usuario = this.Codigo;
             v_dt = cl_gm.mtd_consultar_gastos();
             TotalGastos = 0;
@@ -198,7 +189,7 @@ namespace SBX
 
             //TOTALES
             //Ventas
-            double TotalVentasF = (Convert.ToDouble(txt_ventas_directas.Text) + Convert.ToDouble(txt_ventas_domicilio.Text) + Convert.ToDouble(txt_ventas_sp_total.Text)) - Convert.ToDouble(txt_gastos.Text);
+            double TotalVentasF = (Convert.ToDouble(txt_ventas_directas.Text) + Convert.ToDouble(txt_ventas_domicilio.Text) + Convert.ToDouble(txt_ventas_sp_total.Text) + Convert.ToDouble(txt_credito.Text)) - Convert.ToDouble(txt_gastos.Text);
             txt_total_ventas.Text = TotalVentasF.ToString("N0");
             //Costos
             double TotalCostosF = (Convert.ToDouble(txt_costos.Text) + Convert.ToDouble(txt_costo_dm.Text) + Convert.ToDouble(txt_costo_sp.Text)) ;

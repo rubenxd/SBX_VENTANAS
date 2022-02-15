@@ -43,8 +43,8 @@ namespace SBX
             {
                 cls_Caja.Usuario = txt_buscar.Text;
             }
-            cls_Caja.FechaInicio = dtp_fecha_inicio.Text;
-            cls_Caja.FechaFin = dtp_fecha_fin.Text;
+            cls_Caja.FechaInicio = dtp_fecha_inicio.Value;
+            cls_Caja.FechaFin = dtp_fecha_fin.Value;
             cls_Caja.ModoBusqueda = cbx_tipo_busqueda.Text;
             v_dt = cls_Caja.mtd_consultar_todo_caja();
             dtg_caja.Rows.Clear();
