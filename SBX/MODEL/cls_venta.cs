@@ -80,6 +80,7 @@ namespace SBX.MODEL
         public string fact_Tcredito { get; set; }
         public string fact_NumBaucherCredito { get; set; }
         public string fact_Total { get; set; }
+        public string fact_Total2 { get; set; }
         public string fact_Efectivo { get; set; }
         public string fact_Cambio { get; set; }
         public string fact_Cliente { get; set; }

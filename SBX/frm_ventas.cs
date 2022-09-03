@@ -619,6 +619,7 @@ namespace SBX
                     cls_Venta_2.fact_NumBaucherCredito = rows["NumBaucherCredito"].ToString();
                     double total = subtotal - fact_ValorDescuento;
                     cls_Venta_2.fact_Total = total.ToString("N");
+                    cls_Venta_2.fact_Total2 = Convert.ToDouble(rows["Total"]).ToString("N0");
                     cls_Venta_2.fact_Efectivo = rows["Efectivo"].ToString();
                     cls_Venta_2.fact_Cambio = rows["Cambio"].ToString();
                     cls_Venta_2.fact_Cliente = rows["Cliente"].ToString();

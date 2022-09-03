@@ -15,7 +15,7 @@ namespace SBX
     public partial class frm_separado : Form
     {
         //Delegado
-        public delegate void EnviarInfo(string cliente,string valor,string Abono_inicial,
+        public delegate void EnviarInfo(string cliente,string nombreCliente,string valor,string Abono_inicial,
             string periodo_pago,string suministrar,string num_cuotas,string valor_cuotas,string f_primer_pago,string f_vence);
         public event EnviarInfo Enviainfo;
 
@@ -284,7 +284,7 @@ namespace SBX
             mtd_carga_cliente(txt_dni.Text,"","");
             if (v_validado == 0)
             {
-                Enviainfo(cliente,txt_valor.Text,txt_abono_unicial.Text,cbx_periodo_pago.Text,cbx_suministrar.Text,
+                Enviainfo(cliente, lbl_nombre.Text, txt_valor.Text,txt_abono_unicial.Text,cbx_periodo_pago.Text,cbx_suministrar.Text,
                     txt_num_cuotas.Text,txt_valor_cuotas.Text,dtp_fecha_inicio.Text,dtpk_fecha_vence.Text);
                 Dispose();
             }

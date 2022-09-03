@@ -31,6 +31,10 @@ namespace SBX
             cls_Ganancias_Perdidas.Buscar = txt_buscar.Text;
             dt = cls_Ganancias_Perdidas.mtd_consultar_ganancias_y_perdidas();
             dtg_informe.DataSource = dt;
+            cantidad = 0;
+            tCosto = 0;
+            tPrecioVenta = 0;
+            Resultado = 0;
             foreach (DataRow item in dt.Rows)
             {
                 cantidad += Convert.ToDouble(item["cantidad"]);

@@ -189,7 +189,7 @@ namespace SBX
 
             //TOTALES
             //Ventas
-            double TotalVentasF = (Convert.ToDouble(txt_ventas_directas.Text) + Convert.ToDouble(txt_ventas_domicilio.Text) + Convert.ToDouble(txt_ventas_sp_total.Text) + Convert.ToDouble(txt_credito.Text)) - Convert.ToDouble(txt_gastos.Text);
+            double TotalVentasF = (Convert.ToDouble(txt_ventas_directas.Text) + Convert.ToDouble(txt_ventas_domicilio.Text) + Convert.ToDouble(txt_ventas_separado.Text) + Convert.ToDouble(txt_credito.Text)) - Convert.ToDouble(txt_gastos.Text);
             txt_total_ventas.Text = TotalVentasF.ToString("N0");
             //Costos
             double TotalCostosF = (Convert.ToDouble(txt_costos.Text) + Convert.ToDouble(txt_costo_dm.Text) + Convert.ToDouble(txt_costo_sp.Text)) ;

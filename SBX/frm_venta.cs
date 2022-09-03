@@ -1398,6 +1398,7 @@ namespace SBX
         }
         //variables globales para separados
         string clientes_1 = "";
+        string NombreCliente = "";
         string valor_1 = "";
         string Abono_inicial_1 = "";
         string  periodo_pago_1 = "";
@@ -1406,10 +1407,11 @@ namespace SBX
         string valor_cuotas_1 = "";
         string f_primer_pago_1 = "";
         string f_vence_1 = "";
-        private void mtd_info_separado(string clientes, string valor, string Abono_inicial,
+        private void mtd_info_separado(string clientes,string nombreCliente, string valor, string Abono_inicial,
         string periodo_pago, string suministrar, string num_cuotas, string valor_cuotas, string f_primer_pago, string f_vence)
         {
              clientes_1 = clientes;
+            NombreCliente = nombreCliente;
             valor_1 = valor;
             Abono_inicial_1 = Abono_inicial;
             periodo_pago_1 = periodo_pago;
@@ -1456,7 +1458,7 @@ namespace SBX
             }
         }
 
-        private void mtd_info_Credito(string clientes, string valor, string Abono_inicial,
+        private void mtd_info_Credito(string clientes,string nombreCliente, string valor, string Abono_inicial,
        string periodo_pago, string suministrar, string num_cuotas, string valor_cuotas, string f_primer_pago, string f_vence)
         {
             clientes_1 = clientes;
@@ -1573,7 +1575,7 @@ namespace SBX
             {
                 ticket.TextoIzquierda("---------------------------");
                 ticket.TextoIzquierda("INFO SISTEMA DE SEPARADO");
-                ticket.TextoIzquierda("CLIENTE: " + clientes_1);
+                ticket.TextoIzquierda("CLIENTE: " + clientes_1 + " - "+ NombreCliente);
                 ticket.TextoIzquierda("ABONO INICIAL: " + Abono_inicial_1);
                 ticket.TextoIzquierda("# CUOTAS: " + num_cuotas_1);
                 ticket.TextoIzquierda("VALOR CUOTAS: " + valor_cuotas_1);
@@ -2315,8 +2317,8 @@ namespace SBX
                 cls_reporte_cotizacion cls_Reporte_Cotizacion1 = new cls_reporte_cotizacion();
                 DateTime FechaHoy = DateTime.Now;
                 DataTable DataTable2 = new DataTable();
-                cls_Reporte_Cotizacion1.Fecha_inicio = FechaHoy.ToString("yyyyMMdd");
-                cls_Reporte_Cotizacion1.Fecha_fin = FechaHoy.ToString("yyyyMMdd");
+                cls_Reporte_Cotizacion1.Fecha_inicio = FechaHoy;
+                cls_Reporte_Cotizacion1.Fecha_fin = FechaHoy;
                 cls_Reporte_Cotizacion1.v_buscar = ConsDocumento.ToString();
                 DataTable2 = cls_Reporte_Cotizacion1.mtd_consultar();
 

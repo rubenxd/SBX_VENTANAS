@@ -39,7 +39,7 @@ namespace SBX
                     this.reportViewer1.RefreshReport();
                     break;
                 case "Factura":
-                    ReportDataSource rds_fac = new ReportDataSource("reporte_Factura", lrFact);
+                    ReportDataSource rds_fac = new ReportDataSource("DataSet1", lrFact);
                     this.reportViewer1.LocalReport.ReportEmbeddedResource = "SBX.Report1.rdlc";
                     this.reportViewer1.LocalReport.DataSources.Clear();
                     this.reportViewer1.LocalReport.DataSources.Add(rds_fac);

@@ -984,14 +984,77 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox21">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Total</Value>
+                <Style>
+                  <Color>White</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox21</rd:DefaultName>
+        <Top>5.70964cm</Top>
+        <Left>10.92435cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.01833cm</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <BackgroundColor>SeaGreen</BackgroundColor>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox23">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!rpt_Total.Value, "reporte_cotizacion")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox21</rd:DefaultName>
+        <Top>5.70964cm</Top>
+        <Left>12.15434cm</Left>
+        <Height>0.6cm</Height>
+        <Width>4.11281cm</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>2.83333in</Height>
+    <Height>2.63541in</Height>
     <Style />
   </Body>
   <Width>6.48958in</Width>
   <Page>
     <PageHeader>
-      <Height>3.15446cm</Height>
+      <Height>4.02385cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1004,7 +1067,6 @@
                 <TextRun>
                   <Value>=First(Fields!rpt_nombre_empresa.Value, "reporte_cotizacion")</Value>
                   <Style>
-                    <FontSize>12pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -1015,45 +1077,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>rpt_nombre_empresa</rd:DefaultName>
-          <Top>0.29613cm</Top>
-          <Left>3.04679cm</Left>
+          <Top>0.36669cm</Top>
+          <Left>4.50347cm</Left>
           <Height>0.6cm</Height>
-          <Width>11.84893cm</Width>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="rpt_telefono_emp">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=First(Fields!rpt_telefono_emp.Value, "reporte_cotizacion")</Value>
-                  <Style>
-                    <FontSize>11pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Left</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>rpt_telefono_emp</rd:DefaultName>
-          <Top>0.92767cm</Top>
-          <Left>5.63874cm</Left>
-          <Height>0.6cm</Height>
-          <Width>1.8cm</Width>
-          <ZIndex>1</ZIndex>
+          <Width>10.36876cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1073,7 +1100,6 @@
                 <TextRun>
                   <Value>=First(Fields!rpt_celular_emp.Value, "reporte_cotizacion")</Value>
                   <Style>
-                    <FontSize>11pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -1082,11 +1108,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>rpt_celular_emp</rd:DefaultName>
-          <Top>0.92767cm</Top>
-          <Left>7.71836cm</Left>
+          <Top>1.77835cm</Top>
+          <Left>5.42708cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.54767cm</Width>
-          <ZIndex>2</ZIndex>
+          <Width>9.12765cm</Width>
+          <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1106,7 +1132,6 @@
                 <TextRun>
                   <Value>=First(Fields!rpt_direccion_emp.Value, "reporte_cotizacion")</Value>
                   <Style>
-                    <FontSize>11pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -1115,11 +1140,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>rpt_direccion_emp</rd:DefaultName>
-          <Top>1.63351cm</Top>
-          <Left>5.63874cm</Left>
+          <Top>2.51946cm</Top>
+          <Left>5.42708cm</Left>
           <Height>0.6cm</Height>
-          <Width>9.25698cm</Width>
-          <ZIndex>3</ZIndex>
+          <Width>9.12765cm</Width>
+          <ZIndex>2</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1137,9 +1162,9 @@
           <Sizing>FitProportional</Sizing>
           <Top>0.29613cm</Top>
           <Left>0.31432cm</Left>
-          <Height>2.41736cm</Height>
-          <Width>2.55608cm</Width>
-          <ZIndex>4</ZIndex>
+          <Height>2.44382cm</Height>
+          <Width>3.84519cm</Width>
+          <ZIndex>3</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1155,7 +1180,6 @@
                 <TextRun>
                   <Value>=First(Fields!rpt_Doc.Value, "reporte_cotizacion")</Value>
                   <Style>
-                    <FontSize>11pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -1164,11 +1188,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>rpt_Doc</rd:DefaultName>
-          <Top>2.33906cm</Top>
-          <Left>7.33951cm</Left>
+          <Top>3.22501cm</Top>
+          <Left>6.85854cm</Left>
           <Height>0.6cm</Height>
           <Width>1.04501cm</Width>
-          <ZIndex>5</ZIndex>
+          <ZIndex>4</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1188,7 +1212,6 @@
                 <TextRun>
                   <Value>=First(Fields!rpt_Conse.Value, "reporte_cotizacion")</Value>
                   <Style>
-                    <FontSize>11pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -1197,11 +1220,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>rpt_Conse</rd:DefaultName>
-          <Top>2.33906cm</Top>
-          <Left>8.5566cm</Left>
+          <Top>3.22501cm</Top>
+          <Left>8.07563cm</Left>
           <Height>0.6cm</Height>
           <Width>1.17709cm</Width>
-          <ZIndex>6</ZIndex>
+          <ZIndex>5</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1219,9 +1242,8 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>COTIZACION:</Value>
+                  <Value>COTIZACION</Value>
                   <Style>
-                    <FontSize>11pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -1230,11 +1252,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>2.33906cm</Top>
+          <Top>3.22501cm</Top>
           <Left>4.50347cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.93528cm</Width>
-          <ZIndex>7</ZIndex>
+          <Width>2.41071cm</Width>
+          <ZIndex>6</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1263,11 +1285,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>2.33906cm</Top>
-          <Left>8.40257cm</Left>
+          <Top>3.22501cm</Top>
+          <Left>7.9216cm</Left>
           <Height>0.6cm</Height>
           <Width>0.33042cm</Width>
-          <ZIndex>8</ZIndex>
+          <ZIndex>7</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1285,9 +1307,8 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>TEL:</Value>
+                  <Value>CEL:</Value>
                   <Style>
-                    <FontSize>11pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -1298,46 +1319,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>0.92767cm</Top>
+          <Top>1.77835cm</Top>
           <Left>4.50347cm</Left>
           <Height>0.6cm</Height>
           <Width>1.1cm</Width>
-          <ZIndex>9</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Textbox10">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>-</Value>
-                  <Style>
-                    <FontSize>11pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Left</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>0.92767cm</Top>
-          <Left>7.34781cm</Left>
-          <Height>0.6cm</Height>
-          <Width>0.3cm</Width>
-          <ZIndex>10</ZIndex>
+          <ZIndex>8</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1357,7 +1343,6 @@
                 <TextRun>
                   <Value>DIR:</Value>
                   <Style>
-                    <FontSize>11pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -1366,7 +1351,73 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>1.63351cm</Top>
+          <Top>2.51946cm</Top>
+          <Left>4.50347cm</Left>
+          <Height>0.6cm</Height>
+          <Width>1.1cm</Width>
+          <ZIndex>9</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="rpt_celular_emp2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!rpt_Dni_empresa.Value, "reporte_cotizacion")</Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>rpt_celular_emp</rd:DefaultName>
+          <Top>1.07252cm</Top>
+          <Left>5.42708cm</Left>
+          <Height>0.6cm</Height>
+          <Width>9.12765cm</Width>
+          <ZIndex>10</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox10">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>RUT:</Value>
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox4</rd:DefaultName>
+          <Top>1.07252cm</Top>
           <Left>4.50347cm</Left>
           <Height>0.6cm</Height>
           <Width>1.1cm</Width>
@@ -1389,7 +1440,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>0.92604cm</Height>
+      <Height>1.12035cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1412,7 +1463,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>0.07056cm</Top>
+          <Top>0.38806cm</Top>
           <Left>0.31418cm</Left>
           <Height>0.6cm</Height>
           <Width>15.95297cm</Width>

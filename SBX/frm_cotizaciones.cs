@@ -27,8 +27,8 @@ namespace SBX
 
         private void btn_buscar_Click(object sender, EventArgs e)
         {
-            cls_Reporte_Cotizacion.Fecha_inicio = dtp_fecha_inicio.Text;
-            cls_Reporte_Cotizacion.Fecha_fin = dtp_fecha_fin.Text;
+            cls_Reporte_Cotizacion.Fecha_inicio = dtp_fecha_inicio.Value;
+            cls_Reporte_Cotizacion.Fecha_fin = dtp_fecha_fin.Value;
             cls_Reporte_Cotizacion.v_buscar = txt_buscar.Text;
             V_dt = cls_Reporte_Cotizacion.mtd_consultar();
             dtg_ventas.DataSource = V_dt;
@@ -39,8 +39,8 @@ namespace SBX
             List<cls_reporte_cotizacion> lrctz = new List<cls_reporte_cotizacion>();
             foreach (DataGridViewRow item in dtg_ventas.SelectedRows)
             {
-                cls_Reporte_Cotizacion.Fecha_inicio = dtp_fecha_inicio.Text;
-                cls_Reporte_Cotizacion.Fecha_fin = dtp_fecha_fin.Text;
+                cls_Reporte_Cotizacion.Fecha_inicio = dtp_fecha_inicio.Value;
+                cls_Reporte_Cotizacion.Fecha_fin = dtp_fecha_fin.Value;
                 cls_Reporte_Cotizacion.v_buscar = item.Cells["Conse"].Value.ToString();
                 DataTable = cls_Reporte_Cotizacion.mtd_consultar();
                 
@@ -58,7 +58,8 @@ namespace SBX
                     cls_Reporte_Cotizacion.rpt_precioVenta = PrecioVenta.ToString("N");
                     double Descuento = Convert.ToDouble(rows["Descuento"].ToString());
                     cls_Reporte_Cotizacion.rpt_Descuento = Descuento.ToString("N");
-                    cls_Reporte_Cotizacion.rpt_Total = rows["Total"].ToString();
+                    double total = Convert.ToDouble(rows["Total"].ToString());
+                    cls_Reporte_Cotizacion.rpt_Total = total.ToString("N");
                     cls_Reporte_Cotizacion.rpt_dni = rows["DNI"].ToString();
                     cls_Reporte_Cotizacion.rpt_Cliente = rows["Cliente"].ToString();
                     cls_Reporte_Cotizacion.rpt_Direccion = rows["Direccion"].ToString();
@@ -90,8 +91,8 @@ namespace SBX
             frm_venta frm_Venta = new frm_venta();
             foreach (DataGridViewRow item in dtg_ventas.SelectedRows)
             {
-                cls_Reporte_Cotizacion.Fecha_inicio = dtp_fecha_inicio.Text;
-                cls_Reporte_Cotizacion.Fecha_fin = dtp_fecha_fin.Text;
+                cls_Reporte_Cotizacion.Fecha_inicio = dtp_fecha_inicio.Value;
+                cls_Reporte_Cotizacion.Fecha_fin = dtp_fecha_fin.Value;
                 cls_Reporte_Cotizacion.v_buscar = item.Cells["Conse"].Value.ToString();
                 DataTable = cls_Reporte_Cotizacion.mtd_consultar();
                 frm_Venta.v_dt_cotizacion = DataTable;

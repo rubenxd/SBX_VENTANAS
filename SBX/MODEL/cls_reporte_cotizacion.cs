@@ -24,8 +24,8 @@ namespace SBX.MODEL
         public string Registro { get; set; }
         public string v_buscar { get; set; }
         public string v_tipo_busqueda { get; set; }
-        public string Fecha_inicio { get; set; }
-        public string Fecha_fin { get; set; }
+        public DateTime Fecha_inicio { get; set; }
+        public DateTime Fecha_fin { get; set; }
 
         //getter and setter
         public int Codigo { get; set; }
@@ -120,7 +120,7 @@ namespace SBX.MODEL
 " inner join Producto pd on pd.Item = ctz.Producto " +
 " inner join Cliente ct on ct.Codigo = ctz.Cliente " +
 " inner join Usuario us on us.Codigo = ctz.Usuario " +
-" )Q where CONVERT(date,Fecha) Between '" + Fecha_inicio+"' AND '"+Fecha_fin+ "' AND  Q.Conse like '" + v_buscar + "%' "; 
+" )Q where CONVERT(date,Fecha) Between '" + Fecha_inicio.ToString("yyyyMMdd")+"' AND '"+Fecha_fin.ToString("yyyyMMdd")+ "' AND  Q.Conse like '" + v_buscar + "%' "; 
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }
