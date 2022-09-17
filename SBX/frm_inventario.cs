@@ -1200,42 +1200,42 @@ namespace SBX
         }
 
         private void mtd_calcular_precio_venta()
-        {         
-            //    double preVenta = 0;
-            //vl = 0;
-            //if (txt_c_d_iva.Text == "")
-            //{
-            //    vl++;
-            //    errorProvider.SetError(txt_c_d_iva, "Falta valor costo");
-            //}
-            //if (txt_margen.Text == "")
-            //{
-            //    vl++;
-            //    errorProvider.SetError(txt_margen, "Ingrese margen");
-            //}
-          
-            //if (vl == 0)
-            //{
-            //    if (cls_Global.IsNumericDouble(txt_margen.Text))
-            //    {
-            //        if (Convert.ToDouble(txt_margen.Text) == 100)
-            //        {
-            //            double margen = Convert.ToDouble(txt_margen.Text) - 1;
-            //            txt_margen.Text = margen.ToString();
-            //        }
-            //        preVenta = Convert.ToDouble(txt_c_d_iva.Text) / (1-(Convert.ToDouble(txt_margen.Text)/100));
-            //        txt_precio_venta.Text = preVenta.ToString("N0");
-            //    }
-            //    else
-            //    {
-            //        errorProvider.SetError(txt_margen,"Ingrese valores numericos");
-            //    }
-            //}
-            //else
-            //{
-            //    txt_precio_venta.Text = "";
-            //}
-            
+        {
+            double preVenta = 0;
+            vl = 0;
+            if (txt_c_d_iva.Text == "")
+            {
+                vl++;
+                errorProvider.SetError(txt_c_d_iva, "Falta valor costo");
+            }
+            if (txt_margen.Text == "")
+            {
+                vl++;
+                errorProvider.SetError(txt_margen, "Ingrese margen");
+            }
+
+            if (vl == 0)
+            {
+                if (cls_Global.IsNumericDouble(txt_margen.Text))
+                {
+                    if (Convert.ToDouble(txt_margen.Text) == 100)
+                    {
+                        double margen = Convert.ToDouble(txt_margen.Text) - 1;
+                        txt_margen.Text = margen.ToString();
+                    }
+                    preVenta = Convert.ToDouble(txt_c_d_iva.Text) / (1 - (Convert.ToDouble(txt_margen.Text) / 100));
+                    txt_precio_venta.Text = preVenta.ToString();
+                }
+                else
+                {
+                    errorProvider.SetError(txt_margen, "Ingrese valores numericos");
+                }
+            }
+            else
+            {
+                txt_precio_venta.Text = "";
+            }
+
         }
         private void mtd_calcular_margen()
         {
