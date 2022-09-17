@@ -357,7 +357,7 @@ namespace SBX
                                     precio = Convert.ToDouble(v_row["ValorSubcantidad"]);
                                     break;
                             }
-                            dtg_venta.Rows[v_contador - 1].Cells["cl_precio"].Value = precio.ToString("N0");
+                            dtg_venta.Rows[v_contador - 1].Cells["cl_precio"].Value = precio;
                             dtg_venta.Rows[v_contador - 1].Cells["cl_um"].Value = v_UM;
                             dtg_venta.Rows[v_contador - 1].Cells["cl_descuento"].Value = "0";
                             dtg_venta.Rows[v_contador - 1].Cells["cl_valor_descuento"].Value = "0";
@@ -398,7 +398,7 @@ namespace SBX
                                     Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["SubCantidad"]);
                                     break;
                             }
-                            dtg_venta.Rows[v_contador - 1].Cells["cl_costo"].Value = Costo.ToString("N0");
+                            dtg_venta.Rows[v_contador - 1].Cells["cl_costo"].Value = Costo.ToString();
                         }
 
                         mtd_calcular_venta();
@@ -593,12 +593,12 @@ namespace SBX
                 descuento = Venta * (Convert.ToDouble(rows.Cells["cl_descuento"].Value) / 100);
                 subtotal = Venta - descuento;
 
-                rows.Cells["cl_valor_descuento"].Value = descuento.ToString("N0");
-                rows.Cells["cl_total"].Value = subtotal.ToString("N0");
+                rows.Cells["cl_valor_descuento"].Value = descuento.ToString();
+                rows.Cells["cl_total"].Value = subtotal.ToString();
                 Total += subtotal;
             }
 
-            lbl_total.Text = Total.ToString("N0");
+            lbl_total.Text = Total.ToString();
         }
         
         private void mtd_carga_cliente(string dni,string Codsu,string Nomsu)
@@ -1345,7 +1345,7 @@ namespace SBX
             double pago = efectivo + debito + credito;
 
             double cambio = pago - Convert.ToDouble(lbl_total.Text);
-            lbl_cambio.Text = cambio.ToString("N0");
+            lbl_cambio.Text = cambio.ToString();
             if (cambio < 0)
             {
                 lbl_cambio.ForeColor = Color.OrangeRed;
@@ -1862,7 +1862,7 @@ namespace SBX
                         }
                     }
                     row.Cells["cl_precio"].Value = "0";
-                    row.Cells["cl_costo"].Value = VALOR_IVA.ToString("N");
+                    row.Cells["cl_costo"].Value = VALOR_IVA.ToString();
                 }
             }
         }
