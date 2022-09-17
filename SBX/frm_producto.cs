@@ -312,6 +312,7 @@ namespace SBX
                         frm_Inventario.mtd_dato_venta(rows.Cells["Item"].Value.ToString());
                     }
                     frm_Inventario.v_dt_Permi = v_dt_Permi;
+                    frm_Inventario.Usuario = this.Usuario;
                     frm_Inventario.Show();
                 }
             }
@@ -335,6 +336,7 @@ namespace SBX
                             frm_Inventario.mtd_dato_venta(rows.Cells["Item"].Value.ToString());
                         }
                         frm_Inventario.v_dt_Permi = v_dt_Permi;
+                        frm_Inventario.Usuario = this.Usuario;
                         frm_Inventario.ShowDialog();
                     }
                 }

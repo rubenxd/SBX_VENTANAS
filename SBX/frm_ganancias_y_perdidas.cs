@@ -47,5 +47,10 @@ namespace SBX
             txt_venta.Text = tPrecioVenta.ToString("N0");
             txt_resultado.Text = Resultado.ToString("N0");
         }
+
+        private void frm_ganancias_y_perdidas_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

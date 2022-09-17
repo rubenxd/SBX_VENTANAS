@@ -611,7 +611,6 @@ C:\SBX_VENTANAS\SBX\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.d
 C:\SBX_VENTANAS\SBX\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\SBX_VENTANAS\SBX\obj\Debug\SBX.frm_cotizaciones.resources
 C:\SBX_VENTANAS\SBX\obj\Debug\SBX.frm_orden_servicio.resources
-C:\SBX_VENTANAS\SBX\obj\Debug\SBX.csprojAssemblyReference.cache
 C:\SBX\SBX_VENTANAS\SBX\bin\Debug\SqlServerTypes\x64\msvcr120.dll
 C:\SBX\SBX_VENTANAS\SBX\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
 C:\SBX\SBX_VENTANAS\SBX\bin\Debug\SqlServerTypes\x86\msvcr120.dll
@@ -882,3 +881,5 @@ C:\Ruben\SBX_VENTANAS\SBX\obj\Debug\SBX.csproj.CopyComplete
 C:\Ruben\SBX_VENTANAS\SBX\obj\Debug\SBX.exe
 C:\Ruben\SBX_VENTANAS\SBX\obj\Debug\SBX.pdb
 C:\Ruben\SBX_VENTANAS\SBX\obj\Debug\SBX.csproj.AssemblyReference.cache
+C:\SBX_VENTANAS\SBX\obj\Debug\SBX.csproj.AssemblyReference.cache
+C:\SBX_VENTANAS\SBX\obj\Debug\SBX.frm_ganancias_y_perdidas.resources
