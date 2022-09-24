@@ -54,14 +54,14 @@ namespace SBX.MODEL
             {
                 v_query = "SELECT c.*,u.NombreUsuario FROM Caja c " +
                     "INNER JOIN Usuario u ON u.Codigo = c.Usuario " +
-                    "WHERE u.NombreUsuario LIKE '" + Usuario + "%' AND CONVERT(DATE,c.FechaRegistro) BETWEEN '" + FechaInicio.ToString("yyyy-MM-dd") + "' AND '" + FechaFin.ToString("yyyy-MM-dd") + "' " +
+                    "WHERE u.Codigo = " + Usuario + " AND CONVERT(DATE,c.FechaRegistro) BETWEEN '" + FechaInicio.ToString("yyyy-MM-dd") + "' AND '" + FechaFin.ToString("yyyy-MM-dd") + "' " +
                     "ORDER BY c.FechaRegistro DESC ";
             }
             else
             {
                 v_query = "SELECT c.*,u.NombreUsuario FROM Caja c " +
                     "INNER JOIN Usuario u ON u.Codigo = c.Usuario " +
-                    "WHERE u.NombreUsuario = '" + Usuario + "' AND  CONVERT(DATE,c.FechaRegistro) BETWEEN '" + FechaInicio.ToString("yyyy-MM-dd") + "' AND '" + FechaFin.ToString("yyyy-MM-dd") + "' " +
+                    "WHEREu.Codigo = " + Usuario + " AND  CONVERT(DATE,c.FechaRegistro) BETWEEN '" + FechaInicio.ToString("yyyy-MM-dd") + "' AND '" + FechaFin.ToString("yyyy-MM-dd") + "' " +
                     "ORDER BY c.FechaRegistro DESC ";
             }
           
@@ -228,7 +228,7 @@ namespace SBX.MODEL
         public DataTable mtd_consultar_Cierres()
         {
             v_query = "select CodigoCaja from Caja " +
-" where CONVERT(varchar, FechaRegistro,103) between '"+FechaInicio.ToString("yyyy-MM-dd") + "' AND '"+FechaFin.ToString("yyyy-MM-dd") + "' group by CodigoCaja ";
+                      " where CONVERT(varchar, FechaRegistro,103) between '"+FechaInicio.ToString("yyyy-MM-dd") + "' AND '"+FechaFin.ToString("yyyy-MM-dd") + "' group by CodigoCaja ";
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }

@@ -15,7 +15,7 @@ namespace SBX
     public partial class frm_descuento : Form
     {
         //Delegado  Margen de venta
-        public delegate void EnviaDescuento(string item,string porcentaje_descuento);
+        public delegate void EnviaDescuento(string item,string porcentaje_descuento, string valorDescuento);
         public event EnviaDescuento descuento;
 
         cls_global cls_Global = new cls_global();
@@ -86,7 +86,7 @@ namespace SBX
                     valor = Convert.ToDouble(lbl_precio_venta.Text) * (Convert.ToDouble(txt_por_desc.Text) / 100);
                     txt_valor_descuento.Text = valor.ToString();
                     v_nuevo_precio = Convert.ToDouble(lbl_precio_venta.Text) - valor;
-                    lbl_nuevo_precio.Text = v_nuevo_precio.ToString("N0");
+                    lbl_nuevo_precio.Text = v_nuevo_precio.ToString("N");
                 }
             }
             else
@@ -105,7 +105,7 @@ namespace SBX
                     valor = (Convert.ToDouble(txt_valor_descuento.Text) / Convert.ToDouble(lbl_precio_venta.Text)) * 100;
                     txt_por_desc.Text = valor.ToString();
                     v_nuevo_precio = Convert.ToDouble(lbl_precio_venta.Text) - Convert.ToDouble(txt_valor_descuento.Text);
-                    lbl_nuevo_precio.Text = v_nuevo_precio.ToString("N0");
+                    lbl_nuevo_precio.Text = v_nuevo_precio.ToString("N");
                 }
             }
             else
@@ -132,7 +132,7 @@ namespace SBX
         {
             if (v_validado == 0)
             {
-                descuento(lbl_item.Text,txt_por_desc.Text);
+                descuento(lbl_item.Text,txt_por_desc.Text, txt_valor_descuento.Text);
                 this.Dispose();
             }
         }
@@ -151,7 +151,7 @@ namespace SBX
             if (txt_valor_descuento.Text.Trim() != "")
             {
                 double valor_desc = Convert.ToDouble(txt_valor_descuento.Text);
-                txt_valor_descuento.Text = valor_desc.ToString("N0");
+                txt_valor_descuento.Text = valor_desc.ToString("N");
             }
         }
         private void btn_cancelar_Click(object sender, EventArgs e)

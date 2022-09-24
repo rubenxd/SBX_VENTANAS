@@ -79,6 +79,7 @@ namespace SBX
            
             cls_Venta.Fecha_inicio = dtp_fecha_inicio.Value;
             cls_Venta.Fecha_fin = dtp_fecha_fin.Value;
+            cls_Venta.Usuario = this.usuarios;
             v_dt = cls_Venta.mtd_consultar_Venta();
             dtg_ventas.Rows.Clear();
 

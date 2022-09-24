@@ -115,7 +115,7 @@ namespace SBX.MODEL
         //Metodos
         public DataTable mtd_consultar_Venta()
         {
-            v_query = " EXECUTE SP_BUSCAR_VENTAS  '" + v_tipo_busqueda + "','" + Fecha_inicio.ToString("yyyyMMdd") + "','" + Fecha_fin.ToString("yyyyMMdd") + "','" + v_buscar + "' ";
+            v_query = " EXECUTE SP_BUSCAR_VENTAS  '" + v_tipo_busqueda + "','" + Fecha_inicio.ToString("yyyyMMdd") + "','" + Fecha_fin.ToString("yyyyMMdd") + "','" + v_buscar + "', '" + Usuario + "' ";
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }

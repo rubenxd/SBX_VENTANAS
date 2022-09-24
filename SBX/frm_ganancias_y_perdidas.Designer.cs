@@ -49,6 +49,8 @@ namespace SBX
             this.txt_costo = new System.Windows.Forms.TextBox();
             this.txt_cantidad = new System.Windows.Forms.TextBox();
             this.dtg_informe = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txt_desc = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_informe)).BeginInit();
@@ -139,6 +141,8 @@ namespace SBX
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.txt_desc);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
@@ -148,16 +152,16 @@ namespace SBX
             this.panel2.Controls.Add(this.txt_costo);
             this.panel2.Controls.Add(this.txt_cantidad);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 494);
+            this.panel2.Location = new System.Drawing.Point(0, 377);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(978, 163);
+            this.panel2.Size = new System.Drawing.Size(978, 280);
             this.panel2.TabIndex = 11;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(10, 122);
+            this.label6.Location = new System.Drawing.Point(10, 158);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(99, 25);
             this.label6.TabIndex = 94;
@@ -198,7 +202,7 @@ namespace SBX
             this.txt_resultado.Enabled = false;
             this.txt_resultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_resultado.ForeColor = System.Drawing.Color.Gray;
-            this.txt_resultado.Location = new System.Drawing.Point(123, 117);
+            this.txt_resultado.Location = new System.Drawing.Point(123, 153);
             this.txt_resultado.Name = "txt_resultado";
             this.txt_resultado.Size = new System.Drawing.Size(425, 30);
             this.txt_resultado.TabIndex = 90;
@@ -262,8 +266,28 @@ namespace SBX
             this.dtg_informe.Location = new System.Drawing.Point(0, 44);
             this.dtg_informe.Name = "dtg_informe";
             this.dtg_informe.ReadOnly = true;
-            this.dtg_informe.Size = new System.Drawing.Size(978, 450);
+            this.dtg_informe.Size = new System.Drawing.Size(978, 333);
             this.dtg_informe.TabIndex = 12;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(10, 122);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(75, 25);
+            this.label7.TabIndex = 96;
+            this.label7.Text = "T Desc";
+            // 
+            // txt_desc
+            // 
+            this.txt_desc.Enabled = false;
+            this.txt_desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_desc.ForeColor = System.Drawing.Color.Gray;
+            this.txt_desc.Location = new System.Drawing.Point(123, 117);
+            this.txt_desc.Name = "txt_desc";
+            this.txt_desc.Size = new System.Drawing.Size(425, 30);
+            this.txt_desc.TabIndex = 95;
             // 
             // frm_ganancias_y_perdidas
             // 
@@ -305,5 +329,7 @@ namespace SBX
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txt_desc;
     }
 }

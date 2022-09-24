@@ -39,10 +39,12 @@ namespace SBX.MODEL
         public string Estado { get; set; }
         public string codigoSu { get; set; }
 
+        public string usuario { get; set; }
+
         //Metodos
         public DataTable mtd_consultar_domicilio()
         {
-            v_query = " EXECUTE sp_consultar_domicilio  '" + v_buscar + "','" + v_tipo_busqueda + "','" + Fecha_inicio.ToString("yyyyMMdd") + "','" + Fecha_fin.ToString("yyyyMMdd") + "' ";
+            v_query = " EXECUTE sp_consultar_domicilio  '" + v_buscar + "','" + v_tipo_busqueda + "','" + Fecha_inicio.ToString("yyyyMMdd") + "','" + Fecha_fin.ToString("yyyyMMdd") + "', "+ usuario + " ";
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }

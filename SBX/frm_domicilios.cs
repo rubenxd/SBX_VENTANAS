@@ -24,6 +24,7 @@ namespace SBX
         int Eliminados;
         int Error;
         public DataTable v_dt_Permi { get; set; }
+        public string codigoUsuario { get; set; }
 
         public frm_domicilios()
         {
@@ -72,6 +73,7 @@ namespace SBX
             cls_Domicilio.v_tipo_busqueda = cbx_tipo_busqueda.Text;
             cls_Domicilio.Fecha_inicio = dtp_fecha_inicio.Value;
             cls_Domicilio.Fecha_fin = dtp_fecha_fin.Value;
+            cls_Domicilio.usuario = codigoUsuario;
             v_dt = cls_Domicilio.mtd_consultar_domicilio();
             dtg_domicilio.Rows.Clear();
             if (v_dt.Rows.Count > 0)

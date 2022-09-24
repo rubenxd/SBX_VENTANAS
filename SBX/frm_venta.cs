@@ -545,13 +545,14 @@ namespace SBX
                 txt_credito.Text = "0";
             }
         }
-        private void mtd_aplicar_descuento(string item,string porcj_descuento)
+        private void mtd_aplicar_descuento(string item,string porcj_descuento, string ValorDescuento)
         {
             foreach (DataGridViewRow rows in dtg_venta.SelectedRows)
             {
                 if (item == rows.Cells["cl_item"].Value.ToString())
                 {
                     rows.Cells["cl_descuento"].Value = porcj_descuento;
+                    rows.Cells["cl_valor_descuento"].Value = ValorDescuento;
                 }
             }
             mtd_calcular_venta();
@@ -571,10 +572,10 @@ namespace SBX
                     frm_Descuento.lbl_cantidad.Text = rows.Cells["cl_cantidad"].Value.ToString();
                     double costo = Convert.ToDouble(rows.Cells["cl_costo"].Value.ToString());
                     costo = costo * Convert.ToDouble(rows.Cells["cl_cantidad"].Value);
-                    frm_Descuento.lbl_costo.Text = costo.ToString("N0");
+                    frm_Descuento.lbl_costo.Text = costo.ToString("N");
                     double precio = Convert.ToDouble(rows.Cells["cl_precio"].Value);
                     precio = precio  * Convert.ToDouble(rows.Cells["cl_cantidad"].Value);
-                    frm_Descuento.lbl_precio_venta.Text = precio.ToString("N0");
+                    frm_Descuento.lbl_precio_venta.Text = precio.ToString("N");
                 }
 
                 frm_Descuento.ShowDialog();
@@ -593,12 +594,12 @@ namespace SBX
                 descuento = Venta * (Convert.ToDouble(rows.Cells["cl_descuento"].Value) / 100);
                 subtotal = Venta - descuento;
 
-                rows.Cells["cl_valor_descuento"].Value = descuento.ToString();
+                //rows.Cells["cl_valor_descuento"].Value = descuento.ToString();
                 rows.Cells["cl_total"].Value = subtotal.ToString();
                 Total += subtotal;
             }
 
-            lbl_total.Text = Total.ToString();
+            lbl_total.Text = Total.ToString("N");
         }
         
         private void mtd_carga_cliente(string dni,string Codsu,string Nomsu)
@@ -1345,7 +1346,7 @@ namespace SBX
             double pago = efectivo + debito + credito;
 
             double cambio = pago - Convert.ToDouble(lbl_total.Text);
-            lbl_cambio.Text = cambio.ToString();
+            lbl_cambio.Text = cambio.ToString("N");
             if (cambio < 0)
             {
                 lbl_cambio.ForeColor = Color.OrangeRed;

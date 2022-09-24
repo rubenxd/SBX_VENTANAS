@@ -388,6 +388,7 @@ namespace SBX
             formul.Dispose();
             frm_domicilios frm_Domicilio = new frm_domicilios();
             frm_Domicilio.v_dt_Permi = v_dt_permisos;
+            frm_Domicilio.codigoUsuario = Codigo;
             ColoresBotones("btn_domicilio");
             AbrirFormularioEnPanel(frm_Domicilio);
             btn_domicilio.BackColor = Color.DarkSeaGreen;

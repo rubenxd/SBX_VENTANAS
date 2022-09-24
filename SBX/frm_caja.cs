@@ -46,6 +46,7 @@ namespace SBX
             cls_Caja.FechaInicio = dtp_fecha_inicio.Value;
             cls_Caja.FechaFin = dtp_fecha_fin.Value;
             cls_Caja.ModoBusqueda = cbx_tipo_busqueda.Text;
+            cls_Caja.Usuario = Codigo;
             v_dt = cls_Caja.mtd_consultar_todo_caja();
             dtg_caja.Rows.Clear();
             if (v_dt.Rows.Count > 0)

@@ -107,10 +107,10 @@ namespace SBX
                     }
                 }
             }
-            txt_costos.Text = Costos.ToString("N2");
-            txt_ventas_directas.Text = VentasD.ToString("N2");
-            txt_costo_dm.Text = CostosDomicilio.ToString("N2");
-            txt_ventas_domicilio.Text = VentasDomicilio.ToString("N2");
+            txt_costos.Text = Costos.ToString();
+            txt_ventas_directas.Text = VentasD.ToString("N");
+            txt_costo_dm.Text = CostosDomicilio.ToString("N");
+            txt_ventas_domicilio.Text = VentasDomicilio.ToString("N");
 
             //SISTEMA DE SEPARADOS
             cl_gp.FechaIni = dtp_fecha_inicio.Value;
@@ -146,8 +146,8 @@ namespace SBX
                 //    txt_costo_sp.Text = Resta.ToString("N0");
                 //}
                 
-                txt_ventas_separado.Text = valorAbono.ToString("N0");
-                txt_ventas_sp_total.Text = Abonototal.ToString("N0");
+                txt_ventas_separado.Text = valorAbono.ToString("N");
+                txt_ventas_sp_total.Text = Abonototal.ToString("N");
             }
 
             //Abonos credito
@@ -159,7 +159,7 @@ namespace SBX
                 {
                     valorAbono += Convert.ToDouble(rows["ValorAbonos"].ToString());                 
                 }
-                txt_credito.Text = valorAbono.ToString("N0");
+                txt_credito.Text = valorAbono.ToString("N");
             }
 
             //buscar gastos
@@ -180,7 +180,7 @@ namespace SBX
                     TotalIva += ValoresIVA;
                 }
                 double total = TotalGastos + TotalIva;
-                txt_gastos.Text = total.ToString("N0");
+                txt_gastos.Text = total.ToString("N");
             }
             else
             {
@@ -190,12 +190,12 @@ namespace SBX
             //TOTALES
             //Ventas
             double TotalVentasF = (Convert.ToDouble(txt_ventas_directas.Text) + Convert.ToDouble(txt_ventas_domicilio.Text) + Convert.ToDouble(txt_ventas_separado.Text) + Convert.ToDouble(txt_credito.Text)) - Convert.ToDouble(txt_gastos.Text);
-            txt_total_ventas.Text = TotalVentasF.ToString("N0");
+            txt_total_ventas.Text = TotalVentasF.ToString("N");
             //Costos
             double TotalCostosF = (Convert.ToDouble(txt_costos.Text) + Convert.ToDouble(txt_costo_dm.Text) + Convert.ToDouble(txt_costo_sp.Text)) ;
-            txt_total_costos.Text = TotalCostosF.ToString("N0");
+            txt_total_costos.Text = TotalCostosF.ToString("N");
             double ResultadoF = TotalVentasF - TotalCostosF;
-            txt_resultado.Text = ResultadoF.ToString("N0");
+            txt_resultado.Text = ResultadoF.ToString("N");
             ////Ganacias SP
             //double totalGnSp = Convert.ToDouble(txt_ventas_sp_total.Text) - Convert.ToDouble(txt_costo_total_sp.Text);
             //txt_gn_sp.Text = totalGnSp.ToString("N0");
@@ -241,15 +241,15 @@ namespace SBX
 
                         dtg_informe.Rows[Contador].Cells["cl_um"].Value = rows["UM"];
                         double costo = Convert.ToDouble(rows["Costo"]);
-                        dtg_informe.Rows[Contador].Cells["cl_costos"].Value = costo.ToString("N2");
+                        dtg_informe.Rows[Contador].Cells["cl_costos"].Value = costo.ToString("N");
                         double PrecioVenta = Convert.ToDouble(rows["PrecioVenta"]);
-                        dtg_informe.Rows[Contador].Cells["cl_precio_venta"].Value = PrecioVenta.ToString("N2");
+                        dtg_informe.Rows[Contador].Cells["cl_precio_venta"].Value = PrecioVenta.ToString("N");
                         double ValorDescuento = Convert.ToDouble(rows["ValorDescuento"]);
-                        dtg_informe.Rows[Contador].Cells["cl_Descuentos"].Value = ValorDescuento.ToString("N2");
+                        dtg_informe.Rows[Contador].Cells["cl_Descuentos"].Value = ValorDescuento.ToString("N");
                         double Total = PrecioVenta - ValorDescuento;
-                        dtg_informe.Rows[Contador].Cells["cl_total"].Value = Total.ToString("N2");
+                        dtg_informe.Rows[Contador].Cells["cl_total"].Value = Total.ToString("N");
                         double Resultados = Total - costo;
-                        dtg_informe.Rows[Contador].Cells["cl_resultado"].Value = Resultados.ToString("N2");
+                        dtg_informe.Rows[Contador].Cells["cl_resultado"].Value = Resultados.ToString("N");
 
                         dtg_informe.Rows[Contador].Cells["v_modulo"].Value = "V. Directa";
                         dtg_informe.Rows[Contador].Cells["cl_domicilio"].Value = rows["Domicilio"];
