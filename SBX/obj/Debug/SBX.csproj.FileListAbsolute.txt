@@ -880,6 +880,5 @@ C:\Ruben\SBX_VENTANAS\SBX\obj\Debug\SBX.csproj.CoreCompileInputs.cache
 C:\Ruben\SBX_VENTANAS\SBX\obj\Debug\SBX.csproj.CopyComplete
 C:\Ruben\SBX_VENTANAS\SBX\obj\Debug\SBX.exe
 C:\Ruben\SBX_VENTANAS\SBX\obj\Debug\SBX.pdb
-C:\Ruben\SBX_VENTANAS\SBX\obj\Debug\SBX.csproj.AssemblyReference.cache
 C:\SBX_VENTANAS\SBX\obj\Debug\SBX.csproj.AssemblyReference.cache
 C:\SBX_VENTANAS\SBX\obj\Debug\SBX.frm_ganancias_y_perdidas.resources

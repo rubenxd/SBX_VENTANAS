@@ -233,7 +233,7 @@ namespace SBX.MODEL
             { resumen = texto; }
 
             textoCompleto = resumen;
-            valor = total.ToString("#,#.00");//Agregamos el total previo formateo.
+            valor = total.ToString("N");//.ToString("#,#.00");//Agregamos el total previo formateo.
 
             //Obtenemos el numero de espacios restantes para alinearlos a la derecha
             int nroEspacios = maxCar - (resumen.Length + valor.Length);
@@ -292,7 +292,7 @@ namespace SBX.MODEL
             ////    espacios += " ";
             ////}
             espacios = " ";
-            elemento += espacios + String.Format("{0:###,##0.}", Convert.ToDouble(Total));
+            elemento += espacios + Total.ToString("N"); //String.Format("{0:###,##0.}", Convert.ToDouble(Total));
 
             linea.AppendLine(elemento);
 
@@ -321,13 +321,13 @@ namespace SBX.MODEL
                 }
                 elemento += espacios + Signo.ToString();
 
-                nroEspacios = (13 - String.Format("{0:###,##0.}", Convert.ToDouble(ValorUnidad)).Length);
+                nroEspacios = (13 - ValorUnidad.ToString("N").Length);//String.Format("{0:###,##0.}", Convert.ToDouble(ValorUnidad)).Length);
                 espacios = "";
                 for (int i = 0; i < nroEspacios; i++)
                 {
                     espacios += " ";
                 }
-                elemento += String.Format("{0:###,##0.}", Convert.ToDouble(ValorUnidad)) + espacios;
+                elemento += ValorUnidad.ToString("N") + espacios;//String.Format("{0:###,##0.}", Convert.ToDouble(ValorUnidad)) + espacios;
 
                 linea.AppendLine(elemento);
             }

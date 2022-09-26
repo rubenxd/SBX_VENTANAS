@@ -61,7 +61,7 @@ namespace SBX
                     dtg_caja.Rows[Contador].Cells["cl_fecha"].Value = rows["FechaRegistro"];
                     dtg_caja.Rows[Contador].Cells["cl_operacion"].Value = rows["TipoOperacion"];
                     double valor = Convert.ToDouble(rows["Valor"]);
-                    dtg_caja.Rows[Contador].Cells["cl_valor"].Value = valor.ToString("N0");
+                    dtg_caja.Rows[Contador].Cells["cl_valor"].Value = valor.ToString("N");
                     dtg_caja.Rows[Contador].Cells["cl_codigo_operacion"].Value = rows["Codigo"];
                     Contador++;
                 }
@@ -311,12 +311,12 @@ namespace SBX
 
                         //mostrar informacion de cierre de caja
                         frm_informe_cierre cierreCaja = new frm_informe_cierre();
-                        cierreCaja.txt_apertura.Text = TotalBaseCaja.ToString("N0");
-                        cierreCaja.txt_ingresos.Text = Ingresos.ToString("N0");
-                        cierreCaja.txt_gastos.Text = Gastos.ToString("N0");
-                        cierreCaja.txt_cierre_caja.Text = CierreCaja.ToString("N0");
-                        cierreCaja.txt_conteo_dinero.Text = ConteoDinero.ToString("N0");
-                        cierreCaja.txt_diferencia.Text = TotalDiferencia.ToString("N0");
+                        cierreCaja.txt_apertura.Text = TotalBaseCaja.ToString("N");
+                        cierreCaja.txt_ingresos.Text = Ingresos.ToString("N");
+                        cierreCaja.txt_gastos.Text = Gastos.ToString("N");
+                        cierreCaja.txt_cierre_caja.Text = CierreCaja.ToString("N");
+                        cierreCaja.txt_conteo_dinero.Text = ConteoDinero.ToString("N");
+                        cierreCaja.txt_diferencia.Text = TotalDiferencia.ToString("N");
                         cierreCaja.Impresion = false;
                         cierreCaja.ShowDialog();
                     }

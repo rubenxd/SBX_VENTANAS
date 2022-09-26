@@ -226,7 +226,7 @@ namespace SBX
                                 precio = Convert.ToDouble(v_row["ValorSubcantidad"]);
                                 break;
                         }
-                        dtg_venta.Rows[v_contador - 1].Cells["cl_precio"].Value = precio.ToString("N0");
+                        dtg_venta.Rows[v_contador - 1].Cells["cl_precio"].Value = precio.ToString("N");
                         dtg_venta.Rows[v_contador - 1].Cells["cl_um"].Value = v_UM;
                         dtg_venta.Rows[v_contador - 1].Cells["cl_descuento"].Value = "0";
                         dtg_venta.Rows[v_contador - 1].Cells["cl_valor_descuento"].Value = "0";
@@ -267,7 +267,7 @@ namespace SBX
                                 Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["SubCantidad"]);
                                 break;
                         }
-                        dtg_venta.Rows[v_contador - 1].Cells["cl_costo"].Value = Costo.ToString("N0");
+                        dtg_venta.Rows[v_contador - 1].Cells["cl_costo"].Value = Costo.ToString("N");
                     }
                     mtd_calcular_venta();
                     txt_producto.Text = "";
@@ -398,7 +398,7 @@ namespace SBX
                                     Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["SubCantidad"]);
                                     break;
                             }
-                            dtg_venta.Rows[v_contador - 1].Cells["cl_costo"].Value = Costo.ToString();
+                            dtg_venta.Rows[v_contador - 1].Cells["cl_costo"].Value = Costo.ToString("N");
                         }
 
                         mtd_calcular_venta();
@@ -478,7 +478,7 @@ namespace SBX
                                     precio = Convert.ToDouble(v_row["ValorSubcantidad"]);
                                     break;
                             }
-                            dtg_venta.Rows[v_contador - 1].Cells["cl_precio"].Value = precio.ToString("N0");
+                            dtg_venta.Rows[v_contador - 1].Cells["cl_precio"].Value = precio.ToString("N");
                             dtg_venta.Rows[v_contador - 1].Cells["cl_um"].Value = v_UM;
                             dtg_venta.Rows[v_contador - 1].Cells["cl_descuento"].Value = PorcentajeDescuento;
                             dtg_venta.Rows[v_contador - 1].Cells["cl_valor_descuento"].Value = 0;
@@ -519,7 +519,7 @@ namespace SBX
                                     Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["SubCantidad"]);
                                     break;
                             }
-                            dtg_venta.Rows[v_contador - 1].Cells["cl_costo"].Value = Costo.ToString("N0");
+                            dtg_venta.Rows[v_contador - 1].Cells["cl_costo"].Value = Costo.ToString("N");
                         }
 
                         mtd_calcular_venta();
@@ -1621,7 +1621,7 @@ namespace SBX
             {
                 ticket.AgregarTotales("DOMICILIO.....$", ValorDomicilio);
             }
-            ticket.AgregarTotales("TOTAL.........$", Math.Round(Total));
+            ticket.AgregarTotales("TOTAL.........$", Total);//Math.Round(Total));
             //ticket.TextoIzquierda("--------------------------------------");
             if (v_sistema_separado == false && v_domicilio == false) 
             {
