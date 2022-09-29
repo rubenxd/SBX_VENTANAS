@@ -1262,6 +1262,11 @@ namespace SBX
                 {
                     mtd_imprimir(Documento, ConsDocumento.ToString());
                 }
+                else
+                {
+                    CrearTicket ticket = new CrearTicket();
+                    ticket.AbreCajon();//Para abrir el cajon de dinero.
+                }
             }
             else
             {
