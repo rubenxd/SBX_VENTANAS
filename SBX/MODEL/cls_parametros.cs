@@ -25,6 +25,7 @@ namespace SBX.MODEL
         public string Buscar_automaticamente { get; set; }
         public string Datos_paginados { get; set; }
         public string Ruta_backup_db { get; set; }
+        public string PreuntaImprimir { get; set; }
 
         public DataTable mtd_consultar_parametros()
         {
@@ -34,7 +35,7 @@ namespace SBX.MODEL
         }
         private void mtd_asignaParametros()
         {
-            Parametros = new SqlParameter[3];
+            Parametros = new SqlParameter[4];
 
             Parametros[0] = new SqlParameter();
             Parametros[0].ParameterName = "@Buscar_automaticamente";
@@ -50,11 +51,16 @@ namespace SBX.MODEL
             Parametros[2].ParameterName = "@rutaBackupDB";
             Parametros[2].SqlDbType = SqlDbType.VarChar;
             Parametros[2].SqlValue = Ruta_backup_db;
+
+            Parametros[3] = new SqlParameter();
+            Parametros[3].ParameterName = "@PreuntaImprimir";
+            Parametros[3].SqlDbType = SqlDbType.VarChar;
+            Parametros[3].SqlValue = PreuntaImprimir;
         }
         public Boolean mtd_registrar()
         {
-            v_query = " INSERT INTO Parametros (Buscar_automaticamente,Datos_paginados,rutaBackupDB)" +
-                      " VALUES (@Buscar_automaticamente,@Datos_paginados,@rutaBackupDB)";
+            v_query = " INSERT INTO Parametros (Buscar_automaticamente,Datos_paginados,rutaBackupDB,PreuntaImprimir)" +
+                      " VALUES (@Buscar_automaticamente,@Datos_paginados,@rutaBackupDB,@PreuntaImprimir)";
 
             mtd_asignaParametros();
             v_ok = cls_datos.mtd_registrar(Parametros, v_query);
@@ -62,7 +68,7 @@ namespace SBX.MODEL
         }
         public Boolean mtd_Editar()
         {
-            v_query = " UPDATE Parametros SET Buscar_automaticamente = @Buscar_automaticamente,Datos_paginados = @Datos_paginados, rutaBackupDB = @rutaBackupDB ";
+            v_query = " UPDATE Parametros SET Buscar_automaticamente = @Buscar_automaticamente,Datos_paginados = @Datos_paginados, rutaBackupDB = @rutaBackupDB, PreuntaImprimir = @PreuntaImprimir ";
 
             mtd_asignaParametros();
             v_ok = cls_datos.mtd_editar(Parametros, v_query);

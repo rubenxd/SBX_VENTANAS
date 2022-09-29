@@ -117,6 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_guardar_parametros.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJ
+        TUUH4wEXFAIckbKwewAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADFSURBVEhL
+        7dU9DgFRGIXhUYgEiejswxpUFmAnYglaG9Bag3oWoaLQo0Ph7z0yV65xTeabEAlO8hRueGcaMxGLcfac
+        sDY6YosO7paOr2DdHPrtHl0duFnjDUwSAx0wF3+4gDXegvvuVAfMj8vtAu+Ii7o/FNeqicr1kyG+w9Bo
+        A78hwfirfFFcz4h2QSNkxg86KLg+csVrWMI99RYoI2u541odzZQSns105zPoz+HrYYzQTHdu3T8e3Gfj
+        4r/VLfT29zpRfAEMtCgd3eTk5QAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="cl_codigo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -156,7 +168,6 @@
   <metadata name="cl_Rol.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btn_agregar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -293,17 +304,6 @@
         Pr9zvp95+fkdgJ1AmiBUkV/lfJ89C/v5hPikWDrnTAQwnS6sA0y3AKRw1YU1AGcWgBhDpvARIBrC9kCZ
         Cb8BcLoU2TYXckjueabeA2zL+1/S0N4lrLliWNOe6OkeZ3n/Xgd873k4gjS6J+oJmJS5BTARoM0tAP+E
         qflvwJiYwCEF4Kh7Bcz4ANUlUQ4BG03HAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btn_guardar_parametros.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJ
-        TUUH4wEXFAIckbKwewAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADFSURBVEhL
-        7dU9DgFRGIXhUYgEiejswxpUFmAnYglaG9Bag3oWoaLQo0Ph7z0yV65xTeabEAlO8hRueGcaMxGLcfac
-        sDY6YosO7paOr2DdHPrtHl0duFnjDUwSAx0wF3+4gDXegvvuVAfMj8vtAu+Ii7o/FNeqicr1kyG+w9Bo
-        A78hwfirfFFcz4h2QSNkxg86KLg+csVrWMI99RYoI2u541odzZQSns105zPoz+HrYYzQTHdu3T8e3Gfj
-        4r/VLfT29zpRfAEMtCgd3eTk5QAAAABJRU5ErkJggg==
 </value>
   </data>
   <metadata name="errorProvider.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
