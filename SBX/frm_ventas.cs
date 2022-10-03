@@ -80,6 +80,7 @@ namespace SBX
             cls_Venta.Fecha_inicio = dtp_fecha_inicio.Value;
             cls_Venta.Fecha_fin = dtp_fecha_fin.Value;
             cls_Venta.Usuario = this.usuarios;
+            cls_Venta.controlTotal = vl_controlTotal;
             v_dt = cls_Venta.mtd_consultar_Venta();
             dtg_ventas.Rows.Clear();
 
@@ -372,8 +373,10 @@ namespace SBX
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
+        int vl_controlTotal = 1;
         private void Frm_ventas_Load(object sender, EventArgs e)
         {
+            vl_controlTotal = 1;
             foreach (DataRow rows in v_dt_Permi.Rows)
             {
                 if (rows["Modulo"].ToString() == "VENTAS")
@@ -394,6 +397,9 @@ namespace SBX
                             break;
                         case "Cotizacion":
                             btn_cotizaciones.Enabled = true;
+                            break;
+                        case "ControlTotal":
+                            vl_controlTotal = 2;
                             break;
                     }
                 }

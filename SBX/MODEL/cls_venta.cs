@@ -112,10 +112,11 @@ namespace SBX.MODEL
         public string fact_direccion_cli { get; set; }
         public string fact_email_cli { get; set; }
         public string fact_sitioweb_cli { get; set; }
+        public int controlTotal { get; set; }
         //Metodos
         public DataTable mtd_consultar_Venta()
         {
-            v_query = " EXECUTE SP_BUSCAR_VENTAS  '" + v_tipo_busqueda + "','" + Fecha_inicio.ToString("yyyyMMdd") + "','" + Fecha_fin.ToString("yyyyMMdd") + "','" + v_buscar + "', '" + Usuario + "' ";
+            v_query = " EXECUTE SP_BUSCAR_VENTAS  '" + v_tipo_busqueda + "','" + Fecha_inicio.ToString("yyyyMMdd") + "','" + Fecha_fin.ToString("yyyyMMdd") + "','" + v_buscar + "', '" + Usuario + "', '"+controlTotal+"' ";
             v_dt = cls_datos.mtd_consultar(v_query);
             return v_dt;
         }
