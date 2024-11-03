@@ -26,8 +26,10 @@ namespace SBX
 
         DataTable v_dt;
         DataTable v_dt_2;
+        DataTable v_dt_3;
         DataRow v_row2;
         DataRow v_row;
+        DataRow v_row3;
         int v_contador = 0;
         bool v_existe;
         float v_cantidad = 0;
@@ -68,6 +70,7 @@ namespace SBX
             InitializeComponent();
             MensajeInformativoBotones();
             timer1.Enabled = true;
+            cbx_dato_busqueda.SelectedIndex = 0;
         }
 
         private void frm_venta_Load(object sender, EventArgs e)
@@ -286,15 +289,137 @@ namespace SBX
             errorProvider.Clear();
             cls_Producto.v_tipo_busqueda = "Buscar_data_producto_exacto_venta";
             cls_Producto.v_buscar = txt_producto.Text;
+            cls_Producto.v_data_busqueda = cbx_dato_busqueda.Text;
             v_dt = cls_Producto.mtd_consultar_producto();
             if (v_dt.Rows.Count > 0)
-            {             
+            {
                 v_UM = "UND";
                 v_existe = false;
                 v_cantidad = 1;
                 v_row = v_dt.Rows[0];
+                cls_Producto.Item = v_row["Item"].ToString();
+                v_dt_3 = cls_Producto.mtd_consultar_stock_producto();
+                v_row3 = v_dt_3.Rows[0];
+                DataTable v_dt_2;
+                bool ValidaStcok = false;
+                cls_parametros cls_Parametros = new cls_parametros();
+                v_dt_2 = cls_Parametros.mtd_consultar_parametros();
+                foreach (DataRow item in v_dt_2.Rows)
+                {
+                    if (item["Validar_stock"].ToString() == "SI")
+                    {
+                        ValidaStcok = true;
+                    }
+                }
+                if (ValidaStcok)
+                {
+                    if (Convert.ToDouble(v_row3["Cantidad"]) > 0 || Convert.ToDouble(v_row3["SubCantidad"]) > 0 || Convert.ToDouble(v_row3["Sobres"]) > 0)
+                    {
+                        if (v_row["ModoVenta"].ToString() == "Pesaje" || v_row["ModoVenta"].ToString() == "Multi" || v_row["ModoVenta"].ToString() == "Desechable")
+                        {
+                            frm_modo_venta frm_Modo_venta = new frm_modo_venta();
+                            frm_Modo_venta.UM = v_row["Nombre_Unidad_medida"].ToString();
+                            frm_Modo_venta.v_modo_venta = v_row["ModoVenta"].ToString();
+                            frm_Modo_venta.Enviainfo += new frm_modo_venta.EnviarInfo(mtd_agregar_um);
+                            frm_Modo_venta.ShowDialog();
+                        }
 
-               
+                        if (v_UM != "")
+                        {
+                            if (!v_existe)
+                            {
+                                dtg_venta.Rows.Add(1);
+                                v_contador = dtg_venta.Rows.Count;
+                                dtg_venta.Rows[v_contador - 1].Cells["cl_item"].Value = string.Format("{0:0000}", v_row["Item"]);
+                                dtg_venta.Rows[v_contador - 1].Cells["cl_referencia"].Value = v_row["Referencia"];
+                                dtg_venta.Rows[v_contador - 1].Cells["cl_codigo_barras"].Value = v_row["CodigoBarras"];
+                                dtg_venta.Rows[v_contador - 1].Cells["cl_nombre"].Value = v_row["Nombre"];
+                                dtg_venta.Rows[v_contador - 1].Cells["cl_Cantidad"].Value = "1";
+                                double precio = 0;
+                                switch (v_UM)
+                                {
+                                    case "UND":
+                                        precio = Convert.ToDouble(v_row["PrecioVenta"]);
+                                        break;
+                                    case "UND P":
+                                        precio = Convert.ToDouble(v_row["ValorSubcantidad"]);
+                                        break;
+                                    case "UND D":
+                                        precio = Convert.ToDouble(v_row["ValorSubcantidad"]);
+                                        break;
+                                    case "Sobre":
+                                        precio = Convert.ToDouble(v_row["ValorSobre"]);
+                                        break;
+                                    case "Caja":
+                                        precio = Convert.ToDouble(v_row["PrecioVenta"]);
+                                        break;
+                                    case "Bulto":
+                                        precio = Convert.ToDouble(v_row["PrecioVenta"]);
+                                        break;
+                                    case "Bolsa":
+                                        precio = Convert.ToDouble(v_row["PrecioVenta"]);
+                                        break;
+                                    default:
+                                        precio = Convert.ToDouble(v_row["ValorSubcantidad"]);
+                                        break;
+                                }
+                                dtg_venta.Rows[v_contador - 1].Cells["cl_precio"].Value = precio;
+                                dtg_venta.Rows[v_contador - 1].Cells["cl_um"].Value = v_UM;
+                                dtg_venta.Rows[v_contador - 1].Cells["cl_descuento"].Value = "0";
+                                dtg_venta.Rows[v_contador - 1].Cells["cl_valor_descuento"].Value = "0";
+                                dtg_venta.Rows[v_contador - 1].Cells["cl_total"].Value = "0";
+                                dtg_venta.Rows[v_contador - 1].Cells["cl_modo_venta"].Value = v_row["ModoVenta"];
+                                dtg_venta.Rows[v_contador - 1].Cells["cl_proveedor"].Value = v_row["Proveedor"];
+                                dtg_venta.Rows[v_contador - 1].Cells["cl_iva"].Value = v_row["IVA"];
+                                dtg_venta.Rows[v_contador - 1].Cells["cl_desc_proveedor"].Value = v_row["DescuentoProveedor"];
+                                dtg_venta.Rows[v_contador - 1].Cells["cl_subCantidad"].Value = v_row["Subcantidad"];
+                                dtg_venta.Rows[v_contador - 1].Cells["cl_sobre"].Value = v_row["Sobres"];
+                                double Costo = 0;
+                                switch (v_UM)
+                                {
+                                    case "UND":
+                                        Costo = Convert.ToDouble(v_row["Costo"]);
+                                        break;
+                                    case "UND P":
+                                    //Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["SubCantidad"]);
+                                    Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["Sobres"]);
+                                    Costo = Costo / Convert.ToDouble(v_row["SubCantidad"]);
+                                    break;
+                                    case "UND D":
+                                        Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["SubCantidad"]);
+                                        break;
+                                    case "Sobre":
+                                        Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["Sobres"]);
+                                        break;
+                                    case "Caja":
+                                        Costo = Convert.ToDouble(v_row["Costo"]);
+                                        break;
+                                    case "Bulto":
+                                        Costo = Convert.ToDouble(v_row["Costo"]);
+                                        break;
+                                    case "Bolsa":
+                                        Costo = Convert.ToDouble(v_row["Costo"]);
+                                        break;
+                                    default:
+                                        Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["SubCantidad"]);
+                                        break;
+                                }
+                                dtg_venta.Rows[v_contador - 1].Cells["cl_costo"].Value = Costo.ToString("N");
+                            }
+
+                            mtd_calcular_venta();
+                            txt_producto.Text = "";
+                            mtd_rellenar();
+                            mtd_calculo_pago();
+                        }
+                    }
+                    else
+                    {
+                        errorProvider.SetError(txt_producto, "Sin existencias, Stock en cero (0)");
+                    }
+                }
+                else
+                {
                     if (v_row["ModoVenta"].ToString() == "Pesaje" || v_row["ModoVenta"].ToString() == "Multi" || v_row["ModoVenta"].ToString() == "Desechable")
                     {
                         frm_modo_venta frm_Modo_venta = new frm_modo_venta();
@@ -306,21 +431,6 @@ namespace SBX
 
                     if (v_UM != "")
                     {
-                        //Acomular productos existentes
-                        //foreach (DataGridViewRow row in dtg_venta.Rows)
-                        //{
-                        //    if (Convert.ToInt32(row.Cells["cl_item"].Value) == Convert.ToInt32(v_row["Item"]) &&
-                        //        row.Cells["cl_um"].Value.ToString() == v_UM)
-                        //    {
-                        //        v_cantidad = float.Parse(row.Cells["cl_cantidad"].Value.ToString()) + 1;
-                        //        row.Cells["cl_cantidad"].Value = v_cantidad.ToString();
-                        //        row.Cells["cl_referencia"].Value = v_row["Referencia"];
-                        //        row.Cells["cl_codigo_barras"].Value = v_row["CodigoBarras"];
-                        //        row.Cells["cl_nombre"].Value = v_row["Nombre"];
-                        //        v_existe = true;
-                        //    }
-                        //}
-
                         if (!v_existe)
                         {
                             dtg_venta.Rows.Add(1);
@@ -376,10 +486,10 @@ namespace SBX
                                     Costo = Convert.ToDouble(v_row["Costo"]);
                                     break;
                                 case "UND P":
-                                //Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["SubCantidad"]);
-                                Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["Sobres"]);
-                                Costo = Costo / Convert.ToDouble(v_row["SubCantidad"]);
-                                break;
+                                    //Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["SubCantidad"]);
+                                    Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["Sobres"]);
+                                    Costo = Costo / Convert.ToDouble(v_row["SubCantidad"]);
+                                    break;
                                 case "UND D":
                                     Costo = Convert.ToDouble(v_row["Costo"]) / Convert.ToDouble(v_row["SubCantidad"]);
                                     break;
@@ -406,7 +516,8 @@ namespace SBX
                         txt_producto.Text = "";
                         mtd_rellenar();
                         mtd_calculo_pago();
-                    }      
+                    }
+                }
             }
             else
             {
@@ -1477,9 +1588,10 @@ namespace SBX
             row = DTEmpresa.Rows[0];
             string NombreImpresora = row["Impresora"].ToString();
             string NumerosCelular = row["Celular"].ToString();
+            string dv = CalcularDigitoVerificacion(row["DNI"].ToString());
             //Datos de la cabecera del Ticket.
             ticket.TextoCentro(row["Nombre"].ToString());
-            ticket.TextoCentro("NIT:" + row["DNI"]);
+            ticket.TextoCentro("NIT:" + row["DNI"] + "-"+ dv);
             ticket.TextoIzquierda("DIREC: " + row["Direccion"] + "");
             ticket.TextoIzquierda("TELEF: " + row["Telefono"] + "");
             ticket.TextoIzquierda("CELUL: " + row["Celular"] + "");
@@ -1602,6 +1714,49 @@ namespace SBX
             ticket.CortaTicket();
             ticket.ImprimirTicket(NombreImpresora);//Nombre de la impresora ticketera
         }
+
+        public string CalcularDigitoVerificacion(string Nit)
+        {
+            string Temp;
+            int Contador;
+            int Residuo;
+            int Acumulador;
+            int[] Vector = new int[15];
+
+            Vector[0] = 3;
+            Vector[1] = 7;
+            Vector[2] = 13;
+            Vector[3] = 17;
+            Vector[4] = 19;
+            Vector[5] = 23;
+            Vector[6] = 29;
+            Vector[7] = 37;
+            Vector[8] = 41;
+            Vector[9] = 43;
+            Vector[10] = 47;
+            Vector[11] = 53;
+            Vector[12] = 59;
+            Vector[13] = 67;
+            Vector[14] = 71;
+
+            Acumulador = 0;
+
+            Residuo = 0;
+
+            for (Contador = 0; Contador < Nit.Length; Contador++)
+            {
+                Temp = Nit[(Nit.Length - 1) - Contador].ToString();
+                Acumulador = Acumulador + (Convert.ToInt32(Temp) * Vector[Contador]);
+            }
+
+            Residuo = Acumulador % 11;
+
+            if (Residuo > 1)
+                return Convert.ToString(11 - Residuo);
+
+            return Residuo.ToString();
+        }
+
         private void mtd_confirmacion(bool confirma)
         {
             v_confirmacion = confirma;

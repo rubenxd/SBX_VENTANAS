@@ -69,9 +69,15 @@ namespace SBX.MODEL
             v_dt = cls_Datos.mtd_consultar(v_query);
             return v_dt;
         }
+        public DataTable mtd_consultar_stock_producto()
+        {
+            v_query = " EXECUTE sp_consulta_stock_items " + Item + " ";
+            v_dt = cls_Datos.mtd_consultar(v_query);
+            return v_dt;
+        }
         public DataTable mtd_consultar_producto()
         {
-            v_query = " EXECUTE sp_consultar_producto '" + v_tipo_busqueda + "','" + v_buscar + "','" + Item + "','" + Referencia + "','" + CodigoBarras + "' ";
+            v_query = " EXECUTE sp_consultar_producto '" + v_tipo_busqueda + "','" + v_buscar + "','" + Item + "','" + Referencia + "','" + CodigoBarras + "','" + v_data_busqueda + "' ";
             v_dt = cls_Datos.mtd_consultar(v_query);
             return v_dt;
         }

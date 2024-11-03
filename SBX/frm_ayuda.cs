@@ -657,8 +657,13 @@ namespace SBX
                 txt_buscar.ForeColor = Color.Silver;
             }
         }
+
+        DataTable v_dt_3;
+        DataRow v_row3;
+
         private void dtg_ayudas_DoubleClick(object sender, EventArgs e)
         {
+            bool exitenciaItem = true;
             if (dtg_ayudas.Rows.Count > 0)
             {
                 v_filas = dtg_ayudas.CurrentRow.Index;
@@ -671,6 +676,14 @@ namespace SBX
                     case "Buscar producto venta":
                         //Enviar item de producto    
                         v_dato = dtg_ayudas[0, v_filas].Value.ToString();
+                        int items = Convert.ToInt32(v_dato);
+                        cls_Producto.Item = items.ToString();
+                        v_dt_3 = cls_Producto.mtd_consultar_stock_producto();
+                        v_row3 = v_dt_3.Rows[0];
+                        if (Convert.ToDouble(v_row3["Cantidad"]) == 0 && Convert.ToDouble(v_row3["SubCantidad"]) == 0 && Convert.ToDouble(v_row3["Sobres"]) == 0)
+                        {
+                            exitenciaItem = false;
+                        }
                         break;
                     case "Buscar proveedor":
                         //Enviar DNI de proveedor
@@ -696,16 +709,23 @@ namespace SBX
                         break;
                 }
 
-                if (v_busqueda == "Buscar Rol_permiso" || v_busqueda == "Buscar proveedor" || v_busqueda == "Buscar cliente")
+                if (exitenciaItem)
                 {
-                    Enviainfo2(v_dato,v_dato2,v_dato3);
+                    if (v_busqueda == "Buscar Rol_permiso" || v_busqueda == "Buscar proveedor" || v_busqueda == "Buscar cliente")
+                    {
+                        Enviainfo2(v_dato, v_dato2, v_dato3);
+                    }
+                    else
+                    {
+                        Enviainfo(v_dato);
+                    }
+
+                    this.Dispose();
                 }
                 else
                 {
-                    Enviainfo(v_dato);
+                    MessageBox.Show("Sin existencias, Stock en cero (0)","", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-               
-                this.Dispose();
             }
         }
         private void pnl_arriba_MouseDown(object sender, MouseEventArgs e)

@@ -93,6 +93,7 @@
             this.txt_producto = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.cbx_dato_busqueda = new System.Windows.Forms.ComboBox();
             this.pnl_centro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_venta)).BeginInit();
             this.pnl_abajo.SuspendLayout();
@@ -273,6 +274,7 @@
             // 
             // pnl_abajo
             // 
+            this.pnl_abajo.Controls.Add(this.cbx_dato_busqueda);
             this.pnl_abajo.Controls.Add(this.label9);
             this.pnl_abajo.Controls.Add(this.dtp_fecha_factura);
             this.pnl_abajo.Controls.Add(this.txt_nota);
@@ -305,10 +307,10 @@
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(10, 6);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(126, 21);
+            this.label9.Size = new System.Drawing.Size(77, 14);
             this.label9.TabIndex = 30;
             this.label9.Text = "Fecha Factura";
             // 
@@ -317,11 +319,11 @@
             this.dtp_fecha_factura.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dtp_fecha_factura.CalendarFont = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_fecha_factura.Enabled = false;
-            this.dtp_fecha_factura.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp_fecha_factura.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_fecha_factura.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_fecha_factura.Location = new System.Drawing.Point(142, 5);
+            this.dtp_fecha_factura.Location = new System.Drawing.Point(93, 3);
             this.dtp_fecha_factura.Name = "dtp_fecha_factura";
-            this.dtp_fecha_factura.Size = new System.Drawing.Size(152, 27);
+            this.dtp_fecha_factura.Size = new System.Drawing.Size(152, 20);
             this.dtp_fecha_factura.TabIndex = 29;
             // 
             // txt_nota
@@ -329,10 +331,9 @@
             this.txt_nota.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_nota.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_nota.ForeColor = System.Drawing.Color.Gray;
-            this.txt_nota.Location = new System.Drawing.Point(10, 38);
-            this.txt_nota.Multiline = true;
+            this.txt_nota.Location = new System.Drawing.Point(10, 29);
             this.txt_nota.Name = "txt_nota";
-            this.txt_nota.Size = new System.Drawing.Size(876, 47);
+            this.txt_nota.Size = new System.Drawing.Size(876, 26);
             this.txt_nota.TabIndex = 28;
             this.txt_nota.Text = "Nota";
             this.txt_nota.Enter += new System.EventHandler(this.txt_nota_Enter);
@@ -355,7 +356,7 @@
             this.lbl_fecha_hora.ForeColor = System.Drawing.SystemColors.Window;
             this.lbl_fecha_hora.Location = new System.Drawing.Point(7, 5);
             this.lbl_fecha_hora.Name = "lbl_fecha_hora";
-            this.lbl_fecha_hora.Size = new System.Drawing.Size(92, 16);
+            this.lbl_fecha_hora.Size = new System.Drawing.Size(91, 16);
             this.lbl_fecha_hora.TabIndex = 26;
             this.lbl_fecha_hora.Text = "Fecha y hora";
             // 
@@ -365,7 +366,7 @@
             this.lbl_cambio.AutoSize = true;
             this.lbl_cambio.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_cambio.ForeColor = System.Drawing.Color.SeaGreen;
-            this.lbl_cambio.Location = new System.Drawing.Point(329, 209);
+            this.lbl_cambio.Location = new System.Drawing.Point(329, 201);
             this.lbl_cambio.Name = "lbl_cambio";
             this.lbl_cambio.Size = new System.Drawing.Size(21, 24);
             this.lbl_cambio.TabIndex = 25;
@@ -376,7 +377,7 @@
             this.txt_cliente.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_cliente.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_cliente.ForeColor = System.Drawing.Color.Black;
-            this.txt_cliente.Location = new System.Drawing.Point(332, 102);
+            this.txt_cliente.Location = new System.Drawing.Point(332, 94);
             this.txt_cliente.Name = "txt_cliente";
             this.txt_cliente.Size = new System.Drawing.Size(216, 26);
             this.txt_cliente.TabIndex = 22;
@@ -388,7 +389,7 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(228, 208);
+            this.label8.Location = new System.Drawing.Point(228, 200);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(88, 24);
             this.label8.TabIndex = 20;
@@ -399,7 +400,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(228, 102);
+            this.label5.Location = new System.Drawing.Point(228, 94);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(66, 21);
             this.label5.TabIndex = 25;
@@ -423,7 +424,7 @@
             this.lbl_nombre_cliente.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_nombre_cliente.AutoSize = true;
             this.lbl_nombre_cliente.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_nombre_cliente.Location = new System.Drawing.Point(599, 108);
+            this.lbl_nombre_cliente.Location = new System.Drawing.Point(599, 100);
             this.lbl_nombre_cliente.Name = "lbl_nombre_cliente";
             this.lbl_nombre_cliente.Size = new System.Drawing.Size(15, 15);
             this.lbl_nombre_cliente.TabIndex = 24;
@@ -451,7 +452,7 @@
             this.btn_buscar_cliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btn_buscar_cliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_buscar_cliente.Image = ((System.Drawing.Image)(resources.GetObject("btn_buscar_cliente.Image")));
-            this.btn_buscar_cliente.Location = new System.Drawing.Point(569, 107);
+            this.btn_buscar_cliente.Location = new System.Drawing.Point(569, 99);
             this.btn_buscar_cliente.Name = "btn_buscar_cliente";
             this.btn_buscar_cliente.Size = new System.Drawing.Size(22, 15);
             this.btn_buscar_cliente.TabIndex = 23;
@@ -508,7 +509,7 @@
             // 
             this.txt_efectivo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_efectivo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_efectivo.Location = new System.Drawing.Point(332, 136);
+            this.txt_efectivo.Location = new System.Drawing.Point(332, 128);
             this.txt_efectivo.Name = "txt_efectivo";
             this.txt_efectivo.Size = new System.Drawing.Size(216, 26);
             this.txt_efectivo.TabIndex = 8;
@@ -533,7 +534,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(228, 175);
+            this.label1.Location = new System.Drawing.Point(228, 167);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 24);
             this.label1.TabIndex = 5;
@@ -558,7 +559,7 @@
             this.lbl_total.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_total.AutoSize = true;
             this.lbl_total.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_total.Location = new System.Drawing.Point(329, 175);
+            this.lbl_total.Location = new System.Drawing.Point(329, 167);
             this.lbl_total.Name = "lbl_total";
             this.lbl_total.Size = new System.Drawing.Size(21, 24);
             this.lbl_total.TabIndex = 6;
@@ -582,7 +583,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(228, 138);
+            this.label2.Location = new System.Drawing.Point(228, 130);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 21);
             this.label2.TabIndex = 7;
@@ -851,6 +852,19 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // cbx_dato_busqueda
+            // 
+            this.cbx_dato_busqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_dato_busqueda.FormattingEnabled = true;
+            this.cbx_dato_busqueda.Items.AddRange(new object[] {
+            "Referencia",
+            "Codigo Barras",
+            "Item"});
+            this.cbx_dato_busqueda.Location = new System.Drawing.Point(264, 3);
+            this.cbx_dato_busqueda.Name = "cbx_dato_busqueda";
+            this.cbx_dato_busqueda.Size = new System.Drawing.Size(168, 22);
+            this.cbx_dato_busqueda.TabIndex = 31;
+            // 
             // frm_venta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -940,6 +954,7 @@
         private System.Windows.Forms.Button btn_orden_servicio;
         private System.Windows.Forms.DateTimePicker dtp_fecha_factura;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cbx_dato_busqueda;
     }
 }
 

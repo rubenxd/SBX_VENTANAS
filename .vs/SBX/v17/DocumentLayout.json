@@ -1,0 +1,131 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Ruben\\Documents\\SBX LOCAL\\SBX_VENTANAS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F3C97338-16A1-4726-A3C0-5429582669EF}|SBX\\SBX.csproj|c:\\users\\ruben\\documents\\sbx local\\sbx_ventanas\\sbx\\frm_ayuda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F3C97338-16A1-4726-A3C0-5429582669EF}|SBX\\SBX.csproj|solutionrelative:sbx\\frm_ayuda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F3C97338-16A1-4726-A3C0-5429582669EF}|SBX\\SBX.csproj|C:\\Users\\Ruben\\Documents\\SBX LOCAL\\SBX_VENTANAS\\sbx\\frm_venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F3C97338-16A1-4726-A3C0-5429582669EF}|SBX\\SBX.csproj|solutionrelative:sbx\\frm_venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F3C97338-16A1-4726-A3C0-5429582669EF}|SBX\\SBX.csproj|C:\\Users\\Ruben\\Documents\\SBX LOCAL\\SBX_VENTANAS\\sbx\\frm_venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F3C97338-16A1-4726-A3C0-5429582669EF}|SBX\\SBX.csproj|solutionrelative:sbx\\frm_venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F3C97338-16A1-4726-A3C0-5429582669EF}|SBX\\SBX.csproj|C:\\Users\\Ruben\\Documents\\SBX LOCAL\\SBX_VENTANAS\\sbx\\model\\cls_producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F3C97338-16A1-4726-A3C0-5429582669EF}|SBX\\SBX.csproj|solutionrelative:sbx\\model\\cls_producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F3C97338-16A1-4726-A3C0-5429582669EF}|SBX\\SBX.csproj|C:\\Users\\Ruben\\Documents\\SBX LOCAL\\SBX_VENTANAS\\sbx\\frm_configuracion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F3C97338-16A1-4726-A3C0-5429582669EF}|SBX\\SBX.csproj|solutionrelative:sbx\\frm_configuracion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F3C97338-16A1-4726-A3C0-5429582669EF}|SBX\\SBX.csproj|C:\\Users\\Ruben\\Documents\\SBX LOCAL\\SBX_VENTANAS\\sbx\\model\\cls_parametros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F3C97338-16A1-4726-A3C0-5429582669EF}|SBX\\SBX.csproj|solutionrelative:sbx\\model\\cls_parametros.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F3C97338-16A1-4726-A3C0-5429582669EF}|SBX\\SBX.csproj|C:\\Users\\Ruben\\Documents\\SBX LOCAL\\SBX_VENTANAS\\sbx\\frm_configuracion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{F3C97338-16A1-4726-A3C0-5429582669EF}|SBX\\SBX.csproj|solutionrelative:sbx\\frm_configuracion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "cls_producto.cs",
+              "DocumentMoniker": "C:\\Users\\Ruben\\Documents\\SBX LOCAL\\SBX_VENTANAS\\SBX\\MODEL\\cls_producto.cs",
+              "RelativeDocumentMoniker": "SBX\\MODEL\\cls_producto.cs",
+              "ToolTip": "C:\\Users\\Ruben\\Documents\\SBX LOCAL\\SBX_VENTANAS\\SBX\\MODEL\\cls_producto.cs",
+              "RelativeToolTip": "SBX\\MODEL\\cls_producto.cs",
+              "ViewState": "AQIAADcAAAAAAAAAAAAUwEUAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T19:48:21.057Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frm_ayuda.cs",
+              "DocumentMoniker": "C:\\Users\\Ruben\\Documents\\SBX LOCAL\\SBX_VENTANAS\\SBX\\frm_ayuda.cs",
+              "RelativeDocumentMoniker": "SBX\\frm_ayuda.cs",
+              "ToolTip": "C:\\Users\\Ruben\\Documents\\SBX LOCAL\\SBX_VENTANAS\\SBX\\frm_ayuda.cs",
+              "RelativeToolTip": "SBX\\frm_ayuda.cs",
+              "ViewState": "AQIAAJcCAAAAAAAAAAAUwKMCAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T19:52:22.779Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "cls_parametros.cs",
+              "DocumentMoniker": "C:\\Users\\Ruben\\Documents\\SBX LOCAL\\SBX_VENTANAS\\SBX\\MODEL\\cls_parametros.cs",
+              "RelativeDocumentMoniker": "SBX\\MODEL\\cls_parametros.cs",
+              "ToolTip": "C:\\Users\\Ruben\\Documents\\SBX LOCAL\\SBX_VENTANAS\\SBX\\MODEL\\cls_parametros.cs",
+              "RelativeToolTip": "SBX\\MODEL\\cls_parametros.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAAAsAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T19:18:15.172Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frm_configuracion.cs",
+              "DocumentMoniker": "C:\\Users\\Ruben\\Documents\\SBX LOCAL\\SBX_VENTANAS\\SBX\\frm_configuracion.cs",
+              "RelativeDocumentMoniker": "SBX\\frm_configuracion.cs",
+              "ToolTip": "C:\\Users\\Ruben\\Documents\\SBX LOCAL\\SBX_VENTANAS\\SBX\\frm_configuracion.cs",
+              "RelativeToolTip": "SBX\\frm_configuracion.cs",
+              "ViewState": "AQIAALkBAAAAAAAAAAAtwMABAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T19:18:06.818Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "frm_configuracion.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Ruben\\Documents\\SBX LOCAL\\SBX_VENTANAS\\SBX\\frm_configuracion.cs",
+              "RelativeDocumentMoniker": "SBX\\frm_configuracion.cs",
+              "ToolTip": "C:\\Users\\Ruben\\Documents\\SBX LOCAL\\SBX_VENTANAS\\SBX\\frm_configuracion.cs [Dise\u00F1o]",
+              "RelativeToolTip": "SBX\\frm_configuracion.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T19:16:31.689Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frm_venta.cs",
+              "DocumentMoniker": "C:\\Users\\Ruben\\Documents\\SBX LOCAL\\SBX_VENTANAS\\SBX\\frm_venta.cs",
+              "RelativeDocumentMoniker": "SBX\\frm_venta.cs",
+              "ToolTip": "C:\\Users\\Ruben\\Documents\\SBX LOCAL\\SBX_VENTANAS\\SBX\\frm_venta.cs",
+              "RelativeToolTip": "SBX\\frm_venta.cs",
+              "ViewState": "AQIAAE4HAAAAAAAAAAAUwGEHAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-01T18:03:50.056Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frm_venta.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Ruben\\Documents\\SBX LOCAL\\SBX_VENTANAS\\SBX\\frm_venta.cs",
+              "RelativeDocumentMoniker": "SBX\\frm_venta.cs",
+              "ToolTip": "C:\\Users\\Ruben\\Documents\\SBX LOCAL\\SBX_VENTANAS\\SBX\\frm_venta.cs [Dise\u00F1o]",
+              "RelativeToolTip": "SBX\\frm_venta.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-01T20:01:59.019Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -401,6 +401,7 @@ namespace SBX
             string buscaAuto = "NO";
             string paginado = "NO";
             string PreguntaImpri = "NO";
+            string ValidaStock = "NO";
             if (chk_ba.Checked == true)
             {
                 buscaAuto = "SI";
@@ -413,12 +414,17 @@ namespace SBX
             {
                 PreguntaImpri = "SI";
             }
+            if (checkBoxValidaStock.Checked)
+            {
+                ValidaStock = "SI";
+            }
 
             cls_parametros cls_Parametros = new cls_parametros();
             cls_Parametros.Buscar_automaticamente = buscaAuto;
             cls_Parametros.Datos_paginados = paginado;
             cls_Parametros.Ruta_backup_db = txt_ruta_backup_db.Text;
             cls_Parametros.PreuntaImprimir = PreguntaImpri;
+            cls_Parametros.ValidaStockEnCero = ValidaStock;
             v_ok = cls_Parametros.mtd_Editar();
           
             if (v_ok == true)
@@ -455,6 +461,10 @@ namespace SBX
                 if (item["PreuntaImprimir"].ToString() == "SI")
                 {
                     chkBoxPreuntaImprimir.Checked = true;
+                }
+                if (item["Validar_stock"].ToString() == "SI")
+                {
+                    checkBoxValidaStock.Checked = true;
                 }
 
                 txt_ruta_backup_db.Text = item["rutaBackupDB"].ToString();
